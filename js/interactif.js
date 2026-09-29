@@ -113,8 +113,8 @@
     }
     R.dessinerAxes = function () {
       while (fond.firstChild) fond.removeChild(fond.firstChild);
-      var gx = o.xpas ? pasFixe(R.xmin, R.xmax, o.xpas) : graduations(R.xmin, R.xmax, R.xlog, o.nx || 8),
-          gy = o.ypas ? pasFixe(R.ymin, R.ymax, o.ypas) : graduations(R.ymin, R.ymax, R.ylog, o.ny || 6);
+      var gx = o.sansgrad ? [] : (o.xpas && !R.xlog) ? pasFixe(R.xmin, R.xmax, o.xpas) : graduations(R.xmin, R.xmax, R.xlog, o.nx || 8),
+          gy = o.sansgrad ? [] : (o.ypas && !R.ylog) ? pasFixe(R.ymin, R.ymax, o.ypas) : graduations(R.ymin, R.ymax, R.ylog, o.ny || 6);
       gx.forEach(function (v) {
         el("line", { x1: R.X(v), y1: M.h, x2: R.X(v), y2: H - M.b, "class": "ia-grille" }, fond);
         var t = el("text", { x: R.X(v), y: H - M.b + 16, "class": "ia-grad", "text-anchor": "middle" }, fond);
@@ -125,6 +125,14 @@
         var t = el("text", { x: M.g - 5, y: R.Y(v) + 4, "class": "ia-grad", "text-anchor": "end" }, fond);
         t.textContent = R.ylog ? "10" + exposant(Math.round(Math.log10(v))) : fmt(v, 3);
       });
+      function mineures(min, max) {
+        var t = [];
+        for (var p = Math.floor(Math.log10(min)); p < Math.ceil(Math.log10(max)); p++)
+          for (var k = 2; k <= 9; k++) { var v = k * Math.pow(10, p); if (v > min && v < max) t.push(v); }
+        return t;
+      }
+      if (R.xlog) mineures(R.xmin, R.xmax).forEach(function (v) { el("line", { x1: R.X(v), y1: M.h, x2: R.X(v), y2: H - M.b, "class": "ia-grille ia-grille-fine" }, fond); });
+      if (R.ylog) mineures(R.ymin, R.ymax).forEach(function (v) { el("line", { x1: M.g, y1: R.Y(v), x2: W - M.d, y2: R.Y(v), "class": "ia-grille ia-grille-fine" }, fond); });
       if (!R.ylog && R.ymin <= 0 && R.ymax >= 0) el("line", { x1: M.g, y1: R.Y(0), x2: W - M.d, y2: R.Y(0), "class": "ia-axe" }, fond);
       else el("line", { x1: M.g, y1: H - M.b, x2: W - M.d, y2: H - M.b, "class": "ia-axe" }, fond);
       if (!R.xlog && R.xmin <= 0 && R.xmax >= 0) el("line", { x1: R.X(0), y1: M.h, x2: R.X(0), y2: H - M.b, "class": "ia-axe" }, fond);
@@ -616,7 +624,123 @@
   }
 
   // ------------------------------------------------------------ démarrage
-  var WIDGETS = { suite: suite, droite: droite, rangs: rangs, tangente: tangente, trigo: trigo, log: replog, riemann: riemann, binomiale: binomiale, normale: normale };
+
+  // ------------------------------------------------------------ graphe (module « reperes »)
+  // Repère et courbes d'une bibliothèque de cours (repere, faisceau, nuage,
+  // repere-semilog, repere-loglog) : couleurs du cours, réponses cachées,
+  // lecture des coordonnées au survol, bascule d'échelle pour les repères log.
+  var PALETTE = ["#1d6fb8", "#c1002a", "#0a7d4d", "#8a5a00", "#6d3bbf"];
+  function graphe(host, c) {
+    var traces = (c.courbes || []).map(function (t, k) {
+      var coul = t.couleur || PALETTE[k % PALETTE.length];
+      return { t: t, f: t.f ? fonction(t.f) : null, coul: coul };
+    });
+    var aRep = (c.points || []).some(function (p) { return p.rep; }) || traces.some(function (x) { return x.t.rep; });
+    var ech = c.xlog ? "loglog" : c.ylog ? "semilog" : "lineaire", zone = h("div", "ia-zone"), txt = info();
+    host.appendChild(zone);
+    var vu = false;
+    function construire() {
+      zone.innerHTML = "";
+      var ylog = ech !== "lineaire", xlog = ech === "loglog";
+      var R = Repere(zone, { xmin: c.xmin, xmax: c.xmax, ymin: ylog ? c.ymin : Math.min(0, c.ymin), ymax: c.ymax,
+        xlog: xlog, ylog: ylog, xpas: c.xpas, ypas: ylog ? null : (c.ylog ? null : c.ypas), sansgrad: c.sansgrad,
+        xlabel: c.xlabel, ylabel: c.ylabel, w: c.w, h: c.h });
+      var gRep = groupeReponse(R.corps); if (vu) gRep.classList.add("vu");
+      traces.forEach(function (x) {
+        var parent = x.t.rep ? gRep : R.corps, e;
+        if (x.t.segment) e = R.segment(x.t.segment[0][0], x.t.segment[0][1], x.t.segment[1][0], x.t.segment[1][1], "ia-trace", parent);
+        else if (x.f) e = R.courbe(x.f, "ia-trace", x.t.de, x.t.a, parent);
+        if (!e) return;
+        e.style.stroke = x.coul;
+        e.style.strokeWidth = (1.35 * (x.t.ep || 1.3)).toFixed(2);
+        if (x.t.pointille) e.style.strokeDasharray = "6 4";
+      });
+      (c.points || []).forEach(function (p) {
+        if (ylog && p.y <= 0) return;
+        var parent = p.rep ? gRep : R.dessus;
+        if (p.croix) {
+          var X = R.X(p.x), Y = R.Y(p.y);
+          el("path", { d: "M" + (X - 4) + " " + (Y - 4) + "l8 8m0 -8l-8 8", "class": "ia-croix" }, parent);
+        } else {
+          R.point(p.x, p.y, p.rep ? "ia-pt" : "ia-pt ia-pt-donne", 4, parent);
+        }
+        if (p.etiquette) { var t = el("text", { x: R.X(p.x) + 7, y: R.Y(p.y) - 7, "class": "ia-etiq" }, parent); t.textContent = p.etiquette; }
+      });
+      if (c.lecture) lecture(R);
+    }
+    function lecture(R) {
+      var lignes = traces.filter(function (x) { return x.f && !x.t.rep && !x.t.segment; });
+      if (!lignes.length) return;
+      var g = el("g", { "class": "ia-lecture" }, R.svg), v = el("line", { y1: R.M.h, y2: R.H - R.M.b }, g);
+      var pts = lignes.map(function (x) { var p = el("circle", { r: 4 }, g); p.style.fill = x.coul; return p; });
+      g.style.display = "none";
+      function bouge(ev) {
+        var r = R.svg.getBoundingClientRect(), px = (ev.clientX - r.left) * R.W / r.width;
+        if (px < R.M.g || px > R.W - R.M.d) { g.style.display = "none"; return; }
+        var x = R.Xinv(px), morceaux = ["x = " + fmt(x, 2)];
+        g.style.display = "";
+        v.setAttribute("x1", px); v.setAttribute("x2", px);
+        lignes.forEach(function (l, k) {
+          var y = (l.t.de != null && (x < l.t.de || x > l.t.a)) ? NaN : l.f(x), ok = isFinite(y) && y >= R.ymin && y <= R.ymax && (!R.ylog || y > 0);
+          pts[k].style.display = ok ? "" : "none";
+          if (ok) { pts[k].setAttribute("cx", px); pts[k].setAttribute("cy", R.Y(y)); }
+          if (isFinite(y)) morceaux.push('<span style="color:' + l.coul + '">y = ' + fmt(y, 3) + "</span>");
+        });
+        txt.innerHTML = morceaux.join(" · ");
+      }
+      R.svg.addEventListener("pointermove", bouge);
+      R.svg.addEventListener("pointerdown", bouge);
+      R.svg.addEventListener("pointerleave", function () { g.style.display = "none"; });
+    }
+    if (c.echelles) {
+      var bs = ctrl();
+      [["lineaire", "échelle linéaire"], ["semilog", "semi-log"], ["loglog", "log-log"]].forEach(function (m) {
+        if (m[0] === "loglog" && !(c.xmin > 0)) return;
+        var b = bouton(m[1], function () { ech = m[0]; [].forEach.call(bs.children, function (x) { x.classList.toggle("on", x === b); }); construire(); });
+        if (m[0] === ech) b.classList.add("on");
+        bs.appendChild(b);
+      });
+      host.appendChild(bs);
+    }
+    if (aRep) {
+      var b = boutonReponse(host);
+      b.addEventListener("click", function () { vu = b.classList.contains("on"); });
+    }
+    if (c.lecture) { txt.textContent = "Survole le graphique pour lire les coordonnées."; host.appendChild(txt); }
+    construire();
+  }
+
+  // ------------------------------------------------------------ fonction à paramètres (curseurs)
+  function fcurseurs(host, c) {
+    var P = {}, noms = c.params || [], f;
+    (c.curseurs || []).forEach(function (k) { P[k.nom] = k.val; });
+    var fixes = (c.fixes || []).map(fonction);
+    var R = Repere(host, { xmin: c.xmin, xmax: c.xmax, ymin: c.ymin, ymax: c.ymax, xlabel: c.xlabel || "x", ylabel: c.ylabel || "y" });
+    var txt = info();
+    function dessiner() {
+      R.vider();
+      fixes.forEach(function (g) { if (g) R.courbe(g, "ia-courbe2 ia-tirets"); });
+      f = fonctionP(c.f, noms, P);
+      if (c.points) {
+        var pas = P[c.points], n = 0;
+        if (pas > 0) for (var x = Math.ceil(c.xmin / pas - 1e-9) * pas; x <= c.xmax + 1e-9 && n < 2000; x += pas, n++) {
+          var y = f(x); if (isFinite(y) && y >= c.ymin && y <= c.ymax) R.point(x, y, "ia-pt", n > 200 ? 2 : 3.5);
+        }
+        txt.textContent = n + " points";
+      } else {
+        R.courbe(f, "ia-courbe");
+        txt.textContent = "";
+      }
+    }
+    var cc = ctrl();
+    (c.curseurs || []).forEach(function (k) {
+      cc.appendChild(curseur(k.etiquette + " =", k.min, k.max, k.pas, k.val, function (v) { P[k.nom] = v; dessiner(); }));
+    });
+    host.appendChild(cc); host.appendChild(txt);
+    [].forEach.call(cc.children, function (w) { w.maj(); });
+    dessiner();
+  }
+  var WIDGETS = { curseurs: fcurseurs, graphe: graphe, suite: suite, droite: droite, rangs: rangs, tangente: tangente, trigo: trigo, log: replog, riemann: riemann, binomiale: binomiale, normale: normale };
   function construire(host) {
     if (host.dataset.wired) return;
     host.dataset.wired = "1";

@@ -62,3 +62,10 @@
 .ia-droite { max-width: 620px; }
 .ia-rangs { max-width: 520px; }
 @media print { .ia g.ia-rep { visibility: visible !important; } }
+
+/* graphe (module « reperes ») */
+.ia-trace { fill: none; stroke: var(--ia-c1); stroke-width: 2; stroke-linecap: round; }
+.ia-grille-fine { stroke-dasharray: none; opacity: .45; }
+.ia-croix { fill: none; stroke: var(--text); stroke-width: 1.6; }
+.ia-lecture line { stroke: var(--muted, #888); stroke-width: 1; stroke-dasharray: 3 3; }
+.ia-lecture circle { stroke: var(--page-bg); stroke-width: 1.2; }
