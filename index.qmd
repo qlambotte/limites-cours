@@ -1,0 +1,19 @@
+---
+title: "Limites et asymptotes — cours & exercices"
+---
+
+Ce site accompagne le **cours imprimé** de 5e (UAA 3). On y trouve le même texte, avec les **mêmes numéros** (Activité 2.3, Exercice 2.5…), et en plus :
+
+- des **figures qui bougent** : un point $M$ se déplace sur le graphique, et un panneau donne $x$ et $f(x)$ en direct, pour deviner vers où va la courbe ;
+- pour chaque exercice, des **coups de pouce** à dévoiler un par un : un renvoi à la théorie, une question à te poser, une étape pour démarrer, puis la solution et les pièges ;
+- une **bulle** en bas à droite qui indique à quelle page du cours imprimé tu te trouves (un clic ouvre le PDF à cette page) ;
+- un **stylo** (bouton ✎ en bas à gauche) pour annoter les pages : dessiner, surligner, laisser une note. Tes annotations restent dans ton navigateur ; « Exporter » les enregistre dans un fichier.
+
+## Chapitres
+
+- **[Chapitre 1 — Fonctions](ch1-fonctions/index.qmd)** : rappels, opérations, composée, domaine, premier contact avec les asymptotes.
+- **[Chapitre 2 — Limites](ch2-limites/index.qmd)** : qu'est-ce qu'une limite ; points creux et asymptotes verticales ; asymptotes horizontales et obliques.
+
+::: {.callout-tip title="Comment travailler"}
+Lis le cours, **manipule les figures**, puis passe aux exercices. N'ouvre les *coups de pouce* qu'après avoir cherché : ils sont faits pour te débloquer, pas pour remplacer ta recherche.
+:::

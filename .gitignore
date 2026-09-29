@@ -1,0 +1,5 @@
+**/*.quarto_ipynb
+/.quarto/
+/_book/
+/_data/
+_rapport.txt

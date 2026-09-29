@@ -1,0 +1,24 @@
+# Réglages du site « Limites et asymptotes » (voir ../../../typweb/gabarit/typweb.toml)
+
+[cours]
+titre      = "Limites et asymptotes"
+sous-titre = "Cours & exercices — 5e, 4 périodes (5UAA3)"
+auteur     = "Quentin Lambotte"
+annee      = "5e"
+uaa        = "5UAA3"
+depot      = "https://github.com/qlambotte/limites-cours"
+site-url   = "https://qlambotte.github.io/limites-cours/"
+
+[notes]
+dossier    = "../notes"
+principal  = "limites.typ"
+
+[pdf]
+corrige    = true
+
+[modules]
+actifs = ["fonctions"]
+
+[module.fonctions]
+donnees = ["courbes-anciennes.typ"]
+replier-avant-chapitre = "Limites"
