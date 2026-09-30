@@ -46,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-73b0ff3878a4e6fc3716dc69a6aaefa3.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-29a92e09eede0ec9754225bb52f29785.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-94cb1ee365b8c2bebb8400336c7455e1.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -447,7 +447,7 @@ R(x) = 8x.
 </div>
 </div>
 <div class="ae-lien">
-<p><a href="../autoeval.html#sections=sec-operations">✔ S’autoévaluer sur cette section (4 questions) →</a></p>
+<p><a href="../autoeval.html#sections=sec-operations">✔ S’autoévaluer sur cette section : test de 4 questions →</a></p>
 </div>
 
 
@@ -600,6 +600,7 @@ R(x) = 8x.
   // du bouton de thème ; sur petit écran (menu latéral replié), en bas à gauche.
   var grand = window.matchMedia('(min-width: 992px)');
   function accrocher() {
+    if (document.documentElement.classList.contains('proj')) return;
     var host = document.querySelector('.sidebar-tools-main');
     var els = ['.st-menu', '.an-barre'].map(function (sel) { return document.querySelector(sel); })
                                        .filter(Boolean);
@@ -615,7 +616,10 @@ R(x) = 8x.
       });
     }
   }
-  if (grand.addEventListener) grand.addEventListener('change', accrocher);
+  window.typwebAccrocher = accrocher;             // appelé en quittant la projection
+  if (grand.addEventListener) grand.addEventListener('change', function () {
+    if (!document.documentElement.classList.contains('proj')) accrocher();
+  });
   // panneau « Aa » (position fixe, pour ne pas être coupé par le menu latéral) : sous le bouton
   document.addEventListener('click', function (e) {
     var b = e.target.closest && e.target.closest('.dans-outils .st-btn');

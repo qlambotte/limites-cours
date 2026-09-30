@@ -3,7 +3,7 @@
      gardée ; toutes les pages sont mises de côté à la première visite ;
    - le reste (scripts, styles, figures, polices, MathJax) : copie gardée,
      rafraîchie en arrière-plan. Les PDF ne sont pas mis de côté (trop lourds). */
-var VERSION = "f545002271";
+var VERSION = "3d18a727eb";
 var CACHE = "typweb-" + VERSION;
 var PAGES = ["./", "index.html", "autoeval.html", "ch1-fonctions/1-rappels.html", "ch1-fonctions/2-operations-sur-les-fonctions.html", "ch1-fonctions/3-reconnaitre-une-composee.html", "ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html", "ch1-fonctions/5-asymptotes-premier-contact.html", "ch1-fonctions/index.html", "ch2-limites/1-quest-ce-quune-limite.html", "ch2-limites/2-chercher-les-points-creux-et.html", "ch2-limites/3-chercher-les-asymptotes-horizontales-et.html", "ch2-limites/index.html", "essentiel.html", "nouveautes.html", "objectifs.html"];
 

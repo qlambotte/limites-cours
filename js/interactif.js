@@ -492,6 +492,32 @@
     ct.maj();
   }
 
+  // Bascule vers une ordonnée LINÉAIRE d'un repère prévu en log : on ne garde pas
+  // le haut de la dernière décade (10 000 pour des données qui montent à 2 000),
+  // mais un plafond rond du même ordre de grandeur que la plus grande valeur
+  // (2 000 → 2 500 ; 50 000 → 55 000).
+  function plafondLineaire(v) {
+    if (!(v > 0) || !isFinite(v)) return null;
+    var s = Math.pow(10, Math.floor(Math.log10(v))) / 2;
+    return Math.ceil(v * 1.05 / s - 1e-9) * s;
+  }
+  // Plus grande valeur : celle des points de données s'il y en a (la courbe peut
+  // sortir du cadre), sinon celle des courbes sur [x0, x1].
+  function maxDonnees(fs, pts, x0, x1, ymaxLog) {
+    var m = -Infinity;
+    pts.forEach(function (y) { if (isFinite(y)) m = Math.max(m, y); });
+    if (m > -Infinity) return m;
+    fs.forEach(function (f) {
+      if (!f.f) return;
+      var a = f.de != null ? Math.max(x0, f.de) : x0, b = f.a != null ? Math.min(x1, f.a) : x1;
+      for (var i = 0; i <= 200; i++) {
+        var y = f.f(a + (b - a) * i / 200);
+        if (isFinite(y) && y <= ymaxLog * 1.0001) m = Math.max(m, y);
+      }
+    });
+    return m > -Infinity ? m : null;
+  }
+
   // ------------------------------------------------------------ repère log
   function replog(host, c) {
     var fs = (c.fonctions || []).map(fonction), ech = c.echelle || "semilog", zone = h("div", "ia-zone");
@@ -499,8 +525,12 @@
     function construire() {
       zone.innerHTML = "";
       var ylog = ech === "semilog" || ech === "loglog", xlog = ech === "loglog";
-      var ymin = ylog ? c.ymin : Math.min(0, c.ymin), xmin = c.xmin;
-      var R = Repere(zone, { xmin: xmin, xmax: c.xmax, ymin: ymin, ymax: c.ymax, xlog: xlog, ylog: ylog, xlabel: c.xlabel || "x", ylabel: c.ylabel || "y" });
+      var ymin = ylog ? c.ymin : Math.min(0, c.ymin), xmin = c.xmin, ymax = c.ymax;
+      if (!ylog) {
+        var mx = maxDonnees(fs.map(function (f) { return { f: f }; }), (c.points || []).map(function (p) { return p[1]; }), c.xmin, c.xmax, c.ymax);
+        var pl = plafondLineaire(mx); if (pl && pl < c.ymax) ymax = pl;
+      }
+      var R = Repere(zone, { xmin: xmin, xmax: c.xmax, ymin: ymin, ymax: ymax, xlog: xlog, ylog: ylog, xlabel: c.xlabel || "x", ylabel: c.ylabel || "y" });
       fs.forEach(function (f, k) { if (f) R.courbe(f, k ? "ia-courbe2" : "ia-courbe"); });
       (c.points || []).forEach(function (p) { if (!ylog || p[1] > 0) R.point(p[0], p[1], "ia-pt", 4); });
       txt.textContent = ech === "lineaire" ? "Échelle linéaire sur les deux axes." :
@@ -642,7 +672,22 @@
     function construire() {
       zone.innerHTML = "";
       var ylog = ech !== "lineaire", xlog = ech === "loglog";
-      var R = Repere(zone, { xmin: c.xmin, xmax: c.xmax, ymin: ylog ? c.ymin : Math.min(0, c.ymin), ymax: c.ymax,
+      var ymax = c.ymax;
+      if (!ylog && c.ylog) {
+        var mx = maxDonnees(traces.map(function (x) { return { f: x.f, de: x.t.de, a: x.t.a }; }),
+          (c.points || []).map(function (p) { return p.y; }).concat([].concat.apply([], traces.map(function (x) {
+            return x.t.segment ? [x.t.segment[0][1], x.t.segment[1][1]] : []; }))), c.xmin, c.xmax, c.ymax);
+        var pl = plafondLineaire(mx); if (pl && pl < c.ymax) ymax = pl;
+      }
+      // idem en abscisse quand on quitte le log-log : plafond rond d'après les points
+      var xmin = c.xmin, xmax = c.xmax;
+      if (!xlog && c.xlog) {
+        var px = (c.points || []).map(function (p) { return p.x; }).filter(isFinite);
+        var plx = px.length ? plafondLineaire(Math.max.apply(null, px)) : null;
+        if (plx && plx < c.xmax) xmax = plx;
+        xmin = Math.min(0, c.xmin);
+      }
+      var R = Repere(zone, { xmin: xmin, xmax: xmax, ymin: ylog ? c.ymin : Math.min(0, c.ymin), ymax: ymax,
         xlog: xlog, ylog: ylog, xpas: c.xpas, ypas: ylog ? null : (c.ylog ? null : c.ypas), sansgrad: c.sansgrad,
         xlabel: c.xlabel, ylabel: c.ylabel, w: c.w, h: c.h });
       var gRep = groupeReponse(R.corps); if (vu) gRep.classList.add("vu");

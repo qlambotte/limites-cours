@@ -4,7 +4,8 @@
    - bouton « écran » à côté du titre du cours, ou touche P ;
    - → / Espace / Page suivante : encadré suivant ; ← : précédent ;
    - + / − : taille du texte ; Échap : quitter.
-   Les réponses se dévoilent au clic, comme d'habitude.
+   Les réponses se dévoilent au clic, comme d'habitude ; l'outil
+   d'annotation (crayon) est en bas à gauche.
    ============================================================ */
 (function () {
   "use strict";
@@ -53,6 +54,8 @@
     });
     if (k < 0) k = 0;
     barre.hidden = false;
+    var an = document.querySelector(".an-barre");        // outil d'annotation : en bas à gauche
+    if (an) { an.classList.remove("dans-outils"); document.body.appendChild(an); }
     montrer(k);
   }
   function sortir() {
@@ -61,6 +64,7 @@
     document.documentElement.classList.remove("proj");
     nettoyer();
     barre.hidden = true;
+    if (window.typwebAccrocher) window.typwebAccrocher();   // annotation : retour à côté du titre
     window.dispatchEvent(new Event("resize"));
     if (it) it.scrollIntoView({ block: "start" });
   }

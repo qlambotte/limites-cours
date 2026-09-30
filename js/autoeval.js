@@ -469,13 +469,43 @@
   window.addEventListener("afterprint", function () { document.body.classList.remove("ae-impression"); });
 
   // ---------------------------------------------------------- démarrage
+  // Lien « S'autoévaluer sur cette section » (#sections=…) ou « M'entraîner » d'un
+  // objectif (#obj=…) : test lancé directement, N_DIRECT questions (moins s'il n'y
+  // en a pas assez), d'abord celles pas encore réussies, puis par niveau croissant.
+  // #composer&sections=… : ouvre seulement « Composer », cases déjà cochées ;
+  // #…&n=15 : autre nombre de questions.
+  var N_DIRECT = 10, direct = null;
   function lireHash() {
-    var m = /sections=([^&]+)/.exec(location.hash || ""), o = /obj=([^&]+)/.exec(location.hash || "");
+    var h = location.hash || "";
+    var m = /sections=([^&]+)/.exec(h), o = /obj=([^&]+)/.exec(h), n = /[#&]n=(\d+)/.exec(h);
+    direct = null;
     if (!m && !o) return;
     choix = choixParDefaut();
     if (m) decodeURIComponent(m[1]).split(",").forEach(function (s) { if (s) choix.sections[s] = true; });
     if (o) decodeURIComponent(o[1]).split(",").forEach(function (s) { if (s) choix.obj[s] = true; });
+    choix.nombre = n ? Math.max(1, +n[1]) : N_DIRECT;
+    choix.pasReussies = true;
     onglet = "composer";
+    if (!/composer/.test(h)) {
+      var titre = "";
+      if (m) titre = DATA.sections.filter(function (s) { return choix.sections[s.id]; })
+                                  .map(function (s) { return s.html; }).join(" · ");
+      if (o) titre = (titre ? titre + " · " : "") + Object.keys(choix.obj).map(function (c) {
+        var x = objectif(c); return "<b>" + c + "</b>" + (x ? " " + x.html : "");
+      }).join(" · ");
+      direct = { titre: titre || "Mon questionnaire" };
+    }
+  }
+  function lancerDirect() {
+    if (!direct) return false;
+    var ids = tirer(filtrer(critereComposer()), choix.nombre, true);
+    if (!ids.length) return false;
+    ids.sort(function (a, b) { return DATA.parId[a].niveau - DATA.parId[b].niveau; });
+    // le hash est « consommé » : recharger la page ne relance pas le même test
+    try { history.replaceState(null, "", location.pathname + location.search + "#composer&" + location.hash.slice(1)); } catch (e) {}
+    passer(ids, direct.titre, null);
+    direct = null;
+    return true;
   }
   function demarrer() {
     app = document.getElementById("ae-app");
@@ -488,8 +518,8 @@
     Object.keys(ETAT.res).forEach(function (id) { if (!DATA.parId[id]) delete ETAT.res[id]; });
     sauverBilan();
     lireHash();
-    afficher();
-    window.addEventListener("hashchange", function () { if (!run) { lireHash(); afficher(); } });
+    if (!lancerDirect()) afficher();
+    window.addEventListener("hashchange", function () { if (!run) { lireHash(); if (!lancerDirect()) afficher(); } });
   }
   // ------------------------------------- page « Objectifs » : où j'en suis
   function suiviObjectifs() {
