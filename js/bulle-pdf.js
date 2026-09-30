@@ -7,7 +7,8 @@
    à cette page.
    - écran large : cadre vert en haut de la marge droite, AU-DESSUS
      du sommaire « Sur cette page », qui est replié par défaut ;
-   - écran étroit (pas de marge) : bulle en bas à droite.
+   - écran étroit (pas de marge) : bulle en bas à droite ;
+   - mode projection : la bulle, calée sur l'encadré projeté.
    ============================================================ */
 (function () {
   "use strict";
@@ -56,8 +57,16 @@
     var courant = null;
     function maj() {
       var seuil = window.innerHeight * 0.35, choix = reperes[0];
-      for (var i = 0; i < reperes.length; i++) {
-        if (reperes[i].getBoundingClientRect().top <= seuil) choix = reperes[i]; else break;
+      if (document.documentElement.classList.contains("proj")) {   // mode projection : l'encadré projeté
+        var actif = document.querySelector(".proj-actif");
+        choix = actif && (actif.dataset.page ? actif : actif.querySelector("[data-page]"));
+        bulle.classList.toggle("pn-aucune", !choix);
+        if (!choix) return;
+      } else {
+        bulle.classList.remove("pn-aucune");
+        for (var i = 0; i < reperes.length; i++) {
+          if (reperes[i].getBoundingClientRect().top <= seuil) choix = reperes[i]; else break;
+        }
       }
       if (choix === courant) return;
       courant = choix;
