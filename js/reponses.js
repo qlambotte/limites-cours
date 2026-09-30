@@ -3,6 +3,9 @@
    rep-lignes des notes) : cachées, dévoilées au clic.
    - une réponse en ligne (.rep, y compris dans une formule) :
      clic dessus pour la voir / la recacher ;
+   - un clic dans une zone de réponse ne fait QUE afficher / cacher :
+     il n'atteint pas MathJax (pas d'exploration surlignée en bleu ni
+     d'infobulle) et ne sélectionne pas le texte ;
    - une réponse longue (.rep-bloc) : bouton « Voir la réponse » ;
    - dans l'en-tête de chaque encadré qui en contient :
      « Afficher les réponses » (toutes d'un coup, pour projeter).
@@ -20,13 +23,12 @@
       bl.dataset.pret = "1";
       bl.setAttribute("tabindex", "0"); bl.setAttribute("role", "button");
       bl.setAttribute("aria-expanded", "false");
-      bl.setAttribute("title", "Clique pour afficher ou cacher la réponse");
     });
     document.querySelectorAll("span.rep").forEach(function (r) {
       if (r.dataset.pret) return;
       r.dataset.pret = "1";
       r.setAttribute("tabindex", "0"); r.setAttribute("role", "button");
-      r.setAttribute("title", "Clique pour voir la réponse");
+      r.setAttribute("aria-expanded", "false");
     });
     document.querySelectorAll(".theo, .exo").forEach(function (bx) {
       if (bx.dataset.repPret) return;
@@ -45,12 +47,29 @@
       tete.appendChild(b);
     });
   }
-  document.addEventListener("click", function (ev) {
-    if (!ev.target.closest) return;
-    if (ev.target.closest("a, button, input, .lim-plot")) return;
-    var r = ev.target.closest(".rep, .rep-bloc");
-    if (r) basculer(r);
+  // Zone de réponse visée par un événement (null si ce n'est pas le cas,
+  // si c'est un lien / bouton / figure, ou si un outil d'annotation est actif).
+  function zone(ev) {
+    var t = ev.target;
+    if (!t || !t.closest) return null;
+    if (document.documentElement.dataset.annot) return null;
+    if (t.closest("a, button, input, select, textarea, .lim-plot")) return null;
+    return t.closest(".rep, .rep-bloc");
+  }
+  // Phase de capture sur window : avant MathJax (explorateur) et les autres scripts.
+  ["pointerdown", "mousedown", "mouseup", "touchstart", "dblclick"].forEach(function (type) {
+    window.addEventListener(type, function (ev) {
+      if (!zone(ev)) return;
+      ev.stopPropagation();
+      if (type === "mousedown" || type === "dblclick") ev.preventDefault();   // ni focus, ni sélection
+    }, true);
   });
+  window.addEventListener("click", function (ev) {
+    var r = zone(ev);
+    if (!r) return;
+    ev.stopPropagation(); ev.preventDefault();
+    basculer(r);
+  }, true);
   document.addEventListener("keydown", function (ev) {
     if ((ev.key === "Enter" || ev.key === " ") && ev.target.classList &&
         (ev.target.classList.contains("rep") || ev.target.classList.contains("rep-bloc"))) {

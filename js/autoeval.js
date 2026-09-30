@@ -58,7 +58,20 @@
     } catch (e) {}
     return vide;
   }
-  function sauver() { try { localStorage.setItem("autoeval:" + CLE, JSON.stringify(ETAT)); } catch (e) {} }
+  function sauver() {
+    try { localStorage.setItem("autoeval:" + CLE, JSON.stringify(ETAT)); } catch (e) {}
+    sauverBilan();
+  }
+  // résumé par objectif, lu par la page « Objectifs » (« Où j'en suis »)
+  function sauverBilan() {
+    if (!DATA) return;
+    var b = {};
+    DATA.objectifs.forEach(function (o) {
+      var e = etatObjectif(o.code);
+      b[o.code] = { cle: e.cle, raison: e.raison, total: e.total };
+    });
+    try { localStorage.setItem("autoeval-bilan:" + CLE, JSON.stringify(b)); } catch (e) {}
+  }
 
   // ---------------------------------------------------------------- données
   function lire() {
@@ -457,10 +470,11 @@
 
   // ---------------------------------------------------------- démarrage
   function lireHash() {
-    var m = /sections=([^&]+)/.exec(location.hash || "");
-    if (!m) return;
+    var m = /sections=([^&]+)/.exec(location.hash || ""), o = /obj=([^&]+)/.exec(location.hash || "");
+    if (!m && !o) return;
     choix = choixParDefaut();
-    decodeURIComponent(m[1]).split(",").forEach(function (s) { if (s) choix.sections[s] = true; });
+    if (m) decodeURIComponent(m[1]).split(",").forEach(function (s) { if (s) choix.sections[s] = true; });
+    if (o) decodeURIComponent(o[1]).split(",").forEach(function (s) { if (s) choix.obj[s] = true; });
     onglet = "composer";
   }
   function demarrer() {
@@ -472,10 +486,39 @@
     ETAT = charger();
     // oublier les résultats de questions retirées de la banque
     Object.keys(ETAT.res).forEach(function (id) { if (!DATA.parId[id]) delete ETAT.res[id]; });
+    sauverBilan();
     lireHash();
     afficher();
     window.addEventListener("hashchange", function () { if (!run) { lireHash(); afficher(); } });
   }
+  // ------------------------------------- page « Objectifs » : où j'en suis
+  function suiviObjectifs() {
+    var box = document.getElementById("obj-suivi");
+    if (!box || box.dataset.pret) return;
+    box.dataset.pret = "1";
+    var b = null;
+    try { b = JSON.parse(localStorage.getItem("autoeval-bilan:" + (box.dataset.cle || "cours")) || "null"); } catch (e) {}
+    var lien = box.dataset.autoeval;
+    var n = { maitrise: 0, encours: 0, travailler: 0, vide: 0 };
+    $$(".obj[data-code]").forEach(function (row) {
+      var code = row.dataset.code, e = (b && b[code]) || { cle: "vide", total: -1 };
+      if (e.total === 0) return;                          // aucune question pour cet objectif
+      n[e.cle] = (n[e.cle] || 0) + 1;
+      var cell = h("div", { "class": "obj-etat" }, [pastille(e.cle)]);
+      if (e.raison) cell.appendChild(h("div", { "class": "ae-raison", text: e.raison }));
+      if (lien && e.cle !== "maitrise")
+        cell.appendChild(h("a", { "class": "obj-go", href: lien + "#obj=" + encodeURIComponent(code),
+                                  text: e.cle === "vide" ? "Me tester →" : "M'entraîner →" }));
+      row.appendChild(cell);
+      row.classList.add("obj-avec-etat");
+    });
+    if (!b) box.appendChild(h("p", { "class": "ae-muted", text: "Pas encore de résultat : passe par « S'autoévaluer » ; ton bilan par objectif s'affichera ici (il reste dans ce navigateur)." }));
+    else box.appendChild(h("p", { "class": "obj-resume" }, [
+      pastille("maitrise"), " " + n.maitrise + "   ", pastille("encours"), " " + n.encours + "   ",
+      pastille("travailler"), " " + n.travailler + "   ", pastille("vide"), " " + n.vide]));
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", suiviObjectifs); else suiviObjectifs();
+
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", demarrer); else demarrer();
   window.AutoEval = { etat: function () { return ETAT; }, donnees: function () { return DATA; } };
 })();
