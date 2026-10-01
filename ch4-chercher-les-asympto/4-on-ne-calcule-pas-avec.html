@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Quentin Lambotte">
-<meta name="dcterms.date" content="2026-01-01">
 
-<title>Limites et asymptotes</title>
+<title>On ne calcule pas avec l’infini – Limites et asymptotes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -31,23 +29,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./objectifs.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-73b0ff3878a4e6fc3716dc69a6aaefa3.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4f25214d2c0aa817e35f237ded488e3e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../ch4-chercher-les-asympto/5-synthese.html" rel="next">
+<link href="../ch4-chercher-les-asympto/3-asymptote-oblique.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-73b0ff3878a4e6fc3716dc69a6aaefa3.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-4f25214d2c0aa817e35f237ded488e3e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -130,7 +129,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-title">Limites et asymptotes — cours &amp; exercices</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch4-chercher-les-asympto/index.html">Chapitre 4 — Chercher les asymptotes horizontales et obliques</a></li><li class="breadcrumb-item"><a href="../ch4-chercher-les-asympto/4-on-ne-calcule-pas-avec.html"><span class="chapter-title">On ne calcule pas avec l’infini</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -145,7 +144,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Limites et asymptotes</a> 
+      <a href="../">Limites et asymptotes</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -157,17 +156,17 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Limites et asymptotes — cours &amp; exercices</span></a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Limites et asymptotes — cours &amp; exercices</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./objectifs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Objectifs</span></a>
+  <a href="../objectifs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Objectifs</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./ch1-fonctions/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../ch1-fonctions/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chapitre 1 — Fonctions</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -176,34 +175,34 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1-fonctions/1-rappels.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rappels</span></a>
+  <a href="../ch1-fonctions/1-rappels.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rappels</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1-fonctions/2-operations-sur-les-fonctions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Opérations sur les fonctions</span></a>
+  <a href="../ch1-fonctions/2-operations-sur-les-fonctions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Opérations sur les fonctions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1-fonctions/3-reconnaitre-une-composee.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reconnaître une composée</span></a>
+  <a href="../ch1-fonctions/3-reconnaitre-une-composee.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reconnaître une composée</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recherche algébrique du domaine d’une fonction</span></a>
+  <a href="../ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recherche algébrique du domaine d’une fonction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1-fonctions/5-asymptotes-premier-contact.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Asymptotes : premier contact</span></a>
+  <a href="../ch1-fonctions/5-asymptotes-premier-contact.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Asymptotes : premier contact</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./ch2-limites-definition-e/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../ch2-limites-definition-e/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chapitre 2 — Limites : définition et lecture graphique</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -212,49 +211,49 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch2-limites-definition-e/1-decrire-un-graphique-sans-le.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Décrire un graphique sans le montrer</span></a>
+  <a href="../ch2-limites-definition-e/1-decrire-un-graphique-sans-le.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Décrire un graphique sans le montrer</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch2-limites-definition-e/2-un-point-qui-se-deplace.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Un point qui se déplace sur un graphique</span></a>
+  <a href="../ch2-limites-definition-e/2-un-point-qui-se-deplace.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Un point qui se déplace sur un graphique</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch2-limites-definition-e/3-un-trou-dans-le-graphique.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Un trou dans le graphique</span></a>
+  <a href="../ch2-limites-definition-e/3-un-trou-dans-le-graphique.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Un trou dans le graphique</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch2-limites-definition-e/4-definition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Définition</span></a>
+  <a href="../ch2-limites-definition-e/4-definition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Définition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch2-limites-definition-e/5-quand-une-limite-a-t.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quand une limite a-t-elle un sens ?</span></a>
+  <a href="../ch2-limites-definition-e/5-quand-une-limite-a-t.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quand une limite a-t-elle un sens ?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch2-limites-definition-e/6-limites-a-gauche-et-a.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Limites à gauche et à droite</span></a>
+  <a href="../ch2-limites-definition-e/6-limites-a-gauche-et-a.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Limites à gauche et à droite</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch2-limites-definition-e/7-les-limites-des-fonctions-de.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Les limites des fonctions de référence</span></a>
+  <a href="../ch2-limites-definition-e/7-les-limites-des-fonctions-de.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Les limites des fonctions de référence</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch2-limites-definition-e/8-exercices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices</span></a>
+  <a href="../ch2-limites-definition-e/8-exercices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./ch3-chercher-les-points/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../ch3-chercher-les-points/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chapitre 3 — Chercher les points creux et les asymptotes verticales</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -263,85 +262,85 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch3-chercher-les-points/1-pourquoi-calculer.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pourquoi calculer ?</span></a>
+  <a href="../ch3-chercher-les-points/1-pourquoi-calculer.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pourquoi calculer ?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch3-chercher-les-points/2-les-fonctions-rationnelles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Les fonctions rationnelles</span></a>
+  <a href="../ch3-chercher-les-points/2-les-fonctions-rationnelles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Les fonctions rationnelles</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch3-chercher-les-points/3-en-un-point-du-domaine.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">En un point du domaine : rien à chercher</span></a>
+  <a href="../ch3-chercher-les-points/3-en-un-point-du-domaine.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">En un point du domaine : rien à chercher</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch3-chercher-les-points/4-en-une-valeur-interdite-point.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">En une valeur interdite : point creux ou asymptote verticale ?</span></a>
+  <a href="../ch3-chercher-les-points/4-en-une-valeur-interdite-point.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">En une valeur interdite : point creux ou asymptote verticale ?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch3-chercher-les-points/5-exercices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices</span></a>
+  <a href="../ch3-chercher-les-points/5-exercices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./ch4-chercher-les-asympto/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../ch4-chercher-les-asympto/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chapitre 4 — Chercher les asymptotes horizontales et obliques</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Les polynômes en pm infty : le terme qui l’emporte</span></a>
+  <a href="../ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Les polynômes en pm infty : le terme qui l’emporte</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Les fonctions rationnelles en pm infty : asymptote horizontale ?</span></a>
+  <a href="../ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Les fonctions rationnelles en pm infty : asymptote horizontale ?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch4-chercher-les-asympto/3-asymptote-oblique.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Asymptote oblique</span></a>
+  <a href="../ch4-chercher-les-asympto/3-asymptote-oblique.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Asymptote oblique</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch4-chercher-les-asympto/4-on-ne-calcule-pas-avec.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">On ne calcule pas avec l’infini</span></a>
+  <a href="../ch4-chercher-les-asympto/4-on-ne-calcule-pas-avec.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">On ne calcule pas avec l’infini</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch4-chercher-les-asympto/5-synthese.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Synthèse</span></a>
+  <a href="../ch4-chercher-les-asympto/5-synthese.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Synthèse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch4-chercher-les-asympto/6-exercices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices</span></a>
+  <a href="../ch4-chercher-les-asympto/6-exercices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./essentiel.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">L’essentiel</span></a>
+  <a href="../essentiel.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">L’essentiel</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./autoeval.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">S’autoévaluer</span></a>
+  <a href="../autoeval.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">S’autoévaluer</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./nouveautes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quoi de neuf ?</span></a>
+  <a href="../nouveautes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quoi de neuf ?</span></a>
   </div>
 </li>
     </ul>
@@ -349,41 +348,22 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Sur cette page</h2>
-   
-  <ul>
-  <li><a href="#chapitres" id="toc-chapitres" class="nav-link active" data-scroll-target="#chapitres">Chapitres</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch4-chercher-les-asympto/index.html">Chapitre 4 — Chercher les asymptotes horizontales et obliques</a></li><li class="breadcrumb-item"><a href="../ch4-chercher-les-asympto/4-on-ne-calcule-pas-avec.html"><span class="chapter-title">On ne calcule pas avec l’infini</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Limites et asymptotes</h1>
-<p class="subtitle lead">Cours &amp; exercices — 5e, 4 périodes (5UAA3)</p>
+<h1 class="title"><span class="chapter-title">On ne calcule pas avec l’infini</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Auteur·rice</div>
-    <div class="quarto-title-meta-contents">
-             <p>Quentin Lambotte </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Date de publication</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -393,35 +373,73 @@ window.Quarto = {
 </header>
 
 
-<p>Ce site accompagne le <strong>cours imprimé</strong> de 5e (UAA 3). On y trouve le même texte, avec les <strong>mêmes numéros</strong> (Activité 2.3, Exercice 2.5…), et en plus :</p>
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+<div id="activite-4-7" class="theo theo-activite" data-sorte="activite" data-num="4.7">
+<div class="theo-head">
+<p><strong>Activité 4.7</strong> — trois soustractions de très grands nombres</p>
+</div>
+<div class="theo-body">
+<p>Voici trois fonctions. Pour chacune, lorsque <span class="math inline">\(x\)</span> est proche de <span class="math inline">\(+\infty\)</span>, les deux termes sont proches de <span class="math inline">\(+\infty\)</span> : on soustrait deux nombres très grands.</p>
+<p><span class="math display">\[
+A(x) = x^{2} - x, \quad B(x) = x - x^{2}, \quad C(x) = (x + 1) - x.
+\]</span></p>
+<ol type="1">
+<li><p>Complète le tableau.</p>
+<div class="tableau">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(10\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(100\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(1000\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(A(x)\)</span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(90\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(9900\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(999 \, 000\)</span></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(B(x)\)</span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(-90\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(-9900\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(-999 \, 000\)</span></span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(C(x)\)</span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(1\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(1\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(1\)</span></span></td>
+</tr>
+</tbody>
+</table>
+</div></li>
+<li><p>Que valent <span class="math inline">\(\lim\limits_{x \to +\infty} A(x)\)</span>, <span class="math inline">\(\lim\limits_{x \to +\infty} B(x)\)</span> et <span class="math inline">\(\lim\limits_{x \to +\infty} C(x)\)</span> ? <span class="rep"><span class="math inline">\(+\infty\)</span>, <span class="math inline">\(-\infty\)</span> et <span class="math inline">\(1\)</span></span></p></li>
+<li><p>Les trois expressions ont la même allure : « un très grand nombre moins un autre très grand nombre ». Peut-on énoncer une règle qui donnerait le résultat d’une telle soustraction ?</p>
+<div class="rep-bloc">
+<p>Non : la même allure donne trois résultats différents. Seule l’analyse de chaque expression (ici : quel terme l’emporte, ou une simplification) permet de conclure.</p>
+</div></li>
+</ol>
+</div>
+</div>
+<div id="remarque-4-2" class="theo theo-remarque" data-sorte="remarque" data-num="4.2">
+<div class="theo-head">
+<p><strong>Remarque 4.2</strong></p>
+</div>
+<div class="theo-body">
+<p>On parle de <strong>cas d’indétermination</strong> lorsque regarder séparément chaque morceau d’une expression ne permet pas de conclure. Ce n’est pas un résultat : c’est un signal qui dit « analyse l’expression ». Nous en avons rencontré deux :</p>
 <ul>
-<li>des <strong>figures qui bougent</strong> : un point <span class="math inline">\(M\)</span> se déplace sur le graphique, et un panneau donne <span class="math inline">\(x\)</span> et <span class="math inline">\(f(x)\)</span> en direct, pour deviner vers où va la courbe ;</li>
-<li>pour chaque exercice, des <strong>coups de pouce</strong> à dévoiler un par un : un renvoi à la théorie, une question à te poser, une étape pour démarrer, puis la solution et les pièges ;</li>
-<li>une <strong>bulle</strong> en bas à droite qui indique à quelle page du cours imprimé tu te trouves (un clic ouvre le PDF à cette page) ;</li>
-<li>un <strong>stylo</strong> (bouton ✎ en bas à gauche) pour annoter les pages : dessiner, surligner, laisser une note. Tes annotations restent dans ton navigateur ; « Exporter » les enregistre dans un fichier.</li>
+<li>en une valeur interdite qui annule aussi le numérateur : on simplifie la fraction ;</li>
+<li>en <span class="math inline">\(\pm \infty\)</span>, quand des termes tirent dans des sens opposés : on cherche le terme qui l’emporte.</li>
 </ul>
-<section id="chapitres" class="level2">
-<h2 class="anchored" data-anchor-id="chapitres">Chapitres</h2>
-<ul>
-<li><strong><a href="./ch1-fonctions/index.html">Chapitre 1 — Fonctions</a></strong> : rappels, opérations, composée, domaine, premier contact avec les asymptotes.</li>
-<li><strong><a href="ch2-limites/index.qmd">Chapitre 2 — Limites</a></strong> : qu’est-ce qu’une limite ; points creux et asymptotes verticales ; asymptotes horizontales et obliques.</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="Comment travailler">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Astuce</span>Comment travailler
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Lis le cours, <strong>manipule les figures</strong>, puis passe aux exercices. N’ouvre les <em>coups de pouce</em> qu’après avoir cherché : ils sont faits pour te débloquer, pas pour remplacer ta recherche.</p>
+<p>Attention : <span class="math inline">\(+\infty\)</span> et <span class="math inline">\(-\infty\)</span> ne sont pas des nombres, et on ne calcule pas avec eux. Ils indiquent seulement vers où se dirige le graphique.</p>
 </div>
 </div>
 
 
-</section>
 
 </main> <!-- /main -->
 <!-- GÉNÉRÉ par typweb — ne pas éditer -->
@@ -1113,10 +1131,13 @@ window.TYPWEB = {"cle": "limites", "pdf": "limites.pdf", "depot": "https://githu
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../ch4-chercher-les-asympto/3-asymptote-oblique.html" class="pagination-link" aria-label="Asymptote oblique">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Asymptote oblique</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./objectifs.html" class="pagination-link" aria-label="Objectifs">
-        <span class="nav-page-text"><span class="chapter-title">Objectifs</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../ch4-chercher-les-asympto/5-synthese.html" class="pagination-link" aria-label="Synthèse">
+        <span class="nav-page-text"><span class="chapter-title">Synthèse</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

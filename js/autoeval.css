@@ -121,6 +121,19 @@
 .ae-hist { font-size: .92rem; }
 .ae-fin-t { margin-top: .5rem; }
 
+/* fiche « Ce que je dois retravailler » */
+.ae-fiche { margin-top: 1.4rem; }
+.ae-fiche-obj { padding: .55rem 0; border-top: 1px solid var(--card-brd); }
+.ae-fiche-t { line-height: 1.4; }
+.ae-fiche-l { font-size: .9rem; margin-top: .25rem; }
+.ae-fiche-l > span:first-child { font-weight: 700; }
+.ae-fiche .ae-raison { max-width: none; }
+@media print {
+  body.ae-fiche-seule .ae-corps > *:not(.ae-fiche):not(.ae-print-tete) { display: none !important; }
+  body.ae-impression .ae-fiche a { text-decoration: none; }
+  body.ae-impression .ae-fiche-obj { border-top: 1px solid #000; break-inside: avoid; }
+}
+
 /* impression du bilan : uniquement le bilan, en noir (pas de gris) */
 @media print {
   body.ae-impression #quarto-sidebar, body.ae-impression #quarto-margin-sidebar, body.ae-impression header,

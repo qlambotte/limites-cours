@@ -430,6 +430,7 @@
     var codes = DATA.objectifs.map(function (o) { return o.code; })
       .filter(function (code) { return DATA.questions.some(function (q) { return q.obj.indexOf(code) >= 0; }); });
     c.appendChild(tableObjectifs(codes));
+    c.appendChild(fiche(codes));
     // historique
     var hist = ETAT.hist.slice(-10).reverse();
     if (hist.length) {
@@ -455,6 +456,8 @@
     c.appendChild(h("div", { "class": "ae-actions ae-no-print" }, [
       h("button", { type: "button", "class": "ae-btn ae-btn-p", text: "Exporter en PDF",
         onclick: function () { document.body.classList.add("ae-impression"); window.print(); } }),
+      h("button", { type: "button", "class": "ae-btn", text: "Imprimer ma fiche « à retravailler »",
+        onclick: function () { document.body.classList.add("ae-impression", "ae-fiche-seule"); window.print(); } }),
       h("button", { type: "button", "class": "ae-btn", text: "Sauvegarder (fichier)",
         onclick: function () {
           var blob = new Blob([JSON.stringify(ETAT, null, 1)], { type: "application/json" });
@@ -466,7 +469,59 @@
     ]));
     c.appendChild(h("p", { "class": "ae-muted ae-no-print", text: "Ta progression reste dans ce navigateur (rien n'est envoyé). « Exporter en PDF » ouvre l'impression : choisis « Enregistrer au format PDF »." }));
   }
-  window.addEventListener("afterprint", function () { document.body.classList.remove("ae-impression"); });
+  window.addEventListener("afterprint", function () { document.body.classList.remove("ae-impression", "ae-fiche-seule"); });
+
+  // fiche « Ce que je dois retravailler » : objectifs à travailler / en cours,
+  // avec les sections et les exercices du cours qui les travaillent
+  function fiche(codes) {
+    var exos = [];
+    try { exos = JSON.parse(($("#ae-exos") || {}).textContent || "[]"); } catch (e) {}
+    var off = window.SITE_OFFSET || "";
+    var lignes = codes.map(function (code) { return { code: code, e: etatObjectif(code) }; })
+      .filter(function (x) { return x.e.cle === "travailler" || x.e.cle === "encours"; });
+    var bloc = h("div", { "class": "ae-fiche" }, [h("h4", { text: "Ce que je dois retravailler" })]);
+    if (!lignes.length) {
+      bloc.appendChild(h("p", { "class": "ae-muted", text: codes.some(function (c) { return etatObjectif(c).cle !== "vide"; })
+        ? "Rien pour l'instant : tous les objectifs testés sont maîtrisés." : "Fais d'abord un questionnaire : la fiche se remplit avec tes résultats." }));
+      return bloc;
+    }
+    // d'abord « à travailler », puis « en cours »
+    lignes.sort(function (a, b) { return (a.e.cle === "travailler" ? 0 : 1) - (b.e.cle === "travailler" ? 0 : 1); });
+    lignes.forEach(function (x) {
+      var o = objectif(x.code);
+      var secs = {};
+      DATA.questions.forEach(function (q) {
+        if (q.obj.indexOf(x.code) >= 0 && ETAT.res[q.id] && !ETAT.res[q.id].ok) secs[q.section] = true;
+      });
+      var nomsSec = DATA.sections.filter(function (s) { return secs[s.id]; });
+      var ex = exos.filter(function (e) { return e.obj.indexOf(x.code) >= 0; })
+                   .sort(function (a, b) { return (a.niveau || 0) - (b.niveau || 0); });
+      var li = h("div", { "class": "ae-fiche-obj" }, [
+        h("div", { "class": "ae-fiche-t" }, [pastille(x.e.cle), " ", h("b", { text: x.code }), " ", h("span", { html: o ? o.html : "" })]),
+        x.e.raison ? h("div", { "class": "ae-raison", text: x.e.raison }) : null
+      ]);
+      if (nomsSec.length) {
+        var ps = h("div", { "class": "ae-fiche-l" }, [h("span", { text: "Relire : " })]);
+        nomsSec.forEach(function (s, k) {
+          if (k) ps.appendChild(document.createTextNode(" · "));
+          var tmp = h("div", { html: s.html }), p1 = tmp.querySelector("p");
+          ps.appendChild(h("a", { href: off + s.url, html: p1 && tmp.children.length === 1 ? p1.innerHTML : s.html }));
+        });
+        li.appendChild(ps);
+      }
+      if (ex.length) {
+        var pe = h("div", { "class": "ae-fiche-l" }, [h("span", { text: "Exercices : " })]);
+        ex.forEach(function (e, k) {
+          if (k) pe.appendChild(document.createTextNode(" · "));
+          pe.appendChild(h("a", { href: off + e.url, text: "Ex. " + e.num + (e.niveau ? " " + "★".repeat(e.niveau) : "") +
+                                                          (e.page ? " (p. " + e.page + ")" : "") }));
+        });
+        li.appendChild(pe);
+      }
+      bloc.appendChild(li);
+    });
+    return bloc;
+  }
 
   // ---------------------------------------------------------- démarrage
   // Lien « S'autoévaluer sur cette section » (#sections=…) ou « M'entraîner » d'un

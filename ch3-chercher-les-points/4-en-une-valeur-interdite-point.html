@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Quentin Lambotte">
-<meta name="dcterms.date" content="2026-01-01">
 
-<title>Limites et asymptotes</title>
+<title>En une valeur interdite : point creux ou asymptote verticale ? – Limites et asymptotes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -31,23 +29,24 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./objectifs.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-73b0ff3878a4e6fc3716dc69a6aaefa3.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-4f25214d2c0aa817e35f237ded488e3e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../ch3-chercher-les-points/5-exercices.html" rel="next">
+<link href="../ch3-chercher-les-points/3-en-un-point-du-domaine.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-73b0ff3878a4e6fc3716dc69a6aaefa3.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-4f25214d2c0aa817e35f237ded488e3e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -130,7 +129,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-title">Limites et asymptotes — cours &amp; exercices</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch3-chercher-les-points/index.html">Chapitre 3 — Chercher les points creux et les asymptotes verticales</a></li><li class="breadcrumb-item"><a href="../ch3-chercher-les-points/4-en-une-valeur-interdite-point.html"><span class="chapter-title">En une valeur interdite : point creux ou asymptote verticale ?</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
@@ -145,7 +144,7 @@ window.Quarto = {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Limites et asymptotes</a> 
+      <a href="../">Limites et asymptotes</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -157,17 +156,17 @@ window.Quarto = {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Limites et asymptotes — cours &amp; exercices</span></a>
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Limites et asymptotes — cours &amp; exercices</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./objectifs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Objectifs</span></a>
+  <a href="../objectifs.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Objectifs</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./ch1-fonctions/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../ch1-fonctions/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chapitre 1 — Fonctions</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -176,34 +175,34 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1-fonctions/1-rappels.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rappels</span></a>
+  <a href="../ch1-fonctions/1-rappels.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Rappels</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1-fonctions/2-operations-sur-les-fonctions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Opérations sur les fonctions</span></a>
+  <a href="../ch1-fonctions/2-operations-sur-les-fonctions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Opérations sur les fonctions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1-fonctions/3-reconnaitre-une-composee.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reconnaître une composée</span></a>
+  <a href="../ch1-fonctions/3-reconnaitre-une-composee.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Reconnaître une composée</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recherche algébrique du domaine d’une fonction</span></a>
+  <a href="../ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Recherche algébrique du domaine d’une fonction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch1-fonctions/5-asymptotes-premier-contact.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Asymptotes : premier contact</span></a>
+  <a href="../ch1-fonctions/5-asymptotes-premier-contact.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Asymptotes : premier contact</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./ch2-limites-definition-e/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../ch2-limites-definition-e/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chapitre 2 — Limites : définition et lecture graphique</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -212,85 +211,85 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch2-limites-definition-e/1-decrire-un-graphique-sans-le.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Décrire un graphique sans le montrer</span></a>
+  <a href="../ch2-limites-definition-e/1-decrire-un-graphique-sans-le.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Décrire un graphique sans le montrer</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch2-limites-definition-e/2-un-point-qui-se-deplace.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Un point qui se déplace sur un graphique</span></a>
+  <a href="../ch2-limites-definition-e/2-un-point-qui-se-deplace.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Un point qui se déplace sur un graphique</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch2-limites-definition-e/3-un-trou-dans-le-graphique.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Un trou dans le graphique</span></a>
+  <a href="../ch2-limites-definition-e/3-un-trou-dans-le-graphique.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Un trou dans le graphique</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch2-limites-definition-e/4-definition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Définition</span></a>
+  <a href="../ch2-limites-definition-e/4-definition.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Définition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch2-limites-definition-e/5-quand-une-limite-a-t.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quand une limite a-t-elle un sens ?</span></a>
+  <a href="../ch2-limites-definition-e/5-quand-une-limite-a-t.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quand une limite a-t-elle un sens ?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch2-limites-definition-e/6-limites-a-gauche-et-a.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Limites à gauche et à droite</span></a>
+  <a href="../ch2-limites-definition-e/6-limites-a-gauche-et-a.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Limites à gauche et à droite</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch2-limites-definition-e/7-les-limites-des-fonctions-de.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Les limites des fonctions de référence</span></a>
+  <a href="../ch2-limites-definition-e/7-les-limites-des-fonctions-de.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Les limites des fonctions de référence</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch2-limites-definition-e/8-exercices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices</span></a>
+  <a href="../ch2-limites-definition-e/8-exercices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./ch3-chercher-les-points/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../ch3-chercher-les-points/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chapitre 3 — Chercher les points creux et les asymptotes verticales</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch3-chercher-les-points/1-pourquoi-calculer.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pourquoi calculer ?</span></a>
+  <a href="../ch3-chercher-les-points/1-pourquoi-calculer.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pourquoi calculer ?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch3-chercher-les-points/2-les-fonctions-rationnelles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Les fonctions rationnelles</span></a>
+  <a href="../ch3-chercher-les-points/2-les-fonctions-rationnelles.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Les fonctions rationnelles</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch3-chercher-les-points/3-en-un-point-du-domaine.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">En un point du domaine : rien à chercher</span></a>
+  <a href="../ch3-chercher-les-points/3-en-un-point-du-domaine.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">En un point du domaine : rien à chercher</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch3-chercher-les-points/4-en-une-valeur-interdite-point.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">En une valeur interdite : point creux ou asymptote verticale ?</span></a>
+  <a href="../ch3-chercher-les-points/4-en-une-valeur-interdite-point.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">En une valeur interdite : point creux ou asymptote verticale ?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch3-chercher-les-points/5-exercices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices</span></a>
+  <a href="../ch3-chercher-les-points/5-exercices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./ch4-chercher-les-asympto/index.html" class="sidebar-item-text sidebar-link">
+            <a href="../ch4-chercher-les-asympto/index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Chapitre 4 — Chercher les asymptotes horizontales et obliques</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="false" aria-label="Basculer la section">
             <i class="bi bi-chevron-right ms-2"></i>
@@ -299,49 +298,49 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Les polynômes en pm infty : le terme qui l’emporte</span></a>
+  <a href="../ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Les polynômes en pm infty : le terme qui l’emporte</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Les fonctions rationnelles en pm infty : asymptote horizontale ?</span></a>
+  <a href="../ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Les fonctions rationnelles en pm infty : asymptote horizontale ?</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch4-chercher-les-asympto/3-asymptote-oblique.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Asymptote oblique</span></a>
+  <a href="../ch4-chercher-les-asympto/3-asymptote-oblique.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Asymptote oblique</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch4-chercher-les-asympto/4-on-ne-calcule-pas-avec.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">On ne calcule pas avec l’infini</span></a>
+  <a href="../ch4-chercher-les-asympto/4-on-ne-calcule-pas-avec.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">On ne calcule pas avec l’infini</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch4-chercher-les-asympto/5-synthese.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Synthèse</span></a>
+  <a href="../ch4-chercher-les-asympto/5-synthese.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Synthèse</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./ch4-chercher-les-asympto/6-exercices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices</span></a>
+  <a href="../ch4-chercher-les-asympto/6-exercices.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Exercices</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./essentiel.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">L’essentiel</span></a>
+  <a href="../essentiel.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">L’essentiel</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./autoeval.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">S’autoévaluer</span></a>
+  <a href="../autoeval.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">S’autoévaluer</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./nouveautes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quoi de neuf ?</span></a>
+  <a href="../nouveautes.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Quoi de neuf ?</span></a>
   </div>
 </li>
     </ul>
@@ -354,36 +353,24 @@ window.Quarto = {
     <h2 id="toc-title">Sur cette page</h2>
    
   <ul>
-  <li><a href="#chapitres" id="toc-chapitres" class="nav-link active" data-scroll-target="#chapitres">Chapitres</a></li>
+  <li><a href="#premier-cas-le-numérateur-ne-sannule-pas-en-a" id="toc-premier-cas-le-numérateur-ne-sannule-pas-en-a" class="nav-link active" data-scroll-target="#premier-cas-le-numérateur-ne-sannule-pas-en-a">Premier cas : le numérateur ne s’annule pas en <span class="math inline">\(a\)</span></a></li>
+  <li><a href="#second-cas-le-numérateur-sannule-aussi-en-a" id="toc-second-cas-le-numérateur-sannule-aussi-en-a" class="nav-link" data-scroll-target="#second-cas-le-numérateur-sannule-aussi-en-a">Second cas : le numérateur s’annule aussi en <span class="math inline">\(a\)</span></a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../ch3-chercher-les-points/index.html">Chapitre 3 — Chercher les points creux et les asymptotes verticales</a></li><li class="breadcrumb-item"><a href="../ch3-chercher-les-points/4-en-une-valeur-interdite-point.html"><span class="chapter-title">En une valeur interdite : point creux ou asymptote verticale ?</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Limites et asymptotes</h1>
-<p class="subtitle lead">Cours &amp; exercices — 5e, 4 périodes (5UAA3)</p>
+<h1 class="title"><span class="chapter-title">En une valeur interdite : point creux ou asymptote verticale ?</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Auteur·rice</div>
-    <div class="quarto-title-meta-contents">
-             <p>Quentin Lambotte </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Date de publication</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -393,31 +380,284 @@ window.Quarto = {
 </header>
 
 
-<p>Ce site accompagne le <strong>cours imprimé</strong> de 5e (UAA 3). On y trouve le même texte, avec les <strong>mêmes numéros</strong> (Activité 2.3, Exercice 2.5…), et en plus :</p>
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+<div id="activite-3-2" class="theo theo-activite" data-sorte="activite" data-num="3.2">
+<div class="theo-head">
+<p><strong>Activité 3.2</strong> — à toi d’inventer</p>
+</div>
+<div class="theo-body">
+<ol type="1">
+<li>Invente une fonction rationnelle dont le graphique a un point creux en <span class="math inline">\((2 ; 5)\)</span>. Explique comment tu t’y es pris.</li>
+<li>Invente une fonction rationnelle dont le graphique a une asymptote verticale d’équation <span class="math inline">\(x = 3\)</span>.</li>
+<li>Compare tes deux fonctions en leur valeur interdite : qu’est-ce qui, dans l’expression analytique, fait la différence entre un point creux et une asymptote verticale ? Compare avec les fonctions de tes voisins.</li>
+</ol>
+<div class="rep-bloc">
+<p>Par exemple <span class="math inline">\(\frac{(x+3)(x-2)}{x-2}\)</span> : pour <span class="math inline">\(x \neq 2\)</span>, elle vaut <span class="math inline">\(x + 3\)</span>, qui vaut <span class="math inline">\(5\)</span> en <span class="math inline">\(2\)</span>. Et <span class="math inline">\(\frac{1}{x-3}\)</span>. Différence : pour le point creux, la valeur interdite annule aussi le numérateur (on peut simplifier) ; pour l’A.V., le numérateur ne s’annule pas.</p>
+</div>
+</div>
+</div>
+<p>L’activité suivante vérifie, sur un tableau de valeurs, la conjecture que tu viens de formuler.</p>
+<div id="activite-3-3" class="theo theo-activite" data-sorte="activite" data-num="3.3">
+<div class="theo-head">
+<p><strong>Activité 3.3</strong> — deux valeurs interdites, deux graphiques</p>
+</div>
+<div class="theo-body">
+<p>On compare <span class="math inline">\(g(x) = \frac{x^{2} - 1}{x - 1}\)</span>, déjà rencontrée, et <span class="math inline">\(k(x) = \frac{x + 1}{x - 1}\)</span>. Pour ces deux fonctions, <span class="math inline">\(1\)</span> est une valeur interdite.</p>
+<ol type="1">
+<li><p>Complète le tableau.</p>
+<div class="tableau">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(0{,}9\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(0{,}99\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(0{,}999\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(1{,}001\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(1{,}01\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(1{,}1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(g(x)\)</span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(1{,}9\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(1{,}99\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(1{,}999\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(2{,}001\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(2{,}01\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(2{,}1\)</span></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(k(x)\)</span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(-19\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(-199\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(-1999\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(2001\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(201\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(21\)</span></span></td>
+</tr>
+</tbody>
+</table>
+</div></li>
+<li><p>Que devient <span class="math inline">\(k(x)\)</span> lorsque <span class="math inline">\(x\)</span> est proche de <span class="math inline">\(1\)</span> ? <span class="rep">Il devient très grand en valeur absolue : <span class="math inline">\(-\infty\)</span> à gauche, <span class="math inline">\(+\infty\)</span> à droite.</span></p></li>
+</ol>
+<div class="grille" style="--n:2">
+<div class="cellule">
+<div class="lim-plot" data-fig="c3-f66"></div>
+<div class="lp-legende">
+<p><span class="math inline">\(g(x) = \frac{x^{2}-1}{x-1}\)</span> : un point creux</p>
+</div>
+</div>
+<div class="cellule">
+<div class="lim-plot" data-fig="c3-f67"></div>
+<div class="lp-legende">
+<p><span class="math inline">\(k(x) = \frac{x+1}{x-1}\)</span> : une A.V.</p>
+</div>
+</div>
+</div>
+<ol start="3" type="1">
+<li><p>Calcule la valeur du numérateur de chaque fonction en <span class="math inline">\(x = 1\)</span>.<br>
+Numérateur de <span class="math inline">\(g\)</span> : <span class="rep"><span class="math inline">\(1^{2} - 1 = 0\)</span></span> Numérateur de <span class="math inline">\(k\)</span> : <span class="rep"><span class="math inline">\(1 + 1 = 2\)</span></span></p></li>
+<li><p>Pour <span class="math inline">\(k\)</span>, lorsque <span class="math inline">\(x\)</span> est proche de <span class="math inline">\(1\)</span>, on divise un nombre proche de <span class="rep"><span class="math inline">\(2\)</span></span> par un nombre très proche de <span class="rep"><span class="math inline">\(0\)</span></span>. Pourquoi le résultat devient-il très grand en valeur absolue ?</p>
+<div class="rep-bloc">
+<p>Diviser par un nombre très petit, c’est multiplier par un nombre très grand : <span class="math inline">\(2 / 0{,}01 = 200\)</span>, <span class="math inline">\(2 / 0{,}001 = 2000\)</span>…</p>
+</div></li>
+</ol>
+</div>
+</div>
+<p>L’activité fait apparaître les deux situations possibles en une valeur interdite, et les deux caractéristiques graphiques que nous cherchons.</p>
+<div id="definition-3-2" class="theo theo-definition" data-sorte="definition" data-num="3.2">
+<div class="theo-head">
+<p><strong>Définition 3.2</strong> — asymptote verticale, point creux</p>
+</div>
+<div class="theo-body">
+<p>Soit <span class="math inline">\(f\)</span> une fonction et <span class="math inline">\(a\)</span> un réel qui colle au domaine de <span class="math inline">\(f\)</span>.</p>
 <ul>
-<li>des <strong>figures qui bougent</strong> : un point <span class="math inline">\(M\)</span> se déplace sur le graphique, et un panneau donne <span class="math inline">\(x\)</span> et <span class="math inline">\(f(x)\)</span> en direct, pour deviner vers où va la courbe ;</li>
-<li>pour chaque exercice, des <strong>coups de pouce</strong> à dévoiler un par un : un renvoi à la théorie, une question à te poser, une étape pour démarrer, puis la solution et les pièges ;</li>
-<li>une <strong>bulle</strong> en bas à droite qui indique à quelle page du cours imprimé tu te trouves (un clic ouvre le PDF à cette page) ;</li>
-<li>un <strong>stylo</strong> (bouton ✎ en bas à gauche) pour annoter les pages : dessiner, surligner, laisser une note. Tes annotations restent dans ton navigateur ; « Exporter » les enregistre dans un fichier.</li>
+<li>La droite d’équation <span class="math inline">\(x = a\)</span> est une <strong>asymptote verticale</strong> (A.V.) du graphique de <span class="math inline">\(f\)</span> si la limite à gauche ou la limite à droite de <span class="math inline">\(f(x)\)</span> en <span class="math inline">\(a\)</span> vaut <span class="math inline">\(+\infty\)</span> ou <span class="math inline">\(-\infty\)</span>.</li>
+<li>Le graphique de <span class="math inline">\(f\)</span> présente un <strong>point creux</strong> en <span class="math inline">\((a ; r)\)</span> si <span class="math inline">\(a \notin \operatorname{dom}(f)\)</span> et <span class="math inline">\(\lim\limits_{x \to a} f(x) = r\)</span>, avec <span class="math inline">\(r\)</span> réel.</li>
 </ul>
-<section id="chapitres" class="level2">
-<h2 class="anchored" data-anchor-id="chapitres">Chapitres</h2>
+</div>
+</div>
+<section id="premier-cas-le-numérateur-ne-sannule-pas-en-a" class="level2">
+<h2 class="anchored" data-anchor-id="premier-cas-le-numérateur-ne-sannule-pas-en-a">Premier cas : le numérateur ne s’annule pas en <span class="math inline">\(a\)</span></h2>
+<div id="propriete-3-2" class="theo theo-propriete" data-sorte="propriete" data-num="3.2">
+<div class="theo-head">
+<p><strong>Propriété 3.2</strong> — valeur interdite qui n’annule pas le numérateur</p>
+</div>
+<div class="theo-body">
+<p>Soit <span class="math inline">\(f(x) = \frac{P(x)}{Q(x)}\)</span> une fonction rationnelle et <span class="math inline">\(a\)</span> une valeur interdite (<span class="math inline">\(Q(a) = 0\)</span>). Si <span class="math inline">\(P(a) \neq 0\)</span>, alors, de chaque côté de <span class="math inline">\(a\)</span>, <span class="math inline">\(f(x)\)</span> devient très grand en valeur absolue : les limites à gauche et à droite en <span class="math inline">\(a\)</span> valent <span class="math inline">\(+\infty\)</span> ou <span class="math inline">\(-\infty\)</span>, et <strong>la droite d’équation <span class="math inline">\(x = a\)</span> est une asymptote verticale</strong>. Pour savoir s’il s’agit de <span class="math inline">\(+\infty\)</span> ou de <span class="math inline">\(-\infty\)</span>, il suffit de connaître le signe de <span class="math inline">\(f(x)\)</span> juste à gauche et juste à droite de <span class="math inline">\(a\)</span>.</p>
+</div>
+</div>
+<p>Inutile pour cela de dresser le tableau de signes complet de <span class="math inline">\(f\)</span>. Près de <span class="math inline">\(a\)</span>, le numérateur est proche de <span class="math inline">\(P(a) \neq 0\)</span> : il a donc le <strong>signe de <span class="math inline">\(P(a)\)</span></strong>. Il suffit d’étudier le signe du dénominateur juste à gauche et juste à droite de <span class="math inline">\(a\)</span> : un facteur <span class="math inline">\((x - a)\)</span> change de signe en <span class="math inline">\(a\)</span>, un facteur <span class="math inline">\((x - a)^{2}\)</span> n’en change pas, et les autres facteurs gardent le signe de leur valeur en <span class="math inline">\(a\)</span>. On résume cela dans un <strong>tableau de signes local</strong>.</p>
+<div id="exemple-3-2" class="theo theo-exemple" data-sorte="exemple" data-num="3.2">
+<div class="theo-head">
+<p><strong>Exemple 3.2</strong></p>
+</div>
+<div class="theo-body">
+<p>Soit <span class="math inline">\(f(x) = \frac{1}{x+2}\)</span>, de domaine <span class="math inline">\(\mathbb{R} \setminus \{-2\}\)</span>. Le numérateur vaut <span class="math inline">\(1 \neq 0\)</span> : la droite d’équation <span class="math inline">\(x = -2\)</span> est une A.V. Pour savoir de quel côté le graphique monte ou descend, on dresse le tableau de signes local en <span class="math inline">\(-2\)</span>.</p>
+<div class="grille" style="--n:2">
+<div class="cellule">
+<div class="tableau tab-signes">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
+<th style="text-align: center;">juste à gauche</th>
+<th style="text-align: center;"><span class="math inline">\(-2\)</span></th>
+<th style="text-align: center;">juste à droite</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(1\)</span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(+\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(+\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(+\)</span></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\(x+2\)</span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(-\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(0\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(+\)</span></span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(f(x)\)</span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(-\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(\Vert\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(+\)</span></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cellule">
+<div class="lim-plot" data-fig="c3-f68"></div>
+</div>
+</div>
+<p>On en déduit <span class="math inline">\(\lim\limits_{\substack{x \to -2 \\ x &lt; -2}} f(x) = \class{rep}{-\infty}\)</span> et <span class="math inline">\(\lim\limits_{\substack{x \to -2 \\ x &gt; -2}} f(x) = \class{rep}{+\infty}\)</span>. En particulier, <span class="math inline">\(\lim\limits_{x \to -2} f(x)\)</span> <span class="rep">n’existe pas</span>.</p>
+</div>
+</div>
+<div id="exemple-3-3" class="theo theo-exemple" data-sorte="exemple" data-num="3.3">
+<div class="theo-head">
+<p><strong>Exemple 3.3</strong></p>
+</div>
+<div class="theo-body">
+<p>Soit <span class="math inline">\(f(x) = \frac{-1}{(x-1)^{2}}\)</span>, de domaine <span class="math inline">\(\mathbb{R} \setminus \{1\}\)</span>. Le numérateur vaut <span class="math inline">\(-1 \neq 0\)</span> : la droite d’équation <span class="math inline">\(x = 1\)</span> est une A.V.</p>
+<div class="grille" style="--n:2">
+<div class="cellule">
+<div class="tableau tab-signes">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(x\)</span></th>
+<th style="text-align: center;">juste à gauche</th>
+<th style="text-align: center;"><span class="math inline">\(1\)</span></th>
+<th style="text-align: center;">juste à droite</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(-1\)</span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(-\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(-\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(-\)</span></span></td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><span class="math inline">\((x-1)^{2}\)</span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(+\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(0\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(+\)</span></span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><span class="math inline">\(f(x)\)</span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(-\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(\Vert\)</span></span></td>
+<td style="text-align: center;"><span class="rep"><span class="math inline">\(-\)</span></span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cellule">
+<div class="lim-plot" data-fig="c3-f69"></div>
+</div>
+</div>
+<p>On en déduit <span class="math inline">\(\lim\limits_{\substack{x \to 1 \\ x &lt; 1}} f(x) = \lim\limits_{\substack{x \to 1 \\ x &gt; 1}} f(x) = \class{rep}{-\infty}\)</span>. Cette fois, la limite existe : <span class="math inline">\(\lim\limits_{x \to 1} f(x) = \class{rep}{-\infty}\)</span>. Une asymptote verticale n’empêche donc pas la limite d’exister.</p>
+</div>
+</div>
+</section>
+<section id="second-cas-le-numérateur-sannule-aussi-en-a" class="level2">
+<h2 class="anchored" data-anchor-id="second-cas-le-numérateur-sannule-aussi-en-a">Second cas : le numérateur s’annule aussi en <span class="math inline">\(a\)</span></h2>
+<p>Si <span class="math inline">\(a\)</span> est une racine du numérateur <strong>et</strong> du dénominateur, on ne peut rien conclure directement : lorsque <span class="math inline">\(x\)</span> est proche de <span class="math inline">\(a\)</span>, on divise un nombre proche de <span class="math inline">\(0\)</span> par un autre nombre proche de <span class="math inline">\(0\)</span>, et le résultat peut être n’importe quoi. On parle de <strong>cas d’indétermination</strong>. Mais <span class="math inline">\(a\)</span> étant racine des deux polynômes, chacun d’eux se factorise par <span class="math inline">\((x - a)\)</span> : on peut simplifier la fraction.</p>
+<div id="exemple-3-4" class="theo theo-exemple" data-sorte="exemple" data-num="3.4">
+<div class="theo-head">
+<p><strong>Exemple 3.4</strong></p>
+</div>
+<div class="theo-body">
+<p>Soit <span class="math inline">\(f(x) = \frac{x+1}{x^{3}+x^{2}+x+1}\)</span>, de domaine <span class="math inline">\(\mathbb{R} \setminus \{-1\}\)</span>. En <span class="math inline">\(x = -1\)</span>, le numérateur vaut <span class="math inline">\(0\)</span> et le dénominateur aussi. On factorise et on simplifie par <span class="math inline">\((x+1)\)</span> :</p>
+<p><span class="math display">\[
+\frac{x+1}{x^{3}+x^{2}+x+1} = \frac{x+1}{(x+1)(x^{2}+1)} = \frac{1}{x^{2}+1} \quad \text{pour} x \neq -1.
+\]</span></p>
+<p>On remplace maintenant <span class="math inline">\(x\)</span> par <span class="math inline">\(-1\)</span> dans la fraction simplifiée : <span class="math inline">\(\frac{1}{(-1)^{2}+1} = \class{rep}{\frac{1}{2}}\)</span>.</p>
+<div class="grille" style="--n:2">
+<div class="cellule">
+<p>Ainsi <span class="math inline">\(\lim\limits_{x \to -1} f(x) = \class{rep}{\frac{1}{2}}\)</span> : comme <span class="math inline">\(-1 \notin \operatorname{dom}(f)\)</span>, le graphique de <span class="math inline">\(f\)</span> présente un point creux en <span class="rep"><span class="math inline">\((-1 ; \frac{1}{2})\)</span></span>.</p>
+</div>
+<div class="cellule">
+<div class="lim-plot" data-fig="c3-f70"></div>
+</div>
+</div>
+</div>
+</div>
+<div id="remarque-3-2" class="theo theo-remarque" data-sorte="remarque" data-num="3.2">
+<div class="theo-head">
+<p><strong>Remarque 3.2</strong></p>
+</div>
+<div class="theo-body">
+<p><strong>Rédiger un calcul de limite.</strong> Tant que <span class="math inline">\(x\)</span> n’a pas été remplacé par <span class="math inline">\(a\)</span>, on garde « <span class="math inline">\(\lim\limits_{x \to a}\)</span> » devant l’expression :</p>
+<p><span class="math display">\[
+\lim\limits_{x \to -1} \frac{x+1}{x^{3}+x^{2}+x+1} = \lim\limits_{x \to -1} \frac{1}{x^{2}+1} = \frac{1}{(-1)^{2}+1} = \frac{1}{2}.
+\]</span></p>
+<p>Écrire <span class="math inline">\(\frac{x+1}{x^{3}+x^{2}+x+1} = \frac{1}{x^{2}+1} = \frac{1}{2}\)</span> serait faux : l’égalité <span class="math inline">\(\frac{1}{x^{2}+1} = \frac{1}{2}\)</span> n’est vraie que pour <span class="math inline">\(x = \pm 1\)</span>.</p>
+</div>
+</div>
+<div id="exemple-3-5" class="theo theo-exemple" data-sorte="exemple" data-num="3.5">
+<div class="theo-head">
+<p><strong>Exemple 3.5</strong></p>
+</div>
+<div class="theo-body">
+<p>Soit <span class="math inline">\(f(x) = \frac{x+2}{x^{2}+4x+4}\)</span>, de domaine <span class="math inline">\(\mathbb{R} \setminus \{-2\}\)</span>. Le numérateur et le dénominateur s’annulent en <span class="math inline">\(-2\)</span> ; on simplifie par <span class="math inline">\((x+2)\)</span> :</p>
+<p><span class="math display">\[
+\frac{x+2}{x^{2}+4x+4} = \frac{x+2}{(x+2)^{2}} = \frac{1}{x+2} \quad \text{pour} x \neq -2.
+\]</span></p>
+<p>Après simplification, le dénominateur s’annule encore en <span class="math inline">\(-2\)</span>, mais plus le numérateur : on est ramené au premier cas. Le graphique de <span class="math inline">\(f\)</span> est celui de <span class="math inline">\(\frac{1}{x+2}\)</span> : <span class="rep">une A.V. d’équation <span class="math inline">\(x = -2\)</span>, sans point creux</span>.</p>
+</div>
+</div>
+<div id="cadre-demarche-en-une-valeur-interdite" class="cadre-info">
+<p><strong>Démarche en une valeur interdite <span class="math inline">\(a\)</span> d’une fonction rationnelle.</strong></p>
+<ol type="1">
+<li><p>Remplace <span class="math inline">\(x\)</span> par <span class="math inline">\(a\)</span> dans le numérateur.</p></li>
+<li><p>S’il ne s’annule pas : la droite <span class="math inline">\(x = a\)</span> est une <strong>A.V.</strong> ; un tableau de signes local (signe du numérateur en <span class="math inline">\(a\)</span>, signe du dénominateur juste à gauche et juste à droite de <span class="math inline">\(a\)</span>) donne les limites à gauche et à droite (<span class="math inline">\(+\infty\)</span> ou <span class="math inline">\(-\infty\)</span>).</p></li>
+<li><p>S’il s’annule aussi : factorise et simplifie la fraction par <span class="math inline">\((x - a)\)</span>, puis remplace à nouveau <span class="math inline">\(x\)</span> par <span class="math inline">\(a\)</span> dans la fraction simplifiée.</p>
 <ul>
-<li><strong><a href="./ch1-fonctions/index.html">Chapitre 1 — Fonctions</a></strong> : rappels, opérations, composée, domaine, premier contact avec les asymptotes.</li>
-<li><strong><a href="ch2-limites/index.qmd">Chapitre 2 — Limites</a></strong> : qu’est-ce qu’une limite ; points creux et asymptotes verticales ; asymptotes horizontales et obliques.</li>
-</ul>
-<div class="callout callout-style-default callout-tip callout-titled" title="Comment travailler">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<li>Si le dénominateur ne s’annule plus : on obtient un nombre <span class="math inline">\(r\)</span>, c’est la limite ; le graphique a un <strong>point creux</strong> en <span class="math inline">\((a ; r)\)</span>.</li>
+<li>Si le dénominateur s’annule encore mais plus le numérateur : on est ramené à l’étape 2, c’est une <strong>A.V.</strong></li>
+<li>Si les deux s’annulent encore : simplifie encore par <span class="math inline">\((x - a)\)</span>.</li>
+</ul></li>
+</ol>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Astuce</span>Comment travailler
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Lis le cours, <strong>manipule les figures</strong>, puis passe aux exercices. N’ouvre les <em>coups de pouce</em> qu’après avoir cherché : ils sont faits pour te débloquer, pas pour remplacer ta recherche.</p>
-</div>
+<div class="ae-lien">
+<p><a href="../autoeval.html#sections=sec-valeur-interdite">✔ S’autoévaluer sur cette section : test de 8 questions →</a></p>
 </div>
 
 
@@ -1113,10 +1353,13 @@ window.TYPWEB = {"cle": "limites", "pdf": "limites.pdf", "depot": "https://githu
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../ch3-chercher-les-points/3-en-un-point-du-domaine.html" class="pagination-link" aria-label="En un point du domaine : rien à chercher">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">En un point du domaine : rien à chercher</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./objectifs.html" class="pagination-link" aria-label="Objectifs">
-        <span class="nav-page-text"><span class="chapter-title">Objectifs</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../ch3-chercher-les-points/5-exercices.html" class="pagination-link" aria-label="Exercices">
+        <span class="nav-page-text"><span class="chapter-title">Exercices</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
