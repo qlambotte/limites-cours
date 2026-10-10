@@ -1,0 +1,113 @@
+/* ============================================================
+   proba.css — figures du module « proba » (arbres, Venn, partitions).
+   Variables du thème (clair / sombre) : --text, --muted, --card-bg,
+   --card-brd, --page-bg ; réponses : couleur du thème (.rep).
+   ============================================================ */
+.pb-fig { margin: 1.1rem 0; padding: .7rem .8rem; border: 1px solid var(--card-brd, #ccc);
+  border-radius: 8px; background: var(--card-bg, transparent); overflow-x: auto; }
+.pb-fig p { margin: 0; }
+
+/* Arbres : le script place les étiquettes (absolu) et trace les branches (SVG). */
+.pb-scene { position: relative; margin: 0 auto; }
+.pb-scene > svg { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; }
+.pb-scene line { stroke: var(--text, #000); stroke-width: 1.2; }
+.pb-arbre .pb-n, .pb-double .pb-n { position: absolute; white-space: nowrap; line-height: 1.25;
+  padding: 1px 4px; background: var(--card-bg, #fff); }
+.pb-arbre .pb-p { position: absolute; white-space: nowrap; font-size: .88em; line-height: 1.15; }
+.pb-attente .pb-n, .pb-attente .pb-p { visibility: hidden; }
+
+/* Venn */
+.pb-venn { text-align: center; }
+.pb-venn .pb-scene { max-width: 460px; }
+.pb-venn svg.pb-v { position: static; width: 100%; height: auto; display: block; }
+.pb-venn .pb-cadre, .pb-venn .pb-cercle { fill: none; stroke: var(--text, #000); stroke-width: 1.3; }
+.pb-venn .pb-hach { stroke: var(--text, #000); stroke-width: .9; }
+.pb-venn .pb-hach.pb-reponse { stroke: var(--ia-c1, #1f5fbf); }
+.pb-venn.pb-cache .pb-hach.pb-reponse { display: none; }
+.pb-venn .pb-z, .pb-venn .pb-nom, .pb-venn .pb-univers { position: absolute; transform: translate(-50%, -50%);
+  white-space: nowrap; line-height: 1.2; }
+.pb-venn .pb-z { background: var(--card-bg, #fff); padding: 0 3px; border-radius: 3px; }
+.pb-btn { margin-top: .5rem; font-size: .85rem; padding: .15rem .6rem; border: 1px solid var(--card-brd, #999);
+  border-radius: 5px; background: transparent; color: inherit; cursor: pointer; }
+
+/* Partition en paquets */
+.pb-part-titre { text-align: center; margin-bottom: .4rem; }
+.pb-paquets { display: grid; grid-template-columns: repeat(var(--n, 5), minmax(0, 1fr)); gap: .35rem; }
+.pb-paquet { border: 1px solid var(--text, #000); border-radius: 4px; padding: .25rem .3rem;
+  text-align: center; font-size: .88em; min-height: 2.4em; }
+@media (max-width: 600px) { .pb-paquets { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Simulateur */
+.pb-sim { margin: 1.1rem 0; padding: .7rem .8rem; border: 1px solid var(--card-brd, #ccc); border-radius: 8px;
+  background: var(--card-bg, transparent); }
+.pb-sim-cmd button { margin: 0 .25rem .3rem 0; font-size: .85rem; padding: .15rem .55rem; border: 1px solid var(--card-brd, #999);
+  border-radius: 5px; background: transparent; color: inherit; cursor: pointer; }
+.pb-sim-n { margin-left: .5rem; font-weight: 600; }
+.pb-sim-opt { font-size: .85rem; margin-bottom: .3rem; }
+.pb-sim-opt label { margin-right: .9rem; }
+.pb-sim svg { width: 100%; max-width: 560px; height: auto; display: block; margin: 0 auto .4rem; }
+.pb-sim-axe { stroke: var(--text, #000); stroke-width: 1.2; }
+.pb-sim-grille { stroke: var(--card-brd, #ccc); stroke-width: .6; stroke-dasharray: 3 3; }
+.pb-sim-grad { fill: var(--text, #000); font-size: 11px; }
+.pb-sim-val { fill: var(--text, #000); font-size: 10px; }
+.pb-sim-barre { fill: var(--ia-c1, #1f5fbf); opacity: .8; }
+.pb-sim-barre.pb-suivi { fill: var(--ia-c2, #c2410c); }
+.pb-sim-mod { stroke: var(--text, #000); stroke-width: 2; stroke-dasharray: 5 3; }
+.pb-sim-trace { fill: none; stroke: var(--ia-c2, #c2410c); stroke-width: 1.6; }
+
+/* Dénombreur */
+.pb-denombreur { margin: 1.1rem 0; padding: .7rem .8rem; border: 1px solid var(--card-brd, #ccc); border-radius: 8px;
+  background: var(--card-bg, transparent); font-size: .92rem; }
+.pb-den-cmd label { margin-right: .7rem; }
+.pb-den-cmd select { font: inherit; }
+.pb-den-cmd button { font-size: .85rem; padding: .1rem .5rem; border: 1px solid var(--card-brd, #999); border-radius: 5px;
+  background: transparent; color: inherit; cursor: pointer; }
+.pb-den-cmd button:disabled { opacity: .45; cursor: default; }
+.pb-den-total { margin: .5rem 0; }
+.pb-den-liste { display: flex; flex-wrap: wrap; gap: .4rem; }
+.pb-den-groupe { border: 1px solid var(--card-brd, #999); border-radius: 5px; padding: .25rem .4rem; }
+.pb-den-paquet { border-color: var(--ia-c1, #1f5fbf); }
+.pb-den-titre { font-size: .8rem; font-weight: 600; margin-bottom: .15rem; }
+.pb-den-groupe span { font-family: var(--bs-font-monospace, monospace); margin-right: .3rem; }
+.pb-den-bilan { flex-basis: 100%; font-weight: 600; margin-top: .3rem; }
+
+/* Relevé de données (activité en classe) */
+.pb-releve { margin: 1.1rem 0; padding: .7rem .8rem; border: 1px solid var(--card-brd, #ccc); border-radius: 8px;
+  background: var(--card-bg, transparent); }
+.pb-rel-tab { overflow-x: auto; }
+table.pb-rel { border-collapse: collapse; margin: 0 auto .5rem; font-size: .85rem; }
+table.pb-rel th, table.pb-rel td { border: 1px solid var(--card-brd, #999); padding: .1rem .2rem; text-align: center; }
+table.pb-rel tbody th, table.pb-rel tfoot th { text-align: left; font-weight: 600; white-space: nowrap; }
+table.pb-rel input { width: 2.5em; padding: 0; font: inherit; text-align: center; background: transparent; color: inherit;
+  border: 1px solid var(--card-brd, #bbb); border-radius: 3px; }
+table.pb-rel tfoot td { font-weight: 600; }
+.pb-rel-opt { font-size: .85rem; margin-left: .6rem; }
+.pb-releve svg { width: 100%; max-width: 560px; height: auto; display: block; margin: .3rem auto; }
+.pb-rel-pt { fill: var(--ia-c2, #c2410c); }
+
+/* Saisie et vérification dans les figures */
+.pb-in { font: inherit; font-size: .9em; width: auto; padding: 0 .2rem; margin-right: .15rem; text-align: center;
+  background: var(--page-bg, #fff); color: inherit; border: 1px solid var(--card-brd, #999); border-radius: 3px; }
+.pb-in.pb-ok { border-color: #15803d; box-shadow: 0 0 0 1px #15803d; }
+.pb-in.pb-ko { border-color: #b91c1c; box-shadow: 0 0 0 1px #b91c1c; }
+.pb-verif { margin-top: .4rem; }
+.pb-verif .pb-btn { margin-top: 0; margin-right: .4rem; }
+.pb-verif-msg { font-size: .88rem; }
+.pb-verif-msg.pb-ok { color: #15803d; } .pb-verif-msg.pb-ko { color: #b91c1c; }
+.pb-venn svg.pb-cliquable { cursor: pointer; }
+.pb-venn .pb-hach-eleve line { stroke: var(--ia-c2, #c2410c); stroke-width: 1.1; }
+.pb-venn svg.pb-v { pointer-events: auto; }
+.pb-fig .pb-in + span.rep:not(.vu) { display: none; }
+/* Partition interactive */
+.pb-part-aide { font-size: .85rem; margin-bottom: .3rem; }
+.pb-part-reserve { display: flex; flex-wrap: wrap; gap: .3rem; min-height: 2rem; padding: .3rem; margin-bottom: .5rem;
+  border: 1px dashed var(--card-brd, #999); border-radius: 5px; }
+.pb-jeton { font: inherit; font-size: .85rem; padding: .05rem .4rem; border: 1px solid var(--card-brd, #999); border-radius: 4px;
+  background: var(--page-bg, #fff); color: inherit; cursor: pointer; }
+.pb-jeton.pb-choisi { outline: 2px solid var(--ia-c1, #1f5fbf); }
+.pb-part-case { min-height: 3.2em; cursor: pointer; display: flex; flex-wrap: wrap; gap: .2rem; align-content: flex-start; }
+.pb-part-case.pb-ok { box-shadow: 0 0 0 2px #15803d; } .pb-part-case.pb-ko { box-shadow: 0 0 0 2px #b91c1c; }
+.pb-part-solution { margin-top: .5rem; }
+.tableau .pb-in + span.rep:not(.vu) { display: none; }
+.tableau .pb-in { width: 3em; }
+.tableau > .pb-verif { text-align: center; }

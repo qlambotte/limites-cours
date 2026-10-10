@@ -1,0 +1,164 @@
+/* autoeval.css — « S'autoévaluer » (générique ; utilise les jetons de couleur du thème) */
+:root {
+  --ae-ok: #1d7a3e; --ae-ok-bg: #e7f5ec;
+  --ae-ko: #b3261e; --ae-ko-bg: #fbeaea;
+  --ae-mid: #9a5b00; --ae-mid-bg: #fdf1dc;
+}
+:root[data-theme="dark"] {
+  --ae-ok: #6fd08f; --ae-ok-bg: #163222;
+  --ae-ko: #ff8a80; --ae-ko-bg: #3a1a1a;
+  --ae-mid: #f0b878; --ae-mid-bg: #33260f;
+}
+
+/* banque : présente dans la page (maths et figures préparées) mais invisible */
+.ae-cache { position: absolute !important; left: -10000px; top: 0; width: 820px; visibility: hidden; }
+.ae-cache-local { display: none; }
+
+/* lien de fin de section */
+.ae-lien { margin: 2.2rem 0 1rem; }
+.ae-lien a { display: inline-block; padding: .55rem 1rem; border: 1px solid var(--accent); border-radius: 6px;
+  font-weight: 600; text-decoration: none; }
+.ae-lien a:hover { background: var(--hover-bg); }
+
+/* onglets */
+#ae-app { margin-top: 1rem; }
+.ae-onglets { display: flex; gap: .25rem; border-bottom: 1px solid var(--rule); margin-bottom: 1.1rem; flex-wrap: wrap; }
+.ae-onglet { border: none; background: none; padding: .55rem .9rem; font-weight: 600; color: var(--muted);
+  border-bottom: 2px solid transparent; margin-bottom: -1px; cursor: pointer; }
+.ae-onglet:hover { color: var(--h); }
+.ae-onglet.on { color: var(--accent); border-bottom-color: var(--accent); }
+
+.ae-muted { color: var(--muted); font-size: .92em; }
+.ae-btn { border: 1px solid var(--card-brd); background: var(--card-bg); color: var(--text); border-radius: 6px;
+  padding: .45rem .95rem; font-weight: 600; cursor: pointer; }
+.ae-btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.ae-btn:disabled { opacity: .45; cursor: default; }
+.ae-btn-p { background: var(--accent); border-color: var(--accent); color: #fff; }
+.ae-btn-p:hover:not(:disabled) { color: #fff; filter: brightness(1.08); }
+.ae-btn-l { background: none; border-color: transparent; color: var(--muted); font-weight: 500; }
+.ae-actions { display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; margin: 1rem 0; }
+
+/* cartes des questionnaires tout faits */
+.ae-carte { border: 1px solid var(--card-brd); background: var(--card-bg); border-radius: 8px; padding: .9rem 1.1rem; margin: .8rem 0; }
+.ae-carte-titre { font-weight: 700; color: var(--h); font-size: 1.08rem; }
+.ae-carte-titre p, .ae-carte-desc p { margin: 0; }
+.ae-carte-desc { margin: .3rem 0 .2rem; }
+.ae-carte-pied { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-top: .6rem; }
+
+/* composer */
+.ae-fs { border: 1px solid var(--card-brd); border-radius: 8px; padding: .5rem 1rem .8rem; margin: 0 0 1rem; }
+.ae-fs legend { float: none; width: auto; font-size: 1rem; font-weight: 700; color: var(--h); padding: 0 .35rem; margin: 0; }
+.ae-fs > p { margin: .1rem 0 .4rem; }
+.ae-fs-ligne { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; align-items: center; }
+.ae-groupe { margin: .45rem 0; }
+.ae-groupe-t { font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); margin-bottom: .15rem; }
+.ae-case { display: flex; gap: .55rem; align-items: baseline; padding: .15rem 0; cursor: pointer; }
+.ae-case input { flex: none; transform: translateY(.1em); accent-color: var(--accent); }
+.ae-case p { margin: 0; display: inline; }
+.ae-nombre { width: 5rem; padding: .25rem .4rem; border: 1px solid var(--card-brd); border-radius: 5px; background: var(--input-bg); color: var(--text); }
+.ae-dispo { margin: 0; color: var(--muted); }
+
+/* passage */
+.ae-run-tete { display: flex; gap: 1rem; align-items: baseline; justify-content: space-between; flex-wrap: wrap; }
+.ae-run-titre { font-weight: 700; color: var(--h); }
+.ae-run-titre p { display: inline; margin: 0; }
+.ae-barre { height: 4px; background: var(--rule); border-radius: 2px; margin: .5rem 0 1rem; overflow: hidden; }
+.ae-barre > div { height: 100%; background: var(--accent); }
+.ae-q-carte { border: 1px solid var(--card-brd); border-radius: 8px; padding: 1rem 1.2rem; background: var(--page-bg); }
+.ae-q-meta { display: flex; gap: .4rem; margin-bottom: .6rem; flex-wrap: wrap; }
+.ae-badge { font-size: .76rem; font-weight: 700; color: var(--accent); background: var(--hover-bg); border-radius: 3px; padding: .1rem .5rem; }
+.ae-enonce > :first-child { margin-top: 0; }
+.ae-consigne { color: var(--muted); font-size: .9rem; margin: .9rem 0 .4rem; }
+
+.ae-props { display: grid; gap: .55rem; }
+.ae-prop { border: 1px solid var(--card-brd); border-radius: 7px; overflow: hidden; }
+.ae-choix { display: flex; gap: .7rem; align-items: baseline; width: 100%; text-align: left; border: none;
+  background: var(--card-bg); color: var(--text); padding: .6rem .8rem; cursor: pointer; }
+.ae-choix:hover { background: var(--hover-bg); }
+.ae-choix .ae-r > :first-child { margin-top: 0; } .ae-choix .ae-r > :last-child { margin-bottom: 0; }
+.ae-lettre { flex: none; width: 1.6rem; height: 1.6rem; border-radius: 50%; border: 1.5px solid var(--muted);
+  display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: .85rem; }
+.ae-prop .ae-fb { display: none; padding: .55rem .9rem .65rem 3.1rem; font-size: .95rem; }
+.ae-prop.revelee .ae-fb { display: block; }
+.ae-prop .ae-fb > :first-child { margin-top: 0; } .ae-prop .ae-fb > :last-child { margin-bottom: 0; }
+.ae-prop.juste { border-color: var(--ae-ok); }
+.ae-prop.juste .ae-choix, .ae-prop.juste .ae-fb { background: var(--ae-ok-bg); }
+.ae-prop.juste .ae-lettre { border-color: var(--ae-ok); background: var(--ae-ok); color: #fff; }
+.ae-prop.fausse { border-color: var(--ae-ko); }
+.ae-prop.fausse .ae-choix, .ae-prop.fausse .ae-fb { background: var(--ae-ko-bg); }
+.ae-prop.fausse .ae-lettre { border-color: var(--ae-ko); color: var(--ae-ko); }
+.ae-prop.fausse .ae-lettre::after { content: "✗"; }
+.ae-prop.fausse .ae-lettre { font-size: 0; } .ae-prop.fausse .ae-lettre::after { font-size: .9rem; }
+.ae-props.fini .ae-prop:not(.choisie) .ae-choix { cursor: default; opacity: .7; }
+
+.ae-texte { width: 100%; margin-top: .9rem; padding: .5rem .6rem; border: 1px solid var(--card-brd); border-radius: 6px;
+  background: var(--input-bg); color: var(--text); font: inherit; }
+.ae-rep-t, .ae-grille-t { font-size: .78rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); margin: 1rem 0 .3rem; }
+.ae-rep { border-left: 3px solid var(--accent); padding: .2rem 0 .2rem .9rem; }
+.ae-rep > :first-child { margin-top: 0; }
+.ae-grille .ae-case { padding: .25rem 0; }
+.ae-verdict { font-weight: 600; margin: .2rem 0; }
+
+/* bilan */
+.ae-table { width: 100%; border-collapse: collapse; margin: .8rem 0 1.2rem; font-size: .95rem; }
+.ae-table th { text-align: left; font-size: .8rem; color: var(--muted); border-bottom: 2px solid var(--rule); padding: .35rem .5rem; }
+.ae-table td { border-bottom: 1px solid var(--rule); padding: .45rem .5rem; vertical-align: top; }
+.ae-table td p { margin: 0; }
+.ae-num { white-space: nowrap; }
+.ae-raison { font-size: .75rem; color: var(--muted, #555); margin-top: .2rem; line-height: 1.25; max-width: 11rem; }
+.ae-legende { font-size: .8rem; color: var(--muted, #555); margin: .4rem 0 0; }
+@media print { .ae-raison, .ae-legende { color: #000; } }
+.ae-etat { display: inline-block; font-size: .8rem; font-weight: 700; border-radius: 3px; padding: .1rem .5rem; white-space: nowrap; }
+.ae-e-ok { color: var(--ae-ok); background: var(--ae-ok-bg); }
+.ae-e-mid { color: var(--ae-mid); background: var(--ae-mid-bg); }
+.ae-e-ko { color: var(--ae-ko); background: var(--ae-ko-bg); }
+.ae-e-vide { color: var(--muted); background: var(--card-bg); }
+.ae-verdict.ae-e-ok, .ae-verdict.ae-e-mid { background: none; }
+.ae-legende { font-size: .88rem; color: var(--muted); }
+.ae-print-tete { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; margin-bottom: .4rem; }
+.ae-print-cours { display: none; font-weight: 700; }
+.ae-nom { padding: .25rem .5rem; border: 1px solid var(--card-brd); border-radius: 5px; background: var(--input-bg); color: var(--text); }
+.ae-hist { font-size: .92rem; }
+.ae-fin-t { margin-top: .5rem; }
+
+/* fiche « Ce que je dois retravailler » */
+.ae-fiche { margin-top: 1.4rem; }
+.ae-fiche-obj { padding: .55rem 0; border-top: 1px solid var(--card-brd); }
+.ae-fiche-t { line-height: 1.4; }
+.ae-fiche-l { font-size: .9rem; margin-top: .25rem; }
+.ae-fiche-l > span:first-child { font-weight: 700; }
+.ae-fiche .ae-raison { max-width: none; }
+@media print {
+  body.ae-fiche-seule .ae-corps > *:not(.ae-fiche):not(.ae-print-tete) { display: none !important; }
+  body.ae-impression .ae-fiche a { text-decoration: none; }
+  body.ae-impression .ae-fiche-obj { border-top: 1px solid #000; break-inside: avoid; }
+}
+
+/* impression du bilan : uniquement le bilan, en noir (pas de gris) */
+@media print {
+  body.ae-impression #quarto-sidebar, body.ae-impression #quarto-margin-sidebar, body.ae-impression header,
+  body.ae-impression footer, body.ae-impression .ae-onglets, body.ae-impression .ae-no-print,
+  body.ae-impression #title-block-header, body.ae-impression .quarto-title, body.ae-impression nav,
+  body.ae-impression .bulle-pdf, body.ae-impression .an-ui, body.ae-impression .an-couche,
+  body.ae-impression .ae-cache, body.ae-impression .page-navigation, body.ae-impression #quarto-back-to-top { display: none !important; }
+  body.ae-impression { background: #fff !important; }
+  body.ae-impression #ae-app, body.ae-impression #ae-app * { color: #000 !important; background: transparent !important; box-shadow: none !important; }
+  body.ae-impression .ae-print-cours { display: block; font-size: 1.2rem; }
+  body.ae-impression .ae-nom { border: none; font-weight: 700; padding: 0; }
+  body.ae-impression .ae-table th, body.ae-impression .ae-table td { border-bottom: 1px solid #000 !important; }
+  body.ae-impression .ae-etat { border: 1px solid #000; }
+  body.ae-impression main, body.ae-impression #quarto-content { margin: 0 !important; padding: 0 !important; max-width: none !important; }
+}
+
+/* réponses (rep, repc, rep-lignes, tableaux « reponse: true ») dans la banque :
+   toujours visibles — c'est le composant qui décide quand montrer la réponse type */
+:is(.ae-rep, .ae-fb, .ae-r, .ae-enonce, .ae-crit) span.rep { border: none; padding: 0; cursor: auto; background: none; color: inherit; }
+:is(.ae-rep, .ae-fb, .ae-r, .ae-enonce, .ae-crit) span.rep * { color: inherit !important; }
+:is(.ae-rep, .ae-fb, .ae-r, .ae-enonce, .ae-crit) mjx-container .rep { color: inherit; background: none; border: none; cursor: auto; }
+:is(.ae-rep, .ae-fb, .ae-r, .ae-enonce, .ae-crit) .rep-bloc { border: none; padding: 0; cursor: auto; }
+:is(.ae-rep, .ae-fb, .ae-r, .ae-enonce, .ae-crit) .rep-bloc > * { display: block !important; }
+:is(.ae-rep, .ae-fb, .ae-r, .ae-enonce, .ae-crit) .rep-bloc::before { content: none !important; }
+
+/* figures rendues par Typst (images SVG, comme dans le PDF) */
+.typst-fig { margin: 1rem 0; text-align: center; }
+.typst-fig img { max-width: 100%; height: auto; background: #fff; border-radius: 6px; padding: 4px; }
