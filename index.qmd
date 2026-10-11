@@ -12,7 +12,9 @@ Ce site accompagne le **cours imprimé** de 5e (UAA 3). On y trouve le même tex
 ## Chapitres
 
 - **[Chapitre 1 — Fonctions](ch1-fonctions/index.qmd)** : rappels, opérations, composée, domaine, premier contact avec les asymptotes.
-- **[Chapitre 2 — Limites](ch2-limites/index.qmd)** : qu'est-ce qu'une limite ; points creux et asymptotes verticales ; asymptotes horizontales et obliques.
+- **[Chapitre 2 — Limites : définition et lecture graphique](ch2-limites-definition-e/index.qmd)** : qu'est-ce qu'une limite, quand a-t-elle un sens, limites à gauche et à droite, limites des fonctions de référence.
+- **[Chapitre 3 — Points creux et asymptotes verticales](ch3-chercher-les-points/index.qmd)** : calcul des limites d'une fonction rationnelle en un point du domaine et en une valeur interdite.
+- **[Chapitre 4 — Asymptotes horizontales et obliques](ch4-chercher-les-asympto/index.qmd)** : limites en $\pm\infty$ des polynômes et des fonctions rationnelles, asymptote oblique, synthèse.
 
 ::: {.callout-tip title="Comment travailler"}
 Lis le cours, **manipule les figures**, puis passe aux exercices. N'ouvre les *coups de pouce* qu'après avoir cherché : ils sont faits pour te débloquer, pas pour remplacer ta recherche.
