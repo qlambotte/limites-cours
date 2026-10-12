@@ -77,7 +77,7 @@
   function lire() {
     var d = { sections: [], objectifs: [], qas: [], questions: [], parId: {} };
     $$("#ae-banque .ae-sec").forEach(function (e) {
-      d.sections.push({ id: e.dataset.id, chap: +e.dataset.chap, url: e.dataset.url, n: +e.dataset.n, html: e.innerHTML });
+      d.sections.push({ id: e.dataset.aeId, chap: +e.dataset.chap, url: e.dataset.url, n: +e.dataset.n, html: e.innerHTML });
     });
     $$("#ae-banque .ae-obj").forEach(function (e) {
       d.objectifs.push({ code: e.dataset.code, cat: e.dataset.cat, html: e.innerHTML });
@@ -85,11 +85,11 @@
     $$("#ae-banque .ae-qa").forEach(function (e) {
       var spec = {};
       try { spec = JSON.parse(e.dataset.spec); } catch (x) {}
-      d.qas.push({ id: e.dataset.id, titre: $(".ae-qa-titre", e).innerHTML, desc: $(".ae-qa-desc", e).innerHTML,
+      d.qas.push({ id: e.dataset.aeId, titre: $(".ae-qa-titre", e).innerHTML, desc: $(".ae-qa-desc", e).innerHTML,
                    questions: spec.questions, tirage: spec.tirage });
     });
     $$("#ae-banque .ae-q").forEach(function (e) {
-      var q = { id: e.dataset.id, type: e.dataset.type, section: e.dataset.section,
+      var q = { id: e.dataset.aeId, type: e.dataset.type, section: e.dataset.section,
                 obj: (e.dataset.obj || "").split(/\s+/).filter(Boolean), niveau: +e.dataset.niveau,
                 forme: e.dataset.forme || null, ordre: e.dataset.ordre || "melange", el: e };
       d.questions.push(q); d.parId[q.id] = q;

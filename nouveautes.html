@@ -438,13 +438,11 @@ ul.task-list li input[type="checkbox"] {
 })();
 </script>
 <script>
-// Trois outils à côté du titre (comme « bookup ») : GitHub · Téléchargement · Thème clair/sombre.
+// Outils à côté du titre : Téléchargement · Thème clair/sombre (plus de lien GitHub : P0, 2026-10).
 (function () {
-  var GITHUB_URL = "https://github.com/qlambotte/limites-cours";   // [cours] depot de typweb.toml
 
   var SVG = {
     maison: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2 1 7.1l.9 1.1L3 7.3V14a1 1 0 0 0 1 1h3v-4h2v4h3a1 1 0 0 0 1-1V7.3l1.1.9.9-1.1L8 1.2z"/></svg>',
-    github: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>',
     download: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1a.75.75 0 0 1 .75.75v6.44l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 1.06-1.06l1.97 1.97V1.75A.75.75 0 0 1 8 1zM2.75 12a.75.75 0 0 1 .75.75v.75a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-.75a.75.75 0 0 1 1.5 0v.75A2 2 0 0 1 12 15.5H4a2 2 0 0 1-2-2v-.75a.75.75 0 0 1 .75-.75z"/></svg>',
     sun: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 4.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM8 0a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1A.75.75 0 0 1 8 0zm0 13a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1A.75.75 0 0 1 8 13zM16 8a.75.75 0 0 1-.75.75h-1a.75.75 0 0 1 0-1.5h1A.75.75 0 0 1 16 8zM3 8a.75.75 0 0 1-.75.75h-1a.75.75 0 0 1 0-1.5h1A.75.75 0 0 1 3 8zm10.66-5.66a.75.75 0 0 1 0 1.06l-.7.7a.75.75 0 1 1-1.06-1.06l.7-.7a.75.75 0 0 1 1.06 0zM4.1 11.9a.75.75 0 0 1 0 1.06l-.7.7a.75.75 0 0 1-1.06-1.06l.7-.7a.75.75 0 0 1 1.06 0zm9.56 1.76a.75.75 0 0 1-1.06 0l-.7-.7a.75.75 0 1 1 1.06-1.06l.7.7a.75.75 0 0 1 0 1.06zM4.1 4.1a.75.75 0 0 1-1.06 0l-.7-.7a.75.75 0 0 1 1.06-1.06l.7.7a.75.75 0 0 1 0 1.06z"/></svg>',
     moon: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278z"/></svg>'
@@ -470,12 +468,6 @@ ul.task-list li input[type="checkbox"] {
     }
     if (host.dataset.imsvTools) return;
     host.dataset.imsvTools = '1';
-
-    // 1) GitHub
-    var gh = makeTool('a', '', SVG.github, 'Code source (GitHub)');
-    gh.setAttribute('href', GITHUB_URL);
-    gh.setAttribute('target', '_blank');
-    gh.setAttribute('rel', 'noopener');
 
     // 2) Téléchargement des PDF du cours : liste fournie par typweb
     //    (window.TYPWEB.pdfs, réglée dans [pdf] de typweb.toml) ; à défaut,
@@ -542,7 +534,6 @@ ul.task-list li input[type="checkbox"] {
       home.setAttribute('href', portail);
       host.appendChild(home);
     }
-    if (GITHUB_URL) host.appendChild(gh);
     if (dlWrap) host.appendChild(dlWrap);
     host.appendChild(themeBtn);
     // 4) Mode d'emploi du site (page générée par typweb)
@@ -594,7 +585,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- GÉNÉRÉ par typweb — ne pas éditer -->
 <script>
 /* Réglages du cours (typweb.toml) */
-window.TYPWEB = {"cle": "limites", "pdf": "limites.pdf", "depot": "https://github.com/qlambotte/limites-cours", "pdfs": [{"titre": "Cours — version élève", "detail": "réponses à compléter", "fichier": "limites.pdf"}, {"titre": "Cours — avec le corrigé", "detail": "réponses en bleu", "fichier": "limites-corrige.pdf"}], "portail": "https://qlambotte.github.io/6e.html", "horsLigne": true, "stylesEssai": true, "modeEmploi": true, "minuteur": [3, 5, 10, 15, 20]};
+window.TYPWEB = {"cle": "limites", "uaa": "5UAA3", "pdf": "limites.pdf", "depot": "https://github.com/qlambotte/limites-cours", "pdfs": [{"titre": "Cours — version élève", "detail": "réponses à compléter", "fichier": "limites.pdf"}, {"titre": "Cours — avec le corrigé", "detail": "réponses en bleu", "fichier": "limites-corrige.pdf"}], "portail": "https://qlambotte.github.io/6e.html", "horsLigne": true, "stylesEssai": true, "modeEmploi": true, "minuteur": [3, 5, 10, 15, 20]};
 /* Charge les scripts du site (js/) avec le bon chemin relatif,
    quelle que soit la profondeur de la page. */
 (function () {
@@ -606,6 +597,40 @@ window.TYPWEB = {"cle": "limites", "pdf": "limites.pdf", "depot": "https://githu
     off = u.indexOf("site_libs/") >= 0 ? u.slice(0, u.indexOf("site_libs/")) : "";
   }
   window.SITE_OFFSET = off;
+  window.TYPWEB.index = off + "index.json";
+  /* Couche prof (doc/identifiants.md) : rien pour les élèves. Activée sur cet
+     appareil par #prof dans l'adresse (avec confirmation, mémorisé), désactivée
+     par #prof-off ; le #prof est aussitôt retiré de l'adresse (pas de lien à
+     recopier qui l'activerait chez un élève). Ce drapeau ne donne aucun droit. */
+  function coucheProf() {
+    try {
+      var h = location.hash;
+      if (h === "#prof" || h === "#prof-off") {
+        if (h === "#prof-off") localStorage.removeItem("typweb.prof");
+        else if (window.confirm("Activer la couche prof sur cet appareil ?")) localStorage.setItem("typweb.prof", "1");
+        history.replaceState(null, "", location.pathname + location.search);
+      }
+      if (localStorage.getItem("typweb.prof") === "1" && !window.TYPWEB.profCharge) {
+        window.TYPWEB.profCharge = true;
+        var p = document.createElement("script");
+        p.src = off + "prof.js"; p.async = true;
+        document.head.appendChild(p);
+      }
+    } catch (e) {}
+  }
+  coucheProf();
+  window.addEventListener("hashchange", coucheProf);
+  /* Liens profonds page.html#5UAA3.ex.003 : défiler jusqu'à l'élément [data-id]
+     (l'identifiant stable n'est pas un id HTML : rien n'est ajouté à la page). */
+  function versId() {
+    var id;
+    try { id = decodeURIComponent(location.hash.slice(1)); } catch (e) { return; }
+    if (!id || document.getElementById(id)) return;
+    var e = document.querySelector('[data-id="' + CSS.escape(id) + '"][data-type]');
+    if (e) e.scrollIntoView({ block: "start" });
+  }
+  window.addEventListener("load", versId);
+  window.addEventListener("hashchange", versId);
   /* mode hors-ligne (sw.js) : pas en aperçu local, où il gênerait les mises à jour */
   if ("serviceWorker" in navigator && window.TYPWEB.horsLigne) {
     if (/^(localhost|127\.|\[::1\])/.test(location.hostname) || location.protocol === "file:") {

@@ -1,0 +1,1938 @@
+{
+ "format": 1,
+ "cours": "Limites et asymptotes",
+ "uaa": "5UAA3",
+ "annee": "5e",
+ "cle": "limites",
+ "empreinte": "d965bb531c30",
+ "genere": "2026-10-12",
+ "elements": [
+  {
+   "id": "5UAA3.fonctions",
+   "type": "chapitre",
+   "titre": "Chapitre 1 — Fonctions",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/index.html",
+   "num": "1",
+   "page": null
+  },
+  {
+   "id": "5UAA3.rappels",
+   "type": "section",
+   "titre": "Rappels",
+   "parent": "5UAA3.fonctions",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/1-rappels.html",
+   "num": "1.1",
+   "page": null
+  },
+  {
+   "id": "5UAA3.rem.001",
+   "type": "remarque",
+   "titre": "Remarque 1.1",
+   "parent": "5UAA3.rappels",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/1-rappels.html#5UAA3.rem.001",
+   "num": "1.1",
+   "page": 2
+  },
+  {
+   "id": "5UAA3.fonction-lue-puis-calculee",
+   "type": "activite",
+   "titre": "Activité 1.1 — une fonction, lue puis calculée",
+   "parent": "5UAA3.rappels",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/1-rappels.html#5UAA3.fonction-lue-puis-calculee",
+   "num": "1.1",
+   "page": 2
+  },
+  {
+   "id": "5UAA3.def.001",
+   "type": "definition",
+   "titre": "Définition 1.1",
+   "parent": "5UAA3.rappels",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/1-rappels.html#5UAA3.def.001",
+   "num": "1.1",
+   "page": 3
+  },
+  {
+   "id": "5UAA3.ex.001",
+   "type": "exercice",
+   "titre": "Exercice 1.1",
+   "parent": "5UAA3.rappels",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/1-rappels.html#5UAA3.ex.001",
+   "num": "1.1",
+   "page": 3
+  },
+  {
+   "id": "5UAA3.operations-fonctions",
+   "type": "section",
+   "titre": "Opérations sur les fonctions",
+   "parent": "5UAA3.fonctions",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/2-operations-sur-les-fonctions.html",
+   "num": "1.2",
+   "page": null
+  },
+  {
+   "id": "5UAA3.benefice-sans-savoir",
+   "type": "activite",
+   "titre": "Activité 1.2 — un bénéfice, sans le savoir",
+   "parent": "5UAA3.operations-fonctions",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/2-operations-sur-les-fonctions.html#5UAA3.benefice-sans-savoir",
+   "num": "1.2",
+   "page": 4
+  },
+  {
+   "id": "5UAA3.def.002",
+   "type": "definition",
+   "titre": "Définition 1.2",
+   "parent": "5UAA3.operations-fonctions",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/2-operations-sur-les-fonctions.html#5UAA3.def.002",
+   "num": "1.2",
+   "page": 4
+  },
+  {
+   "id": "5UAA3.ex.002",
+   "type": "exercice",
+   "titre": "Exercice 1.2",
+   "parent": "5UAA3.operations-fonctions",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/2-operations-sur-les-fonctions.html#5UAA3.ex.002",
+   "num": "1.2",
+   "page": 5
+  },
+  {
+   "id": "5UAA3.ex.003",
+   "type": "exercice",
+   "titre": "Exercice 1.3",
+   "parent": "5UAA3.operations-fonctions",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/2-operations-sur-les-fonctions.html#5UAA3.ex.003",
+   "num": "1.3",
+   "page": 5
+  },
+  {
+   "id": "5UAA3.reconnaitre-composee",
+   "type": "section",
+   "titre": "Reconnaître une composée",
+   "parent": "5UAA3.fonctions",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html",
+   "num": "1.3",
+   "page": null
+  },
+  {
+   "id": "5UAA3.blocs-base",
+   "type": "activite",
+   "titre": "Activité 1.3 — des blocs de base",
+   "parent": "5UAA3.reconnaitre-composee",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.blocs-base",
+   "num": "1.3",
+   "page": 5
+  },
+  {
+   "id": "5UAA3.def.003",
+   "type": "definition",
+   "titre": "Définition 1.3",
+   "parent": "5UAA3.reconnaitre-composee",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.def.003",
+   "num": "1.3",
+   "page": 6
+  },
+  {
+   "id": "5UAA3.identifier-deux-composantes",
+   "type": "exemple",
+   "titre": "Exemple 1.1 — identifier les deux composantes",
+   "parent": "5UAA3.reconnaitre-composee",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.identifier-deux-composantes",
+   "num": "1.1",
+   "page": 6
+  },
+  {
+   "id": "5UAA3.composition-redonne-bloc-connu",
+   "type": "exemple",
+   "titre": "Exemple 1.2 — une composition qui redonne un bloc connu",
+   "parent": "5UAA3.reconnaitre-composee",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.composition-redonne-bloc-connu",
+   "num": "1.2",
+   "page": 7
+  },
+  {
+   "id": "5UAA3.rem.002",
+   "type": "remarque",
+   "titre": "Remarque 1.2",
+   "parent": "5UAA3.reconnaitre-composee",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.rem.002",
+   "num": "1.2",
+   "page": 8
+  },
+  {
+   "id": "5UAA3.ex.004",
+   "type": "exercice",
+   "titre": "Exercice 1.4",
+   "parent": "5UAA3.reconnaitre-composee",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.ex.004",
+   "num": "1.4",
+   "page": 8
+  },
+  {
+   "id": "5UAA3.ex.005",
+   "type": "exercice",
+   "titre": "Exercice 1.5",
+   "parent": "5UAA3.reconnaitre-composee",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.ex.005",
+   "num": "1.5",
+   "page": 8
+  },
+  {
+   "id": "5UAA3.decomposer-fonction",
+   "type": "exemple",
+   "titre": "Exemple 1.3 — décomposer une fonction",
+   "parent": "5UAA3.reconnaitre-composee",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.decomposer-fonction",
+   "num": "1.3",
+   "page": 8
+  },
+  {
+   "id": "5UAA3.ex.006",
+   "type": "exercice",
+   "titre": "Exercice 1.6",
+   "parent": "5UAA3.reconnaitre-composee",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.ex.006",
+   "num": "1.6",
+   "page": 9
+  },
+  {
+   "id": "5UAA3.recherche-algebrique-domaine-fonction",
+   "type": "section",
+   "titre": "Recherche algébrique du domaine d’une fonction",
+   "parent": "5UAA3.fonctions",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html",
+   "num": "1.4",
+   "page": null
+  },
+  {
+   "id": "5UAA3.ex.007",
+   "type": "exercice",
+   "titre": "Exercice 1.7",
+   "parent": "5UAA3.recherche-algebrique-domaine-fonction",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html#5UAA3.ex.007",
+   "num": "1.7",
+   "page": 9
+  },
+  {
+   "id": "5UAA3.ex.008",
+   "type": "exercice",
+   "titre": "Exercice 1.8",
+   "parent": "5UAA3.recherche-algebrique-domaine-fonction",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html#5UAA3.ex.008",
+   "num": "1.8",
+   "page": 10
+  },
+  {
+   "id": "5UAA3.ex.009",
+   "type": "exercice",
+   "titre": "Exercice 1.9",
+   "parent": "5UAA3.recherche-algebrique-domaine-fonction",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html#5UAA3.ex.009",
+   "num": "1.9",
+   "page": 10
+  },
+  {
+   "id": "5UAA3.asymptotes-premier-contact",
+   "type": "section",
+   "titre": "Asymptotes : premier contact",
+   "parent": "5UAA3.fonctions",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/5-asymptotes-premier-contact.html",
+   "num": "1.5",
+   "page": null
+  },
+  {
+   "id": "5UAA3.ex.010",
+   "type": "exercice",
+   "titre": "Exercice 1.10",
+   "parent": "5UAA3.asymptotes-premier-contact",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/5-asymptotes-premier-contact.html#5UAA3.ex.010",
+   "num": "1.10",
+   "page": 13
+  },
+  {
+   "id": "5UAA3.ex.011",
+   "type": "exercice",
+   "titre": "Exercice 1.11",
+   "parent": "5UAA3.asymptotes-premier-contact",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/5-asymptotes-premier-contact.html#5UAA3.ex.011",
+   "num": "1.11",
+   "page": 13
+  },
+  {
+   "id": "5UAA3.ex.012",
+   "type": "exercice",
+   "titre": "Exercice 1.12",
+   "parent": "5UAA3.asymptotes-premier-contact",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1-fonctions/5-asymptotes-premier-contact.html#5UAA3.ex.012",
+   "num": "1.12",
+   "page": 14
+  },
+  {
+   "id": "5UAA3.ex.013",
+   "type": "exercice",
+   "titre": "Exercice 1.13",
+   "parent": "5UAA3.asymptotes-premier-contact",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch1-fonctions/5-asymptotes-premier-contact.html#5UAA3.ex.013",
+   "num": "1.13",
+   "page": 14
+  },
+  {
+   "id": "5UAA3.rem.003",
+   "type": "remarque",
+   "titre": "Remarque 1.3",
+   "parent": "5UAA3.asymptotes-premier-contact",
+   "etiquettes": [],
+   "ancre": "ch1-fonctions/5-asymptotes-premier-contact.html#5UAA3.rem.003",
+   "num": "1.3",
+   "page": 15
+  },
+  {
+   "id": "5UAA3.limites-definition-lecture-graphique",
+   "type": "chapitre",
+   "titre": "Chapitre 2 — Limites : définition et lecture graphique",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/index.html",
+   "num": "2",
+   "page": null
+  },
+  {
+   "id": "5UAA3.decrire-graphique-sans-montrer",
+   "type": "section",
+   "titre": "Décrire un graphique sans le montrer",
+   "parent": "5UAA3.limites-definition-lecture-graphique",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/1-decrire-un-graphique-sans-le.html",
+   "num": "2.1",
+   "page": null
+  },
+  {
+   "id": "5UAA3.telephone",
+   "type": "activite",
+   "titre": "Activité 2.1 — au téléphone",
+   "parent": "5UAA3.decrire-graphique-sans-montrer",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/1-decrire-un-graphique-sans-le.html#5UAA3.telephone",
+   "num": "2.1",
+   "page": 16
+  },
+  {
+   "id": "5UAA3.point-se-deplace-graphique",
+   "type": "section",
+   "titre": "Un point qui se déplace sur un graphique",
+   "parent": "5UAA3.limites-definition-lecture-graphique",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/2-un-point-qui-se-deplace.html",
+   "num": "2.2",
+   "page": null
+  },
+  {
+   "id": "5UAA3.vers-va-point",
+   "type": "activite",
+   "titre": "Activité 2.2 — vers où va le point ?",
+   "parent": "5UAA3.point-se-deplace-graphique",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/2-un-point-qui-se-deplace.html#5UAA3.vers-va-point",
+   "num": "2.2",
+   "page": 17
+  },
+  {
+   "id": "5UAA3.trou-graphique",
+   "type": "section",
+   "titre": "Un trou dans le graphique",
+   "parent": "5UAA3.limites-definition-lecture-graphique",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/3-un-trou-dans-le-graphique.html",
+   "num": "2.3",
+   "page": null
+  },
+  {
+   "id": "5UAA3.valeur-interdite-point-creux",
+   "type": "activite",
+   "titre": "Activité 2.3 — une valeur interdite, un point creux",
+   "parent": "5UAA3.trou-graphique",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/3-un-trou-dans-le-graphique.html#5UAA3.valeur-interdite-point-creux",
+   "num": "2.3",
+   "page": 19
+  },
+  {
+   "id": "5UAA3.definition",
+   "type": "section",
+   "titre": "Définition",
+   "parent": "5UAA3.limites-definition-lecture-graphique",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/4-definition.html",
+   "num": "2.4",
+   "page": null
+  },
+  {
+   "id": "5UAA3.limite-fonction",
+   "type": "definition",
+   "titre": "Définition 2.1 — limite d’une fonction",
+   "parent": "5UAA3.definition",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/4-definition.html#5UAA3.limite-fonction",
+   "num": "2.1",
+   "page": 20
+  },
+  {
+   "id": "5UAA3.rem.004",
+   "type": "remarque",
+   "titre": "Remarque 2.1",
+   "parent": "5UAA3.definition",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/4-definition.html#5UAA3.rem.004",
+   "num": "2.1",
+   "page": 20
+  },
+  {
+   "id": "5UAA3.chaque-symbole-role",
+   "type": "activite",
+   "titre": "Activité 2.4 — chaque symbole a un rôle",
+   "parent": "5UAA3.definition",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/4-definition.html#5UAA3.chaque-symbole-role",
+   "num": "2.4",
+   "page": 20
+  },
+  {
+   "id": "5UAA3.rem.005",
+   "type": "remarque",
+   "titre": "Remarque 2.2",
+   "parent": "5UAA3.definition",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/4-definition.html#5UAA3.rem.005",
+   "num": "2.2",
+   "page": 21
+  },
+  {
+   "id": "5UAA3.rem.006",
+   "type": "remarque",
+   "titre": "Remarque 2.3",
+   "parent": "5UAA3.definition",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/4-definition.html#5UAA3.rem.006",
+   "num": "2.3",
+   "page": 21
+  },
+  {
+   "id": "5UAA3.quand-limite-t-elle-sens",
+   "type": "section",
+   "titre": "Quand une limite a-t-elle un sens ?",
+   "parent": "5UAA3.limites-definition-lecture-graphique",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/5-quand-une-limite-a-t.html",
+   "num": "2.5",
+   "page": null
+  },
+  {
+   "id": "5UAA3.peut-se-placer",
+   "type": "activite",
+   "titre": "Activité 2.5 — où peut-on se placer ?",
+   "parent": "5UAA3.quand-limite-t-elle-sens",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/5-quand-une-limite-a-t.html#5UAA3.peut-se-placer",
+   "num": "2.5",
+   "page": 21
+  },
+  {
+   "id": "5UAA3.valeur-colle-domaine",
+   "type": "definition",
+   "titre": "Définition 2.2 — valeur qui « colle au domaine »",
+   "parent": "5UAA3.quand-limite-t-elle-sens",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/5-quand-une-limite-a-t.html#5UAA3.valeur-colle-domaine",
+   "num": "2.2",
+   "page": 22
+  },
+  {
+   "id": "5UAA3.trois-reponses-possibles",
+   "type": "propriete",
+   "titre": "Propriété 2.1 — trois réponses possibles",
+   "parent": "5UAA3.quand-limite-t-elle-sens",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/5-quand-une-limite-a-t.html#5UAA3.trois-reponses-possibles",
+   "num": "2.1",
+   "page": 22
+  },
+  {
+   "id": "5UAA3.exm.001",
+   "type": "exemple",
+   "titre": "Exemple 2.1",
+   "parent": "5UAA3.quand-limite-t-elle-sens",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/5-quand-une-limite-a-t.html#5UAA3.exm.001",
+   "num": "2.1",
+   "page": 22
+  },
+  {
+   "id": "5UAA3.limites-gauche-droite",
+   "type": "section",
+   "titre": "Limites à gauche et à droite",
+   "parent": "5UAA3.limites-definition-lecture-graphique",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/6-limites-a-gauche-et-a.html",
+   "num": "2.6",
+   "page": null
+  },
+  {
+   "id": "5UAA3.saut",
+   "type": "activite",
+   "titre": "Activité 2.6 — un saut",
+   "parent": "5UAA3.limites-gauche-droite",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/6-limites-a-gauche-et-a.html#5UAA3.saut",
+   "num": "2.6",
+   "page": 23
+  },
+  {
+   "id": "5UAA3.limites-gauche-droite-2",
+   "type": "definition",
+   "titre": "Définition 2.3 — limites à gauche et à droite",
+   "parent": "5UAA3.limites-gauche-droite",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/6-limites-a-gauche-et-a.html#5UAA3.limites-gauche-droite-2",
+   "num": "2.3",
+   "page": 23
+  },
+  {
+   "id": "5UAA3.prop.001",
+   "type": "propriete",
+   "titre": "Propriété 2.2",
+   "parent": "5UAA3.limites-gauche-droite",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/6-limites-a-gauche-et-a.html#5UAA3.prop.001",
+   "num": "2.2",
+   "page": 24
+  },
+  {
+   "id": "5UAA3.rem.007",
+   "type": "remarque",
+   "titre": "Remarque 2.4",
+   "parent": "5UAA3.limites-gauche-droite",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/6-limites-a-gauche-et-a.html#5UAA3.rem.007",
+   "num": "2.4",
+   "page": 24
+  },
+  {
+   "id": "5UAA3.exm.002",
+   "type": "exemple",
+   "titre": "Exemple 2.2",
+   "parent": "5UAA3.limites-gauche-droite",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/6-limites-a-gauche-et-a.html#5UAA3.exm.002",
+   "num": "2.2",
+   "page": 24
+  },
+  {
+   "id": "5UAA3.limites-fonctions-reference",
+   "type": "section",
+   "titre": "Les limites des fonctions de référence",
+   "parent": "5UAA3.limites-definition-lecture-graphique",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/7-les-limites-des-fonctions-de.html",
+   "num": "2.7",
+   "page": null
+  },
+  {
+   "id": "5UAA3.lire-limites-fonctions-reference",
+   "type": "activite",
+   "titre": "Activité 2.7 — lire les limites des fonctions de référence",
+   "parent": "5UAA3.limites-fonctions-reference",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/7-les-limites-des-fonctions-de.html#5UAA3.lire-limites-fonctions-reference",
+   "num": "2.7",
+   "page": 24
+  },
+  {
+   "id": "5UAA3.rem.008",
+   "type": "remarque",
+   "titre": "Remarque 2.5",
+   "parent": "5UAA3.limites-fonctions-reference",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/7-les-limites-des-fonctions-de.html#5UAA3.rem.008",
+   "num": "2.5",
+   "page": 26
+  },
+  {
+   "id": "5UAA3.exercices",
+   "type": "section",
+   "titre": "Exercices",
+   "parent": "5UAA3.limites-definition-lecture-graphique",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/8-exercices.html",
+   "num": "2.8",
+   "page": null
+  },
+  {
+   "id": "5UAA3.ex.014",
+   "type": "exercice",
+   "titre": "Exercice 2.1",
+   "parent": "5UAA3.exercices",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.014",
+   "num": "2.1",
+   "page": 27
+  },
+  {
+   "id": "5UAA3.ex.015",
+   "type": "exercice",
+   "titre": "Exercice 2.2",
+   "parent": "5UAA3.exercices",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.015",
+   "num": "2.2",
+   "page": 27
+  },
+  {
+   "id": "5UAA3.ex.016",
+   "type": "exercice",
+   "titre": "Exercice 2.3",
+   "parent": "5UAA3.exercices",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.016",
+   "num": "2.3",
+   "page": 27
+  },
+  {
+   "id": "5UAA3.ex.017",
+   "type": "exercice",
+   "titre": "Exercice 2.4",
+   "parent": "5UAA3.exercices",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.017",
+   "num": "2.4",
+   "page": 28
+  },
+  {
+   "id": "5UAA3.ex.018",
+   "type": "exercice",
+   "titre": "Exercice 2.5",
+   "parent": "5UAA3.exercices",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.018",
+   "num": "2.5",
+   "page": 29
+  },
+  {
+   "id": "5UAA3.ex.019",
+   "type": "exercice",
+   "titre": "Exercice 2.6",
+   "parent": "5UAA3.exercices",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.019",
+   "num": "2.6",
+   "page": 30
+  },
+  {
+   "id": "5UAA3.ex.020",
+   "type": "exercice",
+   "titre": "Exercice 2.7",
+   "parent": "5UAA3.exercices",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.020",
+   "num": "2.7",
+   "page": 31
+  },
+  {
+   "id": "5UAA3.ex.021",
+   "type": "exercice",
+   "titre": "Exercice 2.8",
+   "parent": "5UAA3.exercices",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.021",
+   "num": "2.8",
+   "page": 32
+  },
+  {
+   "id": "5UAA3.chercher-points-creux-asymptotes-verticales",
+   "type": "chapitre",
+   "titre": "Chapitre 3 — Chercher les points creux et les asymptotes verticales",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/index.html",
+   "num": "3",
+   "page": null
+  },
+  {
+   "id": "5UAA3.pourquoi-calculer",
+   "type": "section",
+   "titre": "Pourquoi calculer ?",
+   "parent": "5UAA3.chercher-points-creux-asymptotes-verticales",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/1-pourquoi-calculer.html",
+   "num": "3.1",
+   "page": null
+  },
+  {
+   "id": "5UAA3.graphique-trompeur",
+   "type": "activite",
+   "titre": "Activité 3.1 — un graphique trompeur",
+   "parent": "5UAA3.pourquoi-calculer",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/1-pourquoi-calculer.html#5UAA3.graphique-trompeur",
+   "num": "3.1",
+   "page": 33
+  },
+  {
+   "id": "5UAA3.fonctions-rationnelles",
+   "type": "section",
+   "titre": "Les fonctions rationnelles",
+   "parent": "5UAA3.chercher-points-creux-asymptotes-verticales",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/2-les-fonctions-rationnelles.html",
+   "num": "3.2",
+   "page": null
+  },
+  {
+   "id": "5UAA3.fonction-rationnelle",
+   "type": "definition",
+   "titre": "Définition 3.1 — fonction rationnelle",
+   "parent": "5UAA3.fonctions-rationnelles",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/2-les-fonctions-rationnelles.html#5UAA3.fonction-rationnelle",
+   "num": "3.1",
+   "page": 34
+  },
+  {
+   "id": "5UAA3.point-domaine-rien-chercher",
+   "type": "section",
+   "titre": "En un point du domaine : rien à chercher",
+   "parent": "5UAA3.chercher-points-creux-asymptotes-verticales",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/3-en-un-point-du-domaine.html",
+   "num": "3.3",
+   "page": null
+  },
+  {
+   "id": "5UAA3.limite-point-domaine",
+   "type": "propriete",
+   "titre": "Propriété 3.1 — limite en un point du domaine",
+   "parent": "5UAA3.point-domaine-rien-chercher",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/3-en-un-point-du-domaine.html#5UAA3.limite-point-domaine",
+   "num": "3.1",
+   "page": 35
+  },
+  {
+   "id": "5UAA3.rem.009",
+   "type": "remarque",
+   "titre": "Remarque 3.1",
+   "parent": "5UAA3.point-domaine-rien-chercher",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/3-en-un-point-du-domaine.html#5UAA3.rem.009",
+   "num": "3.1",
+   "page": 35
+  },
+  {
+   "id": "5UAA3.exm.003",
+   "type": "exemple",
+   "titre": "Exemple 3.1",
+   "parent": "5UAA3.point-domaine-rien-chercher",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/3-en-un-point-du-domaine.html#5UAA3.exm.003",
+   "num": "3.1",
+   "page": 35
+  },
+  {
+   "id": "5UAA3.valeur-interdite-point-creux-asymptote",
+   "type": "section",
+   "titre": "En une valeur interdite : point creux ou asymptote verticale ?",
+   "parent": "5UAA3.chercher-points-creux-asymptotes-verticales",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html",
+   "num": "3.4",
+   "page": null
+  },
+  {
+   "id": "5UAA3.toi-inventer",
+   "type": "activite",
+   "titre": "Activité 3.2 — à toi d’inventer",
+   "parent": "5UAA3.valeur-interdite-point-creux-asymptote",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.toi-inventer",
+   "num": "3.2",
+   "page": 35
+  },
+  {
+   "id": "5UAA3.deux-valeurs-interdites-deux-graphiques",
+   "type": "activite",
+   "titre": "Activité 3.3 — deux valeurs interdites, deux graphiques",
+   "parent": "5UAA3.valeur-interdite-point-creux-asymptote",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.deux-valeurs-interdites-deux-graphiques",
+   "num": "3.3",
+   "page": 36
+  },
+  {
+   "id": "5UAA3.asymptote-verticale-point-creux",
+   "type": "definition",
+   "titre": "Définition 3.2 — asymptote verticale, point creux",
+   "parent": "5UAA3.valeur-interdite-point-creux-asymptote",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.asymptote-verticale-point-creux",
+   "num": "3.2",
+   "page": 36
+  },
+  {
+   "id": "5UAA3.valeur-interdite-n-annule-numerateur",
+   "type": "propriete",
+   "titre": "Propriété 3.2 — valeur interdite qui n’annule pas le numérateur",
+   "parent": "5UAA3.valeur-interdite-point-creux-asymptote",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.valeur-interdite-n-annule-numerateur",
+   "num": "3.2",
+   "page": 37
+  },
+  {
+   "id": "5UAA3.exm.004",
+   "type": "exemple",
+   "titre": "Exemple 3.2",
+   "parent": "5UAA3.valeur-interdite-point-creux-asymptote",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.exm.004",
+   "num": "3.2",
+   "page": 37
+  },
+  {
+   "id": "5UAA3.exm.005",
+   "type": "exemple",
+   "titre": "Exemple 3.3",
+   "parent": "5UAA3.valeur-interdite-point-creux-asymptote",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.exm.005",
+   "num": "3.3",
+   "page": 37
+  },
+  {
+   "id": "5UAA3.exm.006",
+   "type": "exemple",
+   "titre": "Exemple 3.4",
+   "parent": "5UAA3.valeur-interdite-point-creux-asymptote",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.exm.006",
+   "num": "3.4",
+   "page": 38
+  },
+  {
+   "id": "5UAA3.rem.010",
+   "type": "remarque",
+   "titre": "Remarque 3.2",
+   "parent": "5UAA3.valeur-interdite-point-creux-asymptote",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.rem.010",
+   "num": "3.2",
+   "page": 38
+  },
+  {
+   "id": "5UAA3.exm.007",
+   "type": "exemple",
+   "titre": "Exemple 3.5",
+   "parent": "5UAA3.valeur-interdite-point-creux-asymptote",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.exm.007",
+   "num": "3.5",
+   "page": 39
+  },
+  {
+   "id": "5UAA3.exercices-2",
+   "type": "section",
+   "titre": "Exercices",
+   "parent": "5UAA3.chercher-points-creux-asymptotes-verticales",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/5-exercices.html",
+   "num": "3.5",
+   "page": null
+  },
+  {
+   "id": "5UAA3.ex.022",
+   "type": "exercice",
+   "titre": "Exercice 3.1",
+   "parent": "5UAA3.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/5-exercices.html#5UAA3.ex.022",
+   "num": "3.1",
+   "page": 39
+  },
+  {
+   "id": "5UAA3.ex.023",
+   "type": "exercice",
+   "titre": "Exercice 3.2",
+   "parent": "5UAA3.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/5-exercices.html#5UAA3.ex.023",
+   "num": "3.2",
+   "page": 39
+  },
+  {
+   "id": "5UAA3.ex.024",
+   "type": "exercice",
+   "titre": "Exercice 3.3",
+   "parent": "5UAA3.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/5-exercices.html#5UAA3.ex.024",
+   "num": "3.3",
+   "page": 40
+  },
+  {
+   "id": "5UAA3.ex.025",
+   "type": "exercice",
+   "titre": "Exercice 3.4",
+   "parent": "5UAA3.exercices-2",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch3-chercher-les-points/5-exercices.html#5UAA3.ex.025",
+   "num": "3.4",
+   "page": 40
+  },
+  {
+   "id": "5UAA3.ex.026",
+   "type": "exercice",
+   "titre": "Exercice 3.5",
+   "parent": "5UAA3.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/5-exercices.html#5UAA3.ex.026",
+   "num": "3.5",
+   "page": 40
+  },
+  {
+   "id": "5UAA3.ex.027",
+   "type": "exercice",
+   "titre": "Exercice 3.6",
+   "parent": "5UAA3.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/5-exercices.html#5UAA3.ex.027",
+   "num": "3.6",
+   "page": 40
+  },
+  {
+   "id": "5UAA3.ex.028",
+   "type": "exercice",
+   "titre": "Exercice 3.7",
+   "parent": "5UAA3.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/5-exercices.html#5UAA3.ex.028",
+   "num": "3.7",
+   "page": 40
+  },
+  {
+   "id": "5UAA3.ex.029",
+   "type": "exercice",
+   "titre": "Exercice 3.8",
+   "parent": "5UAA3.exercices-2",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch3-chercher-les-points/5-exercices.html#5UAA3.ex.029",
+   "num": "3.8",
+   "page": 40
+  },
+  {
+   "id": "5UAA3.ex.030",
+   "type": "exercice",
+   "titre": "Exercice 3.9",
+   "parent": "5UAA3.exercices-2",
+   "etiquettes": [],
+   "ancre": "ch3-chercher-les-points/5-exercices.html#5UAA3.ex.030",
+   "num": "3.9",
+   "page": 41
+  },
+  {
+   "id": "5UAA3.chercher-asymptotes-horizontales-obliques",
+   "type": "chapitre",
+   "titre": "Chapitre 4 — Chercher les asymptotes horizontales et obliques",
+   "parent": null,
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/index.html",
+   "num": "4",
+   "page": null
+  },
+  {
+   "id": "5UAA3.polynomes-terme-emporte",
+   "type": "section",
+   "titre": "Les polynômes en ±∞ : le terme qui l’emporte",
+   "parent": "5UAA3.chercher-asymptotes-horizontales-obliques",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.html",
+   "num": "4.1",
+   "page": null
+  },
+  {
+   "id": "5UAA3.emporte",
+   "type": "activite",
+   "titre": "Activité 4.1 — qui l’emporte ?",
+   "parent": "5UAA3.polynomes-terme-emporte",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.html#5UAA3.emporte",
+   "num": "4.1",
+   "page": 42
+  },
+  {
+   "id": "5UAA3.polynome",
+   "type": "propriete",
+   "titre": "Propriété 4.1 — polynôme en ±∞",
+   "parent": "5UAA3.polynomes-terme-emporte",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.html#5UAA3.polynome",
+   "num": "4.1",
+   "page": 43
+  },
+  {
+   "id": "5UAA3.rem.011",
+   "type": "remarque",
+   "titre": "Remarque 4.1",
+   "parent": "5UAA3.polynomes-terme-emporte",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.html#5UAA3.rem.011",
+   "num": "4.1",
+   "page": 43
+  },
+  {
+   "id": "5UAA3.exm.008",
+   "type": "exemple",
+   "titre": "Exemple 4.1",
+   "parent": "5UAA3.polynomes-terme-emporte",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.html#5UAA3.exm.008",
+   "num": "4.1",
+   "page": 43
+  },
+  {
+   "id": "5UAA3.fonctions-rationnelles-asymptote-horizontale",
+   "type": "section",
+   "titre": "Les fonctions rationnelles en ±∞ : asymptote horizontale ?",
+   "parent": "5UAA3.chercher-asymptotes-horizontales-obliques",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.html",
+   "num": "4.2",
+   "page": null
+  },
+  {
+   "id": "5UAA3.asymptote-horizontale-mesure",
+   "type": "activite",
+   "titre": "Activité 4.2 — une asymptote horizontale sur mesure",
+   "parent": "5UAA3.fonctions-rationnelles-asymptote-horizontale",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.html#5UAA3.asymptote-horizontale-mesure",
+   "num": "4.2",
+   "page": 43
+  },
+  {
+   "id": "5UAA3.quotient-deux-termes-dominants",
+   "type": "activite",
+   "titre": "Activité 4.3 — un quotient de deux termes dominants",
+   "parent": "5UAA3.fonctions-rationnelles-asymptote-horizontale",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.html#5UAA3.quotient-deux-termes-dominants",
+   "num": "4.3",
+   "page": 43
+  },
+  {
+   "id": "5UAA3.fonction-rationnelle-2",
+   "type": "propriete",
+   "titre": "Propriété 4.2 — fonction rationnelle en ±∞",
+   "parent": "5UAA3.fonctions-rationnelles-asymptote-horizontale",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.html#5UAA3.fonction-rationnelle-2",
+   "num": "4.2",
+   "page": 44
+  },
+  {
+   "id": "5UAA3.asymptote-horizontale",
+   "type": "definition",
+   "titre": "Définition 4.1 — asymptote horizontale",
+   "parent": "5UAA3.fonctions-rationnelles-asymptote-horizontale",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.html#5UAA3.asymptote-horizontale",
+   "num": "4.1",
+   "page": 44
+  },
+  {
+   "id": "5UAA3.exm.009",
+   "type": "exemple",
+   "titre": "Exemple 4.2",
+   "parent": "5UAA3.fonctions-rationnelles-asymptote-horizontale",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.html#5UAA3.exm.009",
+   "num": "4.2",
+   "page": 44
+  },
+  {
+   "id": "5UAA3.h-fonction-rationnelle",
+   "type": "propriete",
+   "titre": "Propriété 4.3 — A.H. d’une fonction rationnelle",
+   "parent": "5UAA3.fonctions-rationnelles-asymptote-horizontale",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.html#5UAA3.h-fonction-rationnelle",
+   "num": "4.3",
+   "page": 45
+  },
+  {
+   "id": "5UAA3.asymptote-oblique",
+   "type": "section",
+   "titre": "Asymptote oblique",
+   "parent": "5UAA3.chercher-asymptotes-horizontales-obliques",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/3-asymptote-oblique.html",
+   "num": "4.3",
+   "page": null
+  },
+  {
+   "id": "5UAA3.asymptote-oblique-2",
+   "type": "definition",
+   "titre": "Définition 4.2 — asymptote oblique",
+   "parent": "5UAA3.asymptote-oblique",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/3-asymptote-oblique.html#5UAA3.asymptote-oblique-2",
+   "num": "4.2",
+   "page": 46
+  },
+  {
+   "id": "5UAA3.mesurer-ecart-entre-graphique-droite",
+   "type": "activite",
+   "titre": "Activité 4.4 — mesurer l’écart entre un graphique et une droite",
+   "parent": "5UAA3.asymptote-oblique",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/3-asymptote-oblique.html#5UAA3.mesurer-ecart-entre-graphique-droite",
+   "num": "4.4",
+   "page": 46
+  },
+  {
+   "id": "5UAA3.asymptote-oblique-mesure",
+   "type": "activite",
+   "titre": "Activité 4.5 — une asymptote oblique sur mesure",
+   "parent": "5UAA3.asymptote-oblique",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/3-asymptote-oblique.html#5UAA3.asymptote-oblique-mesure",
+   "num": "4.5",
+   "page": 47
+  },
+  {
+   "id": "5UAA3.trouver-asymptote-oblique-division",
+   "type": "activite",
+   "titre": "Activité 4.6 — trouver l’asymptote oblique par une division",
+   "parent": "5UAA3.asymptote-oblique",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/3-asymptote-oblique.html#5UAA3.trouver-asymptote-oblique-division",
+   "num": "4.6",
+   "page": 47
+  },
+  {
+   "id": "5UAA3.o-fonction-rationnelle",
+   "type": "propriete",
+   "titre": "Propriété 4.4 — A.O. d’une fonction rationnelle",
+   "parent": "5UAA3.asymptote-oblique",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/3-asymptote-oblique.html#5UAA3.o-fonction-rationnelle",
+   "num": "4.4",
+   "page": 48
+  },
+  {
+   "id": "5UAA3.estimer-valeur-grace-asymptote",
+   "type": "exemple",
+   "titre": "Exemple 4.3 — estimer une valeur grâce à une asymptote",
+   "parent": "5UAA3.asymptote-oblique",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/3-asymptote-oblique.html#5UAA3.estimer-valeur-grace-asymptote",
+   "num": "4.3",
+   "page": 48
+  },
+  {
+   "id": "5UAA3.calcule-infini",
+   "type": "section",
+   "titre": "On ne calcule pas avec l’infini",
+   "parent": "5UAA3.chercher-asymptotes-horizontales-obliques",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/4-on-ne-calcule-pas-avec.html",
+   "num": "4.4",
+   "page": null
+  },
+  {
+   "id": "5UAA3.trois-soustractions-tres-grands-nombres",
+   "type": "activite",
+   "titre": "Activité 4.7 — trois soustractions de très grands nombres",
+   "parent": "5UAA3.calcule-infini",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/4-on-ne-calcule-pas-avec.html#5UAA3.trois-soustractions-tres-grands-nombres",
+   "num": "4.7",
+   "page": 49
+  },
+  {
+   "id": "5UAA3.rem.012",
+   "type": "remarque",
+   "titre": "Remarque 4.2",
+   "parent": "5UAA3.calcule-infini",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/4-on-ne-calcule-pas-avec.html#5UAA3.rem.012",
+   "num": "4.2",
+   "page": 49
+  },
+  {
+   "id": "5UAA3.synthese",
+   "type": "section",
+   "titre": "Synthèse",
+   "parent": "5UAA3.chercher-asymptotes-horizontales-obliques",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/5-synthese.html",
+   "num": "4.5",
+   "page": null
+  },
+  {
+   "id": "5UAA3.etude-complete",
+   "type": "exemple",
+   "titre": "Exemple 4.4 — une étude complète",
+   "parent": "5UAA3.synthese",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/5-synthese.html#5UAA3.etude-complete",
+   "num": "4.4",
+   "page": 50
+  },
+  {
+   "id": "5UAA3.exercices-3",
+   "type": "section",
+   "titre": "Exercices",
+   "parent": "5UAA3.chercher-asymptotes-horizontales-obliques",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/6-exercices.html",
+   "num": "4.6",
+   "page": null
+  },
+  {
+   "id": "5UAA3.ex.031",
+   "type": "exercice",
+   "titre": "Exercice 4.1",
+   "parent": "5UAA3.exercices-3",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.031",
+   "num": "4.1",
+   "page": 51
+  },
+  {
+   "id": "5UAA3.ex.032",
+   "type": "exercice",
+   "titre": "Exercice 4.2",
+   "parent": "5UAA3.exercices-3",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.032",
+   "num": "4.2",
+   "page": 51
+  },
+  {
+   "id": "5UAA3.ex.033",
+   "type": "exercice",
+   "titre": "Exercice 4.3",
+   "parent": "5UAA3.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.033",
+   "num": "4.3",
+   "page": 51
+  },
+  {
+   "id": "5UAA3.ex.034",
+   "type": "exercice",
+   "titre": "Exercice 4.4",
+   "parent": "5UAA3.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.034",
+   "num": "4.4",
+   "page": 51
+  },
+  {
+   "id": "5UAA3.ex.035",
+   "type": "exercice",
+   "titre": "Exercice 4.5",
+   "parent": "5UAA3.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.035",
+   "num": "4.5",
+   "page": 51
+  },
+  {
+   "id": "5UAA3.ex.036",
+   "type": "exercice",
+   "titre": "Exercice 4.6",
+   "parent": "5UAA3.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.036",
+   "num": "4.6",
+   "page": 52
+  },
+  {
+   "id": "5UAA3.ex.037",
+   "type": "exercice",
+   "titre": "Exercice 4.7",
+   "parent": "5UAA3.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.037",
+   "num": "4.7",
+   "page": 52
+  },
+  {
+   "id": "5UAA3.ex.038",
+   "type": "exercice",
+   "titre": "Exercice 4.8",
+   "parent": "5UAA3.exercices-3",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.038",
+   "num": "4.8",
+   "page": 53
+  },
+  {
+   "id": "5UAA3.ex.039",
+   "type": "exercice",
+   "titre": "Exercice 4.9",
+   "parent": "5UAA3.exercices-3",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.039",
+   "num": "4.9",
+   "page": 53
+  },
+  {
+   "id": "5UAA3.ex.040",
+   "type": "exercice",
+   "titre": "Exercice 4.10",
+   "parent": "5UAA3.exercices-3",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.040",
+   "num": "4.10",
+   "page": 54
+  },
+  {
+   "id": "5UAA3.ex.041",
+   "type": "exercice",
+   "titre": "Exercice 4.11",
+   "parent": "5UAA3.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.041",
+   "num": "4.11",
+   "page": 54
+  },
+  {
+   "id": "5UAA3.ex.042",
+   "type": "exercice",
+   "titre": "Exercice 4.12",
+   "parent": "5UAA3.exercices-3",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.042",
+   "num": "4.12",
+   "page": 54
+  },
+  {
+   "id": "5UAA3.ex.043",
+   "type": "exercice",
+   "titre": "Exercice 4.13",
+   "parent": "5UAA3.exercices-3",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.043",
+   "num": "4.13",
+   "page": 54
+  },
+  {
+   "id": "5UAA3.ex.044",
+   "type": "exercice",
+   "titre": "Exercice 4.14",
+   "parent": "5UAA3.exercices-3",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.044",
+   "num": "4.14",
+   "page": 54
+  },
+  {
+   "id": "5UAA3.q.fct-racines-produit",
+   "type": "qcm",
+   "titre": "Soit f(x) = (x - 2)(x + 3). Quelles sont les racines de f ?",
+   "parent": "5UAA3.rappels",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.fct-ordonnee-origine",
+   "type": "qcm",
+   "titre": "Soit f(x) = x + 4/x - 2. Quelle est l’ordonnée à l’origine du graphique de f ?",
+   "parent": "5UAA3.rappels",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.fct-tableau-signes-produit",
+   "type": "ouverte",
+   "titre": "Dresse le tableau de signes de f(x) = (x + 2)(x - 4).",
+   "parent": "5UAA3.rappels",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.fct-difference-image",
+   "type": "qcm",
+   "titre": "Soit f(x) = x² et g(x) = x - 3. Que vaut (f - g)(2) ?",
+   "parent": "5UAA3.operations-fonctions",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.fct-domaine-quotient",
+   "type": "qcm",
+   "titre": "Soit f et g deux fonctions. Quel est le domaine de la fonction f/g ?",
+   "parent": "5UAA3.operations-fonctions",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.fct-produit-expression",
+   "type": "qcm",
+   "titre": "Soit f(x) = 1/x et g(x) = x - 2. Quelle est l’expression de (f g)(x) ?",
+   "parent": "5UAA3.operations-fonctions",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.fct-domaine-somme-quotient",
+   "type": "ouverte",
+   "titre": "Soit f(x) = √x et g(x) = x - 4. Donne le domaine de f + g et celui de f/g.",
+   "parent": "5UAA3.operations-fonctions",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.fct-composee-expression",
+   "type": "qcm",
+   "titre": "Soit f(x) = x² et g(x) = x + 3. Que vaut (f ∘ g)(x) ?",
+   "parent": "5UAA3.reconnaitre-composee",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.fct-decomposer-racine",
+   "type": "qcm",
+   "titre": "Comment se construit la fonction q(x) = √x² - 4 ?",
+   "parent": "5UAA3.reconnaitre-composee",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.fct-composee-non-commutative",
+   "type": "qcm",
+   "titre": "Soit f(x) = 2x et g(x) = x + 1. A-t-on f ∘ g = g ∘ f ?",
+   "parent": "5UAA3.reconnaitre-composee",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.fct-composee-tableau",
+   "type": "qcm",
+   "titre": "Voici un tableau de valeurs de deux fonctions f et g. Que vaut (f ∘ g)(1) ?",
+   "parent": "5UAA3.reconnaitre-composee",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.fct-decomposer-somme-racine",
+   "type": "ouverte",
+   "titre": "Décompose la fonction r(x) = √x² + 1 - 2x : décris comment la construire à partir des fonctions de r…",
+   "parent": "5UAA3.reconnaitre-composee",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.fct-condition-racine",
+   "type": "qcm",
+   "titre": "Quelle condition d’existence faut-il poser pour f(x) = frac√3 - x2 ?",
+   "parent": "5UAA3.recherche-algebrique-domaine-fonction",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.fct-domaine-rationnelle",
+   "type": "qcm",
+   "titre": "Quel est le domaine de f(x) = fracx + 1x² - 4 ?",
+   "parent": "5UAA3.recherche-algebrique-domaine-fonction",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.fct-domaine-inverse-racine",
+   "type": "qcm",
+   "titre": "Quel est le domaine de f(x) = frac1√x - 5 ?",
+   "parent": "5UAA3.recherche-algebrique-domaine-fonction",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.fct-domaine-racine-quotient",
+   "type": "ouverte",
+   "titre": "Calcule le domaine de f(x) = frac√x + 1x² - x - 6.",
+   "parent": "5UAA3.recherche-algebrique-domaine-fonction",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.fct-domaine-graphique-expression",
+   "type": "qcm",
+   "titre": "Le graphique d’une fonction f commence en x = 2 (point plein) et s’interrompt en x = 5, où il présen…",
+   "parent": "5UAA3.recherche-algebrique-domaine-fonction",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.fct-equations-asymptotes",
+   "type": "qcm",
+   "titre": "Quelles sont les équations des asymptotes du graphique ci-dessous ?",
+   "parent": "5UAA3.asymptotes-premier-contact",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.fct-nature-asymptote",
+   "type": "qcm",
+   "titre": "Une asymptote a pour équation y = 2x - 1. De quel type d’asymptote s’agit-il ?",
+   "parent": "5UAA3.asymptotes-premier-contact",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.fct-compter-asymptotes",
+   "type": "qcm",
+   "titre": "Combien d’asymptotes le graphique de f(x) = -fracxx² - 1 possède-t-il ?",
+   "parent": "5UAA3.asymptotes-premier-contact",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.fct-inventer-av-ah",
+   "type": "ouverte",
+   "titre": "Esquisse le graphique d’une fonction qui a une asymptote verticale d’équation x = -1 et une asymptot…",
+   "parent": "5UAA3.asymptotes-premier-contact",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-lire-moins-infini",
+   "type": "qcm",
+   "titre": "Soit f une fonction telle que limlimits_(x → -∞) f(x) = 3. Que signifie cette écriture ?",
+   "parent": "5UAA3.definition",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-point-plein-isole",
+   "type": "qcm",
+   "titre": "Voici le graphique d’une fonction f de domaine ℝ : la droite a un point creux en (2 ; 2), et f(2) = …",
+   "parent": "5UAA3.definition",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-sens-racine-quotient",
+   "type": "ouverte",
+   "titre": "Soit f(x) = frac√x + 2x - 3. Écris le domaine de f comme une union d’intervalles et donne ses bornes…",
+   "parent": "5UAA3.quand-limite-t-elle-sens",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-lire-plus-infini-ah",
+   "type": "qcm",
+   "titre": "Voici le graphique d’une fonction f (les droites en pointillés ne font pas partie du graphique). Que…",
+   "parent": "5UAA3.definition",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-lire-droite-av",
+   "type": "qcm",
+   "titre": "Voici le graphique d’une fonction f. Que vaut limlimits_substackx → -1 x > -1 f(x) ?",
+   "parent": "5UAA3.limites-gauche-droite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-sens-hors-domaine",
+   "type": "qcm",
+   "titre": "Soit f(x) = √4 - x, de domaine ]-∞ ; 4]. Que peut-on dire de limlimits_(x → 6) f(x) ?",
+   "parent": "5UAA3.quand-limite-t-elle-sens",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-interpreter-infini",
+   "type": "qcm",
+   "titre": "On sait que limlimits_(x → 3) f(x) = +∞. Que peut-on en déduire sur le graphique de f ?",
+   "parent": "5UAA3.definition",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-gauche-droite-point-creux",
+   "type": "qcm",
+   "titre": "On sait que 2 ∉ dom(f), que f est définie à gauche et à droite de 2, et que limlimits_substackx → 2 …",
+   "parent": "5UAA3.limites-gauche-droite",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-esquisser-conditions",
+   "type": "ouverte",
+   "titre": "Esquisse le graphique d’une fonction f qui vérifie : dom(f) = ℝ ∖ {2}, limlimits_(x → -∞) f(x) = 1, …",
+   "parent": "5UAA3.definition",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-reconnaitre-rationnelle",
+   "type": "qcm",
+   "titre": "Laquelle de ces fonctions est une fonction rationnelle ?",
+   "parent": "5UAA3.fonctions-rationnelles",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-point-du-domaine",
+   "type": "qcm",
+   "titre": "Que vaut limlimits_(x → -1) fracx² + 3x - 1 ?",
+   "parent": "5UAA3.point-domaine-rien-chercher",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-gauche-valeur-interdite",
+   "type": "qcm",
+   "titre": "Soit f(x) = 3/x - 4. Que vaut limlimits_substackx → 4 x < 4 f(x) ?",
+   "parent": "5UAA3.valeur-interdite-point-creux-asymptote",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-simplifier-point-creux",
+   "type": "qcm",
+   "titre": "Que vaut limlimits_(x → 3) fracx² - 9x - 3 ?",
+   "parent": "5UAA3.valeur-interdite-point-creux-asymptote",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-numerateur-non-nul",
+   "type": "qcm",
+   "titre": "Soit f(x) = P(x)/Q(x) une fonction rationnelle et a une valeur interdite (Q(a) = 0). On calcule P(a)…",
+   "parent": "5UAA3.valeur-interdite-point-creux-asymptote",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-simplifier-encore-av",
+   "type": "qcm",
+   "titre": "Soit f(x) = fracx + 1x² + 2x + 1. Que présente son graphique en x = -1 ?",
+   "parent": "5UAA3.valeur-interdite-point-creux-asymptote",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-reconnaitre-indetermination",
+   "type": "qcm",
+   "titre": "Lequel de ces calculs de limite est un cas d’indétermination ?",
+   "parent": "5UAA3.valeur-interdite-point-creux-asymptote",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-rediger-calcul",
+   "type": "qcm",
+   "titre": "Laquelle de ces rédactions du calcul de limlimits_(x → 2) fracx² - 2xx - 2 est correcte ?",
+   "parent": "5UAA3.valeur-interdite-point-creux-asymptote",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-inventer-creux-av",
+   "type": "ouverte",
+   "titre": "Invente l’expression analytique d’une fonction rationnelle dont le graphique a un point creux en (1 …",
+   "parent": "5UAA3.valeur-interdite-point-creux-asymptote",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-etude-valeurs-interdites",
+   "type": "ouverte",
+   "titre": "Soit f(x) = fracx² - x - 2x² - 4. Calcule les limites de f aux valeurs interdites et interprète grap…",
+   "parent": "5UAA3.valeur-interdite-point-creux-asymptote",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-polynome-plus-infini",
+   "type": "qcm",
+   "titre": "Que vaut limlimits_(x → +∞) (2x³ - 5x² + 1) ?",
+   "parent": "5UAA3.polynomes-terme-emporte",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-rationnelle-degres-egaux",
+   "type": "qcm",
+   "titre": "Que vaut limlimits_(x → +∞) frac3x² - 16x² + x ?",
+   "parent": "5UAA3.fonctions-rationnelles-asymptote-horizontale",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-equation-ah",
+   "type": "qcm",
+   "titre": "Quelle est l’équation de l’asymptote horizontale du graphique de f(x) = 4x - 1/2x + 3 ?",
+   "parent": "5UAA3.fonctions-rationnelles-asymptote-horizontale",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-equation-ao",
+   "type": "qcm",
+   "titre": "Quelle est l’équation de l’asymptote oblique du graphique de f(x) = fracx² + 1x - 1 ?",
+   "parent": "5UAA3.asymptote-oblique",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-parabole-pas-ao",
+   "type": "qcm",
+   "titre": "Le graphique de f(x) = x² a-t-il une asymptote oblique ?",
+   "parent": "5UAA3.asymptote-oblique",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-degres-ao",
+   "type": "qcm",
+   "titre": "Laquelle de ces fonctions a une asymptote oblique ?",
+   "parent": "5UAA3.asymptote-oblique",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-estimer-avec-ao",
+   "type": "qcm",
+   "titre": "Soit f(x) = frac3x² + 2x - 1. La division euclidienne donne 3x² + 2 = (x - 1)(3x + 3) + 5. Quelle es…",
+   "parent": "5UAA3.asymptote-oblique",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-graphique-expression-ah",
+   "type": "qcm",
+   "titre": "Quelle expression correspond au graphique ci-dessous ?",
+   "parent": "5UAA3.fonctions-rationnelles-asymptote-horizontale",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-graphique-expression-ao",
+   "type": "qcm",
+   "titre": "Le graphique ci-dessous a une A.V. d’équation x = 2 et une A.O. d’équation y = x + 1. Quelle est son…",
+   "parent": "5UAA3.asymptote-oblique",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-pourquoi-indetermination-infini",
+   "type": "qcm",
+   "titre": "Pourquoi le calcul de limlimits_(x → +∞) (x² - 5x) est-il un cas d’indétermination ?",
+   "parent": "5UAA3.polynomes-terme-emporte",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-demarche-ao",
+   "type": "qcm",
+   "titre": "Le degré du numérateur d’une fonction rationnelle dépasse de 1 celui du dénominateur. Comment trouve…",
+   "parent": "5UAA3.asymptote-oblique",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-etude-av-ao",
+   "type": "ouverte",
+   "titre": "Soit f(x) = fracx² - 3x + 4x - 2. Détermine ses asymptotes (équations, et limites à gauche et à droi…",
+   "parent": "5UAA3.synthese",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  },
+  {
+   "id": "5UAA3.q.lim-inventer-av-ah",
+   "type": "ouverte",
+   "titre": "Trouve l’expression analytique d’une fonction rationnelle dont le graphique a une A.V. d’équation x …",
+   "parent": "5UAA3.fonctions-rationnelles-asymptote-horizontale",
+   "etiquettes": [],
+   "ancre": "autoeval.html",
+   "num": null,
+   "page": null
+  }
+ ],
+ "retires": []
+}
