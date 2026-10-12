@@ -1,0 +1,100 @@
+/* prof.css — couche prof (P1). Chargé par prof.js, donc seulement en mode prof.
+   Pas de gris : noir et blanc (lisible à la photocopie et en projection). */
+
+/* ---- éléments marquables ---- */
+.tw-m {
+  position: relative;
+  overflow: visible;                       /* le ✓ est dans la marge, hors de l'encadré */
+  contain: layout;                         /* garde le même calcul de marges qu'avec overflow:hidden */
+  touch-action: manipulation;              /* pas de zoom au double tap */
+  -webkit-tap-highlight-color: transparent;
+}
+/* l'encadré ne rogne plus ses enfants : on leur donne ses coins arrondis (rayon moins bordure,
+   calculés par prof.js) */
+.tw-m > :first-child {
+  border-top-left-radius: var(--tw-rl, 0px) var(--tw-rt, 0px);
+  border-top-right-radius: var(--tw-rr, 0px) var(--tw-rt, 0px);
+}
+.tw-m > :last-child {
+  border-bottom-left-radius: var(--tw-rl, 0px) var(--tw-rb, 0px);
+  border-bottom-right-radius: var(--tw-rr, 0px) var(--tw-rb, 0px);
+}
+
+/* ---- ✓ (variante A : pastille) dans la marge droite, alignée sur le titre ---- */
+.tw-m::after, .tw-section-vue::after {
+  content: "✓";
+  position: absolute;
+  top: var(--tw-top, 8px);                 /* centre de l'en-tête (calculé par prof.js) */
+  left: 100%; margin-left: 8px;
+  width: 28px; height: 28px;
+  box-sizing: border-box;
+  border: 2px solid #000;
+  border-radius: 50%;
+  background: #000; color: #fff;             /* séance du jour : plein */
+  font: 700 17px/24px system-ui, sans-serif;
+  text-align: center;
+  pointer-events: none;
+  z-index: 3;
+}
+.tw-vu-ancien::after {
+  background: #fff; color: #000;             /* séances précédentes : contour */
+}
+.tw-m:not(.tw-vu)::after {
+  border-color: #e4e4e4; background: transparent; color: #e4e4e4;   /* pas marqué : à peine visible */
+  font-weight: 400;
+}
+html[data-theme=dark] .tw-m::after, html[data-theme=dark] .tw-section-vue::after {
+  border-color: #fff; background: #fff; color: #000;
+}
+html[data-theme=dark] .tw-vu-ancien::after { background: #000; color: #fff; }
+html[data-theme=dark] .tw-m:not(.tw-vu)::after { border-color: #3a3a3a; background: transparent; color: #3a3a3a; }
+
+/* marge trop étroite (téléphone) : le ✓ rentre dans l'en-tête, à droite du titre */
+html.tw-marge-etroite .tw-m::after { left: auto; margin-left: 0; right: .5rem; }
+html.tw-marge-etroite .tw-m > .theo-head, html.tw-marge-etroite .tw-m > .exo-tete { padding-right: 3rem; }
+
+/* section vue : même pastille, à côté du titre de la page */
+.tw-section-vue { position: relative; padding-right: 36px; }
+.tw-section-vue::after { top: 50%; left: auto; margin-left: 0; right: 0; transform: translateY(-50%); width: 24px; height: 24px; font-size: 15px; line-height: 20px; }
+
+/* ---- reprise du cours ---- */
+.tw-reprise { animation: tw-reprise 2.5s ease-out; }
+@keyframes tw-reprise {
+  0%, 60% { outline: 4px solid #000; outline-offset: 4px; }
+  100% { outline: 4px solid transparent; outline-offset: 4px; }
+}
+@media (prefers-reduced-motion: reduce) { .tw-reprise { animation: none; outline: 4px solid #000; outline-offset: 4px; } }
+
+/* ---- bandeau ---- */
+.tw-prof { position: fixed; left: 8px; bottom: 8px; z-index: 2000; font: 14px/1.3 system-ui, sans-serif; color: #000; }
+.tw-prof * { box-sizing: border-box; }
+.tw-prof-puce {
+  min-height: 44px; padding: 0 14px;
+  border: 2px solid #000; border-radius: 22px; background: #fff; color: #000;
+  font: 600 14px system-ui, sans-serif; cursor: pointer;
+}
+.tw-prof-panneau {
+  position: absolute; left: 0; bottom: 52px; width: 240px;
+  display: flex; flex-direction: column; gap: 8px;
+  padding: 10px; border: 2px solid #000; border-radius: 10px; background: #fff;
+}
+.tw-prof-panneau[hidden] { display: none; }
+.tw-prof-classe, .tw-prof-btn {
+  min-height: 44px; padding: 0 10px;
+  border: 2px solid #000; border-radius: 8px; background: #fff; color: #000;
+  font: 600 14px system-ui, sans-serif;
+}
+.tw-prof-btn { cursor: pointer; }
+.tw-prof-compteur { font-weight: 700; }
+.tw-prof-etat { font-style: italic; }
+.tw-prof-etat[hidden] { display: none; }
+html[data-theme=dark] .tw-prof { color: #fff; }
+html[data-theme=dark] .tw-prof-puce, html[data-theme=dark] .tw-prof-panneau,
+html[data-theme=dark] .tw-prof-classe, html[data-theme=dark] .tw-prof-btn { background: #000; color: #fff; border-color: #fff; }
+
+/* ---- jamais à l'impression ---- */
+@media print {
+  .tw-prof { display: none !important; }
+  .tw-m::after, .tw-section-vue::after { content: none !important; }
+  .tw-reprise { animation: none; outline: none; }
+}

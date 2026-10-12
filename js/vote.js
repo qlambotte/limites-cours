@@ -1,0 +1,532 @@
+/* ============================================================
+   vote.js — écrans de vote en classe (P3), couche prof.
+   Chargé par prof.js (mode prof seulement) : aucun élève ne le télécharge,
+   ni vote.css, ni les deux modes, ni classe.json.
+   Documentation : typweb/doc/couche-prof.md (« Écrans de vote »).
+
+   Contenu :
+   - données : classe.json (banque de classe, P2) en cache local ;
+   - rendu des textes (Markdown + $…$) avec le MathJax des notes ;
+   - écran plein cadre commun (plein écran, écran allumé, mode projeté, clavier) ;
+   - points d'entrée : « Poser à la classe », « Tester la compréhension »,
+     lanceur de test de l'échauffement ;
+   - API : typwebProf.vote.start({mode, items, titre}).
+   Les deux modes sont dans vote-comprehension.js (vote détaillé) et
+   vote-echauffement.js (suite allégée) ; ils s'enregistrent dans V.modes.
+   ============================================================ */
+(function () {
+  "use strict";
+  var P = window.typwebProf;
+  if (!P || P.vote) return;
+  var I = P.interne;
+  var BASE = I.base;
+
+  var NOM_CACHE = "typweb-prof-classe";
+  var CLE_CACHE_T = "typweb.prof.classe.t";
+  var VALIDITE = 12 * 3600 * 1000;                 // au-delà : on tente de rafraîchir (réseau d'abord)
+  var URL_CLASSE = (function () {
+    try { return new URL((window.TYPWEB && window.TYPWEB.classe) || "prof-classe/classe.json", I.racine).href; }
+    catch (e) { return "prof-classe/classe.json"; }
+  })();
+  var MSG_INDISPO = "La banque de classe n'est pas disponible. Ouvre une page du cours avec une connexion " +
+                    "(une seule fois) pour la mettre en mémoire sur cette tablette.";
+
+  var V = { modes: {}, u: {}, version: 1 };
+
+  /* ---------- outils DOM ---------- */
+  function h(tag, att, kids) {
+    var e = document.createElement(tag), k;
+    if (att) for (k in att) {
+      if (!Object.prototype.hasOwnProperty.call(att, k) || att[k] === undefined || att[k] === null) continue;
+      if (k === "class") e.className = att[k];
+      else if (k === "text") e.textContent = att[k];
+      else if (k === "html") e.innerHTML = att[k];
+      else if (k.slice(0, 2) === "on") e.addEventListener(k.slice(2), att[k]);
+      else e.setAttribute(k, att[k]);
+    }
+    (kids || []).forEach(function (c) {
+      if (c === null || c === undefined || c === false) return;
+      e.appendChild(typeof c === "string" ? document.createTextNode(c) : c);
+    });
+    return e;
+  }
+  function bouton(texte, cls, fn, titre) {
+    var b = h("button", { type: "button", "class": cls || "", text: texte, onclick: fn });
+    if (titre) { b.title = titre; if (String(texte).length <= 1) b.setAttribute("aria-label", titre); }
+    return b;
+  }
+  function esc(s) {
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  }
+
+  /* ---------- rendu des textes : Markdown léger + $…$ (MathJax des notes) ---------- */
+  function texte(s) {                              // texte courant : gras, italique
+    return esc(s).replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>").replace(/(^|[^*])\*([^*\n]+)\*/g, "$1<em>$2</em>");
+  }
+  function md(s, enLigne) {
+    s = String(s === null || s === undefined ? "" : s);
+    var re = /(\\\$)|\$\$([\s\S]+?)\$\$|\$([^$\n]+?)\$/g, m, last = 0, out = "";
+    while ((m = re.exec(s))) {
+      out += texte(s.slice(last, m.index));
+      if (m[1]) out += "$";
+      else if (m[2] !== undefined) out += '<span class="math display">\\[' + esc(m[2]) + "\\]</span>";
+      else out += '<span class="math inline">\\(' + esc(m[3]) + "\\)</span>";
+      last = re.lastIndex;
+    }
+    out += texte(s.slice(last));
+    if (enLigne) return out.replace(/\n+/g, " ");
+    return out.split(/\n{2,}/).map(function (p) { return "<p>" + p.replace(/\n/g, "<br>") + "</p>"; }).join("");
+  }
+  // Compose les formules d'un conteneur avec le MathJax de la page (idempotent) ; réessaie
+  // tant que MathJax (chargé en différé, CDN) n'est pas prêt, sans erreur s'il ne vient pas.
+  function composer(el) {
+    var n = 0;
+    (function essai() {
+      var M = window.MathJax;
+      try {
+        if (M && M.typesetPromise) { M.typesetPromise([el]).catch(function () {}); return; }
+        if (M && M.typeset) { M.typeset([el]); return; }
+      } catch (e) { return; }
+      if (++n < 40 && document.body.contains(el)) setTimeout(essai, 250);
+    })();
+  }
+
+  /* ---------- données : classe.json ---------- */
+  var memo = null, donnees = null;
+  var supplement = { qcm: {}, ex: {} };      // banques d'autres UAA ajoutées par la page de pilotage (P4)
+  function lireCache() {
+    if (!window.caches) return Promise.resolve(null);
+    return caches.open(NOM_CACHE).then(function (c) { return c.match(URL_CLASSE); })
+      .then(function (r) { return r ? r.text() : null; }).catch(function () { return null; });
+  }
+  function ecrireCache(brut) {
+    try { localStorage.setItem(CLE_CACHE_T, String(Date.now())); } catch (e) {}
+    if (!window.caches) return Promise.resolve();
+    return caches.open(NOM_CACHE).then(function (c) {
+      return c.put(URL_CLASSE, new Response(brut, { headers: { "content-type": "application/json" } }));
+    }).catch(function () {});
+  }
+  function ageCache() {
+    try { return Date.now() - (+localStorage.getItem(CLE_CACHE_T) || 0); } catch (e) { return Infinity; }
+  }
+  function reseau(delai) {
+    var ctl = window.AbortController ? new AbortController() : null;
+    var t = ctl ? setTimeout(function () { ctl.abort(); }, delai) : null;
+    return fetch(URL_CLASSE, { cache: "no-cache", signal: ctl ? ctl.signal : undefined })
+      .then(function (r) { if (t) clearTimeout(t); if (!r.ok) throw new Error("HTTP " + r.status); return r.text(); })
+      .catch(function (e) { if (t) clearTimeout(t); throw e; });
+  }
+  function analyser(brut) {
+    var j;
+    try { j = JSON.parse(brut); } catch (e) { throw new Error("banque illisible"); }
+    if (!j || typeof j.schema !== "string" || j.schema.indexOf("typweb-classe/1") !== 0 || !Array.isArray(j.qcm)) {
+      throw new Error("format de banque inattendu (" + (j && j.schema) + ")");
+    }
+    return j;
+  }
+  // Charge classe.json : copie locale d'abord si elle est récente, sinon réseau puis copie.
+  // Jamais appelé sans la couche prof. Renvoie la banque ; rejette avec un message clair.
+  function charger() {
+    if (donnees) return Promise.resolve(donnees);
+    if (memo) return memo;
+    var enLigne = navigator.onLine !== false;
+    memo = lireCache().then(function (brut) {
+      if (brut && (!enLigne || ageCache() < VALIDITE)) return analyser(brut);
+      if (!enLigne) throw new Error(MSG_INDISPO);
+      return reseau(brut ? 4000 : 10000).then(function (frais) {
+        var j = analyser(frais);
+        ecrireCache(frais);
+        return j;
+      }, function () {
+        if (brut) return analyser(brut);              // réseau absent ou lent : copie gardée
+        throw new Error(MSG_INDISPO);
+      });
+    }).then(function (j) { donnees = indexer(j); return donnees; },
+            function (e) { memo = null; throw e; });
+    return memo;
+  }
+  function indexer(j) {
+    var qcm = {}, ex = {};
+    j.qcm.forEach(function (q) { qcm[q.id] = q; });
+    ((j.exercices && j.exercices.lots) || []).forEach(function (lot) {
+      (lot.variantes || []).forEach(function (v) { ex[v.graine] = { lot: lot, v: v }; });
+    });
+    j._qcm = qcm; j._ex = ex;
+    return j;
+  }
+
+  /* ---------- éléments d'une suite ---------- */
+  var LETTRES = ["A", "B", "C", "D"];
+  function qcmVue(q, role) {
+    return {
+      type: "qcm", id: q.id, role: role || q.role || null, usage: q.usage, sur: q.sur, q: q,
+      enonce: q.enonce, bonne: q.bonne, explication: q.explication || "",
+      options: q.options.map(function (o, i) { return { k: LETTRES[i], r: o.r, erreur: o.erreur, retour: o.retour }; })
+    };
+  }
+  // items : "5UAA3.c.001" (QCM) | "factoriser.trinome.5e:0007" (exercice) | { id | graine | soustype, role? }
+  function resoudre(items, data) {
+    var manquants = [], out = [];
+    (items || []).forEach(function (it) {
+      var o = typeof it === "string" ? (it.indexOf(":") >= 0 ? { graine: it } : { id: it }) : it || {};
+      var q = o.id && (data._qcm[o.id] || supplement.qcm[o.id]), g = o.graine || (o.exercice && o.exercice.graine), e;
+      if (q) { out.push(qcmVue(q, o.role)); return; }
+      if (!g && o.soustype) {
+        var lot = ((data.exercices && data.exercices.lots) || []).filter(function (l) { return l.soustype === o.soustype; })[0];
+        g = lot && lot.variantes[0] && lot.variantes[0].graine;
+      }
+      e = g && (data._ex[g] || supplement.ex[g]);
+      if (e) {
+        out.push({ type: "exercice", id: e.lot.soustype, graine: e.v.graine, role: o.role || null,
+                   enonce: e.v.enonce, etapes: e.v.etapes || [], reponse: e.v.reponse });
+        return;
+      }
+      manquants.push(o.id || g || o.soustype || "?");
+    });
+    if (manquants.length) throw new Error("Éléments introuvables dans la banque de classe : " + manquants.join(", "));
+    return out;
+  }
+
+  /* ---------- journal : combien de fois chaque question a été posée ---------- */
+  function poses(classe) {
+    var n = {}, vus = {};
+    P.evenements().forEach(function (e) {
+      if (e.c !== classe) return;
+      if (e.a === "vote" && e.manche === 1) {
+        var k = e.el + "|" + (e.sid || e.id);
+        if (!vus[k]) { vus[k] = 1; n[e.el] = (n[e.el] || 0) + 1; }
+      } else if (e.a === "echauffement" && Array.isArray(e.items)) {
+        e.items.forEach(function (it) { if (it && it.id) n[it.id] = (n[it.id] || 0) + 1; });
+      }
+    });
+    return n;
+  }
+  function chaine(id) {                            // id, parent, grand-parent… (index.json)
+    var parId = I.parId(), out = [], e = parId[id], garde = 0;
+    while (e && garde++ < 20) { out.push(e.id); e = e.parent ? parId[e.parent] : null; }
+    return out;
+  }
+  // 2 ou 3 QCM de compréhension pour la section : on cherche d'abord dans son sous-arbre ; s'il en a
+  // moins de 2, on remonte (section parente, chapitre, puis le cours entier) jusqu'à en avoir 2.
+  // Dans cette réserve : jamais posées à cette classe d'abord, puis les moins posées ; à égalité, la plus
+  // proche de la section, puis l'ordre de la banque.
+  function choisirComprehension(sectionId, classe, nMax) {
+    nMax = nMax || 3;
+    var data = donnees; if (!data) return [];
+    var n = poses(classe || P.classe());
+    var niveaux = chaine(sectionId);
+    var qcms = data.qcm.filter(function (q) { return q.usage === "comprehension"; }).map(function (q, i) {
+      var ch = chaine(q.sur), d = niveaux.length;      // d : premier niveau (0 = la section) qui contient la question
+      for (var l = 0; l < niveaux.length; l++) if (ch.indexOf(niveaux[l]) >= 0) { d = l; break; }
+      return { id: q.id, i: i, d: d };
+    });
+    var reserve = qcms;
+    for (var l = 0; l <= niveaux.length; l++) {
+      reserve = qcms.filter(function (c) { return c.d <= l; });
+      if (reserve.length >= 2) break;
+    }
+    return reserve.sort(function (a, b) {
+      return ((n[a.id] || 0) - (n[b.id] || 0)) || (a.d - b.d) || (a.i - b.i);
+    }).slice(0, nMax).map(function (c) { return c.id; });
+  }
+
+  /* ---------- journal : écriture ---------- */
+  function idSession() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
+  function enregistrer(classe, el, action, extra) {
+    var ok = I.ajouter(classe, el, action, extra);
+    if (!ok) alerte("Journal non enregistré (stockage plein ou lecture seule).");
+    return ok;
+  }
+
+  /* ---------- écran plein cadre commun ---------- */
+  var courant = null, toastT = null;
+  function alerte(msg) {
+    var t = document.querySelector(".tv-toast");
+    if (!t) { t = h("div", { "class": "tv-toast", role: "status" }); document.body.appendChild(t); }
+    t.textContent = msg; t.classList.add("on");
+    clearTimeout(toastT); toastT = setTimeout(function () { t.classList.remove("on"); }, 3200);
+  }
+  function pleinEcran() {
+    var d = document.documentElement;
+    if (document.fullscreenElement || !d.requestFullscreen) return;
+    try {
+      var p = d.requestFullscreen();
+      if (p && p.then) p.then(function () { V.fs = true; }, function () {});
+    } catch (e) {}
+  }
+  function finPleinEcran() {
+    if (V.fs && document.fullscreenElement && document.exitFullscreen) { try { document.exitFullscreen(); } catch (e) {} }
+    V.fs = false;
+  }
+  var verrou = null;
+  function garderAllume() {
+    if (!navigator.wakeLock || !navigator.wakeLock.request) return;
+    navigator.wakeLock.request("screen").then(function (l) { verrou = l; }, function () {});
+  }
+  function relacher() { if (verrou) { try { verrou.release(); } catch (e) {} verrou = null; } }
+  document.addEventListener("visibilitychange", function () {
+    if (courant && document.visibilityState === "visible") garderAllume();
+  });
+
+  function ouvrirEcran(cls, aria) {
+    if (courant) courant.fermer();
+    var precedent = document.activeElement;
+    var el = h("div", { "class": "tv-ecran " + (cls || ""), role: "dialog", "aria-modal": "true", "aria-label": aria || "Écran de vote" });
+    var sortie = bouton("", "tv-sortie-proj", function () { ecran.projeter(false); }, "Quitter le mode projeté");
+    sortie.setAttribute("aria-label", "Quitter le mode projeté");
+    el.appendChild(sortie);
+    document.body.appendChild(el);
+    document.documentElement.classList.add("tv-ouvert");
+    garderAllume();
+    var ecran = {
+      el: el, touches: null, surFermeture: null, proj: false,
+      projeter: function (oui) {
+        ecran.proj = oui;
+        el.classList.toggle("tv-proj", oui);
+        if (oui) alerte("Mode projeté : touche le coin supérieur droit ou Échap pour revenir.");
+        if (ecran.surProjection) ecran.surProjection(oui);
+      },
+      fermer: function () {
+        if (courant !== ecran) return;
+        courant = null;
+        document.removeEventListener("keydown", cle, true);
+        if (ecran.surFermeture) { try { ecran.surFermeture(); } catch (e) {} }
+        el.remove();
+        document.documentElement.classList.remove("tv-ouvert");
+        relacher(); finPleinEcran();
+        if (precedent && precedent.focus) { try { precedent.focus({ preventScroll: true }); } catch (e) {} }
+      }
+    };
+    function cle(e) {
+      if (e.altKey || e.ctrlKey || e.metaKey) return;
+      var t = e.target && e.target.tagName;
+      var champ = t === "INPUT" || t === "SELECT" || t === "TEXTAREA";
+      if (e.key === "Escape") { if (ecran.proj) { ecran.projeter(false); e.preventDefault(); e.stopPropagation(); } return; }
+      if (champ) return;
+      if (ecran.touches && ecran.touches(e) === true) { e.preventDefault(); e.stopPropagation(); }
+    }
+    document.addEventListener("keydown", cle, true);
+    courant = ecran;
+    return ecran;
+  }
+
+  function message(titre, texteMsg, aria) {
+    var ecran = ouvrirEcran("tv-message", aria || titre);
+    ecran.el.appendChild(h("div", { "class": "tv-msg" }, [
+      h("div", { "class": "tv-role", text: "Écran de vote" }),
+      h("h1", { text: titre }),
+      h("p", { text: texteMsg }),
+      bouton("Fermer", "tv-primaire", function () { ecran.fermer(); })
+    ]));
+    return ecran;
+  }
+
+  /* ---------- lancement ---------- */
+  var scriptsPrets = null;
+  function chargerScripts() {
+    if (scriptsPrets) return scriptsPrets;
+    function js(nom) {
+      return new Promise(function (res) {
+        var s = document.createElement("script");
+        s.src = BASE + nom; s.async = false;
+        s.onload = res; s.onerror = res;               // une erreur réseau se voit au « mode inconnu »
+        document.head.appendChild(s);
+      });
+    }
+    scriptsPrets = Promise.all([js("vote-comprehension.js"), js("vote-echauffement.js")]);
+    return scriptsPrets;
+  }
+  // start({ mode: "comprehension" | "echauffement", items: […], titre, classe?, apres? })
+  // Renvoie une promesse résolue quand l'écran est ouvert (rejetée si l'ouverture a échoué).
+  function start(opts) {
+    opts = opts || {};
+    var mode = opts.mode || "comprehension";
+    var classe = opts.classe || P.classe();
+    if (!classe) {
+      message("Choisis une classe", "Ouvre le bandeau en bas à gauche de la page et choisis la classe active.");
+      return Promise.reject(new Error("pas de classe active"));
+    }
+    pleinEcran();                                      // doit suivre le geste de l'utilisateur
+    return Promise.all([charger(), chargerScripts()]).then(function (r) {
+      var M = V.modes[mode];
+      if (!M) throw new Error("mode inconnu : " + mode);
+      var items = resoudre(opts.items, r[0]);
+      if (!items.length) throw new Error("aucun élément à poser");
+      return M.ouvrir({ classe: classe, items: items, titre: opts.titre || "", data: r[0], apres: opts.apres, sid: idSession() });
+    }).catch(function (e) {
+      finPleinEcran();
+      message("Impossible d'ouvrir l'écran", e && e.message ? e.message : String(e));
+      throw e;
+    });
+  }
+
+  /* ---------- points d'entrée dans le cours ---------- */
+  var points = null, bulles = [], menuOuvert = null;
+  function cibleDe(id) {
+    var el = document.querySelector('[data-id="' + CSS.escape(id) + '"][data-type]');
+    if (el) return el;
+    var e = I.parId()[id], page = I.page();
+    if (e && (e.type === "section" || e.type === "chapitre") && e.ancre.split("#")[0] === page) {
+      return document.querySelector("h1.title, .quarto-title h1");
+    }
+    return null;
+  }
+  function titreSection(id) { var e = I.parId()[id]; return e ? String(e.titre || "").replace(/^Chapitre \d+\s*[—-]\s*/, "") : ""; }
+  function fermerMenu() { if (menuOuvert) { menuOuvert.remove(); menuOuvert = null; } }
+  function poser(q) {
+    fermerMenu();
+    start({ mode: "comprehension", items: [q.id], titre: "" }).catch(function () {});
+  }
+  function ouvrirMenu(b, qs) {
+    fermerMenu();
+    var m = h("div", { "class": "tv-menu", role: "menu" });
+    qs.forEach(function (q, i) {
+      var t = String(q.enonce).replace(/\$/g, "").replace(/\s+/g, " ").slice(0, 70);
+      m.appendChild(bouton((i + 1) + ". " + t, "tv-menu-item", function () { poser(q); }));
+    });
+    var r = b.getBoundingClientRect();
+    m.style.top = (r.bottom + window.scrollY + 4) + "px";
+    m.style.left = Math.max(8, r.right + window.scrollX - 300) + "px";
+    points.appendChild(m); menuOuvert = m;
+  }
+  function majPoints() {
+    if (!donnees || !I.index()) return;
+    if (!points) {
+      points = h("div", { "class": "tv-points" });
+      document.body.appendChild(points);
+      document.addEventListener("click", function (e) {
+        if (menuOuvert && !e.target.closest(".tv-menu, .tv-pose")) fermerMenu();
+      });
+    }
+    // 1. « Poser à la classe » près des éléments qui ont des QCM rattachés (champ `sur`)
+    var parSur = {};
+    donnees.qcm.forEach(function (q) { if (q.sur) (parSur[q.sur] = parSur[q.sur] || []).push(q); });
+    var cles = Object.keys(parSur).filter(function (id) { return cibleDe(id); });
+    var cle = cles.map(function (id) { return id + ":" + parSur[id].length; }).join("|");
+    if (points._cle !== cle) {
+      points._cle = cle; fermerMenu();
+      Array.prototype.slice.call(points.querySelectorAll(".tv-pose")).forEach(function (b) { b.remove(); });
+      bulles = cles.map(function (id) {
+        var qs = parSur[id];
+        var b = bouton(qs.length > 1 ? "Poser à la classe (" + qs.length + ")" : "Poser à la classe", "tv-pose", function () {
+          if (qs.length === 1) poser(qs[0]); else ouvrirMenu(b, qs);
+        });
+        b.setAttribute("data-sur", id);
+        b.setAttribute("aria-haspopup", qs.length > 1 ? "menu" : "dialog");
+        points.appendChild(b);
+        return { id: id, b: b };
+      });
+    }
+    positionner();
+    // 2. « Tester la compréhension » à la place de « S'autoévaluer » en fin de section
+    majTest();
+  }
+  function positionner() {
+    if (!points) return;
+    var sx = window.scrollX, sy = window.scrollY;
+    bulles.forEach(function (o) {
+      var cible = cibleDe(o.id), r = cible && cible.getBoundingClientRect();
+      if (!r || (!r.width && !r.height)) { o.b.style.display = "none"; return; }
+      o.b.style.display = "";
+      var w = o.b.offsetWidth, hb = o.b.offsetHeight;
+      o.b.style.left = Math.max(4, r.right + sx - w - 12) + "px";
+      o.b.style.top = (r.bottom + sy - hb / 2) + "px";
+    });
+  }
+  function sectionDePage() {
+    var idx = I.index(), page = I.page(), best = null;
+    if (!idx) return null;
+    idx.elements.forEach(function (e) {
+      if ((e.type === "section" || e.type === "chapitre") && e.ancre.split("#")[0] === page && !best) best = e.id;
+    });
+    return best;
+  }
+  function majTest() {
+    var classe = P.classe(), liens = document.querySelectorAll(".ae-lien a");
+    if (!liens.length) return;
+    var sec = sectionDePage();
+    Array.prototype.forEach.call(liens, function (a) {
+      var ids = sec && classe ? choisirComprehension(sec, classe) : [];
+      if (!ids.length) {                               // rien à poser : le lien reste celui des élèves
+        if (a.hasAttribute("data-tw-test")) { a.textContent = a.getAttribute("data-tw-orig"); a.removeAttribute("data-tw-test"); }
+        return;
+      }
+      if (!a.hasAttribute("data-tw-orig")) a.setAttribute("data-tw-orig", a.textContent);
+      a.setAttribute("data-tw-test", sec);
+      a.textContent = "✔ Tester la compréhension : " + ids.length + " question" + (ids.length > 1 ? "s" : "") + " →";
+    });
+  }
+  document.addEventListener("click", function (e) {
+    var a = e.target && e.target.closest && e.target.closest("a[data-tw-test]");
+    if (!a) return;
+    e.preventDefault(); e.stopPropagation();
+    var sec = a.getAttribute("data-tw-test"), classe = P.classe();
+    var ids = choisirComprehension(sec, classe);
+    if (!ids.length) return;
+    start({ mode: "comprehension", items: ids, titre: titreSection(sec) }).catch(function () {});
+  }, true);
+
+  /* ---------- lanceur de test de l'échauffement (remplacé par la page de pilotage, P4) ---------- */
+  function lancerTest() {
+    return charger().then(function (data) {
+      var qcm = data.qcm.filter(function (q) { return q.usage === "echauffement"; }).slice(0, 2).map(function (q) { return q.id; });
+      var lots = (data.exercices && data.exercices.lots) || [];
+      var items = qcm.slice();
+      if (lots.length) {
+        var lot = lots[0], v = lot.variantes[Math.floor(Math.random() * lot.variantes.length)];
+        items.push({ graine: v.graine, role: "algebre" });
+      }
+      return start({ mode: "echauffement", items: items, titre: "Échauffement (test)" });
+    }).catch(function (e) { message("Impossible d'ouvrir l'écran", e && e.message ? e.message : String(e)); });
+  }
+  function lanceurTest() {
+    var panneau = document.querySelector(".tw-prof-panneau");
+    if (!panneau || panneau.querySelector(".tv-test")) return;
+    var b = bouton("Tester l'échauffement", "tw-prof-btn tv-test", function () { lancerTest(); },
+                   "Lanceur de test : 2 QCM et 1 exercice d'algèbre de la banque de classe");
+    panneau.insertBefore(b, panneau.querySelector(".tw-prof-btn"));
+  }
+
+  /* ---------- API et démarrage ---------- */
+  V.u = { h: h, bouton: bouton, md: md, composer: composer, esc: esc, ouvrirEcran: ouvrirEcran, alerte: alerte,
+          enregistrer: enregistrer, LETTRES: LETTRES, idSession: idSession };
+  V.start = start;
+  V.donnees = charger;
+  // Ajoute la banque d'une autre UAA (objet ou texte de classe.json) pour que start() y retrouve ses éléments
+  // (révision espacée de l'échauffement). Sans effet sur « Poser à la classe » ni « Tester la compréhension ».
+  V.ajouterBanque = function (banque) {
+    var b = indexer(analyser(typeof banque === "string" ? banque : JSON.stringify(banque)));
+    Object.keys(b._qcm).forEach(function (k) { supplement.qcm[k] = b._qcm[k]; });
+    Object.keys(b._ex).forEach(function (k) { supplement.ex[k] = b._ex[k]; });
+    return true;
+  };
+  V.choisirComprehension = function (sectionId, classe, nMax) { return choisirComprehension(sectionId, classe, nMax); };
+  V.poses = poses;
+  V.md = md;
+  V.fermer = function () { if (courant) courant.fermer(); };
+  V.ouvert = function () { return !!courant; };
+  V.lancerTest = lancerTest;
+  P.vote = V;
+
+  var planifie = false;
+  function replanifier() {
+    if (planifie) return;
+    planifie = true;
+    requestAnimationFrame(function () { planifie = false; majPoints(); });
+  }
+  P.abonner(replanifier);
+  window.addEventListener("resize", function () { positionner(); fermerMenu(); });
+  window.addEventListener("load", function () { [0, 1000, 3000].forEach(function (t) { setTimeout(replanifier, t); }); });
+  if (window.ResizeObserver) { try { new ResizeObserver(function () { positionner(); }).observe(document.body); } catch (e) {} }
+
+  function demarrer() {
+    var css = document.createElement("link");
+    css.rel = "stylesheet"; css.href = BASE + "vote.css";
+    document.head.appendChild(css);
+    lanceurTest();
+    chargerScripts();                                  // les deux modes en mémoire : fonctionne ensuite sans réseau
+    charger().then(replanifier, function () {});       // banque absente : pas de bouton, pas d'erreur
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", demarrer);
+  else demarrer();
+})();

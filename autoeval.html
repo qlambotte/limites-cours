@@ -2706,7 +2706,7 @@ window.TYPWEB = {"cle": "limites", "uaa": "5UAA3", "pdf": "limites.pdf", "depot"
       if (localStorage.getItem("typweb.prof") === "1" && !window.TYPWEB.profCharge) {
         window.TYPWEB.profCharge = true;
         var p = document.createElement("script");
-        p.src = off + "prof.js"; p.async = true;
+        p.src = off + "js/prof.js"; p.async = true;
         document.head.appendChild(p);
       }
     } catch (e) {}
