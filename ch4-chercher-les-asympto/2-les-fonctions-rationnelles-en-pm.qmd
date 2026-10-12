@@ -1,0 +1,154 @@
+---
+title: "Les fonctions rationnelles en ±∞ : asymptote horizontale ?"
+---
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+
+::: {#activite-4-2 data-sorte="activite" data-num="4.2" data-page="43" data-phys="46" data-id="5UAA3.asymptote-horizontale-mesure" data-type="activite" data-tags="" .theo .theo-activite}
+::: {.theo-head}
+**Activité 4.2** — une asymptote horizontale sur mesure
+:::
+
+::: {.theo-body}
+1. Invente une fonction dont le graphique a une asymptote horizontale d’équation $y = 3$. (Pense aux transformations de $\frac{1}{x}$ vues au chapitre 2.)
+2. Écris ta fonction sous la forme d’un seul quotient de deux polynômes. Que remarques-tu sur les termes de plus haut degré du numérateur et du dénominateur ?
+
+::: {.rep-bloc}
+Par exemple $3 + \frac{1}{x} = \frac{3x + 1}{x}$. Les termes de plus haut degré sont $3x$ et $x$ : leur quotient vaut $3$, l’équation de l’A.H.
+:::
+:::
+:::
+
+::: {#activite-4-3 data-sorte="activite" data-num="4.3" data-page="43" data-phys="46" data-id="5UAA3.quotient-deux-termes-dominants" data-type="activite" data-tags="" .theo .theo-activite}
+::: {.theo-head}
+**Activité 4.3** — un quotient de deux termes dominants
+:::
+
+::: {.theo-body}
+Soit $f(x) = \frac{2x+1}{x-3}$.
+
+1. Complète le tableau (arrondis au millième).
+
+   ::: {.tableau}
+   | $x$ | $10$ | $100$ | $1000$ | $10 \, 000$ |
+   |:---:|:---:|:---:|:---:|:---:|
+   | $f(x)$ | [$3$]{.rep} | [$2{,}072$]{.rep} | [$2{,}007$]{.rep} | [$2{,}001$]{.rep} |
+   :::
+
+   Lorsque $x$ est proche de $+\infty$, $f(x)$ semble proche de [$2$]{.rep}.
+2. Lorsque $x$ est très grand, le numérateur $2x + 1$ se comporte comme son terme dominant [$2x$]{.rep} et le dénominateur $x - 3$ comme [$x$]{.rep}. Le quotient se comporte donc comme [$\frac{2x}{x} = 2$]{.rep}.
+
+```{=html}
+<div class="lim-plot" data-fig="c4-f71"></div>
+```
+
+::: {.lp-legende}
+$f(x) = \frac{2x+1}{x-3}$
+:::
+
+3. Que fait le graphique de $f$ loin à droite et loin à gauche ? [il se rapproche de la droite horizontale $y = 2$]{.rep}
+:::
+:::
+
+::: {#propriete-4-2 data-sorte="propriete" data-num="4.2" data-page="44" data-phys="47" data-id="5UAA3.fonction-rationnelle-2" data-type="propriete" data-tags="" .theo .theo-propriete}
+::: {.theo-head}
+**Propriété 4.2** — fonction rationnelle en $\pm \infty$
+:::
+
+::: {.theo-body}
+Soit $f$ une fonction rationnelle. Si $a x^{n}$ est le terme de plus haut degré du numérateur et $b x^{m}$ celui du dénominateur, alors
+
+$$
+\lim\limits_{x \to \pm \infty} f(x) = \lim\limits_{x \to \pm \infty} \frac{a x^{n}}{b x^{m}}.
+$$
+:::
+:::
+
+::: {#definition-4-1 data-sorte="definition" data-num="4.1" data-page="44" data-phys="47" data-id="5UAA3.asymptote-horizontale" data-type="definition" data-tags="" .theo .theo-definition}
+::: {.theo-head}
+**Définition 4.1** — asymptote horizontale
+:::
+
+::: {.theo-body}
+La droite d’équation $y = b$ ($b$ réel) est une **asymptote horizontale** (A.H.) du graphique de $f$ si
+
+$$
+\lim\limits_{x \to +\infty} f(x) = b \quad \text{ou} \quad \lim\limits_{x \to -\infty} f(x) = b.
+$$
+:::
+:::
+
+::: {#exemple-4-2 data-sorte="exemple" data-num="4.2" data-page="44" data-phys="47" data-id="5UAA3.exm.009" data-type="exemple" data-tags="" .theo .theo-exemple}
+::: {.theo-head}
+**Exemple 4.2**
+:::
+
+::: {.theo-body}
+Pour chaque fonction, calcule les limites en $\pm \infty$ puis décris ce que l’on observe sur le graphique.
+
+::: {.grille style="--n:2"}
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c4-f72"></div>
+```
+
+::: {.lp-legende}
+$f_{1}(x) = \frac{x^{2}+1}{4x^{2}+1}$
+:::
+:::
+
+::: {.cellule}
+$\lim\limits_{x \to \pm \infty} f_{1}(x) = \lim\limits_{x \to \pm \infty} \frac{x^{2}}{4x^{2}} = \class{rep}{\frac{1}{4}}$ \
+ Sur le graphique : [A.H. d’équation $y = 1/4$ des deux côtés]{.rep}
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c4-f73"></div>
+```
+
+::: {.lp-legende}
+$f_{2}(x) = \frac{2x^{2}+1}{x^{3}+x^{2}+4}$
+:::
+:::
+
+::: {.cellule}
+$\lim\limits_{x \to \pm \infty} f_{2}(x) = \lim\limits_{x \to \pm \infty} \frac{2x^{2}}{x^{3}} = \lim\limits_{x \to \pm \infty} \frac{2}{x} = \class{rep}{0}$ \
+ Sur le graphique : [A.H. d’équation $y = 0$ des deux côtés]{.rep}
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c4-f74"></div>
+```
+
+::: {.lp-legende}
+$f_{3}(x) = \frac{5x^{2}+1}{7x+1}$
+:::
+:::
+
+::: {.cellule}
+$\lim\limits_{x \to \pm \infty} f_{3}(x) = \lim\limits_{x \to \pm \infty} \frac{5x^{2}}{7x} = \lim\limits_{x \to \pm \infty} \frac{5x}{7}$, soit [$-\infty$ en $-\infty$ et $+\infty$ en $+\infty$]{.rep} \
+ Sur le graphique : [pas d’A.H.]{.rep}
+:::
+:::
+:::
+:::
+
+::: {#propriete-4-3 data-sorte="propriete" data-num="4.3" data-page="45" data-phys="48" data-id="5UAA3.h-fonction-rationnelle" data-type="propriete" data-tags="" .theo .theo-propriete}
+::: {.theo-head}
+**Propriété 4.3** — A.H. d’une fonction rationnelle
+:::
+
+::: {.theo-body}
+Soit $f$ une fonction rationnelle, $n$ le degré de son numérateur et $m$ celui de son dénominateur ($a$ et $b$ les coefficients des termes de plus haut degré).
+
+- Si $n < m$ : les limites en $\pm \infty$ valent $0$ ; le graphique a une A.H. d’équation $y = 0$.
+- Si $n = m$ : les limites en $\pm \infty$ valent $\frac{a}{b}$ ; le graphique a une A.H. d’équation $y = \frac{a}{b}$.
+- Si $n > m$ : les limites en $\pm \infty$ sont infinies ; le graphique n’a pas d’A.H.
+:::
+:::
+
+::: {.ae-lien}
+[✔ S'autoévaluer sur cette section : test de 4 questions →](../autoeval.qmd#sections=sec-ah)
+:::

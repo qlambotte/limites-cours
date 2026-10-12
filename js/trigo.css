@@ -1,0 +1,39 @@
+/* trigo.css — animations du module « trigo » (mêmes variables que interactif.css) */
+.tg-zone { display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; align-items: flex-start; }
+.tg-zone .ia-svg { margin: 0; }
+.tg-zone .tg-cercle { max-width: 190px; flex: 0 1 190px; }
+.tg-zone .tg-graphe { max-width: 480px; flex: 1 1 300px; }
+.tg-cercle-trace { stroke: var(--text); stroke-width: 1.4; opacity: .55; }
+.tg-arc { fill: none; stroke: var(--ia-c1); stroke-width: 4; stroke-linecap: round; opacity: .9; }
+.tg-valeur { stroke: var(--ia-c2); stroke-width: 3; stroke-linecap: round; }
+.tg-report { stroke: var(--ia-c2); stroke-width: 1.2; stroke-dasharray: 4 4; opacity: .8; }
+.tg .ia-grad { font-size: 13px; }
+.tg .ia-lab-axe { font-size: 15px; }
+.tg-val { color: var(--ia-c2); font-weight: 600; }
+.tg-legende { text-align: center; font-size: .9rem; color: var(--muted); margin: -.6rem 0 1.2rem; }
+.tg-valeurs .tg-courant td { font-weight: 600; color: var(--ia-c2); }
+.tg-valeurs td:first-child, .tg-valeurs th:first-child { text-align: left; }
+@media (max-width: 520px) {
+  .tg-zone .tg-cercle { max-width: 160px; }
+  .ia-curseur { min-width: 0; }
+}
+@media print { .tg .ia-ctrl, .tg-valeurs { display: none; } }
+.tg-axe-tan { stroke: var(--text); stroke-width: 1.4; }
+.tg-rayon { stroke: var(--text); stroke-width: .8; opacity: .45; }
+.tg-mat { stroke: var(--text); stroke-width: 2; opacity: .6; }
+.tg-cabine { fill: var(--ia-c2); stroke: var(--bg, #fff); stroke-width: 1.5; }
+.tg-zone .tg-cercle.tg-roue { max-width: 210px; }
+.tg-excès { fill: none; stroke: var(--ia-c2); stroke-width: 1.1; }
+.tg-triangle { fill: none; stroke: var(--text); stroke-width: 1.6; }
+.tg-axe-reel { max-width: 760px; width: 100%; }
+.tg-choix { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; margin: .5rem 0; }
+.tg-carte { position: relative; background: var(--bg, #fff); border: 1px solid var(--border, #d0d7de); border-radius: 8px; padding: .3rem; cursor: pointer; }
+.tg-carte .ia-svg { width: 100%; margin: 0; }
+.tg-carte.tg-bon { border-color: var(--ia-ok); box-shadow: 0 0 0 2px var(--ia-ok); }
+.tg-carte.tg-faux { border-color: var(--ia-c2); opacity: .55; }
+.tg-lettre { position: absolute; top: .3rem; left: .5rem; font-weight: 700; font-size: .85rem; }
+@media (max-width: 520px) {
+  .tg-axe-reel .ia-grad { font-size: 22px; }
+  .tg-zone .tg-graphe .ia-grad { font-size: 15px; }
+}
+@media (max-width: 520px) { .tg-axe-reel .tg-demi { display: none; } }

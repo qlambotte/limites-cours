@@ -1,0 +1,126 @@
+---
+title: "Les limites des fonctions de référence"
+---
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+
+::: {#activite-2-7 data-sorte="activite" data-num="2.7" data-page="24" data-phys="27" data-id="5UAA3.lire-limites-fonctions-reference" data-type="activite" data-tags="" .theo .theo-activite}
+::: {.theo-head}
+**Activité 2.7** — lire les limites des fonctions de référence
+:::
+
+::: {.theo-body}
+Voici les graphiques des fonctions de référence. Complète ensuite le tableau. Si une limite n’existe pas, justifie-le ; si elle n’a pas de sens, écris « pas de sens ».
+
+::: {.grille style="--n:2"}
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f35"></div>
+```
+
+::: {.lp-legende}
+$f(x) = k$ ($k = 2$ ; $0$ ; $-1$)
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f36"></div>
+```
+
+::: {.lp-legende}
+$f(x) = x$
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f37"></div>
+```
+
+::: {.lp-legende}
+$f(x) = \frac{1}{x}$
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f38"></div>
+```
+
+::: {.lp-legende}
+$f(x) = \left|x\right|$
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f39"></div>
+```
+
+::: {.lp-legende}
+$f(x) = x^{2}$
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f40"></div>
+```
+
+::: {.lp-legende}
+$f(x) = \sqrt{x}$
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f41"></div>
+```
+
+::: {.lp-legende}
+$f(x) = x^{3}$
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f42"></div>
+```
+
+::: {.lp-legende}
+$f(x) = \sqrt[3]{x}$
+:::
+:::
+:::
+
+::: {.tableau}
+|   | $\lim\limits_{x \to -2} f(x)$ | $\lim\limits_{x \to 0} f(x)$ | $\lim\limits_{x \to a} f(x)$  $a \in \operatorname{dom}(f)$ |
+|:---:|:---:|:---:|:---:|
+| $f(x) = k$ | [$k$]{.rep} | [$k$]{.rep} | [$k$]{.rep} |
+| $f(x) = x$ | [$-2$]{.rep} | [$0$]{.rep} | [$a$]{.rep} |
+| $f(x) = \frac{1}{x}$ | [$-\frac{1}{2}$]{.rep} | [n’existe pas]{.rep} | [$\frac{1}{a}$]{.rep} |
+| $f(x) = \left\|x\right\|$ | [$2$]{.rep} | [$0$]{.rep} | [$\left\|a\right\|$]{.rep} |
+| $f(x) = x^{2}$ | [$4$]{.rep} | [$0$]{.rep} | [$a^{2}$]{.rep} |
+| $f(x) = \sqrt{x}$ | [pas de sens]{.rep} | [$0$]{.rep} | [$\sqrt{a}$]{.rep} |
+| $f(x) = x^{3}$ | [$-8$]{.rep} | [$0$]{.rep} | [$a^{3}$]{.rep} |
+| $f(x) = \sqrt[3]{x}$ | [$-\sqrt[3]{2}$]{.rep} | [$0$]{.rep} | [$\sqrt[3]{a}$]{.rep} |
+:::
+
+Observe la colonne « $a \in \operatorname{dom}(f)$ ». Que remarques-tu ?
+
+::: {.rep-bloc}
+Pour chacune de ces fonctions, la limite en un point $a$ du domaine existe et vaut $f(a)$ : il suffit de remplacer $x$ par $a$. Avec notre définition, c’est forcé : si la limite existe en un point du domaine, elle vaut $f(a)$.
+:::
+:::
+:::
+
+::: {#remarque-2-5 data-sorte="remarque" data-num="2.5" data-page="26" data-phys="29" data-id="5UAA3.rem.008" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {.theo-head}
+**Remarque 2.5**
+:::
+
+::: {.theo-body}
+En un point du domaine qui n’en est pas une borne, la limite n’apprend généralement rien de neuf : on verra qu’elle vaut simplement $f(a)$. Les limites qui nous intéresseront dans la suite sont donc celles **aux bornes du domaine** : en une borne réelle qui n’appartient pas au domaine (une valeur interdite, comme $0$ pour $\frac{1}{x}$ ou $1$ pour $\frac{x^{2}-1}{x-1}$), le graphique peut présenter une asymptote verticale ou un point creux ; en $+\infty$ ou $-\infty$, une asymptote horizontale ou oblique.
+:::
+:::

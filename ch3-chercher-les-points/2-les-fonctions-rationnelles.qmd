@@ -1,0 +1,23 @@
+---
+title: "Les fonctions rationnelles"
+---
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+
+Dans ce chapitre et le suivant, nous calculerons des limites de fonctions rationnelles.
+
+::: {#definition-3-1 data-sorte="definition" data-num="3.1" data-page="34" data-phys="37" data-id="5UAA3.fonction-rationnelle" data-type="definition" data-tags="" .theo .theo-definition}
+::: {.theo-head}
+**Définition 3.1** — fonction rationnelle
+:::
+
+::: {.theo-body}
+Une **fonction rationnelle** est un quotient de deux fonctions polynomiales : $f(x) = \frac{P(x)}{Q(x)}$. Son domaine est $\mathbb{R}$ privé des racines du dénominateur $Q$ : ces racines sont les **valeurs interdites** de $f$.
+:::
+:::
+
+Le domaine d’une fonction rationnelle est donc une union d’intervalles dont les bornes sont $-\infty$, les valeurs interdites et $+\infty$. Tout réel, ainsi que $-\infty$ et $+\infty$, colle à ce domaine : pour une fonction rationnelle, toutes les limites ont un sens.
+
+::: {.ae-lien}
+[✔ S'autoévaluer sur cette section : test de 1 question →](../autoeval.qmd#sections=sec-rationnelles)
+:::

@@ -1,0 +1,26 @@
+---
+title: "Chapitre 4 — Chercher les asymptotes horizontales et obliques"
+---
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+
+Il reste à étudier les deux dernières bornes du domaine : $-\infty$ et $+\infty$. C’est là que le graphique peut présenter une asymptote horizontale ou oblique.
+
+## Sections
+
+1. [Les polynômes en $\pm \infty$ : le terme qui l’emporte](1-les-polynomes-en-pm-infty.qmd)
+2. [Les fonctions rationnelles en $\pm \infty$ : asymptote horizontale ?](2-les-fonctions-rationnelles-en-pm.qmd)
+3. [Asymptote oblique](3-asymptote-oblique.qmd)
+4. [On ne calcule pas avec l’infini](4-on-ne-calcule-pas-avec.qmd)
+5. [Synthèse](5-synthese.qmd)
+6. [Exercices](6-exercices.qmd) []{.suivi-sec data-exos="4.1 4.2 4.3 4.4 4.5 4.6 4.7 4.8 4.9 4.10 4.11 4.12 4.13 4.14"}
+
+## À faire à la maison
+
+- [Exercice 4.1](6-exercices.qmd#exercice-4-1)
+- [Exercice 4.2](6-exercices.qmd#exercice-4-2)
+- [Exercice 4.8](6-exercices.qmd#exercice-4-8)
+- [Exercice 4.9](6-exercices.qmd#exercice-4-9)
+- [Exercice 4.10](6-exercices.qmd#exercice-4-10)
+- [Exercice 4.12](6-exercices.qmd#exercice-4-12)
+- [Exercice 4.13](6-exercices.qmd#exercice-4-13)

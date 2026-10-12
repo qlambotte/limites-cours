@@ -1,0 +1,23 @@
+---
+title: "Décrire un graphique sans le montrer"
+---
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+
+::: {#activite-2-1 data-sorte="activite" data-num="2.1" data-page="16" data-phys="19" data-id="5UAA3.telephone" data-type="activite" data-tags="" .theo .theo-activite}
+::: {.theo-head}
+**Activité 2.1** — au téléphone
+:::
+
+::: {.theo-body}
+Voici le graphique de $f(x) = \frac{1}{x}$. Imagine que tu dois le décrire, au téléphone, à quelqu’un qui ne le voit pas, de façon qu’il puisse le redessiner le plus fidèlement possible. Écris ta description. Que se passe-t-il près de $x = 0$ ? Et très loin, à gauche et à droite ?
+
+```{=html}
+<div class="lim-plot" data-fig="c2-f29"></div>
+```
+
+::: {.rep-bloc}
+Par exemple : « Deux branches. Quand $x$ s’approche de $0$ par la droite, la courbe monte sans fin le long de l’axe vertical ; par la gauche, elle descend sans fin. Quand $x$ devient très grand, la courbe se rapproche de l’axe horizontal par au-dessus ; quand $x$ est très négatif, par en dessous. » — Il faut des mots pour dire « vers où va la courbe » : c’est ce que va fournir la notion de limite.
+:::
+:::
+:::

@@ -1,0 +1,96 @@
+# GÉNÉRÉ par typweb à partir de typweb.toml : NE PAS ÉDITER (modifier typweb.toml).
+project:
+  type: book
+  output-dir: _book
+  # le contenu est régénéré depuis les notes Typst à chaque rendu / aperçu
+  pre-render: python3 ../../../typweb/typweb.py contenu
+  resources:
+    - js/*.js
+    - js/*.css
+    - js/*.json
+    - index.json
+    - sw.js
+    - limites.pdf
+    - limites-corrige.pdf
+
+book:
+  title: "Limites et asymptotes"
+  subtitle: "Cours & exercices — 5e, 4 périodes (5UAA3)"
+  author: "Quentin Lambotte"
+  date: today
+  date-format: "YYYY"
+  reader-mode: false
+  search: true
+  site-url: "https://qlambotte.github.io/limites-cours/"
+  sidebar:
+    style: docked
+    collapse-level: 1
+    pinned: true
+  chapters:
+    - index.qmd
+    - objectifs.qmd
+    - part: ch1-fonctions/index.qmd
+      chapters:
+        - ch1-fonctions/1-rappels.qmd
+        - ch1-fonctions/2-operations-sur-les-fonctions.qmd
+        - ch1-fonctions/3-reconnaitre-une-composee.qmd
+        - ch1-fonctions/4-recherche-algebrique-du-domaine-dune.qmd
+        - ch1-fonctions/5-asymptotes-premier-contact.qmd
+    - part: ch2-limites-definition-e/index.qmd
+      chapters:
+        - ch2-limites-definition-e/1-decrire-un-graphique-sans-le.qmd
+        - ch2-limites-definition-e/2-un-point-qui-se-deplace.qmd
+        - ch2-limites-definition-e/3-un-trou-dans-le-graphique.qmd
+        - ch2-limites-definition-e/4-definition.qmd
+        - ch2-limites-definition-e/5-quand-une-limite-a-t.qmd
+        - ch2-limites-definition-e/6-limites-a-gauche-et-a.qmd
+        - ch2-limites-definition-e/7-les-limites-des-fonctions-de.qmd
+        - ch2-limites-definition-e/8-exercices.qmd
+    - part: ch3-chercher-les-points/index.qmd
+      chapters:
+        - ch3-chercher-les-points/1-pourquoi-calculer.qmd
+        - ch3-chercher-les-points/2-les-fonctions-rationnelles.qmd
+        - ch3-chercher-les-points/3-en-un-point-du-domaine.qmd
+        - ch3-chercher-les-points/4-en-une-valeur-interdite-point.qmd
+        - ch3-chercher-les-points/5-exercices.qmd
+    - part: ch4-chercher-les-asympto/index.qmd
+      chapters:
+        - ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.qmd
+        - ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.qmd
+        - ch4-chercher-les-asympto/3-asymptote-oblique.qmd
+        - ch4-chercher-les-asympto/4-on-ne-calcule-pas-avec.qmd
+        - ch4-chercher-les-asympto/5-synthese.qmd
+        - ch4-chercher-les-asympto/6-exercices.qmd
+    - essentiel.qmd
+    - autoeval.qmd
+    - nouveautes.qmd
+    - mode-emploi.qmd
+  page-footer:
+    left: "Limites et asymptotes — cours & exercices"
+    right: "© {{< meta book.author >}}"
+
+lang: fr
+
+format:
+  html:
+    theme:
+      - cosmo
+      - theme.scss
+      - styles-essai.scss
+    include-in-header:
+      - _includes/theme-init.html
+    include-after-body:
+      - _includes/figures-data.html
+      - _includes/aides.html
+      - _includes/tools.html
+      - _includes/scripts.html
+      - _includes/styles-essai.html
+    toc: true
+    toc-title: "Sur cette page"
+    toc-depth: 3
+    number-sections: false
+    html-math-method: mathjax
+    grid:
+      sidebar-width: 300px
+      body-width: 880px
+      margin-width: 200px

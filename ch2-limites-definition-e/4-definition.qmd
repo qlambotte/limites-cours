@@ -1,0 +1,107 @@
+---
+title: "Définition"
+---
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+
+::: {#definition-2-1 data-sorte="definition" data-num="2.1" data-page="20" data-phys="23" data-id="5UAA3.limite-fonction" data-type="definition" data-tags="" .theo .theo-definition}
+::: {.theo-head}
+**Définition 2.1** — limite d’une fonction
+:::
+
+::: {.theo-body}
+Soit $f$ une fonction, et $a$ et $b$ deux nombres réels ou $\pm \infty$. On dit que la **limite de $f(x)$ quand $x$ tend vers $a$ vaut $b$** si, lorsque $x$ (pris dans le domaine de $f$) se rapproche autant qu’on veut de $a$, $f(x)$ se rapproche autant qu’on veut de $b$.
+
+Graphiquement : lorsque le point $M(x ; f(x))$ se déplace sur le graphique avec une abscisse qui se rapproche autant qu’on veut de $a$, il se rapproche autant qu’on veut du point $(a ; b)$.
+
+Ceci se note
+
+$$
+\lim\limits_{x \to a} f(x) = b.
+$$
+:::
+:::
+
+::: {#remarque-2-1 data-sorte="remarque" data-num="2.1" data-page="20" data-phys="23" data-id="5UAA3.rem.004" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {.theo-head}
+**Remarque 2.1**
+:::
+
+::: {.theo-body}
+Dans la définition précédente, $a$ et $b$ peuvent être infinis :
+
+- « $x$ se rapproche autant qu’on veut de $+\infty$ » signifie que $x$ devient aussi grand qu’on veut ($10$, $100$, $1000$…) : le point $M$ file vers le bord droit du cadre ;
+- « $x$ se rapproche autant qu’on veut de $-\infty$ » signifie que $x$ est négatif et devient aussi grand qu’on veut en valeur absolue ($-10$, $-100$, $-1000$…) : le point $M$ file vers le bord gauche. Attention, cela ne veut pas dire que $x$ se rapproche de $0$ ;
+- de même, « $f(x)$ se rapproche autant qu’on veut de $+\infty$ » (ou de $-\infty$) signifie que le point $M$ file vers le bord supérieur (ou inférieur) du cadre.
+
+Au lieu de dire « $x$ se rapproche de $a$ », on dit aussi « $x$ tend vers $a$ » ; et on lit $\lim\limits_{x \to a} f(x) = b$ « la limite de $f(x)$ quand $x$ tend vers $a$ vaut $b$ ».
+:::
+:::
+
+Ainsi, les deux activités précédentes donnent
+
+$$
+\lim\limits_{x \to 2} \frac{1}{x} = \frac{1}{2}, \quad \lim\limits_{x \to +\infty} \frac{1}{x} = 0 \quad \text{et} \quad \lim\limits_{x \to 1} \frac{x^{2} - 1}{x - 1} = 2.
+$$
+
+::: {#activite-2-4 data-sorte="activite" data-num="2.4" data-page="20" data-phys="23" data-id="5UAA3.chaque-symbole-role" data-type="activite" data-tags="" .theo .theo-activite}
+::: {.theo-head}
+**Activité 2.4** — chaque symbole a un rôle
+:::
+
+::: {.theo-body}
+1. Considère l’expression $x^{2} + t$, qui contient deux lettres. Calcule
+
+   $$
+   \lim\limits_{x \to 2} (x^{2} + t) = \class{rep}{4 + t} \quad \text{et} \quad \lim\limits_{t \to 2} (x^{2} + t) = \class{rep}{x^{2} + 2}.
+   $$
+
+   Pourquoi les résultats sont-ils différents ?
+
+   ::: {.rep-bloc}
+   La lettre écrite sous « lim » est celle qui bouge ; l’autre reste fixe. Dans le premier cas, c’est $x$ qui se rapproche de $2$ et $t$ ne change pas ; dans le second, c’est l’inverse.
+   :::
+2. Chacune des écritures suivantes est incomplète ou incorrecte. Explique ce qui manque ou ce qui ne va pas, et quelle question elle laisse sans réponse.
+
+   ::: {.tableau}
+   | Écriture | Ce qui ne va pas |
+   |:---:|:---:|
+   | $\lim\limits f(x) = 3$ | [On ne sait pas vers quoi va $x$.]{.rep} |
+   | $\lim\limits_{x \to 2} = 3$ | [On ne sait pas de quoi on prend la limite.]{.rep} |
+   | $\lim\limits_{x \to 1} x^{2} - \frac{1}{x-1}$ | [Sans parenthèses, la limite porte sur $x^{2} - \frac{1}{x-1}$, pas sur $\frac{x^{2}-1}{x-1}$.]{.rep} |
+   | $\lim\limits_{x \to 0} \frac{1}{t}$ | [La variable qui bouge ($x$) n’apparaît pas dans l’expression : le résultat serait $\frac{1}{t}$, sans intérêt.]{.rep} |
+   | $\lim\limits_{x \to +\infty} x^{3} = \infty$ | [Lequel : $+\infty$ ou $-\infty$ ? Le signe fait partie de la réponse.]{.rep} |
+   :::
+:::
+:::
+
+::: {#remarque-2-2 data-sorte="remarque" data-num="2.2" data-page="21" data-phys="24" data-id="5UAA3.rem.005" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {.theo-head}
+**Remarque 2.2**
+:::
+
+::: {.theo-body}
+Dans l’écriture $\lim\limits_{x \to a} f(x) = b$, chaque élément a un rôle, et aucun ne peut être omis :
+
+- la **variable** $x$, écrite sous « lim » : c’est elle qui bouge, et c’est la variable indépendante de la fonction ;
+- la **valeur** $a$ vers laquelle se rapproche $x$ ;
+- l’**expression** $f(x)$ dont on étudie le comportement (avec des parenthèses si c’est une somme ou une différence) ;
+- le **résultat** $b$, avec son signe s’il est infini.
+:::
+:::
+
+::: {#remarque-2-3 data-sorte="remarque" data-num="2.3" data-page="21" data-phys="24" data-id="5UAA3.rem.006" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {.theo-head}
+**Remarque 2.3**
+:::
+
+::: {.theo-body}
+Dans la définition, rien n’interdit à $x$ de valoir $a$ lorsque $a$ est dans le domaine : rester en $a$ est une façon (immobile) de se rapprocher de $a$ autant qu’on veut, puisque la distance à $a$ vaut alors $0$. Si la limite en $a$ existe, $f(a)$ doit donc lui aussi être aussi proche qu’on veut de $b$ — autrement dit, $b = f(a)$.
+
+Pour la fonction $h$ de l’activité précédente : lorsque $x$ se rapproche de $1$ sans l’atteindre, $h(x)$ se rapproche de $2$ ; mais pour $x = 1$, $h(1) = 4$, qui ne se rapproche pas de $2$. La limite de $h(x)$ quand $x$ tend vers $1$ n’existe donc pas. Pour $g$, en revanche, $1$ n’est pas dans le domaine : rien ne gêne, et la limite vaut $2$.
+:::
+:::
+
+::: {.ae-lien}
+[✔ S'autoévaluer sur cette section : test de 5 questions →](../autoeval.qmd#sections=sec-lim-definition)
+:::

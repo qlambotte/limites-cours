@@ -1,0 +1,31 @@
+---
+title: "Chapitre 2 — Limites : définition et lecture graphique"
+---
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+
+Dans cette UAA, l’étude des fonctions se fera à travers les caractéristiques suivantes :
+
+1. la présence ou non d’asymptotes (verticales, horizontales ou obliques) ;
+2. la présence ou non d’un point creux ou d’un point plein pour une valeur de $x$ donnée ;
+3. la présence ou non d’une brisure qui n’est pas due à une asymptote.
+
+La troisième caractéristique ne sera étudiée que graphiquement, tandis que les deux premières le seront graphiquement et analytiquement. Pour identifier ces caractéristiques, nous utiliserons le concept de limite d’une fonction. Le but d’une limite, dans ce cours, est toujours le même : **donner une information sur le graphique** d’une fonction, près d’une valeur de $x$ ou aux extrémités du repère.
+
+## Sections
+
+1. [Décrire un graphique sans le montrer](1-decrire-un-graphique-sans-le.qmd)
+2. [Un point qui se déplace sur un graphique](2-un-point-qui-se-deplace.qmd)
+3. [Un trou dans le graphique](3-un-trou-dans-le-graphique.qmd)
+4. [Définition](4-definition.qmd)
+5. [Quand une limite a-t-elle un sens ?](5-quand-une-limite-a-t.qmd)
+6. [Limites à gauche et à droite](6-limites-a-gauche-et-a.qmd)
+7. [Les limites des fonctions de référence](7-les-limites-des-fonctions-de.qmd)
+8. [Exercices](8-exercices.qmd) []{.suivi-sec data-exos="2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8"}
+
+## À faire à la maison
+
+- [Exercice 2.1](8-exercices.qmd#exercice-2-1)
+- [Exercice 2.3](8-exercices.qmd#exercice-2-3)
+- [Exercice 2.7](8-exercices.qmd#exercice-2-7)
+- [Exercice 2.8](8-exercices.qmd#exercice-2-8)

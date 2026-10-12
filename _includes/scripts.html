@@ -1,0 +1,69 @@
+<!-- GÉNÉRÉ par typweb — ne pas éditer -->
+<script>
+/* Réglages du cours (typweb.toml) */
+window.TYPWEB = {"cle": "limites", "uaa": "5UAA3", "pdf": "limites.pdf", "depot": "https://github.com/qlambotte/limites-cours", "pdfs": [{"titre": "Cours — version élève", "detail": "réponses à compléter", "fichier": "limites.pdf"}, {"titre": "Cours — avec le corrigé", "detail": "réponses en bleu", "fichier": "limites-corrige.pdf"}], "portail": "https://qlambotte.github.io/6e.html", "horsLigne": true, "stylesEssai": true, "modeEmploi": true, "minuteur": [3, 5, 10, 15, 20]};
+/* Charge les scripts du site (js/) avec le bon chemin relatif,
+   quelle que soit la profondeur de la page. */
+(function () {
+  var m = document.querySelector('meta[name="quarto:offset"]');
+  var off = m ? m.getAttribute("content") : null;
+  if (off === null) {                       // repli : chemin de site_libs
+    var l = document.querySelector('script[src*="site_libs/"], link[href*="site_libs/"]');
+    var u = l ? (l.getAttribute("src") || l.getAttribute("href")) : "";
+    off = u.indexOf("site_libs/") >= 0 ? u.slice(0, u.indexOf("site_libs/")) : "";
+  }
+  window.SITE_OFFSET = off;
+  window.TYPWEB.index = off + "index.json";
+  /* Couche prof (doc/identifiants.md) : rien pour les élèves. Activée sur cet
+     appareil par #prof dans l'adresse (avec confirmation, mémorisé), désactivée
+     par #prof-off ; le #prof est aussitôt retiré de l'adresse (pas de lien à
+     recopier qui l'activerait chez un élève). Ce drapeau ne donne aucun droit. */
+  function coucheProf() {
+    try {
+      var h = location.hash;
+      if (h === "#prof" || h === "#prof-off") {
+        if (h === "#prof-off") localStorage.removeItem("typweb.prof");
+        else if (window.confirm("Activer la couche prof sur cet appareil ?")) localStorage.setItem("typweb.prof", "1");
+        history.replaceState(null, "", location.pathname + location.search);
+      }
+      if (localStorage.getItem("typweb.prof") === "1" && !window.TYPWEB.profCharge) {
+        window.TYPWEB.profCharge = true;
+        var p = document.createElement("script");
+        p.src = off + "js/prof.js"; p.async = true;
+        document.head.appendChild(p);
+      }
+    } catch (e) {}
+  }
+  coucheProf();
+  window.addEventListener("hashchange", coucheProf);
+  /* Liens profonds page.html#5UAA3.ex.003 : défiler jusqu'à l'élément [data-id]
+     (l'identifiant stable n'est pas un id HTML : rien n'est ajouté à la page). */
+  function versId() {
+    var id;
+    try { id = decodeURIComponent(location.hash.slice(1)); } catch (e) { return; }
+    if (!id || document.getElementById(id)) return;
+    var e = document.querySelector('[data-id="' + CSS.escape(id) + '"][data-type]');
+    if (e) e.scrollIntoView({ block: "start" });
+  }
+  window.addEventListener("load", versId);
+  window.addEventListener("hashchange", versId);
+  /* mode hors-ligne (sw.js) : pas en aperçu local, où il gênerait les mises à jour */
+  if ("serviceWorker" in navigator && window.TYPWEB.horsLigne) {
+    if (/^(localhost|127\.|\[::1\])/.test(location.hostname) || location.protocol === "file:") {
+      navigator.serviceWorker.getRegistrations().then(function (rs) { rs.forEach(function (r) { r.unregister(); }); });
+    } else {
+      window.addEventListener("load", function () { navigator.serviceWorker.register(off + "sw.js").catch(function () {}); });
+    }
+  }
+  ["js/autoeval.css"].forEach(function (s) {
+    var c = document.createElement("link");
+    c.rel = "stylesheet"; c.href = off + s;
+    document.head.appendChild(c);
+  });
+  ["js/lim-plot.js", "js/reponses.js", "js/annot.js", "js/bulle-pdf.js", "js/autoeval.js", "js/suivi.js", "js/projection.js"].forEach(function (s) {
+    var e = document.createElement("script");
+    e.src = off + s; e.async = false;
+    document.body.appendChild(e);
+  });
+})();
+</script>

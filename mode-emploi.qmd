@@ -1,0 +1,110 @@
+---
+title: "Mode d'emploi"
+subtitle: "Comment utiliser ce site"
+---
+
+<!-- GÉNÉRÉ par typweb (moteur/mode_emploi.py) : NE PAS ÉDITER. -->
+
+## Le site et le cours imprimé
+
+Ce site reprend ton cours imprimé, avec **les mêmes numéros** (Définition 2.3, Exercice 2.14…). Tu peux passer de l'un à l'autre sans te perdre. Sur grand écran, le cadre « ← page N des notes » en haut à droite (sur téléphone, la bulle « Notes p. N » en bas à droite) indique la page du PDF où se trouve ce que tu lis ; un clic l'ouvre à cette page.
+
+Il ne remplace pas le travail en classe : il le prolonge. On y trouve en plus des figures qu'on peut manipuler, des coups de pouce pour les exercices et de quoi t'autoévaluer.
+
+## Se repérer
+
+- **Menu de gauche** : les chapitres, puis leurs sections (une section = une page). Sur téléphone, il s'ouvre avec le bouton ☰ en haut.
+- **« Sur cette page »** (à droite) : les titres de la page ; clique pour l'ouvrir.
+- **Recherche** (loupe) : un mot du cours, un numéro d'exercice…
+- **Les icônes sous le titre du cours** :
+    - la maison : tous les cours de ton année ;
+    - la flèche vers le bas : télécharger le cours en PDF ;
+    - la lune / le soleil : mode sombre ou clair ;
+    - **Aa** : taille du texte (A− / A+ ; clique sur le pourcentage pour revenir à 100 %) ;
+    - le crayon : annoter la page (voir plus bas) ;
+    - l'écran : mode projection, utilisé en classe ;
+    - **?** : cette page.
+
+## Les réponses cachées
+
+Dans les activités et les exemples, certaines réponses sont cachées : elles apparaissent comme une **zone soulignée en pointillé**. Cherche d'abord, puis **clique** dessus pour voir la réponse ; reclique pour la cacher.
+
+- Une réponse plus longue est dans un cadre « Réponse — clique pour l'afficher ».
+- Le bouton **Tout afficher** dans l'en-tête d'un encadré montre toutes ses réponses d'un coup.
+
+## Les figures qu'on peut manipuler
+
+Beaucoup de graphiques sont **interactifs** : déplace le point ou le curseur et observe ce qui change. Sous certaines figures, le petit bouton **▸** ouvre un panneau avec un point mobile et ses coordonnées.
+
+Prends le temps de jouer avec : c'est souvent là que l'idée devient claire, avant la formule.
+
+## Les exercices et leurs coups de pouce
+
+Sous la plupart des exercices, **▶ Coups de pouce** ouvre cinq onglets :
+
+1. **Indice 1** : la partie du cours qui sert ;
+2. **Indice 2** : une question à te poser ;
+3. **Indice 3** : une première étape ;
+4. **Solution** : la réponse rédigée comme on l'attend en interro ;
+5. **Pièges** : les erreurs fréquentes.
+
+**Utilise-les un par un**, seulement quand tu bloques, et recommence à chercher seul après chaque indice. Lire la solution tout de suite donne l'impression d'avoir compris, mais n'entraîne pas.
+
+**Mon suivi** : sous chaque exercice, coche **Fait** (tu l'as fait) puis **Réussi** (tu l'as réussi seul). En haut de la page, un bilan te dit où tu en es ; la page de chaque chapitre montre une barre par section.
+
+## S'autoévaluer
+
+À la fin de chaque section, le bouton **« S'autoévaluer sur cette section »** lance directement un test de 10 questions (moins s'il n'y en a pas assez), en commençant par celles que tu n'as pas encore réussies.
+
+La page **S'autoévaluer** (menu de gauche) a trois onglets :
+
+- **Questionnaires tout faits** ;
+- **Composer le mien** : choisis les sections, les objectifs, les types de questions, le niveau (★ à ★★★) et le nombre ;
+- **Mon bilan** : pour chaque objectif, *Maîtrisé*, *En cours*, *À travailler* ou *Pas encore évalué*, avec la raison. En dessous, la fiche **« Ce que je dois retravailler »** donne, objectif par objectif, les sections à relire et les exercices du cours à refaire ; tu peux l'imprimer.
+
+Pour un QCM, seul le **premier essai** compte dans le bilan : réfléchis avant de cliquer. Pour une question ouverte, compare ta réponse aux critères et coche honnêtement ceux que tu as remplis.
+
+## Objectifs
+
+La page **Objectifs** reprend la grille du début de ton cours imprimé : ce que tu dois être capable de faire. Si tu t'es autoévalué, chaque objectif affiche où tu en es, avec un lien pour t'entraîner dessus.
+
+## L'essentiel
+
+La page **L'essentiel** rassemble les définitions et propriétés du cours, dans l'ordre. Elle sert à **retrouver un énoncé** ou à vérifier que tu peux le **redire sans regarder**. Elle ne remplace ni le cours (où les idées sont construites et justifiées) ni les exercices : connaître un énoncé ne suffit pas, il faut savoir s'en servir. Le lien « dans le cours » sous chaque encadré te ramène à sa place.
+
+## Quoi de neuf ?
+
+La page **Quoi de neuf ?** liste, par date, ce qui a changé dans le cours en ligne : nouvelles sections, encadrés ajoutés ou corrigés. Jette un œil avant de réviser.
+
+## Annoter la page
+
+Le **crayon** ouvre une petite boîte à outils :
+
+- **Stylo** : dessiner (souris, doigt ou stylet), en noir, rouge, bleu ou vert ;
+- **Surligneur** : sélectionne un passage du texte pour le surligner ;
+- **Note** : un post-it là où tu cliques ;
+- **Correction** : un post-it rouge pour signaler une erreur dans le cours ; la liste des corrections notées se copie d'un clic pour l'envoyer à ton professeur ;
+- **Gomme** : clique un trait, un surlignage ou une note pour l'effacer ;
+- l'œil masque ou réaffiche tes annotations ; les flèches **exportent** ou **importent** tes annotations (pour passer d'un ordinateur à l'autre).
+
+Tes annotations restent attachées au bon paragraphe, même si la page change de taille.
+
+## Tes données
+
+Tout ce que tu fais ici (annotations, suivi des exercices, résultats d'autoévaluation, taille du texte) reste **dans ce navigateur, sur cet appareil**. Rien n'est envoyé à personne, pas même à ton professeur.
+
+- Sur un autre appareil ou un autre navigateur, tu repars de zéro.
+- En navigation privée, tout est effacé à la fermeture.
+- Pour garder ta progression : **Sauvegarder (fichier)** dans *Mon bilan*, et *Exporter* dans les annotations ; tu pourras les reprendre ailleurs.
+
+## Sans connexion
+
+Une fois le site visité avec une connexion, ses pages restent consultables **hors ligne** (dans le train, sans données…). Les PDF, eux, doivent être téléchargés à l'avance.
+
+## Une façon efficace de travailler
+
+1. Lis la section (et manipule les figures) **après** l'avoir vue en classe.
+2. Cherche les réponses cachées avant de cliquer.
+3. Fais les exercices ; un coup de pouce à la fois, seulement si tu bloques ; note *Fait* / *Réussi*.
+4. Termine par **S'autoévaluer** ; ce qui est *à travailler* : relis, refais les exercices proposés, et reteste quelques jours plus tard.
+

@@ -1,0 +1,242 @@
+---
+title: "En une valeur interdite : point creux ou asymptote verticale ?"
+---
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+
+::: {#activite-3-2 data-sorte="activite" data-num="3.2" data-page="35" data-phys="38" data-id="5UAA3.toi-inventer" data-type="activite" data-tags="" .theo .theo-activite}
+::: {.theo-head}
+**Activité 3.2** — à toi d’inventer
+:::
+
+::: {.theo-body}
+1. Invente une fonction rationnelle dont le graphique a un point creux en $(2 ; 5)$. Explique comment tu t’y es pris.
+2. Invente une fonction rationnelle dont le graphique a une asymptote verticale d’équation $x = 3$.
+3. Compare tes deux fonctions en leur valeur interdite : qu’est-ce qui, dans l’expression analytique, fait la différence entre un point creux et une asymptote verticale ? Compare avec les fonctions de tes voisins.
+
+::: {.rep-bloc}
+Par exemple $\frac{(x+3)(x-2)}{x-2}$ : pour $x \neq 2$, elle vaut $x + 3$, qui vaut $5$ en $2$. Et $\frac{1}{x-3}$. Différence : pour le point creux, la valeur interdite annule aussi le numérateur (on peut simplifier) ; pour l’A.V., le numérateur ne s’annule pas.
+:::
+:::
+:::
+
+L’activité suivante vérifie, sur un tableau de valeurs, la conjecture que tu viens de formuler.
+
+::: {#activite-3-3 data-sorte="activite" data-num="3.3" data-page="36" data-phys="39" data-id="5UAA3.deux-valeurs-interdites-deux-graphiques" data-type="activite" data-tags="" .theo .theo-activite}
+::: {.theo-head}
+**Activité 3.3** — deux valeurs interdites, deux graphiques
+:::
+
+::: {.theo-body}
+On compare $g(x) = \frac{x^{2} - 1}{x - 1}$, déjà rencontrée, et $k(x) = \frac{x + 1}{x - 1}$. Pour ces deux fonctions, $1$ est une valeur interdite.
+
+1. Complète le tableau.
+
+   ::: {.tableau}
+   | $x$ | $0{,}9$ | $0{,}99$ | $0{,}999$ | $1{,}001$ | $1{,}01$ | $1{,}1$ |
+   |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+   | $g(x)$ | [$1{,}9$]{.rep} | [$1{,}99$]{.rep} | [$1{,}999$]{.rep} | [$2{,}001$]{.rep} | [$2{,}01$]{.rep} | [$2{,}1$]{.rep} |
+   | $k(x)$ | [$-19$]{.rep} | [$-199$]{.rep} | [$-1999$]{.rep} | [$2001$]{.rep} | [$201$]{.rep} | [$21$]{.rep} |
+   :::
+2. Que devient $k(x)$ lorsque $x$ est proche de $1$ ? [Il devient très grand en valeur absolue : $-\infty$ à gauche, $+\infty$ à droite.]{.rep}
+
+::: {.grille style="--n:2"}
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c3-f66"></div>
+```
+
+::: {.lp-legende}
+$g(x) = \frac{x^{2}-1}{x-1}$ : un point creux
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c3-f67"></div>
+```
+
+::: {.lp-legende}
+$k(x) = \frac{x+1}{x-1}$ : une A.V.
+:::
+:::
+:::
+
+3. Calcule la valeur du numérateur de chaque fonction en $x = 1$. \
+    Numérateur de $g$ : [$1^{2} - 1 = 0$]{.rep} Numérateur de $k$ : [$1 + 1 = 2$]{.rep}
+4. Pour $k$, lorsque $x$ est proche de $1$, on divise un nombre proche de [$2$]{.rep} par un nombre très proche de [$0$]{.rep}. Pourquoi le résultat devient-il très grand en valeur absolue ?
+
+   ::: {.rep-bloc}
+   Diviser par un nombre très petit, c’est multiplier par un nombre très grand : $2 / 0{,}01 = 200$, $2 / 0{,}001 = 2000$…
+   :::
+:::
+:::
+
+L’activité fait apparaître les deux situations possibles en une valeur interdite, et les deux caractéristiques graphiques que nous cherchons.
+
+::: {#definition-3-2 data-sorte="definition" data-num="3.2" data-page="36" data-phys="39" data-id="5UAA3.asymptote-verticale-point-creux" data-type="definition" data-tags="" .theo .theo-definition}
+::: {.theo-head}
+**Définition 3.2** — asymptote verticale, point creux
+:::
+
+::: {.theo-body}
+Soit $f$ une fonction et $a$ un réel qui colle au domaine de $f$.
+
+- La droite d’équation $x = a$ est une **asymptote verticale** (A.V.) du graphique de $f$ si la limite à gauche ou la limite à droite de $f(x)$ en $a$ vaut $+\infty$ ou $-\infty$.
+- Le graphique de $f$ présente un **point creux** en $(a ; r)$ si $a \notin \operatorname{dom}(f)$ et $\lim\limits_{x \to a} f(x) = r$, avec $r$ réel.
+:::
+:::
+
+## Premier cas : le numérateur ne s’annule pas en $a$
+
+::: {#propriete-3-2 data-sorte="propriete" data-num="3.2" data-page="37" data-phys="40" data-id="5UAA3.valeur-interdite-n-annule-numerateur" data-type="propriete" data-tags="" .theo .theo-propriete}
+::: {.theo-head}
+**Propriété 3.2** — valeur interdite qui n’annule pas le numérateur
+:::
+
+::: {.theo-body}
+Soit $f(x) = \frac{P(x)}{Q(x)}$ une fonction rationnelle et $a$ une valeur interdite ($Q(a) = 0$). Si $P(a) \neq 0$, alors, de chaque côté de $a$, $f(x)$ devient très grand en valeur absolue : les limites à gauche et à droite en $a$ valent $+\infty$ ou $-\infty$, et **la droite d’équation $x = a$ est une asymptote verticale**. Pour savoir s’il s’agit de $+\infty$ ou de $-\infty$, il suffit de connaître le signe de $f(x)$ juste à gauche et juste à droite de $a$.
+:::
+:::
+
+Inutile pour cela de dresser le tableau de signes complet de $f$. Près de $a$, le numérateur est proche de $P(a) \neq 0$ : il a donc le **signe de $P(a)$**. Il suffit d’étudier le signe du dénominateur juste à gauche et juste à droite de $a$ : un facteur $(x - a)$ change de signe en $a$, un facteur $(x - a)^{2}$ n’en change pas, et les autres facteurs gardent le signe de leur valeur en $a$. On résume cela dans un **tableau de signes local**.
+
+::: {#exemple-3-2 data-sorte="exemple" data-num="3.2" data-page="37" data-phys="40" data-id="5UAA3.exm.004" data-type="exemple" data-tags="" .theo .theo-exemple}
+::: {.theo-head}
+**Exemple 3.2**
+:::
+
+::: {.theo-body}
+Soit $f(x) = \frac{1}{x+2}$, de domaine $\mathbb{R} \setminus \{-2\}$. Le numérateur vaut $1 \neq 0$ : la droite d’équation $x = -2$ est une A.V. Pour savoir de quel côté le graphique monte ou descend, on dresse le tableau de signes local en $-2$.
+
+::: {.grille style="--n:2"}
+::: {.cellule}
+::: {.tableau .tab-signes}
+| $x$ | juste à gauche | $-2$ | juste à droite |
+|:---:|:---:|:---:|:---:|
+| $1$ | [$+$]{.rep} | [$+$]{.rep} | [$+$]{.rep} |
+| $x+2$ | [$-$]{.rep} | [$0$]{.rep} | [$+$]{.rep} |
+| $f(x)$ | [$-$]{.rep} | [$\Vert$]{.rep} | [$+$]{.rep} |
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c3-f68"></div>
+```
+:::
+:::
+
+On en déduit $\lim\limits_{\substack{x \to -2 \\ x < -2}} f(x) = \class{rep}{-\infty}$ et $\lim\limits_{\substack{x \to -2 \\ x > -2}} f(x) = \class{rep}{+\infty}$. En particulier, $\lim\limits_{x \to -2} f(x)$ [n’existe pas]{.rep}.
+:::
+:::
+
+::: {#exemple-3-3 data-sorte="exemple" data-num="3.3" data-page="37" data-phys="40" data-id="5UAA3.exm.005" data-type="exemple" data-tags="" .theo .theo-exemple}
+::: {.theo-head}
+**Exemple 3.3**
+:::
+
+::: {.theo-body}
+Soit $f(x) = \frac{-1}{(x-1)^{2}}$, de domaine $\mathbb{R} \setminus \{1\}$. Le numérateur vaut $-1 \neq 0$ : la droite d’équation $x = 1$ est une A.V.
+
+::: {.grille style="--n:2"}
+::: {.cellule}
+::: {.tableau .tab-signes}
+| $x$ | juste à gauche | $1$ | juste à droite |
+|:---:|:---:|:---:|:---:|
+| $-1$ | [$-$]{.rep} | [$-$]{.rep} | [$-$]{.rep} |
+| $(x-1)^{2}$ | [$+$]{.rep} | [$0$]{.rep} | [$+$]{.rep} |
+| $f(x)$ | [$-$]{.rep} | [$\Vert$]{.rep} | [$-$]{.rep} |
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c3-f69"></div>
+```
+:::
+:::
+
+On en déduit $\lim\limits_{\substack{x \to 1 \\ x < 1}} f(x) = \lim\limits_{\substack{x \to 1 \\ x > 1}} f(x) = \class{rep}{-\infty}$. Cette fois, la limite existe : $\lim\limits_{x \to 1} f(x) = \class{rep}{-\infty}$. Une asymptote verticale n’empêche donc pas la limite d’exister.
+:::
+:::
+
+## Second cas : le numérateur s’annule aussi en $a$
+
+Si $a$ est une racine du numérateur **et** du dénominateur, on ne peut rien conclure directement : lorsque $x$ est proche de $a$, on divise un nombre proche de $0$ par un autre nombre proche de $0$, et le résultat peut être n’importe quoi. On parle de **cas d’indétermination**. Mais $a$ étant racine des deux polynômes, chacun d’eux se factorise par $(x - a)$ : on peut simplifier la fraction.
+
+::: {#exemple-3-4 data-sorte="exemple" data-num="3.4" data-page="38" data-phys="41" data-id="5UAA3.exm.006" data-type="exemple" data-tags="" .theo .theo-exemple}
+::: {.theo-head}
+**Exemple 3.4**
+:::
+
+::: {.theo-body}
+Soit $f(x) = \frac{x+1}{x^{3}+x^{2}+x+1}$, de domaine $\mathbb{R} \setminus \{-1\}$. En $x = -1$, le numérateur vaut $0$ et le dénominateur aussi. On factorise et on simplifie par $(x+1)$ :
+
+$$
+\frac{x+1}{x^{3}+x^{2}+x+1} = \frac{x+1}{(x+1)(x^{2}+1)} = \frac{1}{x^{2}+1} \quad \text{pour} x \neq -1.
+$$
+
+On remplace maintenant $x$ par $-1$ dans la fraction simplifiée : $\frac{1}{(-1)^{2}+1} = \class{rep}{\frac{1}{2}}$.
+
+::: {.grille style="--n:2"}
+::: {.cellule}
+Ainsi $\lim\limits_{x \to -1} f(x) = \class{rep}{\frac{1}{2}}$ : comme $-1 \notin \operatorname{dom}(f)$, le graphique de $f$ présente un point creux en [$(-1 ; \frac{1}{2})$]{.rep}.
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c3-f70"></div>
+```
+:::
+:::
+:::
+:::
+
+::: {#remarque-3-2 data-sorte="remarque" data-num="3.2" data-page="38" data-phys="41" data-id="5UAA3.rem.010" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {.theo-head}
+**Remarque 3.2**
+:::
+
+::: {.theo-body}
+**Rédiger un calcul de limite.** Tant que $x$ n’a pas été remplacé par $a$, on garde « $\lim\limits_{x \to a}$ » devant l’expression :
+
+$$
+\lim\limits_{x \to -1} \frac{x+1}{x^{3}+x^{2}+x+1} = \lim\limits_{x \to -1} \frac{1}{x^{2}+1} = \frac{1}{(-1)^{2}+1} = \frac{1}{2}.
+$$
+
+Écrire $\frac{x+1}{x^{3}+x^{2}+x+1} = \frac{1}{x^{2}+1} = \frac{1}{2}$ serait faux : l’égalité $\frac{1}{x^{2}+1} = \frac{1}{2}$ n’est vraie que pour $x = \pm 1$.
+:::
+:::
+
+::: {#exemple-3-5 data-sorte="exemple" data-num="3.5" data-page="39" data-phys="42" data-id="5UAA3.exm.007" data-type="exemple" data-tags="" .theo .theo-exemple}
+::: {.theo-head}
+**Exemple 3.5**
+:::
+
+::: {.theo-body}
+Soit $f(x) = \frac{x+2}{x^{2}+4x+4}$, de domaine $\mathbb{R} \setminus \{-2\}$. Le numérateur et le dénominateur s’annulent en $-2$ ; on simplifie par $(x+2)$ :
+
+$$
+\frac{x+2}{x^{2}+4x+4} = \frac{x+2}{(x+2)^{2}} = \frac{1}{x+2} \quad \text{pour} x \neq -2.
+$$
+
+Après simplification, le dénominateur s’annule encore en $-2$, mais plus le numérateur : on est ramené au premier cas. Le graphique de $f$ est celui de $\frac{1}{x+2}$ : [une A.V. d’équation $x = -2$, sans point creux]{.rep}.
+:::
+:::
+
+::: {#cadre-demarche-en-une-valeur-interdite .cadre-info}
+**Démarche en une valeur interdite $a$ d’une fonction rationnelle.**
+
+1. Remplace $x$ par $a$ dans le numérateur.
+2. S’il ne s’annule pas : la droite $x = a$ est une **A.V.** ; un tableau de signes local (signe du numérateur en $a$, signe du dénominateur juste à gauche et juste à droite de $a$) donne les limites à gauche et à droite ($+\infty$ ou $-\infty$).
+3. S’il s’annule aussi : factorise et simplifie la fraction par $(x - a)$, puis remplace à nouveau $x$ par $a$ dans la fraction simplifiée.
+
+   - Si le dénominateur ne s’annule plus : on obtient un nombre $r$, c’est la limite ; le graphique a un **point creux** en $(a ; r)$.
+   - Si le dénominateur s’annule encore mais plus le numérateur : on est ramené à l’étape 2, c’est une **A.V.**
+   - Si les deux s’annulent encore : simplifie encore par $(x - a)$.
+:::
+
+::: {.ae-lien}
+[✔ S'autoévaluer sur cette section : test de 8 questions →](../autoeval.qmd#sections=sec-valeur-interdite)
+:::

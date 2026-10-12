@@ -1,0 +1,2569 @@
+---
+title: "S'autoévaluer"
+search: false
+---
+
+
+<!-- GÉNÉRÉ par outils/typ2site.py (autoeval.py) : NE PAS ÉDITER. -->
+
+
+::: {#ae-app data-cle="limites"}
+::: {.ae-attente}
+Chargement…
+:::
+:::
+
+
+::: {#ae-banque .ae-cache}
+
+::: {.ae-sec data-ae-id="sec-rappels" data-chap="1" data-url="ch1-fonctions/1-rappels.html" data-n="3"}
+Rappels
+:::
+
+::: {.ae-sec data-ae-id="sec-operations" data-chap="1" data-url="ch1-fonctions/2-operations-sur-les-fonctions.html" data-n="4"}
+Opérations sur les fonctions
+:::
+
+::: {.ae-sec data-ae-id="sec-composee" data-chap="1" data-url="ch1-fonctions/3-reconnaitre-une-composee.html" data-n="5"}
+Reconnaître une composée
+:::
+
+::: {.ae-sec data-ae-id="sec-domaine" data-chap="1" data-url="ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html" data-n="5"}
+Recherche algébrique du domaine d’une fonction
+:::
+
+::: {.ae-sec data-ae-id="sec-asymptotes-contact" data-chap="1" data-url="ch1-fonctions/5-asymptotes-premier-contact.html" data-n="4"}
+Asymptotes : premier contact
+:::
+
+::: {.ae-sec data-ae-id="sec-decrire-un-graphique-sans-le" data-chap="2" data-url="ch2-limites-definition-e/1-decrire-un-graphique-sans-le.html" data-n="0"}
+Décrire un graphique sans le montrer
+:::
+
+::: {.ae-sec data-ae-id="sec-un-point-qui-se-deplace" data-chap="2" data-url="ch2-limites-definition-e/2-un-point-qui-se-deplace.html" data-n="0"}
+Un point qui se déplace sur un graphique
+:::
+
+::: {.ae-sec data-ae-id="sec-un-trou-dans-le-graphique" data-chap="2" data-url="ch2-limites-definition-e/3-un-trou-dans-le-graphique.html" data-n="0"}
+Un trou dans le graphique
+:::
+
+::: {.ae-sec data-ae-id="sec-lim-definition" data-chap="2" data-url="ch2-limites-definition-e/4-definition.html" data-n="5"}
+Définition
+:::
+
+::: {.ae-sec data-ae-id="sec-lim-sens" data-chap="2" data-url="ch2-limites-definition-e/5-quand-une-limite-a-t.html" data-n="2"}
+Quand une limite a-t-elle un sens ?
+:::
+
+::: {.ae-sec data-ae-id="sec-lim-gauche-droite" data-chap="2" data-url="ch2-limites-definition-e/6-limites-a-gauche-et-a.html" data-n="2"}
+Limites à gauche et à droite
+:::
+
+::: {.ae-sec data-ae-id="sec-les-limites-des-fonctions-de" data-chap="2" data-url="ch2-limites-definition-e/7-les-limites-des-fonctions-de.html" data-n="0"}
+Les limites des fonctions de référence
+:::
+
+::: {.ae-sec data-ae-id="sec-exercices" data-chap="4" data-url="ch4-chercher-les-asympto/6-exercices.html" data-n="0"}
+Exercices
+:::
+
+::: {.ae-sec data-ae-id="sec-pourquoi-calculer" data-chap="3" data-url="ch3-chercher-les-points/1-pourquoi-calculer.html" data-n="0"}
+Pourquoi calculer ?
+:::
+
+::: {.ae-sec data-ae-id="sec-rationnelles" data-chap="3" data-url="ch3-chercher-les-points/2-les-fonctions-rationnelles.html" data-n="1"}
+Les fonctions rationnelles
+:::
+
+::: {.ae-sec data-ae-id="sec-point-du-domaine" data-chap="3" data-url="ch3-chercher-les-points/3-en-un-point-du-domaine.html" data-n="1"}
+En un point du domaine : rien à chercher
+:::
+
+::: {.ae-sec data-ae-id="sec-valeur-interdite" data-chap="3" data-url="ch3-chercher-les-points/4-en-une-valeur-interdite-point.html" data-n="8"}
+En une valeur interdite : point creux ou asymptote verticale ?
+:::
+
+::: {.ae-sec data-ae-id="sec-polynomes-infini" data-chap="4" data-url="ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.html" data-n="2"}
+Les polynômes en $\pm \infty$ : le terme qui l’emporte
+:::
+
+::: {.ae-sec data-ae-id="sec-ah" data-chap="4" data-url="ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.html" data-n="4"}
+Les fonctions rationnelles en $\pm \infty$ : asymptote horizontale ?
+:::
+
+::: {.ae-sec data-ae-id="sec-ao" data-chap="4" data-url="ch4-chercher-les-asympto/3-asymptote-oblique.html" data-n="6"}
+Asymptote oblique
+:::
+
+::: {.ae-sec data-ae-id="sec-sans-infini" data-chap="4" data-url="ch4-chercher-les-asympto/4-on-ne-calcule-pas-avec.html" data-n="0"}
+On ne calcule pas avec l’infini
+:::
+
+::: {.ae-sec data-ae-id="sec-synthese" data-chap="4" data-url="ch4-chercher-les-asympto/5-synthese.html" data-n="1"}
+Synthèse
+:::
+
+::: {.ae-obj data-code="C1" data-cat="Connaître"}
+Identifier dans l’expression analytique d’une fonction donnée les fonctions usuelles, les opérations et leur hiérarchie.
+:::
+
+::: {.ae-obj data-code="C2" data-cat="Connaître"}
+Donner un exemple de limite de fonction illustrant un cas d’indétermination.
+:::
+
+::: {.ae-obj data-code="C3" data-cat="Connaître"}
+Énoncer la procédure à suivre pour calculer une limite selon les cas rencontrés.
+:::
+
+::: {.ae-obj data-code="C4" data-cat="Connaître"}
+Interpréter et représenter graphiquement le résultat d’une limite.
+:::
+
+::: {.ae-obj data-code="A1" data-cat="Appliquer"}
+Déterminer, à partir de l’expression analytique d’une fonction *(rationnelle)*, son domaine et les limites qui apportent des informations sur son graphique.
+:::
+
+::: {.ae-obj data-code="A2" data-cat="Appliquer"}
+Calculer des limites *(de fonctions rationnelles)* et les interpréter graphiquement.
+:::
+
+::: {.ae-obj data-code="A3" data-cat="Appliquer"}
+Apparier des graphiques et des informations sur les limites et les asymptotes d’une fonction.
+:::
+
+::: {.ae-obj data-code="A4" data-cat="Appliquer"}
+Traduire en termes de limites les comportements asymptotiques d’une fonction, à partir de son graphique.
+:::
+
+::: {.ae-obj data-code="A5" data-cat="Appliquer"}
+Rechercher les équations des asymptotes au graphique d’une fonction *(rationnelle)*.
+:::
+
+::: {.ae-obj data-code="A6" data-cat="Appliquer"}
+Utiliser le comportement asymptotique d’une fonction pour approcher sa valeur en un point.
+:::
+
+::: {.ae-obj data-code="T1" data-cat="Transférer"}
+Esquisser le graphique d’une fonction vérifiant certaines conditions sur les limites et les asymptotes.
+:::
+
+::: {.ae-obj data-code="T2" data-cat="Transférer"}
+Rechercher l’expression analytique d’une fonction répondant à certaines conditions relatives à ses limites et à ses asymptotes.
+:::
+
+::: {.ae-obj data-code="T3" data-cat="Transférer"}
+Relier l’expression analytique d’une fonction à son graphique et justifier le choix posé par calcul.
+:::
+
+::: {.ae-qa data-ae-id="qa-fonctions" data-spec='{"questions": null, "tirage": {"nombre": 12, "sections": ["sec-rappels", "sec-operations", "sec-composee", "sec-domaine", "sec-asymptotes-contact"], "obj": [], "types": [], "niveaux": []}}'}
+::: {.ae-qa-titre}
+Chapitre 1 : Fonctions
+:::
+
+::: {.ae-qa-desc}
+Douze questions tirées au hasard sur tout le chapitre 1 : rappels, opérations, composée, domaine, asymptotes.
+:::
+:::
+
+::: {.ae-qa data-ae-id="qa-sens-limite" data-spec='{"questions": ["lim-lire-moins-infini", "lim-interpreter-infini", "lim-lire-plus-infini-ah", "lim-lire-droite-av", "lim-sens-hors-domaine", "lim-point-plein-isole", "lim-gauche-droite-point-creux"], "tirage": null}'}
+::: {.ae-qa-titre}
+Ce que dit une limite
+:::
+
+::: {.ae-qa-desc}
+Lire une limite, sur une écriture ou sur un graphique, et dire si elle a un sens.
+:::
+:::
+
+::: {.ae-qa data-ae-id="qa-creux-ou-av" data-spec='{"questions": ["lim-point-du-domaine", "lim-numerateur-non-nul", "lim-gauche-valeur-interdite", "lim-simplifier-point-creux", "lim-simplifier-encore-av", "lim-reconnaitre-indetermination", "lim-rediger-calcul"], "tirage": null}'}
+::: {.ae-qa-titre}
+Point creux ou asymptote verticale ?
+:::
+
+::: {.ae-qa-desc}
+En une valeur interdite : calculer, simplifier, conclure.
+:::
+:::
+
+::: {.ae-qa data-ae-id="qa-ah-ao" data-spec='{"questions": null, "tirage": {"nombre": 8, "sections": ["sec-polynomes-infini", "sec-ah", "sec-ao", "sec-synthese"], "obj": [], "types": [], "niveaux": []}}'}
+::: {.ae-qa-titre}
+Asymptotes horizontales et obliques
+:::
+
+::: {.ae-qa-desc}
+Limites en $\pm \infty$, A.H., A.O. et estimation d’une valeur.
+:::
+:::
+
+::: {.ae-qa data-ae-id="qa-bases" data-spec='{"questions": null, "tirage": {"nombre": 10, "sections": [], "obj": [], "types": [], "niveaux": [1]}}'}
+::: {.ae-qa-titre}
+Les bases, pour démarrer
+:::
+
+::: {.ae-qa-desc}
+Dix questions de niveau ★ sur tout le cours.
+:::
+:::
+
+::: {.ae-qa data-ae-id="qa-revision-limites" data-spec='{"questions": null, "tirage": {"nombre": 15, "sections": ["sec-lim-definition", "sec-lim-sens", "sec-lim-gauche-droite", "sec-rationnelles", "sec-point-du-domaine", "sec-valeur-interdite", "sec-polynomes-infini", "sec-ah", "sec-ao", "sec-synthese"], "obj": [], "types": [], "niveaux": []}}'}
+::: {.ae-qa-titre}
+Révision des limites
+:::
+
+::: {.ae-qa-desc}
+Quinze questions tirées au hasard sur les trois chapitres consacrés aux limites (chapitres 2 à 4).
+:::
+:::
+
+::: {.ae-q data-ae-id="fct-racines-produit" data-type="qcm" data-section="sec-rappels" data-obj="A1" data-niveau="1" data-id="5UAA3.q.fct-racines-produit" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Soit $f(x) = (x - 2)(x + 3)$. Quelles sont les racines de $f$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$2$ et $-3$
+:::
+
+::: {.ae-fb}
+Oui. Un produit est nul si l’un de ses facteurs est nul : $x - 2 = 0$ donne $x = 2$, et $x + 3 = 0$ donne $x = -3$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$-2$ et $3$
+:::
+
+::: {.ae-fb}
+Erreur de signe : tu as recopié les nombres qui apparaissent dans les parenthèses. Vérifie : $f(-2) = (-4) \cdot 1 = -4 \neq 0$. Il faut résoudre $x - 2 = 0$ et $x + 3 = 0$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$-6$
+:::
+
+::: {.ae-fb}
+$-6$, c’est $f(0) = (-2) \cdot 3$ : l’ordonnée à l’origine. Les racines sont les valeurs de $x$ pour lesquelles $f(x) = 0$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$0$
+:::
+
+::: {.ae-fb}
+$0$ n’est pas une racine : $f(0) = -6 \neq 0$. Une racine est une valeur de $x$ qui **annule** $f(x)$, pas la valeur $x = 0$.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="fct-ordonnee-origine" data-type="qcm" data-section="sec-rappels" data-obj="A1" data-niveau="1" data-id="5UAA3.q.fct-ordonnee-origine" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Soit $f(x) = \frac{x + 4}{x - 2}$. Quelle est l’ordonnée à l’origine du graphique de $f$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$-2$
+:::
+
+::: {.ae-fb}
+Oui : l’ordonnée à l’origine est $f(0) = \frac{0 + 4}{0 - 2} = \frac{4}{-2} = -2$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$-4$
+:::
+
+::: {.ae-fb}
+$-4$ est la racine de $f$ (le numérateur s’annule en $-4$) : c’est là que le graphique coupe l’axe **horizontal**. L’ordonnée à l’origine, c’est $f(0)$, là où il coupe l’axe vertical.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$2$
+:::
+
+::: {.ae-fb}
+$2$ est la valeur interdite de $f$ (le dénominateur s’annule en $2$) : elle n’a pas d’image. L’ordonnée à l’origine, c’est $f(0)$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$-\frac{1}{2}$
+:::
+
+::: {.ae-fb}
+Tu as inversé la fraction : $f(0) = \frac{4}{-2}$, et non $\frac{-2}{4}$.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="fct-tableau-signes-produit" data-type="ouverte" data-section="sec-rappels" data-obj="A2" data-niveau="1" data-id="5UAA3.q.fct-tableau-signes-produit" data-tags="" data-forme="courte"}
+::: {.ae-enonce}
+Dresse le tableau de signes de $f(x) = (x + 2)(x - 4)$.
+:::
+
+::: {.ae-rep}
+Racines : $-2$ et $4$.
+
+::: {.tableau .tab-signes}
+| $x$ | $-\infty$ |   | $-2$ |   | $4$ |   | $+\infty$ |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| $x+2$ |   | [$-$]{.rep} | [$0$]{.rep} | [$+$]{.rep} | [$+$]{.rep} | [$+$]{.rep} |   |
+| $x-4$ |   | [$-$]{.rep} | [$-$]{.rep} | [$-$]{.rep} | [$0$]{.rep} | [$+$]{.rep} |   |
+| $f(x)$ |   | [$+$]{.rep} | [$0$]{.rep} | [$-$]{.rep} | [$0$]{.rep} | [$+$]{.rep} |   |
+:::
+
+Vérification avec une valeur test : $f(0) = 2 \cdot (-4) = -8 < 0$, ce qui confirme le signe $-$ entre $-2$ et $4$.
+:::
+
+::: {.ae-crit}
+J’ai placé les deux racines, $-2$ et $4$, dans l’ordre, sur la première ligne.
+:::
+
+::: {.ae-crit}
+J’ai écrit $0$ sous chaque racine, dans la ligne du facteur concerné et dans celle de $f(x)$.
+:::
+
+::: {.ae-crit}
+Les signes de $x + 2$ et de $x - 4$ sont corrects.
+:::
+
+::: {.ae-crit}
+La ligne de $f(x)$ applique la règle des signes : $+$, $-$, $+$.
+:::
+:::
+
+::: {.ae-q data-ae-id="fct-difference-image" data-type="qcm" data-section="sec-operations" data-obj="C1" data-niveau="1" data-id="5UAA3.q.fct-difference-image" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Soit $f(x) = x^{2}$ et $g(x) = x - 3$. Que vaut $(f - g)(2)$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$5$
+:::
+
+::: {.ae-fb}
+Oui : $(f - g)(2) = f(2) - g(2) = 4 - (-1) = 5$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$-1$
+:::
+
+::: {.ae-fb}
+Tu as sans doute écrit $x^{2} - x - 3$ : il manque les parenthèses. $(f - g)(x) = x^{2} - (x - 3) = x^{2} - x + 3$, et en $2$ : $4 - 2 + 3 = 5$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$3$
+:::
+
+::: {.ae-fb}
+$g(2) = 2 - 3 = -1$ : soustraire $-1$, c’est ajouter $1$. $f(2) - g(2) = 4 - (-1) = 5$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$1$
+:::
+
+::: {.ae-fb}
+Tu as calculé $f(g(2)) = f(-1) = 1$ : c’est la composée $f \circ g$, pas la différence. $(f - g)(2) = f(2) - g(2)$.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="fct-domaine-quotient" data-type="qcm" data-section="sec-operations" data-obj="C1" data-niveau="1" data-id="5UAA3.q.fct-domaine-quotient" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Soit $f$ et $g$ deux fonctions. Quel est le domaine de la fonction $\frac{f}{g}$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+Les réels de $\operatorname{dom}(f) \cap \operatorname{dom}(g)$ pour lesquels $g(x) \neq 0$.
+:::
+
+::: {.ae-fb}
+Oui : pour calculer $\frac{f(x)}{g(x)}$, il faut pouvoir calculer $f(x)$ **et** $g(x)$, et il ne faut pas diviser par $0$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\operatorname{dom}(f) \cap \operatorname{dom}(g)$
+:::
+
+::: {.ae-fb}
+C’est le domaine de $f + g$, $f - g$ et $f g$. Pour un quotient, il faut en plus que le dénominateur $g(x)$ ne soit pas nul.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\operatorname{dom}(f) \cup \operatorname{dom}(g)$
+:::
+
+::: {.ae-fb}
+La réunion contient des réels où $f(x)$ ou $g(x)$ n’existe pas : on ne pourrait pas y calculer $\frac{f(x)}{g(x)}$. Il faut que les deux existent : c’est l’intersection.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Les réels pour lesquels $g(x) \neq 0$.
+:::
+
+::: {.ae-fb}
+Il manque une condition : $f(x)$ doit aussi exister. Par exemple, si $f(x) = \sqrt{x}$, le réel $-1$ n’est pas dans le domaine de $\frac{f}{g}$.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="fct-produit-expression" data-type="qcm" data-section="sec-operations" data-obj="C1" data-niveau="2" data-id="5UAA3.q.fct-produit-expression" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Soit $f(x) = \frac{1}{x}$ et $g(x) = x - 2$. Quelle est l’expression de $(f g)(x)$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$\frac{x - 2}{x}$
+:::
+
+::: {.ae-fb}
+Oui : $(f g)(x) = f(x) \cdot g(x) = \frac{1}{x} \cdot (x - 2) = \frac{x - 2}{x}$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\frac{1}{x - 2}$
+:::
+
+::: {.ae-fb}
+C’est $f(g(x))$ : tu as appliqué $f$ au résultat de $g$. C’est la composée $f \circ g$, pas le produit.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\frac{1}{x} + x - 2$
+:::
+
+::: {.ae-fb}
+C’est la somme $f + g$. Le produit $f g$ multiplie les images : $f(x) \cdot g(x)$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\frac{1}{x} - 2$
+:::
+
+::: {.ae-fb}
+C’est $g(f(x))$ : tu as appliqué $g$ au résultat de $f$ (composée $g \circ f$). Le produit, c’est $f(x) \cdot g(x)$.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="fct-domaine-somme-quotient" data-type="ouverte" data-section="sec-operations" data-obj="C1" data-niveau="2" data-id="5UAA3.q.fct-domaine-somme-quotient" data-tags="" data-forme="courte"}
+::: {.ae-enonce}
+Soit $f(x) = \sqrt{x}$ et $g(x) = x - 4$. Donne le domaine de $f + g$ et celui de $\frac{f}{g}$.
+:::
+
+::: {.ae-rep}
+$\operatorname{dom}(f) = [0 ; +\infty[$ et $\operatorname{dom}(g) = \mathbb{R}$.
+
+- $\operatorname{dom}(f + g) = \operatorname{dom}(f) \cap \operatorname{dom}(g) = [0 ; +\infty[$.
+- Pour $\frac{f}{g}$, on retire en plus la racine de $g$ : $g(x) = 0$ pour $x = 4$. Donc $\operatorname{dom}(\frac{f}{g}) = [0 ; 4[ \cup ]4 ; +\infty[$.
+:::
+
+::: {.ae-crit}
+J’ai trouvé $\operatorname{dom}(f) = [0 ; +\infty[$, crochet fermé en $0$.
+:::
+
+::: {.ae-crit}
+J’ai pris l’intersection des deux domaines pour $f + g$.
+:::
+
+::: {.ae-crit}
+Pour $\frac{f}{g}$, j’ai retiré $4$, la racine du dénominateur.
+:::
+:::
+
+::: {.ae-q data-ae-id="fct-composee-expression" data-type="qcm" data-section="sec-composee" data-obj="C1" data-niveau="1" data-id="5UAA3.q.fct-composee-expression" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Soit $f(x) = x^{2}$ et $g(x) = x + 3$. Que vaut $(f \circ g)(x)$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$(x + 3)^{2}$
+:::
+
+::: {.ae-fb}
+Oui : $(f \circ g)(x) = f(g(x)) = f(x + 3) = (x + 3)^{2}$. On applique d’abord $g$, puis $f$ au résultat.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$x^{2} + 3$
+:::
+
+::: {.ae-fb}
+C’est $g(f(x))$ : tu as appliqué $f$ d’abord. Dans $f \circ g$, c’est $g$ qui agit en premier (on lit $f(g(x))$ de l’intérieur vers l’extérieur).
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$x^{2} (x + 3)$
+:::
+
+::: {.ae-fb}
+C’est le produit $f g$. La composée applique une fonction au **résultat** de l’autre.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$x^{2} + x + 3$
+:::
+
+::: {.ae-fb}
+C’est la somme $f + g$. La composée applique $f$ au résultat de $g$ : $f(g(x))$.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="fct-decomposer-racine" data-type="qcm" data-section="sec-composee" data-obj="C1" data-niveau="1" data-id="5UAA3.q.fct-decomposer-racine" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Comment se construit la fonction $q(x) = \sqrt{x^{2} - 4}$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+On calcule d’abord $x^{2} - 4$, puis on applique la racine carrée au résultat.
+:::
+
+::: {.ae-fb}
+Oui : $q = s \circ h$ avec $h(x) = x^{2} - 4$ (d’abord) et $s(x) = \sqrt{x}$ (ensuite).
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+On calcule d’abord $\sqrt{x}$, puis on applique $x^{2} - 4$ au résultat.
+:::
+
+::: {.ae-fb}
+Dans cet ordre, on obtiendrait $(\sqrt{x})^{2} - 4 = x - 4$ (pour $x \geq 0$), pas $q(x)$. Le bloc « intérieur », celui qu’on calcule en premier, est sous la racine.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$q(x) = \sqrt{x^{2}} - \sqrt{4} = \left|x\right| - 2$ : c’est une différence.
+:::
+
+::: {.ae-fb}
+La racine d’une différence n’est pas la différence des racines : $\sqrt{25 - 16} = 3$, mais $\sqrt{25} - \sqrt{16} = 1$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+On calcule $x^{2}$, puis on applique la racine carrée, puis on retire $4$.
+:::
+
+::: {.ae-fb}
+Cet ordre donne $\sqrt{x^{2}} - 4 = \left|x\right| - 4$ : le $-4$ serait hors de la racine. Dans $q$, le $-4$ est sous la racine : on le retire **avant** d’appliquer la racine.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="fct-composee-non-commutative" data-type="qcm" data-section="sec-composee" data-obj="C1" data-niveau="2" data-id="5UAA3.q.fct-composee-non-commutative" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Soit $f(x) = 2x$ et $g(x) = x + 1$. A-t-on $f \circ g = g \circ f$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+Non : $(f \circ g)(x) = 2x + 2$ et $(g \circ f)(x) = 2x + 1$.
+:::
+
+::: {.ae-fb}
+Oui : $f(g(x)) = 2(x + 1) = 2x + 2$, alors que $g(f(x)) = 2x + 1$. La composition n’est pas commutative.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Oui : comme pour la multiplication, l’ordre ne compte pas.
+:::
+
+::: {.ae-fb}
+La composition n’est pas une multiplication : l’ordre compte, comme pour « mettre ses chaussettes, puis ses chaussures ». Calcule $f(g(x))$ et $g(f(x))$ pour le vérifier.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Oui : les deux valent $2x + 1$.
+:::
+
+::: {.ae-fb}
+$g(f(x)) = 2x + 1$, c’est juste ; mais $f(g(x)) = f(x + 1) = 2(x + 1) = 2x + 2$ : n’oublie pas les parenthèses.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Non : $(f \circ g)(x) = 2x + 1$ et $(g \circ f)(x) = 2x + 2$.
+:::
+
+::: {.ae-fb}
+La conclusion est juste, mais les deux expressions sont inversées. Dans $f \circ g$, on applique $g$ d’abord : $f(g(x)) = 2(x + 1) = 2x + 2$.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="fct-composee-tableau" data-type="qcm" data-section="sec-composee" data-obj="C1" data-niveau="2" data-id="5UAA3.q.fct-composee-tableau" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Voici un tableau de valeurs de deux fonctions $f$ et $g$. Que vaut $(f \circ g)(1)$ ?
+
+::: {.tableau}
+| $x$ | $0$ | $1$ | $2$ | $3$ |
+|:---:|:---:|:---:|:---:|:---:|
+| $f(x)$ | $3$ | $2$ | $0$ | $1$ |
+| $g(x)$ | $1$ | $3$ | $2$ | $0$ |
+:::
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$1$
+:::
+
+::: {.ae-fb}
+Oui : $g(1) = 3$, puis $f(3) = 1$. Donc $(f \circ g)(1) = f(g(1)) = 1$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$2$
+:::
+
+::: {.ae-fb}
+Tu as calculé $g(f(1)) = g(2) = 2$ : l’ordre est inversé. Dans $f \circ g$, on lit d’abord $g$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$6$
+:::
+
+::: {.ae-fb}
+Tu as calculé $f(1) \cdot g(1) = 2 \cdot 3$ : c’est le produit $f g$, pas la composée.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$3$
+:::
+
+::: {.ae-fb}
+$3$, c’est $g(1)$ : tu t’es arrêté à la première étape. Il faut encore appliquer $f$ à ce résultat : $f(3) = 1$.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="fct-decomposer-somme-racine" data-type="ouverte" data-section="sec-composee" data-obj="C1" data-niveau="2" data-id="5UAA3.q.fct-decomposer-somme-racine" data-tags="" data-forme="longue"}
+::: {.ae-enonce}
+Décompose la fonction $r(x) = \sqrt{x^{2} + 1} - 2x$ : décris comment la construire à partir des fonctions de référence et des opérations $+, -, \cdot, /, \circ$.
+:::
+
+::: {.ae-rep}
+- On additionne le bloc $x^{2}$ et la constante $1$ : $h(x) = x^{2} + 1$.
+- On applique la racine carrée au résultat : en notant $s(x) = \sqrt{x}$, on obtient $s \circ h$.
+- On multiplie le bloc $x$ par la constante $2$, et on soustrait : $r = s \circ h - 2x$.
+:::
+
+::: {.ae-crit}
+J’ai repéré le bloc intérieur $x^{2} + 1$ (une somme, pas une composée).
+:::
+
+::: {.ae-crit}
+J’ai dit que la racine carrée s’applique **après**, au résultat de $x^{2} + 1$.
+:::
+
+::: {.ae-crit}
+J’ai placé la soustraction de $2x$ en dehors de la racine, en dernier.
+:::
+:::
+
+::: {.ae-q data-ae-id="fct-condition-racine" data-type="qcm" data-section="sec-domaine" data-obj="A1" data-niveau="1" data-id="5UAA3.q.fct-condition-racine" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Quelle condition d’existence faut-il poser pour $f(x) = \frac{\sqrt{3 - x}}{2}$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$3 - x \geq 0$
+:::
+
+::: {.ae-fb}
+Oui : une racine carrée n’existe que pour un nombre positif ou nul. Le dénominateur $2$ ne s’annule jamais : aucune autre condition.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$3 - x > 0$
+:::
+
+::: {.ae-fb}
+$\sqrt{0} = 0$ existe : l’inégalité est large. L’inégalité stricte, c’est pour $\frac{1}{\sqrt{a}}$ (on ne divise pas par $0$).
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$3 - x \neq 0$
+:::
+
+::: {.ae-fb}
+Cette condition concerne un dénominateur. Ici le dénominateur est $2$ ; ce qui impose une condition, c’est la racine : $3 - x \geq 0$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$x \geq 0$
+:::
+
+::: {.ae-fb}
+La condition porte sur **ce qui est sous la racine**, ici $3 - x$, et pas sur $x$. Par exemple, $x = 5$ vérifie $x \geq 0$, mais $\sqrt{3 - 5}$ n’existe pas.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="fct-domaine-rationnelle" data-type="qcm" data-section="sec-domaine" data-obj="A1" data-niveau="1" data-id="5UAA3.q.fct-domaine-rationnelle" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Quel est le domaine de $f(x) = \frac{x + 1}{x^{2} - 4}$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$\mathbb{R} \setminus \{-2 ; 2\}$
+:::
+
+::: {.ae-fb}
+Oui : $x^{2} - 4 = 0$ pour $x = 2$ et pour $x = -2$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\mathbb{R} \setminus \{2\}$
+:::
+
+::: {.ae-fb}
+$x^{2} = 4$ a deux solutions : $2$ et $-2$, car $(-2)^{2} = 4$ aussi.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\mathbb{R} \setminus \{-1\}$
+:::
+
+::: {.ae-fb}
+$-1$ annule le numérateur : $f(-1) = \frac{0}{-3} = 0$ existe. Ce sont les racines du **dénominateur** qu’on retire.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\mathbb{R} \setminus \{4\}$
+:::
+
+::: {.ae-fb}
+On cherche les $x$ pour lesquels le dénominateur $x^{2} - 4$ vaut $0$, c’est-à-dire $x^{2} = 4$ : $x = 2$ ou $x = -2$.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="fct-domaine-inverse-racine" data-type="qcm" data-section="sec-domaine" data-obj="A1" data-niveau="2" data-id="5UAA3.q.fct-domaine-inverse-racine" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Quel est le domaine de $f(x) = \frac{1}{\sqrt{x - 5}}$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$]5 ; +\infty[$
+:::
+
+::: {.ae-fb}
+Oui : la racine impose $x - 5 \geq 0$ et le dénominateur impose $\sqrt{x - 5} \neq 0$ ; ensemble, $x - 5 > 0$, soit $x > 5$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$[5 ; +\infty[$
+:::
+
+::: {.ae-fb}
+En $5$, $\sqrt{5 - 5} = 0$ est au dénominateur : $f(5)$ n’existe pas. Pour $\frac{1}{\sqrt{a}}$, la condition est stricte : $a > 0$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\mathbb{R} \setminus \{5\}$
+:::
+
+::: {.ae-fb}
+Tu as seulement exclu la valeur qui annule le dénominateur. Mais pour $x < 5$, $\sqrt{x - 5}$ n’existe pas : par exemple $f(1) = \frac{1}{\sqrt{-4}}$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$]-\infty ; 5[$
+:::
+
+::: {.ae-fb}
+Erreur de sens : $x - 5 > 0$ donne $x > 5$. Vérifie avec $x = 0$ : $\sqrt{0 - 5}$ n’existe pas.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="fct-domaine-racine-quotient" data-type="ouverte" data-section="sec-domaine" data-obj="A1" data-niveau="2" data-id="5UAA3.q.fct-domaine-racine-quotient" data-tags="" data-forme="longue"}
+::: {.ae-enonce}
+Calcule le domaine de $f(x) = \frac{\sqrt{x + 1}}{x^{2} - x - 6}$.
+:::
+
+::: {.ae-rep}
+Conditions d’existence :
+
+- racine : $x + 1 \geq 0$, donc $x \geq -1$ ;
+- dénominateur : $x^{2} - x - 6 \neq 0$. Or $x^{2} - x - 6 = (x - 3)(x + 2)$ s’annule en $3$ et en $-2$.
+
+On garde les $x \geq -1$ différents de $3$ ($-2$ est déjà exclu, puisque $-2 < -1$) :
+
+$$
+\operatorname{dom}(f) = [-1 ; 3[ \cup ]3 ; +\infty[.
+$$
+:::
+
+::: {.ae-crit}
+J’ai posé les deux conditions : $x + 1 \geq 0$ et $x^{2} - x - 6 \neq 0$.
+:::
+
+::: {.ae-crit}
+J’ai trouvé les racines du dénominateur : $3$ et $-2$.
+:::
+
+::: {.ae-crit}
+J’ai vu que $-2$ est déjà exclu par la première condition.
+:::
+
+::: {.ae-crit}
+Mon domaine est $[-1 ; 3[ \cup ]3 ; +\infty[$, avec le crochet fermé en $-1$.
+:::
+:::
+
+::: {.ae-q data-ae-id="fct-domaine-graphique-expression" data-type="qcm" data-section="sec-domaine" data-obj="A1" data-niveau="2" data-id="5UAA3.q.fct-domaine-graphique-expression" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Le graphique d’une fonction $f$ commence en $x = 2$ (point plein) et s’interrompt en $x = 5$, où il présente une asymptote verticale. Quelle expression peut être celle de $f$ ?
+
+```{=html}
+<div class="lim-plot" data-fig="c0-f84"></div>
+```
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$\frac{\sqrt{x - 2}}{x - 5}$
+:::
+
+::: {.ae-fb}
+Oui : $\operatorname{dom}(f) = [2 ; 5[ \cup ]5 ; +\infty[$. La racine fait commencer le graphique en $2$ (crochet fermé : point plein), le dénominateur l’interrompt en $5$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\frac{\sqrt{x - 5}}{x - 2}$
+:::
+
+::: {.ae-fb}
+Les rôles sont inversés : ici, le domaine serait $[5 ; +\infty[$, et le graphique commencerait en $5$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\frac{\sqrt{x + 2}}{x + 5}$
+:::
+
+::: {.ae-fb}
+Erreur de signe : $x + 2 \geq 0$ donne $x \geq -2$, et $x + 5 = 0$ pour $x = -5$. Le graphique commencerait en $-2$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\frac{1}{\sqrt{x - 2} (x - 5)}$
+:::
+
+::: {.ae-fb}
+Avec la racine au dénominateur, la condition devient $x - 2 > 0$ : le graphique ne pourrait pas avoir de point plein en $x = 2$.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="fct-equations-asymptotes" data-type="qcm" data-section="sec-asymptotes-contact" data-obj="A3" data-niveau="1" data-id="5UAA3.q.fct-equations-asymptotes" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Quelles sont les équations des asymptotes du graphique ci-dessous ?
+
+```{=html}
+<div class="lim-plot" data-fig="c0-f85"></div>
+```
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$x = -2$ et $y = 1$
+:::
+
+::: {.ae-fb}
+Oui. La droite verticale est formée des points d’abscisse $-2$ : son équation est $x = -2$. La droite horizontale est formée des points d’ordonnée $1$ : $y = 1$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$x = 1$ et $y = -2$
+:::
+
+::: {.ae-fb}
+$x$ et $y$ sont inversés. Une droite **verticale** a tous ses points à la même **abscisse** : son équation est $x = …$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$x = 2$ et $y = 1$
+:::
+
+::: {.ae-fb}
+Erreur de lecture : la droite verticale passe par $-2$, à gauche de l’axe vertical.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$y = -2$ et $y = 1$
+:::
+
+::: {.ae-fb}
+Une droite verticale ne s’écrit pas $y = …$ : tous ses points ont la même abscisse. Son équation est $x = -2$.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="fct-nature-asymptote" data-type="qcm" data-section="sec-asymptotes-contact" data-obj="A3" data-niveau="1" data-id="5UAA3.q.fct-nature-asymptote" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Une asymptote a pour équation $y = 2x - 1$. De quel type d’asymptote s’agit-il ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+Oblique
+:::
+
+::: {.ae-fb}
+Oui : $y = 2x - 1$ est l’équation d’une droite de pente $2$, ni horizontale ni verticale.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Horizontale
+:::
+
+::: {.ae-fb}
+Une asymptote horizontale a une équation $y = b$, avec $b$ un nombre : $y$ ne dépend pas de $x$. Ici, $y$ dépend de $x$ : la droite monte.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Verticale
+:::
+
+::: {.ae-fb}
+La présence de $x$ ne rend pas la droite verticale. Une verticale s’écrit $x = a$ ; ici on a $y = 2x - 1$, une droite de pente $2$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Ce n’est pas une asymptote possible : une asymptote est horizontale ou verticale.
+:::
+
+::: {.ae-fb}
+Il existe trois types d’asymptotes : verticale, horizontale et oblique (voir les exemples de la section « Asymptotes : premier contact »).
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="fct-compter-asymptotes" data-type="qcm" data-section="sec-asymptotes-contact" data-obj="A3" data-niveau="2" data-id="5UAA3.q.fct-compter-asymptotes" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Combien d’asymptotes le graphique de $f(x) = -\frac{x}{x^{2} - 1}$ possède-t-il ?
+
+```{=html}
+<div class="lim-plot" data-fig="c0-f86"></div>
+```
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+Trois : $x = -1$, $x = 1$ et $y = 0$.
+:::
+
+::: {.ae-fb}
+Oui : deux asymptotes verticales ($x = -1$ et $x = 1$) et une horizontale, l’axe horizontal lui-même, d’équation $y = 0$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Deux : $x = -1$ et $x = 1$.
+:::
+
+::: {.ae-fb}
+Tu as oublié l’axe horizontal : loin à gauche et loin à droite, le graphique s’en rapproche. La droite $y = 0$ est une asymptote horizontale, même si elle est confondue avec un axe.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Quatre : $x = -1$, $x = 1$, et $y = 0$ à gauche et à droite.
+:::
+
+::: {.ae-fb}
+La droite $y = 0$ est une seule droite, même si le graphique s’en rapproche des deux côtés : on la compte une fois.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Une : $y = 0$.
+:::
+
+::: {.ae-fb}
+Près de $x = -1$ et de $x = 1$, le graphique monte ou descend sans fin le long de deux droites verticales : ce sont aussi des asymptotes.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="fct-inventer-av-ah" data-type="ouverte" data-section="sec-asymptotes-contact" data-obj="A4" data-niveau="2" data-id="5UAA3.q.fct-inventer-av-ah" data-tags="" data-forme="longue"}
+::: {.ae-enonce}
+Esquisse le graphique d’une fonction qui a une asymptote verticale d’équation $x = -1$ et une asymptote horizontale d’équation $y = 2$. Si tu le peux, propose une expression analytique.
+:::
+
+::: {.ae-rep}
+Par exemple, le graphique de $f(x) = 2 + \frac{1}{x + 1}$ (le graphique de $\frac{1}{x}$ décalé de $1$ vers la gauche et de $2$ vers le haut) :
+
+```{=html}
+<div class="lim-plot" data-fig="c0-f87"></div>
+```
+
+Beaucoup d’autres réponses sont correctes : ce qui compte, c’est le comportement près des deux droites.
+:::
+
+::: {.ae-crit}
+J’ai tracé en pointillés les droites $x = -1$ (verticale) et $y = 2$ (horizontale).
+:::
+
+::: {.ae-crit}
+Près de $x = -1$, mon graphique monte ou descend sans fin le long de la droite verticale, sans la traverser.
+:::
+
+::: {.ae-crit}
+Loin à gauche ou loin à droite, mon graphique se rapproche de la droite $y = 2$.
+:::
+
+::: {.ae-crit}
+Mon graphique est bien celui d’une fonction (une seule image par $x$).
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-lire-moins-infini" data-type="qcm" data-section="sec-lim-definition" data-obj="C4" data-niveau="1" data-id="5UAA3.q.lim-lire-moins-infini" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Soit $f$ une fonction telle que $\lim\limits_{x \to -\infty} f(x) = 3$. Que signifie cette écriture ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+Lorsque $x$ est négatif et devient aussi grand qu’on veut en valeur absolue, $f(x)$ se rapproche autant qu’on veut de $3$.
+:::
+
+::: {.ae-fb}
+Oui. Le point $M(x ; f(x))$ file vers le bord gauche du cadre, à la hauteur $3$ : il se dirige vers le point $(-\infty ; 3)$. Loin à gauche, le graphique se rapproche de la droite horizontale $y = 3$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Lorsque $x$ se rapproche de $0$ en restant négatif, $f(x)$ se rapproche de $3$.
+:::
+
+::: {.ae-fb}
+$-\infty$ n’est pas « juste à gauche de $0$ » : $x \to -\infty$ veut dire que $x$ prend les valeurs $-10$, $-100$, $-1000$… Relis la [remarque qui suit la définition](ch2-limites-definition-e/4-definition.qmd#definition-2-1). Ta phrase s’écrirait $\lim\limits_{\substack{x \to 0 \\ x < 0}} f(x) = 3$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$f(-\infty) = 3$ : on obtient $3$ en remplaçant $x$ par $-\infty$ dans l’expression de $f$.
+:::
+
+::: {.ae-fb}
+$-\infty$ n’est pas un nombre : on ne peut pas le mettre à la place de $x$. La limite ne dit pas ce que « vaut » $f$ en $-\infty$, mais vers où se dirige le point $M$ lorsque $x$ devient de plus en plus négatif.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Lorsque $x$ devient très négatif, $f(x)$ reste inférieur à $3$ sans jamais l’atteindre.
+:::
+
+::: {.ae-fb}
+La limite ne dit rien du côté par lequel $f(x)$ s’approche de $3$, ni s’il l’atteint : $f(x)$ peut être au-dessus, en dessous, ou même égal à $3$. La fonction constante $f(x) = 3$ a aussi cette limite.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-point-plein-isole" data-type="qcm" data-section="sec-lim-definition" data-obj="A4" data-niveau="2" data-id="5UAA3.q.lim-point-plein-isole" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Voici le graphique d’une fonction $f$ de domaine $\mathbb{R}$ : la droite a un point creux en $(2 ; 2)$, et $f(2) = -1$ (point plein). Que vaut $\lim\limits_{x \to 2} f(x)$ ?
+
+```{=html}
+<div class="lim-plot" data-fig="c0-f88"></div>
+```
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+Elle n’existe pas.
+:::
+
+::: {.ae-fb}
+Oui. Lorsque $x$ se rapproche de $2$ sans l’atteindre, $f(x)$ se rapproche de $2$ ; mais $2$ est dans le domaine, donc $x$ peut aussi valoir $2$, et $f(2) = -1$ n’est pas proche de $2$. Les limites à gauche et à droite valent $2$ mais diffèrent de $f(2)$ : la limite n’existe pas ([limites à gauche et à droite](ch2-limites-definition-e/6-limites-a-gauche-et-a.qmd#definition-2-3)).
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$2$
+:::
+
+::: {.ae-fb}
+Tu as regardé les points autour du point creux, mais oublié le point plein. Comme $2$ est dans le domaine, $x$ peut valoir $2$ : le point $M$ passe alors par $(2 ; -1)$, qui n’est pas proche de $(2 ; 2)$. Relis la [définition](ch2-limites-definition-e/4-definition.qmd#definition-2-1) et la remarque sur $x = a$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$-1$
+:::
+
+::: {.ae-fb}
+$-1$, c’est $f(2)$ : la valeur de $f$ en $2$. Mais les points dont l’abscisse est proche de $2$ (sans valoir $2$) sont proches de $(2 ; 2)$, pas de $(2 ; -1)$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Elle n’a pas de sens.
+:::
+
+::: {.ae-fb}
+« Pas de sens » est réservé au cas où $2$ ne [colle pas au domaine](ch2-limites-definition-e/5-quand-une-limite-a-t.qmd#definition-2-2). Ici $2$ appartient au domaine ($f(2) = -1$ existe) : la question a un sens, et la limite existe ou n’existe pas.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-sens-racine-quotient" data-type="ouverte" data-section="sec-lim-sens" data-obj="A1" data-niveau="2" data-id="5UAA3.q.lim-sens-racine-quotient" data-tags="" data-forme="longue"}
+::: {.ae-enonce}
+Soit $f(x) = \frac{\sqrt{x + 2}}{x - 3}$. Écris le domaine de $f$ comme une union d’intervalles et donne ses bornes. Indique ensuite, pour chaque valeur de $a$, si la limite de $f(x)$ quand $x$ tend vers $a$ a un sens (sans la calculer) :
+
+$$
+a \in \{-5 ; -2 ; 3 ; -\infty ; +\infty\}.
+$$
+:::
+
+::: {.ae-rep}
+Conditions : $x + 2 \geq 0$ (racine carrée) et $x - 3 \neq 0$ (dénominateur), donc $x \geq -2$ et $x \neq 3$.
+
+$\operatorname{dom}(f) = [-2 ; 3[ \cup ]3 ; +\infty[$ ; bornes : $-2$, $3$ et $+\infty$.
+
+- $a = -5$ : pas de sens ($-5$ n’est ni dans le domaine, ni une borne : aucun point du graphique n’a une abscisse proche de $-5$) ;
+- $a = -2$ : a un sens ($-2$ est dans le domaine ; $x$ ne peut s’en approcher que par la droite) ;
+- $a = 3$ : a un sens ($3$ est une borne du domaine, c’est une valeur interdite) ;
+- $a = -\infty$ : pas de sens (le domaine ne s’étend pas vers la gauche au-delà de $-2$) ;
+- $a = +\infty$ : a un sens ($+\infty$ est une borne du domaine).
+:::
+
+::: {.ae-crit}
+J’ai écrit les deux conditions : $x + 2 \geq 0$ et $x - 3 \neq 0$.
+:::
+
+::: {.ae-crit}
+Mon domaine est $[-2 ; 3[ \cup ]3 ; +\infty[$, avec le crochet fermé en $-2$.
+:::
+
+::: {.ae-crit}
+J’ai donné les trois bornes, y compris $+\infty$.
+:::
+
+::: {.ae-crit}
+J’ai répondu « a un sens » pour $-2$, $3$ et $+\infty$, et « pas de sens » pour $-5$ et $-\infty$.
+:::
+
+::: {.ae-crit}
+J’ai justifié chaque réponse par « colle au domaine » (dans le domaine, ou borne), sans calculer de limite.
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-lire-plus-infini-ah" data-type="qcm" data-section="sec-lim-definition" data-obj="A4" data-niveau="1" data-id="5UAA3.q.lim-lire-plus-infini-ah" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Voici le graphique d’une fonction $f$ (les droites en pointillés ne font pas partie du graphique). Que vaut $\lim\limits_{x \to +\infty} f(x)$ ?
+
+```{=html}
+<div class="lim-plot" data-fig="c0-f89"></div>
+```
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$2$
+:::
+
+::: {.ae-fb}
+Oui : lorsque $x$ devient aussi grand qu’on veut, le point $M$ file vers la droite en se rapprochant de la hauteur $2$ : il se dirige vers $(+\infty ; 2)$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$+\infty$
+:::
+
+::: {.ae-fb}
+$x \to +\infty$ dit que $x$ devient très grand, pas $f(x)$. Regarde la **hauteur** du graphique loin à droite : elle se rapproche de $2$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$0$
+:::
+
+::: {.ae-fb}
+Loin à droite, le graphique ne se rapproche pas de l’axe horizontal, mais de la droite $y = 2$. (Ce serait $0$ pour $\frac{1}{x}$, pas pour cette fonction.)
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$-1$
+:::
+
+::: {.ae-fb}
+$-1$ est l’abscisse de la droite verticale en pointillés : c’est une information sur $x$, près de laquelle le graphique monte ou descend. La limite en $+\infty$ se lit loin à droite, sur la hauteur du graphique.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-lire-droite-av" data-type="qcm" data-section="sec-lim-gauche-droite" data-obj="A4" data-niveau="2" data-id="5UAA3.q.lim-lire-droite-av" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Voici le graphique d’une fonction $f$. Que vaut $\lim\limits_{\substack{x \to -1 \\ x > -1}} f(x)$ ?
+
+```{=html}
+<div class="lim-plot" data-fig="c0-f90"></div>
+```
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$-\infty$
+:::
+
+::: {.ae-fb}
+Oui : juste à droite de $-1$, le graphique descend sans fin le long de la droite verticale : $M$ se dirige vers $(-1 ; -\infty)$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$+\infty$
+:::
+
+::: {.ae-fb}
+C’est ce qui se passe à **gauche** de $-1$. « À droite » : $x$ est plus grand que $-1$ ($-0{,}9$, $-0{,}99$…). Regarde la branche de droite.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$2$
+:::
+
+::: {.ae-fb}
+$2$ est la limite en $+\infty$ (loin à droite). Ici, $x$ se rapproche de $-1$ : regarde le graphique près de la droite verticale.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Elle n’existe pas.
+:::
+
+::: {.ae-fb}
+C’est $\lim\limits_{x \to -1} f(x)$ qui n’existe pas (la gauche et la droite ne vont pas au même endroit). La limite **à droite**, elle, existe : on ne regarde qu’un côté.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-sens-hors-domaine" data-type="qcm" data-section="sec-lim-sens" data-obj="A1" data-niveau="1" data-id="5UAA3.q.lim-sens-hors-domaine" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Soit $f(x) = \sqrt{4 - x}$, de domaine $]-\infty ; 4]$. Que peut-on dire de $\lim\limits_{x \to 6} f(x)$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+Elle n’a pas de sens.
+:::
+
+::: {.ae-fb}
+Oui : $6$ n’est ni dans le domaine, ni une borne du domaine ; il ne [colle pas au domaine](ch2-limites-definition-e/5-quand-une-limite-a-t.qmd#definition-2-2). Aucun point du graphique n’a une abscisse proche de $6$ : il n’y a rien à décrire.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Elle n’existe pas.
+:::
+
+::: {.ae-fb}
+« N’existe pas » suppose qu’on puisse s’approcher de $6$ en restant dans le domaine, et que les points ne se dirigent pas vers un seul point. Ici, on ne peut même pas s’approcher de $6$ : la limite n’a pas de sens ([trois réponses possibles](ch2-limites-definition-e/5-quand-une-limite-a-t.qmd#propriete-2-1)).
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Elle vaut $0$.
+:::
+
+::: {.ae-fb}
+$0 = f(4)$ : tu as pris le point du graphique le plus proche. Mais $x = 4$ n’est pas « aussi proche qu’on veut » de $6$ : la limite en $6$ n’a pas de sens.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Elle vaut $\sqrt{2}$.
+:::
+
+::: {.ae-fb}
+$\sqrt{6 - 4}$ : erreur dans l’ordre de la soustraction. $f(6) = \sqrt{4 - 6} = \sqrt{-2}$ n’existe pas, et $6$ ne colle pas au domaine : la limite n’a pas de sens.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-interpreter-infini" data-type="qcm" data-section="sec-lim-definition" data-obj="C4" data-niveau="2" data-id="5UAA3.q.lim-interpreter-infini" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+On sait que $\lim\limits_{x \to 3} f(x) = +\infty$. Que peut-on en déduire sur le graphique de $f$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+Lorsque $x$ se rapproche de $3$, les points du graphique montent aussi haut qu’on veut : ils se dirigent vers le point $(3 ; +\infty)$ du bord supérieur du cadre.
+:::
+
+::: {.ae-fb}
+Oui. La limite décrit vers où va le point $M$ quand $x$ se rapproche de $3$, des deux côtés.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Le graphique a un point creux en $x = 3$.
+:::
+
+::: {.ae-fb}
+Un point creux correspond à une limite **réelle** : le graphique se rapproche d’un point précis $(3 ; r)$. Ici, il monte sans fin.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$f(3) = +\infty$.
+:::
+
+::: {.ae-fb}
+$+\infty$ n’est pas un nombre : ce n’est pas une valeur de $f$. La limite décrit où va $M$ lorsque $x$ se **rapproche** de $3$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Lorsque $x$ devient très grand, $f(x)$ se rapproche de $3$.
+:::
+
+::: {.ae-fb}
+Tu as inversé les rôles : cette phrase s’écrirait $\lim\limits_{x \to +\infty} f(x) = 3$. Ce qui est sous « lim » ($x \to 3$) décrit $x$.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-gauche-droite-point-creux" data-type="qcm" data-section="sec-lim-gauche-droite" data-obj="C4" data-niveau="2" data-id="5UAA3.q.lim-gauche-droite-point-creux" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+On sait que $2 \notin \operatorname{dom}(f)$, que $f$ est définie à gauche et à droite de $2$, et que $\lim\limits_{\substack{x \to 2 \\ x < 2}} f(x) = \lim\limits_{\substack{x \to 2 \\ x > 2}} f(x) = 5$. Que vaut $\lim\limits_{x \to 2} f(x)$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$5$
+:::
+
+::: {.ae-fb}
+Oui : les deux côtés vont vers le même point $(2 ; 5)$, et $x$ ne peut pas valoir $2$. La limite vaut $5$ (le graphique a un point creux en $(2 ; 5)$). Voir la [propriété des limites à gauche et à droite](ch2-limites-definition-e/6-limites-a-gauche-et-a.qmd#definition-2-3).
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Elle n’existe pas, car $f(2)$ n’existe pas.
+:::
+
+::: {.ae-fb}
+Une limite n’a pas besoin que $f(a)$ existe : pense à $\frac{x^{2} - 1}{x - 1}$ en $1$, dont la limite vaut $2$. C’est seulement si $f(2)$ existe **et** diffère de $5$ que la limite n’existe pas.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Elle n’a pas de sens, car $2$ n’est pas dans le domaine.
+:::
+
+::: {.ae-fb}
+$2$ est une borne du domaine (on peut s’en approcher des deux côtés) : il [colle au domaine](ch2-limites-definition-e/5-quand-une-limite-a-t.qmd#definition-2-2), et la limite a un sens.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+On ne peut pas savoir sans l’expression de $f$.
+:::
+
+::: {.ae-fb}
+La propriété du cours suffit : si les limites à gauche et à droite sont égales et que $f(2)$ n’existe pas, la limite existe et vaut leur valeur commune.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-esquisser-conditions" data-type="ouverte" data-section="sec-lim-definition" data-obj="T1" data-niveau="2" data-id="5UAA3.q.lim-esquisser-conditions" data-tags="" data-forme="longue"}
+::: {.ae-enonce}
+Esquisse le graphique d’une fonction $f$ qui vérifie :
+
+$$
+\operatorname{dom}(f) = \mathbb{R} \setminus \{2\}, \quad \lim\limits_{x \to -\infty} f(x) = 1, \quad \lim\limits_{\substack{x \to 2 \\ x < 2}} f(x) = -\infty, \quad \lim\limits_{\substack{x \to 2 \\ x > 2}} f(x) = +\infty, \quad \lim\limits_{x \to +\infty} f(x) = 1.
+$$
+:::
+
+::: {.ae-rep}
+Par exemple, le graphique de $1 + \frac{1}{x - 2}$ :
+
+```{=html}
+<div class="lim-plot" data-fig="c0-f91"></div>
+```
+
+Loin à gauche et loin à droite, le graphique se rapproche de la hauteur $1$ ; juste à gauche de $2$, il descend sans fin ; juste à droite, il monte sans fin. Aucun point d’abscisse $2$.
+:::
+
+::: {.ae-crit}
+Loin à gauche, mon graphique se rapproche de la hauteur $1$.
+:::
+
+::: {.ae-crit}
+Juste à gauche de $2$, il descend sans fin ; juste à droite, il monte sans fin.
+:::
+
+::: {.ae-crit}
+Loin à droite, il se rapproche de la hauteur $1$.
+:::
+
+::: {.ae-crit}
+Mon graphique n’a aucun point d’abscisse $2$.
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-reconnaitre-rationnelle" data-type="qcm" data-section="sec-rationnelles" data-obj="C1" data-niveau="1" data-id="5UAA3.q.lim-reconnaitre-rationnelle" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Laquelle de ces fonctions est une fonction rationnelle ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$\frac{3x^{2} - 1}{x + 5}$
+:::
+
+::: {.ae-fb}
+Oui : c’est un quotient de deux polynômes ([définition](ch3-chercher-les-points/2-les-fonctions-rationnelles.qmd#definition-3-1)).
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\frac{\sqrt{x}}{x + 1}$
+:::
+
+::: {.ae-fb}
+$\sqrt{x}$ n’est pas un polynôme : un quotient ne suffit pas, il faut que le numérateur **et** le dénominateur soient des polynômes.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\frac{x^{2} + \left|x\right|}{x^{2} + 1}$
+:::
+
+::: {.ae-fb}
+$\left|x\right|$ n’est pas un polynôme : le numérateur n’est donc pas un polynôme.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$x^{3} + \sqrt[3]{x}$
+:::
+
+::: {.ae-fb}
+$\sqrt[3]{x}$ n’est pas un polynôme. (Un polynôme seul, comme $x^{3} + 1$, est bien une fonction rationnelle : c’est un quotient par $1$.)
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-point-du-domaine" data-type="qcm" data-section="sec-point-du-domaine" data-obj="A2" data-niveau="1" data-id="5UAA3.q.lim-point-du-domaine" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Que vaut $\lim\limits_{x \to -1} \frac{x^{2} + 3}{x - 1}$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$-2$
+:::
+
+::: {.ae-fb}
+Oui : $-1$ est dans le domaine, donc on remplace $x$ par $-1$ : $\frac{(-1)^{2} + 3}{-1 - 1} = \frac{4}{-2} = -2$ ([limite en un point du domaine](ch3-chercher-les-points/3-en-un-point-du-domaine.qmd#propriete-3-1)).
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$-1$
+:::
+
+::: {.ae-fb}
+$(-1)^{2} = 1$, pas $-1$ : avec les parenthèses, le signe est aussi élevé au carré. Le numérateur vaut $1 + 3 = 4$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$2$
+:::
+
+::: {.ae-fb}
+Erreur de signe au dénominateur : $-1 - 1 = -2$. Donc $\frac{4}{-2} = -2$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+On ne peut pas remplacer $x$ par $-1$ : il faut étudier la limite à gauche et à droite.
+:::
+
+::: {.ae-fb}
+$-1$ est dans le domaine (le dénominateur y vaut $-2 \neq 0$) : pour une fonction rationnelle, la limite vaut simplement $f(-1)$. Les limites à gauche et à droite servent aux valeurs interdites.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-gauche-valeur-interdite" data-type="qcm" data-section="sec-valeur-interdite" data-obj="A2" data-niveau="2" data-id="5UAA3.q.lim-gauche-valeur-interdite" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Soit $f(x) = \frac{3}{x - 4}$. Que vaut $\lim\limits_{\substack{x \to 4 \\ x < 4}} f(x)$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$-\infty$
+:::
+
+::: {.ae-fb}
+Oui : juste à gauche de $4$, $x - 4$ est négatif et proche de $0$ ; on divise $3$ par un nombre négatif très petit : le résultat est négatif et très grand en valeur absolue.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$+\infty$
+:::
+
+::: {.ae-fb}
+Attention au signe : à gauche de $4$, $x < 4$, donc $x - 4 < 0$ (par exemple $3{,}99 - 4 = -0{,}01$). Un tableau de signes local aide.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$0$
+:::
+
+::: {.ae-fb}
+Diviser par un nombre proche de $0$ ne donne pas $0$ : $3 / 0{,}01 = 300$, $3 / 0{,}001 = 3000$… Le quotient devient très grand en valeur absolue.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Elle n’existe pas.
+:::
+
+::: {.ae-fb}
+C’est $\lim\limits_{x \to 4} f(x)$ qui n’existe pas (gauche et droite différentes). La limite **à gauche** ne regarde qu’un côté : elle existe et vaut $-\infty$.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-simplifier-point-creux" data-type="qcm" data-section="sec-valeur-interdite" data-obj="A2" data-niveau="2" data-id="5UAA3.q.lim-simplifier-point-creux" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Que vaut $\lim\limits_{x \to 3} \frac{x^{2} - 9}{x - 3}$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$6$
+:::
+
+::: {.ae-fb}
+Oui : $3$ annule le numérateur et le dénominateur ; on factorise et on simplifie : $\frac{x^{2} - 9}{x - 3} = \frac{(x - 3)(x + 3)}{x - 3} = x + 3$ pour $x \neq 3$. En $3$ : $3 + 3 = 6$. Le graphique a un point creux en $(3 ; 6)$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Elle n’existe pas, car on ne peut pas diviser par $0$.
+:::
+
+::: {.ae-fb}
+On ne divise jamais par $0$ : $x$ se **rapproche** de $3$. Quand le numérateur s’annule aussi, c’est un cas d’indétermination : il faut simplifier avant de conclure.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$0$
+:::
+
+::: {.ae-fb}
+Le numérateur s’annule en $3$, mais le dénominateur aussi : regarder le numérateur seul ne suffit pas. Simplifie par $(x - 3)$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$+\infty$
+:::
+
+::: {.ae-fb}
+Le dénominateur s’annule, mais le numérateur aussi : on n’est pas dans le cas d’une A.V. Simplifie par $(x - 3)$ ([démarche en une valeur interdite](ch3-chercher-les-points/4-en-une-valeur-interdite-point.qmd#cadre-demarche-en-une-valeur-interdite)).
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-numerateur-non-nul" data-type="qcm" data-section="sec-valeur-interdite" data-obj="C3" data-niveau="1" data-id="5UAA3.q.lim-numerateur-non-nul" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Soit $f(x) = \frac{P(x)}{Q(x)}$ une fonction rationnelle et $a$ une valeur interdite ($Q(a) = 0$). On calcule $P(a) = 5$. Que peut-on conclure ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+La droite d’équation $x = a$ est une asymptote verticale.
+:::
+
+::: {.ae-fb}
+Oui : près de $a$, on divise un nombre proche de $5$ par un nombre proche de $0$ ([propriété](ch3-chercher-les-points/4-en-une-valeur-interdite-point.qmd#propriete-3-2)). Le signe à gauche et à droite dira s’il s’agit de $+\infty$ ou de $-\infty$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Le graphique a un point creux en $(a ; 5)$.
+:::
+
+::: {.ae-fb}
+Un point creux n’apparaît que si le numérateur s’annule **aussi** en $a$ (et qu’après simplification le dénominateur ne s’annule plus). Ici $P(a) = 5 \neq 0$ : c’est une A.V.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Il faut simplifier la fraction par $(x - a)$.
+:::
+
+::: {.ae-fb}
+On ne peut simplifier par $(x - a)$ que si $a$ est racine du numérateur **et** du dénominateur. Ici $P(a) \neq 0$ : $P(x)$ ne contient pas le facteur $(x - a)$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+La limite en $a$ vaut $5$.
+:::
+
+::: {.ae-fb}
+$5$ est la valeur du numérateur, pas celle de la fraction : on divise $5$ par un nombre proche de $0$, le résultat devient très grand en valeur absolue.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-simplifier-encore-av" data-type="qcm" data-section="sec-valeur-interdite" data-obj="A2" data-niveau="2" data-id="5UAA3.q.lim-simplifier-encore-av" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Soit $f(x) = \frac{x + 1}{x^{2} + 2x + 1}$. Que présente son graphique en $x = -1$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+Une asymptote verticale d’équation $x = -1$.
+:::
+
+::: {.ae-fb}
+Oui : $\frac{x + 1}{(x + 1)^{2}} = \frac{1}{x + 1}$ pour $x \neq -1$. Après simplification, le dénominateur s’annule encore en $-1$, mais plus le numérateur : c’est une A.V.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Un point creux, car le numérateur et le dénominateur s’annulent en $-1$.
+:::
+
+::: {.ae-fb}
+Le fait que les deux s’annulent dit seulement qu’il faut simplifier. Après simplification, on obtient $\frac{1}{x + 1}$ : le dénominateur s’annule encore, pas le numérateur. Ce n’est donc pas un point creux.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Rien de particulier : la limite vaut $0$, car le numérateur s’annule.
+:::
+
+::: {.ae-fb}
+Le numérateur s’annule, mais le dénominateur aussi : regarder un seul morceau ne permet pas de conclure. Simplifie d’abord.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Une asymptote verticale d’équation $y = -1$.
+:::
+
+::: {.ae-fb}
+La conclusion est juste, mais une droite verticale s’écrit $x = …$ : tous ses points ont l’abscisse $-1$.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-reconnaitre-indetermination" data-type="qcm" data-section="sec-valeur-interdite" data-obj="C2" data-niveau="2" data-id="5UAA3.q.lim-reconnaitre-indetermination" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Lequel de ces calculs de limite est un cas d’indétermination ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$\lim\limits_{x \to 2} \frac{x^{2} - 4}{x - 2}$
+:::
+
+::: {.ae-fb}
+Oui : en $2$, le numérateur **et** le dénominateur s’annulent ; regarder chaque morceau séparément ne permet pas de conclure. Il faut simplifier (la limite vaut $4$).
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\lim\limits_{x \to 2} \frac{x + 4}{x - 2}$
+:::
+
+::: {.ae-fb}
+En $2$, le numérateur vaut $6 \neq 0$ : on sait conclure directement, c’est une A.V. Pas d’indétermination.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\lim\limits_{x \to 0} \frac{x^{2} - 4}{x - 2}$
+:::
+
+::: {.ae-fb}
+$0$ est dans le domaine : on remplace $x$ par $0$ et on obtient $\frac{-4}{-2} = 2$. Rien d’indéterminé.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\lim\limits_{x \to 2} \frac{x - 2}{x + 2}$
+:::
+
+::: {.ae-fb}
+En $2$, seul le numérateur s’annule ; le dénominateur vaut $4$. $2$ est dans le domaine et la limite vaut $\frac{0}{4} = 0$.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-rediger-calcul" data-type="qcm" data-section="sec-valeur-interdite" data-obj="C3" data-niveau="1" data-id="5UAA3.q.lim-rediger-calcul" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Laquelle de ces rédactions du calcul de $\lim\limits_{x \to 2} \frac{x^{2} - 2x}{x - 2}$ est correcte ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$\lim\limits_{x \to 2} \frac{x^{2} - 2x}{x - 2} = \lim\limits_{x \to 2} x = 2$
+:::
+
+::: {.ae-fb}
+Oui : tant qu’on n’a pas remplacé $x$ par $2$, on garde « $\lim\limits_{x \to 2}$ » devant l’expression ([démarche](ch3-chercher-les-points/4-en-une-valeur-interdite-point.qmd#cadre-demarche-en-une-valeur-interdite)).
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\frac{x^{2} - 2x}{x - 2} = x = 2$
+:::
+
+::: {.ae-fb}
+« $x = 2$ » affirme que $x$ vaut $2$ : c’est faux en général. Sans « $\lim\limits_{x \to 2}$ », l’égalité $\frac{x^{2}-2x}{x-2} = 2$ n’a pas de sens (elle serait fausse pour $x = 5$).
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\lim\limits_{x \to 2} \frac{x^{2} - 2x}{x - 2} = x = 2$
+:::
+
+::: {.ae-fb}
+Le « $\lim\limits_{x \to 2}$ » a disparu au milieu du calcul : « $= x$ » dirait que la limite vaut $x$, une lettre. Il faut écrire $\lim\limits_{x \to 2} x$, puis remplacer.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\lim\limits_{x \to 2} \frac{x^{2} - 2x}{x - 2}$ n’existe pas, car on ne peut pas diviser par $0$.
+:::
+
+::: {.ae-fb}
+$x$ se rapproche de $2$ sans valoir $2$ (qui est hors du domaine) : on ne divise jamais par $0$. Comme le numérateur s’annule aussi, on simplifie par $(x - 2)$.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-inventer-creux-av" data-type="ouverte" data-section="sec-valeur-interdite" data-obj="T2" data-niveau="3" data-id="5UAA3.q.lim-inventer-creux-av" data-tags="" data-forme="longue"}
+::: {.ae-enonce}
+Invente l’expression analytique d’une fonction rationnelle dont le graphique a un point creux en $(1 ; 3)$ et une asymptote verticale d’équation $x = -2$. Vérifie ta réponse par un calcul.
+:::
+
+::: {.ae-rep}
+Il faut un facteur $(x - 1)$ au numérateur et au dénominateur (pour le point creux), et un facteur $(x + 2)$ au dénominateur seulement (pour l’A.V.). Il reste à régler la hauteur du point creux. Par exemple :
+
+$$
+f(x) = \frac{9(x - 1)}{(x - 1)(x + 2)}.
+$$
+
+Vérification. En $1$ : on simplifie, $f(x) = \frac{9}{x + 2}$ pour $x \neq 1$, et $\frac{9}{1 + 2} = 3$ : point creux en $(1 ; 3)$. En $-2$ : le numérateur de la fraction simplifiée vaut $9 \neq 0$ : A.V. d’équation $x = -2$.
+:::
+
+::: {.ae-crit}
+Ma fonction a un facteur $(x - 1)$ au numérateur et au dénominateur.
+:::
+
+::: {.ae-crit}
+Son dénominateur s’annule en $-2$, et pas son numérateur.
+:::
+
+::: {.ae-crit}
+Après simplification par $(x - 1)$, la fraction vaut $3$ en $x = 1$.
+:::
+
+::: {.ae-crit}
+J’ai vérifié les deux caractéristiques par un calcul.
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-etude-valeurs-interdites" data-type="ouverte" data-section="sec-valeur-interdite" data-obj="A2" data-niveau="2" data-id="5UAA3.q.lim-etude-valeurs-interdites" data-tags="" data-forme="longue"}
+::: {.ae-enonce}
+Soit $f(x) = \frac{x^{2} - x - 2}{x^{2} - 4}$. Calcule les limites de $f$ aux valeurs interdites et interprète graphiquement tes résultats.
+:::
+
+::: {.ae-rep}
+Valeurs interdites : $x^{2} - 4 = 0$ pour $x = 2$ et $x = -2$.
+
+**En $2$.** Le numérateur vaut $4 - 2 - 2 = 0$ : on simplifie. $x^{2} - x - 2 = (x - 2)(x + 1)$ et $x^{2} - 4 = (x - 2)(x + 2)$, donc $f(x) = \frac{x + 1}{x + 2}$ pour $x \neq 2$.
+
+$$
+\lim\limits_{x \to 2} f(x) = \lim\limits_{x \to 2} \frac{x + 1}{x + 2} = \frac{3}{4} :
+$$
+
+point creux en $(2 ; \frac{3}{4})$.
+
+**En $-2$.** Dans la fraction simplifiée, le numérateur vaut $-1 \neq 0$ : A.V. d’équation $x = -2$. Tableau de signes local :
+
+::: {.tableau .tab-signes}
+| $x$ | juste à gauche | $-2$ | juste à droite |
+|:---:|:---:|:---:|:---:|
+| $x+1$ | [$-$]{.rep} | [$-$]{.rep} | [$-$]{.rep} |
+| $x+2$ | [$-$]{.rep} | [$0$]{.rep} | [$+$]{.rep} |
+| $f(x)$ | [$+$]{.rep} | [$\Vert$]{.rep} | [$-$]{.rep} |
+:::
+
+D’où $\lim\limits_{\substack{x \to -2 \\ x < -2}} f(x) = +\infty$ et $\lim\limits_{\substack{x \to -2 \\ x > -2}} f(x) = -\infty$.
+:::
+
+::: {.ae-crit}
+J’ai trouvé les deux valeurs interdites, $2$ et $-2$.
+:::
+
+::: {.ae-crit}
+En $2$, j’ai vu que le numérateur s’annule, j’ai factorisé et simplifié, et trouvé le point creux $(2 ; \frac{3}{4})$.
+:::
+
+::: {.ae-crit}
+En $-2$, j’ai conclu à une A.V. car le numérateur (simplifié) ne s’annule pas.
+:::
+
+::: {.ae-crit}
+J’ai trouvé $\lim\limits_{\substack{x \to -2 \\ x < -2}} f(x) = +\infty$ et $\lim\limits_{\substack{x \to -2 \\ x > -2}} f(x) = -\infty$ avec un tableau de signes local.
+:::
+
+::: {.ae-crit}
+Tant que $x$ n’était pas remplacé, j’ai gardé « $\lim\limits_{x \to 2}$ » devant l’expression.
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-polynome-plus-infini" data-type="qcm" data-section="sec-polynomes-infini" data-obj="A2" data-niveau="1" data-id="5UAA3.q.lim-polynome-plus-infini" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Que vaut $\lim\limits_{x \to +\infty} (2x^{3} - 5x^{2} + 1)$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$+\infty$
+:::
+
+::: {.ae-fb}
+Oui : en $\pm \infty$, un polynôme se comporte comme son terme de plus haut degré, ici $2x^{3}$, qui est proche de $+\infty$ en $+\infty$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$-\infty$
+:::
+
+::: {.ae-fb}
+Ce n’est pas le plus grand coefficient qui l’emporte ($5 > 2$), mais le plus haut **degré** : $x^{3}$ finit par dépasser $x^{2}$ (pour $x = 1000$ : $2 \cdot 10^{9}$ contre $5 \cdot 10^{6}$).
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$2$
+:::
+
+::: {.ae-fb}
+$2$ est le coefficient du terme dominant, pas la limite. $2x^{3}$ devient aussi grand qu’on veut quand $x$ est proche de $+\infty$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+On ne peut pas conclure : $2x^{3}$ et $-5x^{2}$ tirent en sens opposés.
+:::
+
+::: {.ae-fb}
+C’est bien un cas d’indétermination si on regarde les termes séparément ; mais le cours donne l’outil pour conclure : le [terme de plus haut degré](ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.qmd#propriete-4-1) l’emporte.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-rationnelle-degres-egaux" data-type="qcm" data-section="sec-ah" data-obj="A2" data-niveau="1" data-id="5UAA3.q.lim-rationnelle-degres-egaux" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Que vaut $\lim\limits_{x \to +\infty} \frac{3x^{2} - 1}{6x^{2} + x}$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$\frac{1}{2}$
+:::
+
+::: {.ae-fb}
+Oui : $\lim\limits_{x \to +\infty} \frac{3x^{2}}{6x^{2}} = \frac{3}{6} = \frac{1}{2}$ (quotient des termes de plus haut degré).
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$2$
+:::
+
+::: {.ae-fb}
+Tu as inversé le quotient : c’est le terme du **numérateur** divisé par celui du **dénominateur** : $\frac{3x^{2}}{6x^{2}} = \frac{1}{2}$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$0$
+:::
+
+::: {.ae-fb}
+Le quotient ne devient pas petit : le numérateur et le dénominateur grandissent « à la même vitesse » (même degré). On compare $3x^{2}$ et $6x^{2}$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$+\infty$, car le numérateur et le dénominateur sont proches de $+\infty$.
+:::
+
+::: {.ae-fb}
+On ne calcule pas avec l’infini : « $+\infty$ divisé par $+\infty$ » ne donne aucune règle. Il faut analyser : le quotient des termes dominants vaut $\frac{1}{2}$.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-equation-ah" data-type="qcm" data-section="sec-ah" data-obj="A5" data-niveau="1" data-id="5UAA3.q.lim-equation-ah" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Quelle est l’équation de l’asymptote horizontale du graphique de $f(x) = \frac{4x - 1}{2x + 3}$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$y = 2$
+:::
+
+::: {.ae-fb}
+Oui : les degrés sont égaux, et $\lim\limits_{x \to \pm \infty} \frac{4x}{2x} = 2$ ([A.H. d’une fonction rationnelle](ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.qmd#propriete-4-3)).
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$y = -\frac{1}{3}$
+:::
+
+::: {.ae-fb}
+$-\frac{1}{3} = f(0)$ : ce sont les termes **constants**. Loin à gauche et à droite, ce sont les termes de plus haut degré qui comptent : $\frac{4x}{2x} = 2$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$x = -\frac{3}{2}$
+:::
+
+::: {.ae-fb}
+$x = -\frac{3}{2}$ est l’asymptote **verticale** (racine du dénominateur). L’A.H. vient des limites en $\pm \infty$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$y = \frac{1}{2}$
+:::
+
+::: {.ae-fb}
+Le quotient est inversé : numérateur sur dénominateur, $\frac{4x}{2x} = 2$.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-equation-ao" data-type="qcm" data-section="sec-ao" data-obj="A5" data-niveau="2" data-id="5UAA3.q.lim-equation-ao" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Quelle est l’équation de l’asymptote oblique du graphique de $f(x) = \frac{x^{2} + 1}{x - 1}$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$y = x + 1$
+:::
+
+::: {.ae-fb}
+Oui : la division euclidienne donne $x^{2} + 1 = (x - 1)(x + 1) + 2$, donc $f(x) = x + 1 + \frac{2}{x - 1}$, et $\frac{2}{x - 1}$ est proche de $0$ en $\pm \infty$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$y = x$
+:::
+
+::: {.ae-fb}
+$\frac{x^{2}}{x} = x$ donne la **direction** de l’asymptote, pas son équation complète : la droite $y = x$ reste à distance $1$ du graphique. Il faut la [division euclidienne](ch4-chercher-les-asympto/3-asymptote-oblique.qmd#propriete-4-4).
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$y = 2$
+:::
+
+::: {.ae-fb}
+$2$ est le **reste** de la division : il donne l’écart $\frac{2}{x - 1}$ entre le graphique et l’asymptote, pas l’asymptote. C’est le **quotient** $x + 1$ qui donne l’équation.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Il n’y en a pas, car $\lim\limits_{x \to +\infty} f(x) = +\infty$.
+:::
+
+::: {.ae-fb}
+Une limite infinie empêche une A.H., pas une A.O. Comme le degré du numérateur dépasse de exactement $1$ celui du dénominateur, il y a une A.O.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-parabole-pas-ao" data-type="qcm" data-section="sec-ao" data-obj="C4" data-niveau="2" data-id="5UAA3.q.lim-parabole-pas-ao" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Le graphique de $f(x) = x^{2}$ a-t-il une asymptote oblique ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+Non : l’écart entre la parabole et n’importe quelle droite ne se rapproche pas de $0$.
+:::
+
+::: {.ae-fb}
+Oui : pour toute droite $y = m x + p$, l’écart $x^{2} - m x - p$ est proche de $+\infty$ en $\pm \infty$ (le terme $x^{2}$ l’emporte).
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Oui, car $\lim\limits_{x \to +\infty} x^{2} = +\infty$.
+:::
+
+::: {.ae-fb}
+Une limite infinie ne suffit pas : il faut que l’écart entre le graphique et une droite devienne aussi petit qu’on veut ([définition de l’A.O.](ch4-chercher-les-asympto/3-asymptote-oblique.qmd#definition-4-2)).
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Oui : la droite $y = 2x$, car la parabole part vers le haut comme cette droite.
+:::
+
+::: {.ae-fb}
+« Partir dans la même direction » ne suffit pas : l’écart $x^{2} - 2x$ est proche de $+\infty$. La parabole s’éloigne de plus en plus de cette droite.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Non, car une asymptote ne peut jamais couper le graphique.
+:::
+
+::: {.ae-fb}
+La conclusion est juste, mais la raison est fausse : une asymptote horizontale ou oblique **peut** couper le graphique. La vraie raison : l’écart ne se rapproche pas de $0$.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-degres-ao" data-type="qcm" data-section="sec-ao" data-obj="A5" data-niveau="2" data-id="5UAA3.q.lim-degres-ao" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Laquelle de ces fonctions a une asymptote oblique ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$\frac{x^{3} + 1}{x^{2} - 4}$
+:::
+
+::: {.ae-fb}
+Oui : le degré du numérateur ($3$) vaut celui du dénominateur ($2$) plus $1$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\frac{x^{3} + 1}{x - 4}$
+:::
+
+::: {.ae-fb}
+Ici le degré du numérateur dépasse de $2$ celui du dénominateur : le quotient de la division est du second degré. Pas d’A.O. (ni d’A.H.).
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\frac{x^{2} + 1}{x^{2} - 4}$
+:::
+
+::: {.ae-fb}
+Degrés égaux : A.H. d’équation $y = 1$, pas d’A.O.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\frac{x + 1}{x^{2} - 4}$
+:::
+
+::: {.ae-fb}
+Le degré du numérateur est plus petit : A.H. d’équation $y = 0$.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-estimer-avec-ao" data-type="qcm" data-section="sec-ao" data-obj="A6" data-niveau="2" data-id="5UAA3.q.lim-estimer-avec-ao" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Soit $f(x) = \frac{3x^{2} + 2}{x - 1}$. La division euclidienne donne $3x^{2} + 2 = (x - 1)(3x + 3) + 5$. Quelle est la meilleure estimation de $f(1000)$ ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$3003$
+:::
+
+::: {.ae-fb}
+Oui : l’A.O. a pour équation $y = 3x + 3$, et loin à droite le graphique s’en rapproche : $f(1000) \approx 3 \cdot 1000 + 3 = 3003$. (Valeur exacte : $\frac{5}{999}$ de plus, environ $3003{,}005$.)
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$3000$
+:::
+
+::: {.ae-fb}
+$3x$ ne donne que la direction : tu as oublié le « $+ 3$ » de l’asymptote $y = 3x + 3$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$3008$
+:::
+
+::: {.ae-fb}
+Le reste $5$ n’est pas ajouté tel quel : il donne l’écart $\frac{5}{x - 1}$, qui vaut presque $0$ pour $x = 1000$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$3$
+:::
+
+::: {.ae-fb}
+$3$ serait l’A.H. si les degrés étaient égaux. Ici le degré du numérateur dépasse de $1$ : le graphique longe une droite oblique, et $f(1000)$ est très grand.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-graphique-expression-ah" data-type="qcm" data-section="sec-ah" data-obj="A3" data-niveau="2" data-id="5UAA3.q.lim-graphique-expression-ah" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Quelle expression correspond au graphique ci-dessous ?
+
+```{=html}
+<div class="lim-plot" data-fig="c0-f92"></div>
+```
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$\frac{-2x + 3}{x - 1}$
+:::
+
+::: {.ae-fb}
+Oui : A.V. $x = 1$ (le numérateur vaut $1 \neq 0$ en $1$) et A.H. $y = \frac{-2x}{x} = -2$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\frac{x - 1}{-2x + 3}$
+:::
+
+::: {.ae-fb}
+Le quotient est inversé : cette fonction a une A.V. en $x = \frac{3}{2}$ et une A.H. $y = -\frac{1}{2}$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\frac{-2x + 3}{x + 1}$
+:::
+
+::: {.ae-fb}
+Erreur de signe : $x + 1 = 0$ pour $x = -1$. L’A.V. serait en $x = -1$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\frac{3x - 2}{x - 1}$
+:::
+
+::: {.ae-fb}
+L’A.H. de cette fonction est $y = \frac{3x}{x} = 3$, pas $y = -2$. On regarde les termes de plus haut degré, pas les termes constants.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-graphique-expression-ao" data-type="qcm" data-section="sec-ao" data-obj="T3" data-niveau="3" data-id="5UAA3.q.lim-graphique-expression-ao" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Le graphique ci-dessous a une A.V. d’équation $x = 2$ et une A.O. d’équation $y = x + 1$. Quelle est son expression ? Justifie par un calcul avant de répondre.
+
+```{=html}
+<div class="lim-plot" data-fig="c0-f93"></div>
+```
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+$\frac{x^{2} - x + 1}{x - 2}$
+:::
+
+::: {.ae-fb}
+Oui : $x^{2} - x + 1 = (x - 2)(x + 1) + 3$, donc A.O. $y = x + 1$ ; en $2$, le numérateur vaut $3 \neq 0$ : A.V. $x = 2$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\frac{x^{2} + x + 1}{x - 2}$
+:::
+
+::: {.ae-fb}
+La division donne $x^{2} + x + 1 = (x - 2)(x + 3) + 7$ : l’A.O. serait $y = x + 3$. L’A.V. seule ne suffit pas à choisir.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\frac{x^{2} - x + 1}{x + 2}$
+:::
+
+::: {.ae-fb}
+$x + 2 = 0$ pour $x = -2$ : l’A.V. serait en $x = -2$ (et l’A.O. $y = x - 3$).
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+$\frac{x^{2} - x + 1}{x^{2} - 4}$
+:::
+
+::: {.ae-fb}
+Degrés égaux : le graphique aurait une A.H. $y = 1$, et deux A.V. ($x = -2$ et $x = 2$), pas d’A.O.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-pourquoi-indetermination-infini" data-type="qcm" data-section="sec-polynomes-infini" data-obj="C2" data-niveau="2" data-id="5UAA3.q.lim-pourquoi-indetermination-infini" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Pourquoi le calcul de $\lim\limits_{x \to +\infty} (x^{2} - 5x)$ est-il un cas d’indétermination ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+Parce que $x^{2}$ est proche de $+\infty$ et $-5x$ de $-\infty$ : regardés séparément, les deux termes tirent en sens opposés, et on ne peut pas conclure sans analyser l’expression.
+:::
+
+::: {.ae-fb}
+Oui. « Cas d’indétermination » est un signal : il faut analyser (ici, chercher le terme qui l’emporte, $x^{2}$ ; la limite vaut $+\infty$).
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Parce que « l’infini moins l’infini » vaut $0$.
+:::
+
+::: {.ae-fb}
+On ne calcule pas avec l’infini : $+\infty$ et $-\infty$ ne sont pas des nombres. D’ailleurs, la limite vaut $+\infty$, pas $0$ (voir l’activité « trois soustractions de très grands nombres »).
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Parce que la limite vaut $+\infty$.
+:::
+
+::: {.ae-fb}
+La valeur de la limite n’est pas la raison : $\lim\limits_{x \to +\infty} x^{2} = +\infty$ n’a rien d’indéterminé. L’indétermination vient des deux termes qui tirent en sens opposés.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+Parce qu’on ne peut pas remplacer $x$ par $+\infty$, donc la limite n’existe pas.
+:::
+
+::: {.ae-fb}
+On ne remplace jamais $x$ par $+\infty$, et la limite existe (elle vaut $+\infty$). L’indétermination dit seulement qu’il faut analyser l’expression.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-demarche-ao" data-type="qcm" data-section="sec-ao" data-obj="C3" data-niveau="1" data-id="5UAA3.q.lim-demarche-ao" data-tags="" data-ordre="melange"}
+::: {.ae-enonce}
+Le degré du numérateur d’une fonction rationnelle dépasse de $1$ celui du dénominateur. Comment trouve-t-on l’équation de son asymptote oblique ?
+:::
+
+::: {.ae-prop .ae-bonne}
+::: {.ae-r}
+On effectue la division euclidienne du numérateur par le dénominateur : le quotient donne l’équation.
+:::
+
+::: {.ae-fb}
+Oui : $f(x) = q(x) + \frac{r(x)}{Q(x)}$, et la fraction restante est proche de $0$ en $\pm \infty$ ; l’A.O. est $y = q(x)$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+On divise les termes de plus haut degré : leur quotient donne l’équation.
+:::
+
+::: {.ae-fb}
+Ce quotient donne seulement la pente ($m x$), pas l’ordonnée à l’origine $p$. Par exemple, pour $\frac{x^{2} + 1}{x - 1}$, on trouverait $y = x$ au lieu de $y = x + 1$.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+On calcule la limite en $+\infty$ : sa valeur donne l’équation.
+:::
+
+::: {.ae-fb}
+Cela, c’est pour une A.H. Ici, la limite en $+\infty$ est infinie : elle ne donne pas la droite.
+:::
+:::
+
+::: {.ae-prop}
+::: {.ae-r}
+On cherche les racines du dénominateur.
+:::
+
+::: {.ae-fb}
+Les racines du dénominateur donnent les valeurs interdites, donc les éventuelles A.V. L’A.O. se cherche en $\pm \infty$.
+:::
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-etude-av-ao" data-type="ouverte" data-section="sec-synthese" data-obj="A5" data-niveau="2" data-id="5UAA3.q.lim-etude-av-ao" data-tags="" data-forme="longue"}
+::: {.ae-enonce}
+Soit $f(x) = \frac{x^{2} - 3x + 4}{x - 2}$. Détermine ses asymptotes (équations, et limites à gauche et à droite en la valeur interdite).
+:::
+
+::: {.ae-rep}
+**Valeur interdite** : $2$. Le numérateur y vaut $4 - 6 + 4 = 2 \neq 0$ : A.V. d’équation $x = 2$. Près de $2$, le numérateur est positif ; $x - 2$ est négatif à gauche et positif à droite. Donc $\lim\limits_{\substack{x \to 2 \\ x < 2}} f(x) = -\infty$ et $\lim\limits_{\substack{x \to 2 \\ x > 2}} f(x) = +\infty$.
+
+**En $\pm \infty$** : le degré du numérateur dépasse de $1$ celui du dénominateur : A.O. Division euclidienne : $x^{2} - 3x + 4 = (x - 2)(x - 1) + 2$, donc
+
+$$
+f(x) = x - 1 + \frac{2}{x - 2},
+$$
+
+et $\lim\limits_{x \to \pm \infty} \frac{2}{x - 2} = 0$ : la droite $y = x - 1$ est une A.O. des deux côtés.
+:::
+
+::: {.ae-crit}
+J’ai trouvé l’A.V. $x = 2$ en vérifiant que le numérateur ne s’annule pas en $2$.
+:::
+
+::: {.ae-crit}
+J’ai trouvé $\lim\limits_{\substack{x \to 2 \\ x < 2}} f(x) = -\infty$ et $\lim\limits_{\substack{x \to 2 \\ x > 2}} f(x) = +\infty$.
+:::
+
+::: {.ae-crit}
+J’ai justifié l’existence d’une A.O. par les degrés ($2 = 1 + 1$).
+:::
+
+::: {.ae-crit}
+J’ai effectué la division euclidienne et trouvé $y = x - 1$.
+:::
+
+::: {.ae-crit}
+J’ai montré que l’écart $\frac{2}{x - 2}$ se rapproche de $0$ en $\pm \infty$.
+:::
+:::
+
+::: {.ae-q data-ae-id="lim-inventer-av-ah" data-type="ouverte" data-section="sec-ah" data-obj="T2" data-niveau="3" data-id="5UAA3.q.lim-inventer-av-ah" data-tags="" data-forme="courte"}
+::: {.ae-enonce}
+Trouve l’expression analytique d’une fonction rationnelle dont le graphique a une A.V. d’équation $x = 3$ et une A.H. d’équation $y = -1$. Écris-la sous la forme d’un seul quotient.
+:::
+
+::: {.ae-rep}
+Par exemple $f(x) = -1 + \frac{1}{x - 3} = \frac{-(x - 3) + 1}{x - 3} = \frac{-x + 4}{x - 3}$.
+
+Vérification : en $3$, le numérateur vaut $1 \neq 0$ : A.V. $x = 3$ ; degrés égaux et $\frac{-x}{x} = -1$ : A.H. $y = -1$.
+:::
+
+::: {.ae-crit}
+Le dénominateur de ma fonction s’annule en $3$, mais pas le numérateur.
+:::
+
+::: {.ae-crit}
+Le numérateur et le dénominateur ont le même degré, et le quotient des termes de plus haut degré vaut $-1$.
+:::
+
+::: {.ae-crit}
+Ma fonction est écrite sous la forme d’un seul quotient.
+:::
+:::
+
+:::
+
+
+```{=html}
+<script type="application/json" id="ae-exos">[{"num": "1.1", "url": "ch1-fonctions/1-rappels.html#exercice-1-1", "obj": ["C2"], "page": "3", "niveau": 1, "section": "Rappels"}, {"num": "1.2", "url": "ch1-fonctions/2-operations-sur-les-fonctions.html#exercice-1-2", "obj": ["C1"], "page": "5", "niveau": 1, "section": "Opérations sur les fonctions"}, {"num": "1.3", "url": "ch1-fonctions/2-operations-sur-les-fonctions.html#exercice-1-3", "obj": ["C1"], "page": "5", "niveau": 1, "section": "Opérations sur les fonctions"}, {"num": "1.4", "url": "ch1-fonctions/3-reconnaitre-une-composee.html#exercice-1-4", "obj": ["C1"], "page": "8", "niveau": 1, "section": "Reconnaître une composée"}, {"num": "1.5", "url": "ch1-fonctions/3-reconnaitre-une-composee.html#exercice-1-5", "obj": ["C1"], "page": "8", "niveau": 1, "section": "Reconnaître une composée"}, {"num": "1.6", "url": "ch1-fonctions/3-reconnaitre-une-composee.html#exercice-1-6", "obj": ["C1"], "page": "9", "niveau": 2, "section": "Reconnaître une composée"}, {"num": "1.7", "url": "ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html#exercice-1-7", "obj": ["A1"], "page": "9", "niveau": 1, "section": "Recherche algébrique du domaine d’une fonction"}, {"num": "1.8", "url": "ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html#exercice-1-8", "obj": ["A1"], "page": "10", "niveau": 1, "section": "Recherche algébrique du domaine d’une fonction"}, {"num": "1.9", "url": "ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html#exercice-1-9", "obj": ["A1"], "page": "10", "niveau": 1, "section": "Recherche algébrique du domaine d’une fonction"}, {"num": "1.10", "url": "ch1-fonctions/5-asymptotes-premier-contact.html#exercice-1-10", "obj": ["A3"], "page": "13", "niveau": 1, "section": "Asymptotes : premier contact"}, {"num": "1.11", "url": "ch1-fonctions/5-asymptotes-premier-contact.html#exercice-1-11", "obj": ["A4"], "page": "13", "niveau": 1, "section": "Asymptotes : premier contact"}, {"num": "1.12", "url": "ch1-fonctions/5-asymptotes-premier-contact.html#exercice-1-12", "obj": ["A4"], "page": "14", "niveau": 1, "section": "Asymptotes : premier contact"}, {"num": "1.13", "url": "ch1-fonctions/5-asymptotes-premier-contact.html#exercice-1-13", "obj": ["A4"], "page": "14", "niveau": 1, "section": "Asymptotes : premier contact"}, {"num": "2.1", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-1", "obj": ["A4"], "page": "27", "niveau": 1, "section": "Exercices"}, {"num": "2.2", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-2", "obj": ["A1"], "page": "27", "niveau": 1, "section": "Exercices"}, {"num": "2.3", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-3", "obj": ["C4"], "page": "27", "niveau": 1, "section": "Exercices"}, {"num": "2.4", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-4", "obj": ["A4"], "page": "28", "niveau": 1, "section": "Exercices"}, {"num": "2.5", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-5", "obj": ["A4"], "page": "29", "niveau": 1, "section": "Exercices"}, {"num": "2.6", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-6", "obj": ["A4"], "page": "30", "niveau": 2, "section": "Exercices"}, {"num": "2.7", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-7", "obj": ["A4"], "page": "31", "niveau": 3, "section": "Exercices"}, {"num": "2.8", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-8", "obj": ["T1"], "page": "32", "niveau": 2, "section": "Exercices"}, {"num": "3.1", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-1", "obj": ["C3"], "page": "39", "niveau": 1, "section": "Exercices"}, {"num": "3.2", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-2", "obj": ["C1"], "page": "39", "niveau": 1, "section": "Exercices"}, {"num": "3.3", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-3", "obj": ["A2"], "page": "40", "niveau": 1, "section": "Exercices"}, {"num": "3.4", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-4", "obj": ["A2"], "page": "40", "niveau": 1, "section": "Exercices"}, {"num": "3.5", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-5", "obj": ["C3"], "page": "40", "niveau": 2, "section": "Exercices"}, {"num": "3.6", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-6", "obj": ["A2"], "page": "40", "niveau": 2, "section": "Exercices"}, {"num": "3.7", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-7", "obj": ["C2"], "page": "40", "niveau": 2, "section": "Exercices"}, {"num": "3.8", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-8", "obj": ["C3"], "page": "40", "niveau": 2, "section": "Exercices"}, {"num": "3.9", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-9", "obj": ["T2"], "page": "41", "niveau": 3, "section": "Exercices"}, {"num": "4.1", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-1", "obj": ["A2"], "page": "51", "niveau": 1, "section": "Exercices"}, {"num": "4.2", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-2", "obj": ["A5"], "page": "51", "niveau": 1, "section": "Exercices"}, {"num": "4.3", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-3", "obj": ["A5"], "page": "51", "niveau": 2, "section": "Exercices"}, {"num": "4.4", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-4", "obj": ["C4"], "page": "51", "niveau": 2, "section": "Exercices"}, {"num": "4.5", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-5", "obj": ["A6"], "page": "51", "niveau": 2, "section": "Exercices"}, {"num": "4.6", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-6", "obj": ["A3"], "page": "52", "niveau": 2, "section": "Exercices"}, {"num": "4.7", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-7", "obj": ["T3"], "page": "52", "niveau": 3, "section": "Exercices"}, {"num": "4.8", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-8", "obj": ["A1"], "page": "53", "niveau": 2, "section": "Exercices"}, {"num": "4.9", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-9", "obj": ["C3"], "page": "53", "niveau": 2, "section": "Exercices"}, {"num": "4.10", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-10", "obj": ["C3"], "page": "54", "niveau": 2, "section": "Exercices"}, {"num": "4.11", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-11", "obj": ["C4"], "page": "54", "niveau": 2, "section": "Exercices"}, {"num": "4.12", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-12", "obj": ["C2"], "page": "54", "niveau": 2, "section": "Exercices"}, {"num": "4.13", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-13", "obj": ["T2"], "page": "54", "niveau": 3, "section": "Exercices"}, {"num": "4.14", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-14", "obj": ["T1"], "page": "54", "niveau": 3, "section": "Exercices"}]</script>
+```

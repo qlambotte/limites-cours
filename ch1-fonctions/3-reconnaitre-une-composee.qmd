@@ -1,0 +1,311 @@
+---
+title: "Reconnaître une composée"
+---
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+
+::: {#activite-1-3 data-sorte="activite" data-num="1.3" data-page="5" data-phys="8" data-id="5UAA3.blocs-base" data-type="activite" data-tags="" .theo .theo-activite}
+::: {.theo-head}
+**Activité 1.3** — des blocs de base
+:::
+
+::: {.theo-body}
+En 4^e^, tu as appris à reconnaître et à tracer un petit nombre de fonctions de référence : $x$, $x^{2}$, $x^{3}$, $\frac{1}{x}$, $\sqrt{x}$, $\sqrt[3]{x}$, $\left|x\right|$, et les fonctions constantes. La plupart des fonctions que tu rencontreras cette année ne sont pas nouvelles : ce sont ces quelques blocs de base, assemblés soit par les opérations $+, -, \cdot, /$ que tu viens de voir, soit par une nouvelle opération, la **composition** — qui consiste à appliquer un bloc, puis un **autre** bloc, au résultat du premier. (Attention : une expression comme $x^{2}+1$ n’est pas une composition — c’est la somme du bloc $x^{2}$ et de la fonction constante $1$, une opération que tu connais déjà.)
+
+Compare les deux graphiques suivants.
+
+::: {.grille style="--n:2"}
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c1-f3"></div>
+```
+
+::: {.lp-legende}
+fonction de référence $x^{2}$
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c1-f4"></div>
+```
+
+::: {.lp-legende}
+$p(x) = \frac{1}{x^{2}}$
+:::
+:::
+:::
+
+1. Le graphique de $p$ n’est pas un simple décalage ou un agrandissement de celui de $x^{2}$ : c’est une toute autre forme. Sais-tu pourquoi ? Quel bloc de référence obtiens-tu si tu calcules $x^{2}$ **d’abord** ? [$x^{2}$]{.rep} Et à quel autre bloc appliques-tu **ensuite** ce résultat ? [$\frac{1}{x}$]{.rep}
+:::
+:::
+
+::: {#definition-1-3 data-sorte="definition" data-num="1.3" data-page="6" data-phys="9" data-id="5UAA3.def.003" data-type="definition" data-tags="" .theo .theo-definition}
+::: {.theo-head}
+**Définition 1.3**
+:::
+
+::: {.theo-body}
+Soit $f$ et $g$ deux fonctions. La fonction composée de $f$ après $g$, notée $f \circ g$, est définie par l’équation
+
+$$
+(f \circ g)(x) = f(g(x))
+$$
+:::
+:::
+
+::: {#exemple-1-1 data-sorte="exemple" data-num="1.1" data-page="6" data-phys="9" data-id="5UAA3.identifier-deux-composantes" data-type="exemple" data-tags="" .theo .theo-exemple}
+::: {.theo-head}
+**Exemple 1.1** — identifier les deux composantes
+:::
+
+::: {.theo-body}
+Soit $p(x) = \frac{1}{x^{2}}$, vue ci-dessus. Calcule les images suivantes :
+
+- $p(1) =$ [$1$]{.rep}
+- $p(2) =$ [$\frac{1}{4}$]{.rep}
+- $p(-1) =$ [$1$]{.rep}
+- $p(0) =$ [non défini ($0$ n’est pas dans le domaine de $p$)]{.rep}
+
+Quelles sont les différentes étapes que tu as appliquées pour calculer ces images ? Une de ces images pose un problème particulier : lequel, et pourquoi ?
+
+::: {.rep-bloc}
+Élever au carré, puis inverser. $p(0)$ pose problème : $0^{2} = 0$, et $\frac{1}{0}$ n’existe pas.
+:::
+
+La fonction $p$ est construite à partir de deux autres fonctions. Peux-tu les identifier, et dans quel ordre elles s’appliquent ?
+
+::: {.rep-bloc}
+$x^{2}$ d’abord, puis $\frac{1}{x}$ : $p = (\frac{1}{x}) \circ (x^{2})$.
+:::
+:::
+:::
+
+::: {#exemple-1-2 data-sorte="exemple" data-num="1.2" data-page="7" data-phys="10" data-id="5UAA3.composition-redonne-bloc-connu" data-type="exemple" data-tags="" .theo .theo-exemple}
+::: {.theo-head}
+**Exemple 1.2** — une composition qui redonne un bloc connu
+:::
+
+::: {.theo-body}
+Soit $j(x) = \sqrt{x^{2}}$. Calcule les images suivantes :
+
+- $j(3) =$ [$3$]{.rep}
+- $j(-3) =$ [$3$]{.rep}
+- $j(0) =$ [$0$]{.rep}
+
+La fonction $j$ est construite à partir de deux autres fonctions. Peux-tu les identifier ?
+
+::: {.rep-bloc}
+$x^{2}$ d’abord, puis $\sqrt{\cdot}$ : en notant $s(x) = \sqrt{x}$, $j = s \circ (x^{2})$.
+:::
+
+::: {.grille style="--n:2"}
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c1-f5"></div>
+```
+
+::: {.lp-legende}
+fonction de référence $x^{2}$
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c1-f6"></div>
+```
+
+::: {.lp-legende}
+$j(x) = \sqrt{x^{2}}$
+:::
+:::
+:::
+
+Reconnais-tu le graphique de $j$ ? À quelle fonction de référence, déjà connue, est-il identique ? Est-ce cohérent avec le résultat de $j(-3)$ calculé ci-dessus ?
+
+::: {.rep-bloc}
+C’est le graphique de $\left|x\right|$. Cohérent : $j(-3) = 3 = \left|-3\right|$, alors que $-3 \neq -3$ si on avait juste "simplifié" $\sqrt{x^{2}}$ en $x$.
+:::
+:::
+:::
+
+::: {#remarque-1-2 data-sorte="remarque" data-num="1.2" data-page="8" data-phys="11" data-id="5UAA3.rem.002" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {.theo-head}
+**Remarque 1.2**
+:::
+
+::: {.theo-body}
+La composition de deux fonctions n’est pas commutative : en général les fonctions $f \circ g$ et $g \circ f$ sont différentes.
+:::
+:::
+
+::: {#exercice-1-4 data-sorte="exercice" data-num="1.4" data-page="8" data-phys="11" data-id="5UAA3.ex.004" data-type="exercice" data-tags="maison" .exo}
+::: {.exo-tete}
+[✎ Exercice 1.4]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C1]{.exo-comp} ★☆☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Dans les cas suivants, donne une expression analytique de $f \circ g$ puis de $g \circ f$.
+
+1. $f(x) = x^{2} - 1$ et $g(x) = 3x + 5$
+2. $f(x) = \sqrt{x}$ et $g(x) = x^{2} - 1$
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [définition de la composée](#definition-1-3) : $(f \circ g)(x) = f(g(x))$.
+
+## Indice 2 {.unlisted}
+
+Dans $f(g(x))$, quelle fonction est appliquée en premier ? Par quoi remplace-t-on $x$ dans l’expression de $f$ ?
+
+## Indice 3 {.unlisted}
+
+Cas 1 : $(f \circ g)(x) = f(3x+5)$ : dans $x^{2} - 1$, remplace $x$ par $(3x+5)$, avec les parenthèses.
+
+## Solution {.unlisted}
+
+1. $(f \circ g)(x) = (3x+5)^{2} - 1 = 9x^{2} + 30x + 24$ et $(g \circ f)(x) = 3(x^{2}-1) + 5 = 3x^{2} + 2$.
+2. $(f \circ g)(x) = \sqrt{x^{2} - 1}$ et $(g \circ f)(x) = (\sqrt{x})^{2} - 1 = x - 1$ (pour $x \geq 0$).
+
+Les deux composées sont différentes : la composition n’est pas commutative.
+
+## Pièges {.unlisted}
+
+- Oublier les parenthèses : $3x + 5^{2} - 1$ au lieu de $(3x+5)^{2} - 1$.
+- Confondre $f \circ g$ et $f \cdot g$ (produit).
+- Développer $(3x+5)^{2}$ en $9x^{2} + 25$ : il manque le double produit $30x$.
+:::
+:::
+
+::: {#exercice-1-5 data-sorte="exercice" data-num="1.5" data-page="8" data-phys="11" data-id="5UAA3.ex.005" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 1.5]{.exo-titre} [[C1]{.exo-comp} ★☆☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Voici le graphique de deux fonctions $f$ et $g$.
+
+```{=html}
+<div class="lim-plot" data-fig="c1-f7"></div>
+```
+
+::: {.lp-legende}
+Trait plein : $f$. Trait pointillé : $g$.
+:::
+
+Calcule, à l’aide du graphique :
+
+::: {.colonnes style="--n:2"}
+- $g(f(2))$
+- $(f \circ g)(-2)$
+- $f(g(0))$
+- $g(f(0))$
+- $(g \circ f)(-3)$
+:::
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [définition de la composée](#definition-1-3) : $(f \circ g)(x) = f(g(x))$ ; on calcule d’abord l’image par la fonction de droite.
+
+## Indice 2 {.unlisted}
+
+Pour $g(f(2))$ : que vaut d’abord $f(2)$ (trait plein) ? Puis, quelle est l’image de ce nombre par $g$ (trait pointillé) ?
+
+## Indice 3 {.unlisted}
+
+$f(2) = 0$. Regarde maintenant le graphique de $g$ en $x = 0$ : que remarques-tu ?
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+- $g(f(2)) = g(0)$ : en $x = 0$, le graphique de $g$ a un point creux, $g(0)$ n’existe pas. Donc $g(f(2))$ **n’existe pas**.
+- $(f \circ g)(-2) = f(g(-2)) = f(2) = 0$.
+- $f(g(0))$ : $g(0)$ n’existe pas, donc $f(g(0))$ n’existe pas.
+- $g(f(0)) = g(-2) = 2$.
+- $(g \circ f)(-3) = g(f(-3)) = g(1) = 0$.
+:::
+
+## Pièges {.unlisted}
+
+- Commencer par la fonction de gauche : dans $f(g(x))$, c’est $g$ qui agit en premier.
+- Lire la hauteur du point creux comme si c’était une image : un point creux n’appartient pas au graphique.
+:::
+:::
+
+::: {#exemple-1-3 data-sorte="exemple" data-num="1.3" data-page="8" data-phys="11" data-id="5UAA3.decomposer-fonction" data-type="exemple" data-tags="" .theo .theo-exemple}
+::: {.theo-head}
+**Exemple 1.3** — décomposer une fonction
+:::
+
+::: {.theo-body}
+Décomposer une fonction, c’est décrire comment la construire à partir des opérations et de fonctions simples. Dans ce cours, les opérations seront
+
+$$
++, -, \cdot, /, \circ
+$$
+
+et les fonctions simples seront les fonctions de référence :
+
+$$
+x, x^{2}, x^{3}, x^{n}, \frac{1}{x}, \sqrt{x}, \sqrt[3]{x}, \left|x\right|, k.
+$$
+
+Soit $f(x) = \sqrt{x^{3} + \frac{1}{x}}$. Décomposons $f$.
+
+::: {.rep-bloc}
+$x^{3}$ et $\frac{1}{x}$ sont deux blocs de référence ; on les additionne : $h(x) = x^{3} + \frac{1}{x}$. \
+ On applique ensuite le bloc $\sqrt{\cdot}$ au résultat : en notant $s(x) = \sqrt{x}$, $f = s \circ h$.
+:::
+:::
+:::
+
+::: {#exercice-1-6 data-sorte="exercice" data-num="1.6" data-page="9" data-phys="12" data-id="5UAA3.ex.006" data-type="exercice" data-tags="maison" .exo}
+::: {.exo-tete}
+[✎ Exercice 1.6]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C1]{.exo-comp} ★★☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Décompose les fonctions suivantes :
+
+1. $h(x) = \frac{1}{x-3}$
+2. $r(x) = \sqrt{1+x^{2}} + x$
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis l’[exemple « décomposer une fonction »](#exemple-1-3) : blocs de référence, opérations $+, -, \cdot, /$ et composition.
+
+## Indice 2 {.unlisted}
+
+Si tu calculais $h(5)$ à la main, quelles opérations ferais-tu, et dans quel ordre ?
+
+## Indice 3 {.unlisted}
+
+Pour $h(x) = \frac{1}{x-3}$ : on calcule d’abord $x - 3$ (le bloc $x$ moins la constante $3$), puis on applique le bloc $\frac{1}{x}$ au résultat.
+
+## Solution {.unlisted}
+
+1. $h = i \circ u$ avec $u(x) = x - 3$ (différence du bloc $x$ et de la constante $3$) et $i(x) = \frac{1}{x}$.
+2. $r(x) = \sqrt{1 + x^{2}} + x$ : $v(x) = 1 + x^{2}$ (somme de la constante $1$ et du bloc $x^{2}$), puis $s \circ v$ avec $s(x) = \sqrt{x}$, et enfin on ajoute le bloc $x$ : $r = s \circ v + x$.
+
+## Pièges {.unlisted}
+
+- Voir une composition dans $1 + x^{2}$ : c’est une somme.
+- Oublier le dernier « $+ x$ » de $r$, qui n’est pas sous la racine.
+:::
+:::
+
+::: {.ae-lien}
+[✔ S'autoévaluer sur cette section : test de 5 questions →](../autoeval.qmd#sections=sec-composee)
+:::

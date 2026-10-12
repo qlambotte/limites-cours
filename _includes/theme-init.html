@@ -1,0 +1,13 @@
+<script>
+// Applique le thème mémorisé AVANT le rendu (évite le clignotement clair→sombre).
+(function () {
+  try {
+    var t = localStorage.getItem('imsv-theme');
+    if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t);
+    var st = localStorage.getItem('typweb-style');
+    if (st) document.documentElement.setAttribute('data-style', st);   // styles à l'essai (menu « Aa »)
+    var tx = parseFloat(localStorage.getItem('typweb-taille'));          // taille du texte (menu « Aa »)
+    if (tx && tx !== 1) document.documentElement.style.fontSize = (100 * tx) + '%';
+  } catch (e) {}
+})();
+</script>

@@ -1,0 +1,693 @@
+/*-- scss:defaults --*/
+
+// Couleurs de marque (servent aussi de base Bootstrap)
+$blue:   #1f5fbf;
+$primary:       $blue;
+$link-color:    $blue;
+
+// Typographie — Roboto (corps) + Roboto Slab (titres), façon « bookup ».
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&family=Roboto+Slab:wght@500;600;700&family=JetBrains+Mono&display=swap');
+
+$font-family-sans-serif: "Roboto", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+$font-family-serif:      "Roboto Slab", Georgia, "Times New Roman", serif;
+$font-family-monospace:  "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+$headings-font-family: "Roboto Slab", Georgia, serif;
+$headings-font-weight: 600;
+$font-size-root: 16.5px;
+$line-height-base: 1.62;
+
+/*-- scss:rules --*/
+
+// =====================================================================
+//  Jetons de couleur — clair par défaut, sombre via [data-theme="dark"]
+// =====================================================================
+:root {
+  --accent:     #1f5fbf;
+  --h:          #14304a;
+  --muted:      #5a6b7b;
+  --rule:       #e5e9ef;
+  --page-bg:    #ffffff;
+  --text:       #24313d;
+  --side-bg:    #fbfcfd;
+  --card-bg:    #f6f8fb;
+  --card-brd:   #e5e9ef;
+  --exo-body:   #fffdfb;
+  --exo-bg:     #fdf3e8;
+  --exo-brd:    #f0dcc4;
+  --exo-accent: #c76e00;
+  --exo-title:  #9a4f00;
+  --tip-bg:     #f2f7ff;
+  --tip-brd:    #dbe7fb;
+  --thead-bg:   #f4f7fa;
+  --hover-bg:   #eef3fb;
+  --input-bg:   #ffffff;
+}
+:root[data-theme="dark"] {
+  --accent:     #6ea8ff;
+  --h:          #e8eef6;
+  --muted:      #9db0c1;
+  --rule:       #26323d;
+  --page-bg:    #11171d;
+  --text:       #c7d2dc;
+  --side-bg:    #0f151b;
+  --card-bg:    #171f27;
+  --card-brd:   #2a3540;
+  --exo-body:   #1c1712;
+  --exo-bg:     #2a2016;
+  --exo-brd:    #4a3826;
+  --exo-accent: #d98a3a;
+  --exo-title:  #f0b878;
+  --tip-bg:     #14202b;
+  --tip-brd:    #24455f;
+  --thead-bg:   #1b232c;
+  --hover-bg:   #202b35;
+  --input-bg:   #171f27;
+}
+
+body { -webkit-font-smoothing: antialiased; background: var(--page-bg); color: var(--text); }
+
+// --- Titres ---
+h1, .title { color: var(--h); font-weight: 700; letter-spacing: -0.005em; }
+h2, h3, h4 { color: var(--h); }
+h2 { border-top: 1px solid var(--rule); padding-top: 1.1rem; margin-top: 2.4rem; font-size: 1.5rem; }
+h3 { margin-top: 1.8rem; font-size: 1.2rem; }
+.book-title, .subtitle { color: var(--h); }
+main a { color: var(--accent); text-underline-offset: 2px; }
+
+// --- Barre latérale dockée ---
+#quarto-sidebar { border-right: 1px solid var(--rule); background: var(--side-bg); }
+.sidebar-navigation .active { font-weight: 600; color: var(--accent); }
+.sidebar-title a { font-family: $headings-font-family; color: var(--h); }
+
+// --- Table des matières ---
+#TOC .active, #TOC a:hover { color: var(--accent); }
+#toc-title { font-family: $font-family-sans-serif; font-weight: 700; font-size: .8rem;
+  text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+
+// =====================================================================
+//  Outils à côté du titre (GitHub · téléchargement · thème)
+// =====================================================================
+.sidebar-tools-main { display: flex; align-items: center; gap: .1rem; }
+.imsv-tool {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 1.9rem; height: 1.9rem; padding: 0;
+  color: var(--muted); background: none; border: none; border-radius: 6px;
+  cursor: pointer;
+}
+.imsv-tool:hover { color: var(--accent); background: var(--hover-bg); }
+.imsv-tool svg { width: 1.05rem; height: 1.05rem; fill: currentColor; }
+.imsv-dl { position: relative; }
+.imsv-dl-menu {
+  position: absolute; left: 0; top: 2.1rem; z-index: 1000; min-width: 15rem;
+  background: var(--page-bg); border: 1px solid var(--card-brd); border-radius: 8px;
+  box-shadow: 0 6px 20px rgba(0,0,0,.12); padding: .3rem;
+}
+.imsv-dl-menu a { display: block; padding: .5rem .7rem; border-radius: 6px;
+  color: var(--accent); text-decoration: none; font-size: .92rem; }
+.imsv-dl-menu a:hover { background: var(--hover-bg); }
+.imsv-dl-menu .imsv-dl-detail { display: block; font-size: .78rem; color: var(--muted); font-weight: 400; }
+.imsv-dl-menu .imsv-dl-head { padding: .2rem .7rem .4rem; font-size: .72rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+
+// =====================================================================
+//  Menu de téléchargement (dans le corps — repli si pas de barre latérale)
+// =====================================================================
+.dl { margin: .2rem 0 1.5rem; }
+details.dl-menu { display: inline-block; border: 1px solid var(--card-brd); border-radius: 7px; background: var(--card-bg); }
+details.dl-menu > summary { cursor: pointer; list-style: none; padding: .5rem .95rem;
+  font-family: $font-family-sans-serif; font-weight: 600; color: var(--h); border-radius: 7px; user-select: none; }
+details.dl-menu > summary::-webkit-details-marker { display: none; }
+details.dl-menu > summary::before { content: "⤓"; margin-right: .5rem; color: var(--accent); }
+details.dl-menu > summary::after { content: "  ▸"; color: var(--muted); font-size: .8em; }
+details.dl-menu[open] > summary { border-bottom: 1px solid var(--card-brd); border-radius: 7px 7px 0 0; }
+details.dl-menu[open] > summary::after { content: "  ▾"; }
+details.dl-menu a { display: block; padding: .55rem .95rem; color: var(--accent); text-decoration: none; border-top: 1px solid var(--rule); }
+details.dl-menu a:first-of-type { border-top: none; }
+details.dl-menu a:hover { background: var(--hover-bg); }
+
+// =====================================================================
+//  Exercices : boîte d'énoncé (ancre) + tabset d'aides (fermé au départ)
+// =====================================================================
+.exo-meta { float: right; font-family: $font-family-sans-serif; font-weight: 600;
+  font-size: 0.86em; color: var(--exo-title); letter-spacing: 0.02em; }
+// Ancre par exercice : cible de défilement + petit « # » visible au survol
+.exo-anchor { position: relative; top: -70px; visibility: hidden; }
+.exo-hash { color: var(--exo-title); text-decoration: none; opacity: 0; font-weight: 700; padding: 0 .25rem; }
+div.callout.exo > .callout-header:hover .exo-hash { opacity: .55; }
+.exo-hash:hover { opacity: 1 !important; text-decoration: underline; }
+div.callout.exo {
+  border-radius: 8px; border: 1px solid var(--exo-brd); border-left: 4px solid var(--exo-accent);
+  margin: 1.4rem 0 0; background: var(--exo-body);
+}
+div.callout.exo > .callout-header { background: var(--exo-bg); }
+div.callout.exo .callout-title-container { color: var(--exo-title); font-size: 1.03em; font-weight: 700; }
+div.callout.exo .callout-title { font-family: $font-family-sans-serif; }
+
+.aides { margin: .4rem 0 1.4rem; }
+// Bouton repliable « ▶ Coups de pouce »
+.aides-toggle {
+  display: inline-flex; align-items: center; gap: .45rem;
+  background: none; border: none; padding: .25rem 0; cursor: pointer;
+  font-family: $font-family-sans-serif; font-weight: 700; font-size: .72rem;
+  text-transform: uppercase; letter-spacing: .05em; color: var(--muted);
+}
+.aides-toggle:hover { color: var(--accent); }
+.aides-caret { font-size: .72em; line-height: 1; }
+// Les onglets sont cachés tant que le menu n'est pas ouvert
+.aides .panel-tabset { display: none; margin-top: .35rem; }
+.aides.open .panel-tabset { display: block; }
+.aides .panel-tabset > .nav-tabs {
+  border-bottom: 1px solid var(--rule); gap: .1rem; margin-bottom: 0; align-items: center;
+}
+.aides .nav-tabs .nav-link {
+  font-family: $font-family-sans-serif; font-size: .88rem; font-weight: 600; color: var(--muted);
+  padding: .4rem .85rem; border: none; border-bottom: 2px solid transparent; border-radius: 0; background: none;
+}
+.aides .nav-tabs .nav-link:hover { color: var(--h); border-bottom-color: var(--rule); }
+.aides .nav-tabs .nav-link.active { color: var(--accent); background: none; border-bottom: 2px solid var(--accent); }
+.aides .tab-content { padding: .9rem .1rem .1rem; font-size: .98rem; }
+.aides .tab-content em:first-child { color: var(--muted); font-style: italic; }
+
+// --- Tables ---
+table { font-variant-numeric: tabular-nums; }
+.table { color: var(--text); --bs-table-color: var(--text); --bs-table-bg: transparent; }
+.table > :not(caption) > * > * { padding: 0.32rem 0.55rem; }
+thead th { background: var(--thead-bg); }
+
+// --- Cartouche de séance ---
+.seance-meta {
+  font-family: $font-family-sans-serif; font-size: 0.9rem; color: var(--muted);
+  background: var(--card-bg); border: 1px solid var(--card-brd); border-radius: 8px;
+  padding: 0.7rem 1rem; margin-bottom: 1.2rem;
+}
+
+// --- Encadré « astuce » (consignes) ---
+div.callout-tip.callout-style-simple {
+  background: var(--tip-bg); border: 1px solid var(--tip-brd); border-left: 4px solid var(--accent);
+  border-radius: 8px; padding: 0.6rem 0.9rem;
+}
+
+// --- Ressources / QR (PDF uniquement ; style de repli) ---
+.ressources { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+.ressources img { width: 120px; height: auto; }
+
+// =====================================================================
+//  Habillage sombre du châssis Bootstrap (thème unique cosmo + override)
+// =====================================================================
+html[data-theme="dark"] { background: var(--page-bg); }
+html[data-theme="dark"] #quarto-sidebar a,
+html[data-theme="dark"] .sidebar-navigation .sidebar-item a { color: #c2ccd6; }
+html[data-theme="dark"] .sidebar-navigation .active { color: var(--accent); }
+html[data-theme="dark"] #quarto-search input,
+html[data-theme="dark"] input.form-control,
+html[data-theme="dark"] .aa-Input { background: var(--input-bg); color: var(--text); border-color: var(--card-brd); }
+html[data-theme="dark"] pre, html[data-theme="dark"] code { background: var(--card-bg); color: #e3e9f0; }
+html[data-theme="dark"] .nav-footer, html[data-theme="dark"] .page-footer,
+html[data-theme="dark"] .quarto-title-block { color: var(--muted); }
+html[data-theme="dark"] .nav-footer { background: var(--side-bg); border-color: var(--rule); }
+html[data-theme="dark"] hr { border-color: var(--rule); }
+html[data-theme="dark"] blockquote { color: var(--muted); }
+
+// =====================================================================
+//  Boîte à outils — cartes de méthode (source unique, cf. methode.lua)
+// =====================================================================
+.methode-card { border: 1px solid var(--tip-brd); border-radius: 6px; overflow: hidden; margin: 1.6rem 0; background: var(--page-bg); }
+.methode-card .mc-head { display: flex; align-items: center; justify-content: space-between; gap: .6rem; background: var(--tip-bg); padding: .6rem .95rem; border-bottom: 1px solid var(--tip-brd); }
+.methode-card .mc-titre { font-family: $headings-font-family; font-size: 1.18rem; font-weight: 700; color: var(--h); line-height: 1.25; }
+.methode-card .mc-badge { flex: none; font-size: .8rem; font-weight: 700; color: var(--accent); background: var(--hover-bg); border-radius: 3px; padding: .15rem .55rem; }
+.methode-card .mc-body { padding: .75rem 1rem 1rem; }
+.methode-card .mc-sect { margin-top: .95rem; }
+.methode-card .mc-sect:first-child { margin-top: .2rem; }
+.methode-card .mc-label { font-size: .76rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); margin-bottom: .25rem; }
+.methode-card .mc-sect > p:first-of-type { margin-top: 0; }
+.methode-card .mc-sect p { margin: .25rem 0; }
+.methode-card .mc-etapes ol { margin: .2rem 0 0; padding-left: 1.35rem; }
+.methode-card .mc-etapes li { margin: .3rem 0; }
+.methode-card details.mc-reponses { margin-top: 1.05rem; border-top: 1px dashed var(--tip-brd); }
+.methode-card details.mc-reponses > summary { cursor: pointer; list-style: none; font-size: .85rem; font-weight: 600; color: var(--accent); padding: .6rem 0 .3rem; }
+.methode-card details.mc-reponses > summary::-webkit-details-marker { display: none; }
+.methode-card details.mc-reponses > summary::before { content: "\25B8"; display: inline-block; margin-right: .45rem; transition: transform .15s ease; }
+.methode-card details.mc-reponses[open] > summary::before { transform: rotate(90deg); }
+.methode-card details.mc-reponses > summary:hover { text-decoration: underline; }
+
+// =====================================================================
+//  Boîtes de cours (théorie) — Définition · Propriété · Exemple · Remarque
+// =====================================================================
+:root {
+  --def-accent: #1d6fb8; --def-bg: #f2f8fd;
+  --prop-accent: #c1002a; --prop-bg: #fdf2f4;
+  --exm-accent: #0a7d4d; --exm-bg: #f0f8f4;
+  --rem-accent: #6a737d; --rem-bg: #f4f6f8;
+  --ret-accent: #e0a800; --ret-bg: #fff7d6;
+}
+:root[data-theme="dark"] {
+  --def-accent: #5aa9e6; --def-bg: #12222f;
+  --prop-accent: #ef6b85; --prop-bg: #2a141a;
+  --exm-accent: #4fbF87; --exm-bg: #10241b;
+  --rem-accent: #9db0c1; --rem-bg: #171f27;
+  --ret-accent: #e6c357; --ret-bg: #2a2410;
+}
+.theo {
+  margin: 1.1rem 0; border: 1px solid var(--card-brd); border-left-width: 4px;
+  border-radius: 6px; overflow: hidden;
+}
+.theo-head {
+  padding: .5rem .85rem; font-family: $headings-font-family; font-weight: 600;
+  color: #fff;
+}
+.theo-head .theo-em { font-weight: 500; opacity: .92; }
+.theo-body { padding: .7rem .95rem; background: var(--page-bg); }
+.theo-body > :first-child { margin-top: 0; }
+.theo-body > :last-child { margin-bottom: 0; }
+.theo-definition { border-color: var(--def-accent); } .theo-definition .theo-head { background: var(--def-accent); }
+.theo-propriete  { border-color: var(--prop-accent); } .theo-propriete  .theo-head { background: var(--prop-accent); }
+.theo-exemple    { border-color: var(--exm-accent); } .theo-exemple    .theo-head { background: var(--exm-accent); }
+.theo-remarque   { border-color: var(--rem-accent); } .theo-remarque   .theo-head { background: var(--rem-accent); }
+.theo-definition .theo-body { background: var(--def-bg); }
+.theo-propriete  .theo-body { background: var(--prop-bg); }
+.theo-exemple    .theo-body { background: var(--exm-bg); }
+.theo-remarque   .theo-body { background: var(--rem-bg); }
+.theo-aretenir {
+  border: 1px solid var(--card-brd); border-left: 4px solid var(--ret-accent);
+  background: var(--ret-bg); border-radius: 6px; padding: .7rem .95rem; margin: 1.1rem 0;
+}
+.theo-aretenir .theo-body > :first-child { margin-top: 0; }
+
+// =====================================================================
+//  Figure interactive (suite-plot)
+// =====================================================================
+.suite-plot { margin: 1.2rem 0; }
+.sp-canvas svg { width: 100%; max-width: 480px; height: auto; display: block; margin: 0 auto;
+  background: var(--card-bg); border: 1px solid var(--card-brd); border-radius: 8px; padding: 6px; }
+.sp-ctrl { display: flex; align-items: center; gap: .6rem; justify-content: center;
+  margin: .5rem auto 0; max-width: 480px; font-size: .92rem; color: var(--muted); }
+.sp-ctrl input[type=range] { flex: 1; accent-color: var(--accent); }
+.sp-val { font-family: $font-family-monospace; font-size: .82rem; color: var(--h);
+  white-space: nowrap; }
+
+// =====================================================================
+//  ===  Ajouts propres au cours « Limites et asymptotes »  ===
+// =====================================================================
+:root {
+  --act-accent: #6d3bbf; --act-bg: #f7f3fd;          // activités (violet des notes)
+  --exo-c: #8a5a00; --exo-fond: #fffaf1;             // exercices (brun des notes)
+  --grille: #24313d; --courbe: #1d6fb8; --mobile: #c1002a; --cible: #c76e00; --asym: #c1002a;
+  --an-noir: #111111;
+}
+:root[data-theme="dark"] {
+  --act-accent: #a88bf0; --act-bg: #1b1628;
+  --exo-c: #e0a64a; --exo-fond: #1c1712;
+  --grille: #c7d2dc; --courbe: #5aa9e6; --mobile: #ef6b85; --cible: #e6a24f; --asym: #ef6b85;
+  --an-noir: #f2f2f2;
+}
+.theo-activite { border-color: var(--act-accent); }
+.theo-activite .theo-head { background: var(--act-accent); }
+.theo-activite .theo-body { background: var(--act-bg); }
+.theo-activite .theo-head .theo-label::before { content: "✎  "; }
+.theo-head { white-space: normal; }
+
+// --- Exercices (bandeau comme dans les notes) ---
+.exo { margin: 1.3rem 0 .3rem; border: 1px solid var(--exo-c); border-left-width: 4px; border-radius: 6px; overflow: hidden; scroll-margin-top: 70px; }
+.exo-tete { background: var(--exo-c); color: #fff; padding: .45rem .85rem; font-family: $headings-font-family; font-weight: 600;
+  display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .9rem; }
+.exo-tete > p { margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: .3rem .9rem; flex: 1; }
+.theo-head { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .9rem; }
+.theo-head > p { margin: 0; flex: 1; }
+.exo-tete .exo-titre { flex: none; }
+.exo-tete .exo-maison { font-family: $font-family-sans-serif; font-size: .88rem; font-weight: 700; }
+.exo-tete .exo-meta { margin-left: auto; float: none; color: #fff; font-family: $font-family-sans-serif; font-size: .9rem; letter-spacing: .08em; }
+.exo-tete .exo-comp { font-family: $font-family-monospace; letter-spacing: 0; background: rgba(255,255,255,.22); border-radius: 3px; padding: 0 .35rem; margin-right: .3rem; }
+.exo-tete .exo-hash { color: #fff; }
+.exo:hover .exo-hash { opacity: .6; }
+.exo-corps { padding: .7rem .95rem; background: var(--exo-fond); }
+.exo-corps > :first-child { margin-top: 0; }
+.exo-corps > :last-child { margin-bottom: 0; }
+.theo, .exo { scroll-margin-top: 70px; }
+
+// --- Aides : solution détaillée des exercices faits en classe ---
+.aides .tab-content ol, .aides .tab-content ul { padding-left: 1.3rem; }
+.solution-classe { border-left: 3px solid var(--exm-accent); padding-left: .8rem; }
+
+// --- Cases à compléter (tableaux d'activités) ---
+.a-completer td:not(:first-child) { min-width: 4.5rem; }
+table.fixe { width: auto; margin: .6rem auto; }
+table.fixe th, table.fixe td { border: 1px solid var(--text) !important; padding: .3rem .7rem; text-align: center; }
+
+// =====================================================================
+//  Figure dynamique « point mobile » (js/lim-plot.js)
+// =====================================================================
+.lim-plot { margin: 1rem 0 1.2rem; }
+.lp-wrap { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(230px, 1fr); gap: 18px; align-items: start; }
+.lp-wrap.lp-statique { grid-template-columns: minmax(0, 560px); justify-content: center; }
+@media (max-width: 760px) { .lp-wrap { grid-template-columns: 1fr; } }
+.lp-fig svg { width: 100%; height: auto; display: block; background: var(--page-bg); border: 1px solid var(--card-brd); border-radius: 8px; cursor: crosshair; touch-action: manipulation; }
+.lp-legende { text-align: center; font-size: .9rem; color: var(--muted); margin-top: .3rem; }
+.lp-grid line { stroke: var(--grille); stroke-width: .5; stroke-dasharray: 1.5 3; }
+.lp-axes line { stroke: var(--text); stroke-width: 1.3; }
+.lp-fleche { fill: var(--text); }
+.lp-axlab { fill: var(--text); font: italic 15px $headings-font-family; }
+.lp-tick { fill: var(--text); font-size: 12px; font-family: $font-family-sans-serif; paint-order: stroke; stroke: var(--page-bg); stroke-width: 3px; }
+.lp-cadre { fill: none; stroke: var(--text); stroke-width: 1; stroke-dasharray: 5 4; }
+.lp-bord { stroke: transparent; stroke-width: 3; }
+.lp-bord.on { stroke: var(--cible); }
+.lp-croix { stroke: var(--text); stroke-width: 1.6; fill: none; }
+.lp-inflab { fill: var(--text); font-weight: 600; font-size: 14px; font-family: $font-family-sans-serif; }
+.lp-a line { stroke: var(--cible); stroke-width: 1.6; stroke-dasharray: 6 4; }
+.lp-alab { fill: var(--cible); font-weight: 600; font-size: 13px; font-family: $font-family-sans-serif; paint-order: stroke; stroke: var(--page-bg); stroke-width: 3px; }
+.lp-asym line { stroke: var(--asym); stroke-width: 1.2; stroke-dasharray: 6 4; }
+.lp-courbe path { fill: none; stroke: var(--courbe); stroke-width: 2.4; stroke-linejoin: round; }
+.lp-hit { fill: none; stroke: transparent; stroke-width: 22; pointer-events: stroke; }
+.lp-creux { fill: var(--page-bg); stroke: var(--courbe); stroke-width: 2; }
+.lp-plein { fill: var(--courbe); stroke: var(--courbe); stroke-width: 2; }
+.lp-bulles line { stroke: var(--text); stroke-width: .8; }
+.lp-bulles circle { fill: var(--page-bg); stroke: var(--text); stroke-width: 1; }
+.lp-bulles text { fill: var(--text); font-size: 12px; font-weight: 700; font-family: $font-family-sans-serif; }
+.lp-trace { fill: none; stroke: var(--mobile); stroke-width: 2; stroke-dasharray: 2 4; stroke-linecap: round; }
+.lp-M circle { fill: var(--mobile); stroke: var(--page-bg); stroke-width: 2; }
+.lp-M text { fill: var(--mobile); font: 700 15px $headings-font-family; paint-order: stroke; stroke: var(--page-bg); stroke-width: 3px; }
+.lp-M.dehors circle { fill: var(--page-bg); stroke: var(--mobile); stroke-width: 2.5; }
+.lp-side { display: flex; flex-direction: column; gap: 10px; font-size: .95rem; }
+.lp-choix { display: flex; flex-direction: column; gap: 6px; }
+.lp-lbl { font-size: .78rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.lp-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.lp-chip, .lp-ain { font-size: .95rem; border: 1px solid var(--card-brd); background: var(--input-bg); color: var(--text); border-radius: 6px; padding: 3px 11px; min-height: 32px; }
+.lp-chip { cursor: pointer; font-variant-numeric: tabular-nums; }
+.lp-chip:hover { border-color: var(--cible); }
+.lp-chip.on { background: var(--cible); border-color: var(--cible); color: var(--page-bg); }
+.lp-ain { width: 5.5em; }
+.lp-info { margin: 0; color: var(--muted); min-height: 2.9em; font-size: .92rem; }
+.lp-live { background: var(--card-bg); border: 1px solid var(--card-brd); border-radius: 8px; padding: 10px 12px; }
+.lp-kv { display: grid; grid-template-columns: 4.6em 1fr; align-items: baseline; }
+.lp-kv .k { color: var(--muted); font-family: $headings-font-family; }
+.lp-kv .v { font: 600 1.3rem/1.35 $font-family-monospace; color: var(--h); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.lp-note { font-size: .85rem; color: var(--prop-accent); margin-top: 4px; min-height: 1.2em; }
+.lp-approx { font-size: .78rem; color: var(--muted); margin-top: 4px; }
+.lp-ctrl { display: flex; align-items: center; gap: 8px; }
+.lp-ctrl input[type=range] { flex: 1; min-width: 0; accent-color: var(--mobile); height: 28px; }
+.lp-btn { width: 36px; height: 32px; border-radius: 6px; border: 1px solid var(--card-brd); background: var(--input-bg); color: var(--text); cursor: pointer; font-size: .8rem; }
+.lp-btn:disabled, .lp-btn2:disabled, .lp-ctrl input:disabled { opacity: .45; cursor: default; }
+.lp-echelle { display: flex; justify-content: space-between; font-size: .78rem; color: var(--muted); margin: -6px 44px 0; }
+.lp-acts { display: flex; gap: 8px; flex-wrap: wrap; }
+.lp-btn2 { font-size: .9rem; border-radius: 6px; padding: 4px 12px; border: 1px solid var(--accent); background: var(--accent); color: var(--page-bg); cursor: pointer; }
+.lp-btn2.lp-ghost { background: transparent; color: var(--accent); }
+.lp-tab { border-collapse: collapse; font: .9rem $font-family-monospace; font-variant-numeric: tabular-nums; }
+.lp-tab th, .lp-tab td { border: 1px solid var(--text); padding: 3px 10px; text-align: right; }
+.lp-tab th { font-family: $headings-font-family; font-weight: 500; text-align: center; }
+.lim-grille { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem 1.4rem; }
+.lim-grille .lim-plot .lp-wrap { grid-template-columns: 1fr; }
+
+// =====================================================================
+//  Bulle « page du cours imprimé » (js/bulle-pdf.js)
+// =====================================================================
+.bulle-pdf { position: fixed; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 1040;
+  display: flex; flex-direction: column; align-items: center; line-height: 1.1; text-decoration: none !important;
+  background: var(--page-bg); color: var(--h) !important; border: 1.5px solid var(--h); border-radius: 12px;
+  padding: .35rem .7rem .4rem; box-shadow: 0 2px 8px rgba(0,0,0,.12); }
+.bulle-pdf .bp-l { font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.bulle-pdf .bp-p { font-family: $headings-font-family; font-weight: 700; font-size: 1.15rem; }
+.bulle-pdf:hover { border-color: var(--accent); }
+
+// =====================================================================
+//  Annotations (js/annot.js)
+// =====================================================================
+.an-calque { position: absolute; left: 0; top: 0; z-index: 1030; pointer-events: none; overflow: visible; }
+html[data-annot="stylo"] .an-calque { cursor: crosshair; touch-action: none; }
+html[data-annot="gomme"] .an-calque { cursor: cell; }
+html[data-annot="gomme"] .an-trait { pointer-events: stroke; }
+html[data-annot="note"] #quarto-document-content, html[data-annot="correction"] #quarto-document-content { cursor: copy; }
+.an-trait { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.an-couche { position: absolute; left: 0; top: 0; width: 0; height: 0; z-index: 1035; }
+mark.an-hl { padding: 0 1px; color: inherit; border-radius: 2px; }
+mark.an-hl-jaune { background: #ffe45c; }
+mark.an-hl-rouge { background: #ffc2cc; }
+mark.an-hl-bleu { background: #bfe0ff; }
+mark.an-hl-vert { background: #c4f0d6; }
+:root[data-theme="dark"] mark.an-hl { color: #111; }
+html.an-cache mark.an-hl { background: none; padding: 0; }
+.an-note { position: absolute; transform: translate(-50%, -50%); }
+.an-pastille { width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--h); background: #ffe45c; color: #111;
+  font-weight: 800; font-size: .85rem; line-height: 1; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,.25); }
+.an-correction .an-pastille { background: #c1002a; border-color: #c1002a; color: #fff; }
+.an-corps { display: none; position: absolute; left: 30px; top: -6px; width: 250px; max-width: 70vw; background: var(--page-bg);
+  border: 1.5px solid var(--h); border-radius: 8px; padding: .5rem; box-shadow: 0 4px 16px rgba(0,0,0,.18); }
+.an-correction .an-corps { border-color: #c1002a; }
+.an-note.ouverte .an-corps { display: block; }
+.an-tete { font-size: .75rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); margin-bottom: .25rem; }
+.an-correction .an-tete { color: #c1002a; }
+.an-corps textarea { width: 100%; font-size: .9rem; border: 1px solid var(--card-brd); border-radius: 5px; background: var(--input-bg); color: var(--text); padding: .3rem; }
+.an-act { display: flex; justify-content: space-between; margin-top: .3rem; }
+.an-act button { font-size: .8rem; border: 1px solid var(--card-brd); background: var(--input-bg); color: var(--text); border-radius: 5px; padding: .15rem .6rem; cursor: pointer; }
+.an-barre { position: fixed; left: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); z-index: 1045;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 6px; max-width: calc(100vw - 120px); }
+.an-ouvrir { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--h); background: var(--page-bg); color: var(--h);
+  font-size: 1.2rem; cursor: pointer; box-shadow: 0 2px 8px rgba(0,0,0,.12); }
+.an-barre.ouverte .an-ouvrir { background: var(--h); color: var(--page-bg); }
+.an-outils { display: none; flex-wrap: wrap; gap: 5px; align-items: center; background: var(--page-bg); border: 1px solid var(--card-brd);
+  border-radius: 10px; padding: 6px; box-shadow: 0 4px 16px rgba(0,0,0,.14); max-width: 560px; }
+.an-barre.ouverte .an-outils { display: flex; }
+.an-b { font-size: .85rem; border: 1px solid var(--card-brd); background: var(--input-bg); color: var(--text); border-radius: 6px; padding: 4px 9px; cursor: pointer; }
+.an-b.on { background: var(--h); color: var(--page-bg); border-color: var(--h); }
+.an-b.an-danger { color: #c1002a; border-color: #c1002a; }
+.an-pal { display: flex; gap: 4px; padding: 0 4px; }
+.an-coul { width: 22px; height: 22px; padding: 0; border-radius: 50%; border: 2px solid var(--card-brd); }
+.an-coul.on { outline: 2px solid var(--h); outline-offset: 1px; }
+.an-sep { width: 1px; align-self: stretch; background: var(--card-brd); margin: 0 3px; }
+.an-msg { background: var(--h); color: var(--page-bg); font-size: .85rem; border-radius: 6px; padding: 4px 9px; }
+.an-liste { position: fixed; left: 16px; bottom: 80px; z-index: 1046; width: min(560px, calc(100vw - 32px)); max-height: 60vh; overflow: auto;
+  background: var(--page-bg); border: 1.5px solid var(--h); border-radius: 10px; padding: .7rem .9rem; box-shadow: 0 6px 24px rgba(0,0,0,.2); }
+.an-liste-t { display: flex; justify-content: space-between; align-items: center; gap: .5rem; margin-bottom: .4rem; }
+.an-liste-t span { display: flex; gap: .3rem; }
+.an-liste pre { white-space: pre-wrap; font-size: .82rem; background: var(--card-bg); padding: .5rem; border-radius: 6px; margin: 0; }
+@media print { .an-barre, .an-liste, .bulle-pdf { display: none !important; } }
+
+
+// =====================================================================
+//  Contenu généré depuis Typst (typ2site.py)
+// =====================================================================
+.grille { display: grid; grid-template-columns: repeat(var(--n, 2), minmax(0, 1fr)); gap: 1rem 1.4rem; align-items: start; margin: 1rem 0; }
+.grille .lim-plot .lp-wrap { grid-template-columns: 1fr; }
+@media (max-width: 760px) { .grille { grid-template-columns: 1fr; } }
+.colonnes { columns: var(--n, 2); column-gap: 2rem; }
+.colonnes li { break-inside: avoid; }
+@media (max-width: 600px) { .colonnes { columns: 1; } }
+.cadre-info { border: 1px solid var(--prop-accent); border-left: 4px solid var(--prop-accent); border-radius: 6px; padding: .7rem .95rem; margin: 1.1rem 0; background: var(--prop-bg); }
+.cadre-info > :first-child { margin-top: 0; } .cadre-info > :last-child { margin-bottom: 0; }
+.tableau { overflow-x: auto; margin: .8rem 0; }
+.tableau table { width: auto; margin: 0 auto; }
+.tableau th, .tableau td { border: 1px solid var(--text) !important; padding: .3rem .7rem !important; text-align: center; vertical-align: middle; }
+.tableau thead th { background: transparent; }
+.tab-signes td:first-child, .tab-signes th:first-child { text-align: left; }
+.lp-legende { text-align: center; font-size: .92rem; color: var(--muted); margin: -.4rem 0 1rem; }
+.maison { background: var(--exo-c); color: #fff; font-weight: 700; font-size: .85em; border-radius: 3px; padding: 0 .35rem; }
+
+// --- réponses cachées (js/reponses.js) ---
+span.rep { border-bottom: 1.5px dashed var(--muted); border-radius: 3px; cursor: pointer; padding: 0 .2rem;
+  background: var(--card-bg); color: transparent; min-width: 2.5em; display: inline-block; }
+span.rep * { color: transparent !important; }
+span.rep.vu { color: var(--accent); background: transparent; }
+span.rep.vu * { color: var(--accent) !important; }
+mjx-container .rep { cursor: pointer; background: var(--card-bg); color: transparent; border-bottom: 1.5px dashed var(--muted); }
+mjx-container .rep.vu { color: var(--accent); background: transparent; }
+.rep-bloc { display: block; cursor: pointer; border: 1.5px dashed var(--muted); border-radius: 6px; padding: .35rem .8rem;
+  margin: .3rem 0 .8rem; background: var(--card-bg); }
+.rep-bloc:not(.vu) > * { display: none !important; }
+.rep-bloc:not(.vu)::before { content: "Réponse — clique pour l’afficher"; color: var(--muted); font-size: .88rem; font-style: italic; }
+.rep-bloc.vu { color: var(--accent); background: transparent; border-style: solid; border-color: var(--accent); border-width: 0 0 0 3px; border-radius: 0; }
+span.rep, .rep-bloc, mjx-container .rep { -webkit-tap-highlight-color: transparent; user-select: none; }
+span.rep:focus:not(:focus-visible), .rep-bloc:focus:not(:focus-visible) { outline: none; }
+.rep-bloc > :first-child { margin-top: 0; } .rep-bloc > :last-child { margin-bottom: 0; }
+.rep-tout { font-size: .78rem; font-family: $font-family-sans-serif; font-weight: 600; border: 1px solid rgba(255,255,255,.7); color: #fff; background: transparent; border-radius: 6px; padding: .1rem .55rem; cursor: pointer; }
+@media print { span.rep, mjx-container .rep { color: inherit !important; } .rep-bloc > * { display: block !important; } .rep-bloc::before { content: none !important; } }
+
+// --- figures : courbes multiples, décor, valeurs masquées ---
+.lp-c2 path { stroke: var(--prop-accent); }
+.lp-pointille path { stroke-dasharray: 2 5; stroke-linecap: round; stroke-width: 2.8; }
+.lp-creux.lp-c2 { stroke: var(--prop-accent); }
+.lp-plein.lp-c2 { fill: var(--prop-accent); stroke: var(--prop-accent); }
+.lp-deco path { fill: none; stroke: var(--exm-accent); stroke-width: 2.4; }
+.lp-etiq { fill: var(--text); font: italic 600 14px $headings-font-family; }
+.lp-live { display: flex; flex-direction: column; gap: 8px; }
+.lp-live.masque .lp-vals { display: none; }
+.lp-live.masque { padding: 6px 10px; }
+.lp-vals { display: flex; flex-direction: column; gap: 6px; }
+.lp-voir { align-self: flex-start; }
+
+// --- point mobile replié, graphique large, écart ---
+.lp-fig { position: relative; }
+.lp-ouvrir { position: absolute; top: 6px; right: 8px; font-size: .75rem; color: var(--muted); background: var(--page-bg);
+  border: 1px solid var(--card-brd); border-radius: 5px; padding: 1px 7px; cursor: pointer; opacity: .75; }
+.lp-ouvrir:hover { opacity: 1; color: var(--accent); }
+.lp-wrap.lp-replie { grid-template-columns: minmax(0, 520px); justify-content: center; }
+.lp-wrap.lp-replie .lp-side, .lp-wrap.lp-replie .lp-M, .lp-wrap.lp-replie .lp-trace,
+.lp-wrap.lp-replie .lp-a, .lp-wrap.lp-replie .lp-ecart { display: none !important; }
+.lp-wrap.lp-replie .lp-fig svg { cursor: default; }
+.lp-wrap:not(.lp-replie) .lp-mfixe { display: none; }
+.lp-wrap.lp-large { grid-template-columns: 1fr; }
+.lp-wrap.lp-large .lp-side { max-width: 560px; width: 100%; justify-self: center; }
+.lp-ecart { stroke: var(--exm-accent); stroke-width: 3; }
+.lp-kv-ecart { font-size: .9rem; }
+.lp-kv-ecart .v { font-size: 1rem !important; color: var(--exm-accent) !important; }
+
+// --- page des notes (marge droite) + sommaire replié ---
+.page-notes { display: flex; align-items: center; gap: .55rem; margin: 0 0 1rem; padding: .5rem .75rem;
+  border: 2px solid var(--exm-accent); background: var(--exm-bg); border-radius: 6px;
+  color: var(--h) !important; text-decoration: none !important; font-size: .95rem; line-height: 1.25; }
+.page-notes:hover { box-shadow: 0 0 0 2px var(--exm-accent) inset; }
+.page-notes .pn-fl { font-size: 1.3rem; color: var(--exm-accent); font-weight: 700; }
+.page-notes b { font-size: 1.1rem; }
+@media (min-width: 992px) { .bulle-pdf:not(.toujours) { display: none; } }
+#TOC #toc-title { cursor: pointer; user-select: none; }
+#TOC #toc-title::before { content: "▾ "; color: var(--muted); }
+#TOC.toc-ferme #toc-title::before { content: "▸ "; }
+#TOC.toc-ferme > ul { display: none; }
+
+// --- barre d'annotation compacte (4 lignes d'icônes) ---
+.an-outils { flex-direction: column; flex-wrap: nowrap; gap: 4px; max-width: none; width: auto; padding: 5px; }
+.an-ligne { display: flex; gap: 4px; }
+.an-ico { width: 34px; height: 34px; padding: 6px; display: inline-flex; align-items: center; justify-content: center; }
+.an-ico svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.an-ico.an-danger.confirme { background: #c1002a; color: #fff; }
+.an-ligne .an-coul { width: 34px; height: 22px; border-radius: 6px; margin: 2px 0; }
+.an-barre { max-width: 170px; }
+.an-msg { max-width: 170px; }
+
+// =====================================================================
+//  Page « Objectifs » (grille de objectifs.typ)
+// =====================================================================
+.obj-intro { font-weight: 600; color: var(--muted); margin: .2rem 0 .4rem; }
+h2.obj-cat { font-size: 1.15rem; margin-top: 1.6rem; }
+.obj-liste > .obj:first-child { padding-top: .3rem; }
+.obj { display: grid; grid-template-columns: 3rem minmax(0, 1fr); gap: 0 .6rem; padding: .55rem 0; border-bottom: 1px solid var(--card-brd); }
+.obj > p { margin: 0; }
+.obj-code { font-weight: 700; color: var(--accent); font-family: $font-family-sans-serif; }
+.obj-texte > :last-child { margin-bottom: 0; }
+
+// =====================================================================
+//  « Aa » et crayon d'annotation à côté du bouton de thème (grand écran)
+// =====================================================================
+.sidebar-tools-main .dans-outils { position: relative !important; left: auto !important; bottom: auto !important;
+  z-index: 1050; display: inline-block; max-width: none; font-size: 14px; }
+.dans-outils .st-btn, .dans-outils .an-ouvrir { width: 1.9rem; height: 1.9rem; padding: 0; border: 0; border-radius: 6px;
+  background: none; box-shadow: none; color: var(--muted); font-size: 1rem; line-height: 1; cursor: pointer; }
+.dans-outils .st-btn { font-size: .95rem; }
+.dans-outils .st-btn:hover, .dans-outils .an-ouvrir:hover { color: var(--accent); background: var(--hover-bg); }
+.an-barre.ouverte.dans-outils .an-ouvrir { background: var(--h); color: var(--page-bg); }
+.dans-outils .st-panneau { position: fixed; top: 96px; bottom: auto; left: 16px; right: auto; }   // top : réglé au clic (tools.html)
+.dans-outils .an-outils { position: absolute; top: 2.2rem; right: 0; z-index: 1050; }
+.dans-outils .an-msg { position: absolute; top: calc(2.2rem + 172px); right: 0; width: 170px; }
+.obj.obj-avec-etat { grid-template-columns: 3rem minmax(0, 1fr) 11rem; }
+.obj-etat { text-align: right; }
+.obj-etat .ae-raison { margin-left: auto; }
+.obj-go { display: block; font-size: .8rem; white-space: nowrap; }
+.obj-resume { font-size: .9rem; margin: .6rem 0 0; }
+@media (max-width: 600px) {
+  .obj.obj-avec-etat { grid-template-columns: 3rem minmax(0, 1fr); }
+  .obj-etat { grid-column: 2; text-align: left; margin-top: .3rem; }
+  .obj-etat .ae-raison { margin-left: 0; }
+}
+
+// =====================================================================
+//  Mon suivi des exercices (js/suivi.js)
+// =====================================================================
+.suivi { display: flex; justify-content: flex-end; align-items: center; gap: .35rem; padding: .3rem .85rem .45rem;
+  font-family: $font-family-sans-serif; font-size: .78rem; color: var(--muted); }
+.suivi-b { font-size: .78rem; border: 1px solid var(--card-brd); background: transparent; color: var(--muted);
+  border-radius: 999px; padding: .05rem .6rem; cursor: pointer; }
+.suivi-b.on { background: var(--ae-mid, #b26b00); border-color: var(--ae-mid, #b26b00); color: #fff; }
+.suivi-b-ok.on { background: var(--ae-ok, #1a7f37); border-color: var(--ae-ok, #1a7f37); }
+.suivi-page { font-family: $font-family-sans-serif; font-size: .85rem; color: var(--muted); margin: -.4rem 0 1rem; }
+.suivi-barre { display: inline-flex; width: 6rem; height: .45rem; border-radius: 999px; overflow: hidden;
+  background: var(--card-brd); vertical-align: middle; margin: 0 .3rem; }
+.suivi-ok { background: var(--ae-ok, #1a7f37); } .suivi-mid { background: var(--ae-mid, #b26b00); }
+.suivi-sec { font-family: $font-family-sans-serif; font-size: .78rem; color: var(--muted); margin-left: .4rem; white-space: nowrap; }
+.suivi-sec:empty { display: none; }
+@media print { .suivi, .suivi-page, .suivi-sec { display: none !important; } }
+
+// Page « L'essentiel »
+.ess-lien { text-align: right; font-family: $font-family-sans-serif; font-size: .8rem; margin: -.2rem 0 1rem; }
+.ess-lien a { text-decoration: none; }
+@media print { .ess-lien { display: none; } }
+
+// =====================================================================
+//  Mode projection (js/projection.js)
+// =====================================================================
+html.proj #quarto-sidebar, html.proj #quarto-margin-sidebar, html.proj #quarto-header, html.proj .nav-footer,
+html.proj .page-navigation, html.proj #title-block-header, html.proj .st-menu,
+html.proj .suivi, html.proj .suivi-page, html.proj .quarto-secondary-nav { display: none !important; }
+html.proj main.content :not(.proj-chemin):not(.proj-actif):not(.proj-actif *) { display: none !important; }
+html.proj main.content .proj-actif .rep-bloc:not(.vu) > * { display: none !important; }
+html.proj #quarto-content, html.proj .page-columns { display: block !important; }
+html.proj main.content { font-size: var(--proj-taille, 1.6rem); max-width: 1400px; margin: 0 auto !important;
+  padding: 1.2rem 2rem 5rem !important; grid-column: 1 / -1 !important; }
+html.proj main.content .proj-actif { margin-top: 0; }
+.proj-barre { position: fixed; z-index: 1070; bottom: 12px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: .3rem;
+  background: var(--page-bg); border: 1px solid var(--card-brd); border-radius: 999px; padding: .25rem .5rem;
+  box-shadow: 0 4px 16px rgba(0,0,0,.15); font-family: $font-family-sans-serif; font-size: .9rem; }
+.proj-barre[hidden] { display: none; }
+html.proj .bulle-pdf { display: flex !important; bottom: 12px; right: 16px; z-index: 1075; }   // page des notes de l'encadré projeté
+html.proj .bulle-pdf.pn-aucune { display: none !important; }
+html.proj .an-barre { position: fixed !important; left: 16px !important; bottom: 12px !important; z-index: 1075; }
+.proj-b { border: 0; background: none; color: var(--text); font-size: 1rem; padding: .2rem .55rem; border-radius: 999px; cursor: pointer; }
+.proj-b:hover { background: var(--hover-bg); }
+.proj-info { color: var(--muted); padding: 0 .5rem; white-space: nowrap; }
+.proj-msg { position: fixed; z-index: 1080; top: 20px; left: 50%; transform: translateX(-50%); background: var(--h); color: var(--page-bg);
+  padding: .4rem .9rem; border-radius: 6px; font-family: $font-family-sans-serif; font-size: .9rem; }
+@media print { .proj-barre, .proj-outil { display: none !important; } }
+
+// =====================================================================
+//  Menu « Aa » : taille du texte et styles à l'essai (_includes/styles-essai.html)
+// =====================================================================
+// ---- menu « Aa » ----
+.st-menu { position: fixed; z-index: 1060; left: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px)); font: 14px/1.4 $font-family-sans-serif; }
+.st-btn { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--h); background: var(--page-bg); color: var(--h);
+  cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,.12); font: 700 15px $headings-font-family; padding: 0; }
+.an-barre { left: 70px !important; }          // le crayon d'annotation passe à droite du « Aa »
+.st-panneau { position: absolute; bottom: 54px; left: 0; background: #fff; color: #222; border: 1px solid #ccc; border-radius: 10px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.15); padding: .5rem; width: 15rem; }
+.st-panneau[hidden] { display: none; }
+.st-panneau p { margin: .2rem .4rem .4rem; font-size: 12px; color: #777; }
+.st-panneau button { display: block; width: 100%; text-align: left; border: 0; background: none; color: #222; padding: .35rem .6rem; border-radius: 6px; cursor: pointer; }
+.st-panneau button:hover { background: #f1f1f1; }
+.st-panneau button.on { background: #222; color: #fff; }
+@media print { .st-menu { display: none; } }
+.st-taille { display: flex; align-items: center; gap: .3rem; margin: 0 .2rem .5rem; }
+.st-panneau .st-taille button { display: inline-block; width: auto; flex: 1; text-align: center; border: 1px solid #ccc; font-weight: 700; }
+.st-taille span { font-size: 12px; color: #777; min-width: 3rem; text-align: center; }
+.st-panneau .st-sep { border-top: 1px solid #e3e3e3; margin: .2rem 0 .4rem; }
+
+
+// Projection : minuteur et tableau blanc (js/projection.js)
+.proj-minu { position: fixed; z-index: 1080; top: 14px; right: 18px; font: 700 2rem/1 $font-family-sans-serif; font-variant-numeric: tabular-nums;
+  background: var(--page-bg); color: var(--h); border: 2px solid var(--h); border-radius: 10px; padding: .3rem .7rem; cursor: pointer;
+  box-shadow: 0 2px 10px rgba(0,0,0,.12); }
+.proj-minu.pause { opacity: .55; }
+.proj-minu.bientot { color: #b26b00; border-color: #b26b00; }
+.proj-minu.fini { color: #fff; background: #c1002a; border-color: #c1002a; animation: proj-clign 1s ease-in-out 4; }
+@keyframes proj-clign { 50% { opacity: .35; } }
+.proj-minu-choix { position: fixed; z-index: 1085; bottom: 62px; left: 50%; transform: translateX(-50%); display: flex; gap: .3rem; align-items: center;
+  background: var(--page-bg); border: 1px solid var(--card-brd); border-radius: 12px; padding: .4rem .6rem; box-shadow: 0 4px 16px rgba(0,0,0,.15);
+  font-family: $font-family-sans-serif; font-size: .9rem; }
+.proj-minu-choix b { margin-right: .3rem; }
+.proj-minu-choix .proj-b { border: 1px solid var(--card-brd); font-size: .9rem; }
+.proj-minu-in { width: 4.5rem; border: 1px solid var(--card-brd); border-radius: 6px; padding: .2rem .4rem; background: var(--input-bg); color: var(--text); }
+.proj-tableau { position: fixed; inset: 0; z-index: 1065; background: #fff; display: flex; flex-direction: column; }
+.proj-tab-enonce { flex: none; max-height: 38vh; overflow: auto; padding: 1rem 2rem .6rem; font-size: var(--proj-taille, 1.6rem); color: #111;
+  border-bottom: 2px solid #111; background: #fff; }
+.proj-tab-enonce > :last-child { margin-bottom: 0; }
+.proj-tab-titre { font-family: $headings-font-family; font-weight: 700; margin-bottom: .3rem; }
+.proj-tab-cv { flex: 1; width: 100%; touch-action: none; cursor: crosshair; display: block; }
+.proj-tab-outils { position: absolute; bottom: 12px; left: 16px; display: flex; gap: .3rem; align-items: center; }
+.proj-tab-outils .proj-b { border: 1px solid #ccc; background: #fff; color: #111; }
+.proj-tab-c { width: 28px; height: 28px; padding: 0 !important; border-radius: 50% !important; }
+.proj-tab-c.on { outline: 3px solid #111; outline-offset: 2px; }
+html.proj-tab-ouvert .proj-minu { z-index: 1090; }
+.an-barre.proj-cache { display: none !important; }
+.proj-tab-btn { display: inline-flex; align-items: center; margin-left: .4rem; padding: .1rem .3rem; border: 1px solid rgba(255,255,255,.6);
+  border-radius: 6px; background: transparent; color: #fff; cursor: pointer; vertical-align: middle; opacity: .8; }
+.proj-tab-btn:hover { opacity: 1; background: rgba(255,255,255,.15); }
+.proj-tab-btn svg { width: 1rem; height: 1rem; fill: currentColor; }
+@media print { .proj-tab-btn, .proj-minu, .proj-tableau { display: none !important; } }
+
+// icône « ? » (mode d'emploi)
+.imsv-aide b { font: 700 1.05rem/1 $font-family-sans-serif; }

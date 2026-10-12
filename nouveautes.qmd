@@ -1,0 +1,42 @@
+---
+title: "Quoi de neuf ?"
+subtitle: "Ce qui a changé dans le cours en ligne"
+---
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+
+## 02/10/2026
+
+- [Les polynômes en ±∞ : le terme qui l’emporte](ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.qmd) — modifié : [Remarque 4.1](ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.qmd#remarque-4-1)
+- [Les fonctions rationnelles en ±∞ : asymptote horizontale ?](ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.qmd) — modifié : [Exemple 4.2](ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.qmd#exemple-4-2)
+- [Synthèse](ch4-chercher-les-asympto/5-synthese.qmd) — modifié : [Exemple 4.4](ch4-chercher-les-asympto/5-synthese.qmd#exemple-4-4)
+
+## 01/10/2026
+
+- Nouvelle section : [Décrire un graphique sans le montrer](ch2-limites-definition-e/1-decrire-un-graphique-sans-le.qmd)
+- Nouvelle section : [Un point qui se déplace sur un graphique](ch2-limites-definition-e/2-un-point-qui-se-deplace.qmd)
+- Nouvelle section : [Un trou dans le graphique](ch2-limites-definition-e/3-un-trou-dans-le-graphique.qmd)
+- Nouvelle section : [Définition](ch2-limites-definition-e/4-definition.qmd)
+- Nouvelle section : [Quand une limite a-t-elle un sens ?](ch2-limites-definition-e/5-quand-une-limite-a-t.qmd)
+- Nouvelle section : [Limites à gauche et à droite](ch2-limites-definition-e/6-limites-a-gauche-et-a.qmd)
+- Nouvelle section : [Les limites des fonctions de référence](ch2-limites-definition-e/7-les-limites-des-fonctions-de.qmd)
+- Nouvelle section : [Exercices](ch2-limites-definition-e/8-exercices.qmd)
+- Nouvelle section : [Pourquoi calculer ?](ch3-chercher-les-points/1-pourquoi-calculer.qmd)
+- Nouvelle section : [Les fonctions rationnelles](ch3-chercher-les-points/2-les-fonctions-rationnelles.qmd)
+- Nouvelle section : [En un point du domaine : rien à chercher](ch3-chercher-les-points/3-en-un-point-du-domaine.qmd)
+- Nouvelle section : [En une valeur interdite : point creux ou asymptote verticale ?](ch3-chercher-les-points/4-en-une-valeur-interdite-point.qmd)
+- Nouvelle section : [Exercices](ch3-chercher-les-points/5-exercices.qmd)
+- Nouvelle section : [Les polynômes en ±∞ : le terme qui l’emporte](ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.qmd)
+- Nouvelle section : [Les fonctions rationnelles en ±∞ : asymptote horizontale ?](ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.qmd)
+- Nouvelle section : [Asymptote oblique](ch4-chercher-les-asympto/3-asymptote-oblique.qmd)
+- Nouvelle section : [On ne calcule pas avec l’infini](ch4-chercher-les-asympto/4-on-ne-calcule-pas-avec.qmd)
+- Nouvelle section : [Synthèse](ch4-chercher-les-asympto/5-synthese.qmd)
+- Nouvelle section : [Exercices](ch4-chercher-les-asympto/6-exercices.qmd)
+- Section retirée : ch2-limites/1-quest-ce-quune-limite.qmd
+- Section retirée : ch2-limites/2-chercher-les-points-creux-et.qmd
+- Section retirée : ch2-limites/3-chercher-les-asymptotes-horizontales-et.qmd
+
+## 30/09/2026
+
+- Première version en ligne du cours.
+

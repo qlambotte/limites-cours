@@ -1,0 +1,287 @@
+---
+title: "Asymptotes : premier contact"
+---
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+
+Lors de ton analyse des fonctions de référence en 4^e^, tu as rencontré la fonction $f(x) = \frac{1}{x}$. Cette fonction présente une particularité :
+
+```{=html}
+<div class="lim-plot" data-fig="c1-f16"></div>
+```
+
+::: {.lp-legende}
+$f(x) = \frac{1}{x}$
+:::
+
+La particularité est que cette fonction admet deux asymptotes : l’une est horizontale et l’autre est verticale.
+
+Intuitivement, une asymptote au graphique d’une fonction est une droite qui semble se rapprocher de plus en plus du graphique de cette fonction.
+
+Un des objectifs de cette UAA est de fournir des outils qui nous permettront de détecter ces asymptotes.
+
+Il existe trois types d’asymptotes : verticale, horizontale et oblique. Voici quelques exemples :
+
+::: {.grille style="--n:2"}
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c1-f17"></div>
+```
+
+::: {.lp-legende}
+$f(x) = \frac{x+1}{x^{3}+x^{2}+x+1}$
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c1-f18"></div>
+```
+
+::: {.lp-legende}
+$f(x) = \frac{x^{3}-3x^{2}+3x}{x^{2}-2x+1}$
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c1-f19"></div>
+```
+
+::: {.lp-legende}
+$f(x) = \frac{-x^{3}+3x^{2}-3x}{x^{2}-2x+1}$
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c1-f20"></div>
+```
+
+::: {.lp-legende}
+$f(x) = \frac{x^{3}}{20x-20}$
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c1-f21"></div>
+```
+
+::: {.lp-legende}
+$f(x) = -\frac{x^{4}}{x^{2}+1}$
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c1-f22"></div>
+```
+
+::: {.lp-legende}
+$f(x) = -\frac{x}{x^{2}-1}$
+:::
+:::
+:::
+
+::: {#exercice-1-10 data-sorte="exercice" data-num="1.10" data-page="13" data-phys="16" data-id="5UAA3.ex.010" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 1.10]{.exo-titre} [[A3]{.exo-comp} ★☆☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Pour les fonctions représentées ci-dessus,
+
+1. donne la nature de chaque asymptote : verticale, horizontale ou oblique ;
+2. donne ensuite une équation cartésienne de chaque asymptote.
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis le début de la section : une asymptote est une droite dont le graphique se rapproche de plus en plus. Il y en a trois sortes : verticale, horizontale, oblique.
+
+## Indice 2 {.unlisted}
+
+Pour chaque graphique, regarde les bords : près de quelle droite le graphique monte ou descend-il sans fin ? De quelle droite se rapproche-t-il loin à gauche et à droite ?
+
+## Indice 3 {.unlisted}
+
+Équations : une droite verticale s’écrit $x = a$, une horizontale $y = b$, une oblique $y = m x + p$ ; pour l’oblique, lis deux points de la droite pour trouver $m$ et $p$.
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+1. $\frac{x+1}{x^{3}+x^{2}+x+1}$ : A.H. $y = 0$. Pas d’A.V. : en $-1$, il y a un point creux.
+2. A.V. $x = 1$ ; A.O. $y = x - 1$.
+3. A.V. $x = 1$ ; A.O. $y = -x + 1$.
+4. A.V. $x = 1$ ; ni A.H. ni A.O. (le graphique monte de plus en plus vite).
+5. Aucune asymptote.
+6. A.V. $x = -1$ et $x = 1$ ; A.H. $y = 0$.
+:::
+
+## Pièges {.unlisted}
+
+- Prendre le point creux du premier graphique pour une asymptote verticale.
+- Écrire l’équation d’une A.V. sous la forme $y = \ldots$.
+- Voir une asymptote oblique dans le graphique 4 : il s’éloigne de toute droite.
+:::
+:::
+
+::: {#exercice-1-11 data-sorte="exercice" data-num="1.11" data-page="13" data-phys="16" data-id="5UAA3.ex.011" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 1.11]{.exo-titre} [[A4]{.exo-comp} ★☆☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Dans le repère ci-dessous, invente une fonction qui a une asymptote verticale d’équation $x=4$.
+
+```{=html}
+<div class="lim-plot" data-fig="c1-f23"></div>
+```
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis le début de la section : près d’une asymptote verticale, le graphique monte ou descend sans fin le long de la droite. Regarde les graphiques d’exemple qui en ont une.
+
+## Indice 2 {.unlisted}
+
+Commence par tracer la droite $x = 4$ en pointillés. Que doit faire ton graphique juste à gauche et juste à droite de cette droite ?
+
+## Indice 3 {.unlisted}
+
+Dessine au moins une branche qui longe la droite $x = 4$ en montant (ou en descendant) de plus en plus, sans jamais la toucher ni la traverser. Le reste du graphique est libre.
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+On attend un **graphique**, pas une expression. Un graphique possible parmi beaucoup d’autres :
+
+```{=html}
+<div class="lim-plot" data-fig="c1-f24"></div>
+```
+
+Ce qui compte :
+
+- la droite $x = 4$ est tracée en pointillés ;
+- près d’elle, le graphique monte ou descend sans fin (ici : il descend à gauche, il monte à droite) ;
+- il ne la touche jamais.
+:::
+
+## Pièges {.unlisted}
+
+- Faire traverser la droite $x = 4$ au graphique.
+- Dessiner une branche qui s’approche de la droite puis s’en éloigne : il faut s’en rapprocher de plus en plus.
+- Donner une expression analytique au lieu d’un dessin.
+:::
+:::
+
+::: {#exercice-1-12 data-sorte="exercice" data-num="1.12" data-page="14" data-phys="17" data-id="5UAA3.ex.012" data-type="exercice" data-tags="maison" .exo}
+::: {.exo-tete}
+[✎ Exercice 1.12]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A4]{.exo-comp} ★☆☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Dans le repère ci-dessous, invente une fonction qui a une asymptote horizontale d’équation $y=-2$.
+
+```{=html}
+<div class="lim-plot" data-fig="c1-f25"></div>
+```
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis le début de la section : loin à gauche ou à droite, le graphique se rapproche de plus en plus d’une droite horizontale.
+
+## Indice 2 {.unlisted}
+
+Commence par tracer la droite $y = -2$ en pointillés. Que doit faire ton graphique très loin à droite (ou à gauche) ?
+
+## Indice 3 {.unlisted}
+
+Dessine le graphique comme tu veux au milieu du repère, puis, en allant vers le bord droit, fais-le se rapprocher de plus en plus de la droite $y = -2$, sans jamais s’en éloigner.
+
+## Solution {.unlisted}
+
+On attend un **graphique**. Un graphique possible :
+
+```{=html}
+<div class="lim-plot" data-fig="c1-f26"></div>
+```
+
+Ce qui compte : la droite $y = -2$ est tracée ; loin à droite (ou à gauche, ou des deux côtés), le graphique s’en rapproche de plus en plus. Au milieu, il peut faire ce qu’il veut, même couper la droite.
+
+## Pièges {.unlisted}
+
+- Dessiner un graphique qui se confond avec la droite : il doit s’en rapprocher.
+- Confondre avec une A.V. : une A.H. se lit loin à gauche ou loin à droite.
+:::
+:::
+
+::: {#exercice-1-13 data-sorte="exercice" data-num="1.13" data-page="14" data-phys="17" data-id="5UAA3.ex.013" data-type="exercice" data-tags="maison" .exo}
+::: {.exo-tete}
+[✎ Exercice 1.13]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A4]{.exo-comp} ★☆☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Dans le repère ci-dessous, invente une fonction qui a une asymptote oblique d’équation $y = \frac{x}{2} - 1$.
+
+```{=html}
+<div class="lim-plot" data-fig="c1-f27"></div>
+```
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis le début de la section et regarde le graphique d’exemple dont le graphique longe la droite $y = x - 1$.
+
+## Indice 2 {.unlisted}
+
+Trace d’abord la droite $y = \frac{x}{2} - 1$ : par quels points passe-t-elle ? Que doit faire ton graphique très loin à droite ?
+
+## Indice 3 {.unlisted}
+
+La droite passe par $(0 ; -1)$ et $(2 ; 0)$ (elle monte de $1$ quand $x$ augmente de $2$). Trace-la en pointillés, puis dessine un graphique qui la longe de plus en plus près loin à droite.
+
+## Solution {.unlisted}
+
+On attend un **graphique**. Un graphique possible :
+
+```{=html}
+<div class="lim-plot" data-fig="c1-f28"></div>
+```
+
+Ce qui compte : la droite $y = \frac{x}{2} - 1$ est tracée avec la bonne pente ; loin à droite (ou des deux côtés), le graphique s’en rapproche de plus en plus.
+
+## Pièges {.unlisted}
+
+- Tracer la droite avec la mauvaise pente.
+- Dessiner une parabole : elle ne longe aucune droite.
+:::
+:::
+
+::: {#remarque-1-3 data-sorte="remarque" data-num="1.3" data-page="15" data-phys="18" data-id="5UAA3.rem.003" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {.theo-head}
+**Remarque 1.3**
+:::
+
+::: {.theo-body}
+Nous ne définirons pas encore précisément ce qu’est une asymptote : cela viendra au fil du chapitre suivant, dès que nous aurons les outils de calcul pour le démontrer plutôt que de le deviner sur un dessin.
+:::
+:::
+
+::: {.ae-lien}
+[✔ S'autoévaluer sur cette section : test de 4 questions →](../autoeval.qmd#sections=sec-asymptotes-contact)
+:::

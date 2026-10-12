@@ -1,0 +1,394 @@
+---
+title: "Exercices"
+---
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+
+::: {#exercice-3-1 data-sorte="exercice" data-num="3.1" data-page="39" data-phys="42" data-id="5UAA3.ex.022" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 3.1]{.exo-titre} [[C3]{.exo-comp} ★☆☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Voici quatre rédactions du calcul de $\lim\limits_{x \to 1} \frac{x^{2} - 1}{x - 1}$. Une seule est correcte : laquelle ? Pour chacune des autres, explique l’erreur et corrige-la.
+
+1. $\lim\limits_{x \to 1} \frac{x^{2}-1}{x-1} = (x+1) = 2$
+2. $\lim\limits_{x \to 1} \frac{x^{2}-1}{x-1} = \lim\limits_{x \to 1} (x+1) = 2$
+3. $\frac{x^{2}-1}{x-1} = x + 1 = 2$
+4. $\lim\limits_{x \to 1} \frac{x^{2}-1}{x-1}$ n’existe pas, car on ne peut pas diviser par $0$.
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [remarque « Rédiger un calcul de limite »](4-en-une-valeur-interdite-point.qmd#remarque-3-2).
+
+## Indice 2 {.unlisted}
+
+Dans chaque ligne, tant que $x$ n’est pas remplacé par $1$, l’écriture « $\lim\limits_{x \to 1}$ » est-elle bien présente ? Chaque signe « $=$ » est-il vrai ?
+
+## Indice 3 {.unlisted}
+
+Rédaction 3 : l’égalité $x + 1 = 2$ est-elle vraie pour tous les $x$ ?
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+La rédaction **2** est correcte.
+
+1. « $\lim\limits_{x \to 1} \frac{x^{2}-1}{x-1} = (x+1) = 2$ » : le « $\lim\limits_{x \to 1}$ » a disparu alors que $x$ n’est pas encore remplacé. Correction : $\lim\limits_{x \to 1} \frac{x^{2}-1}{x-1} = \lim\limits_{x \to 1} (x+1) = 2$.
+2. Correcte.
+3. Pas de « lim » du tout : $x + 1 = 2$ n’est vrai que pour $x = 1$, qui n’est pas dans le domaine. Correction : celle de la ligne 2.
+4. Faux : $1$ annule aussi le numérateur. C’est un cas d’indétermination, pas une impossibilité : on simplifie par $(x - 1)$, et la limite vaut $2$ (point creux en $(1 ; 2)$).
+:::
+
+## Pièges {.unlisted}
+
+- Croire que « lim » est une décoration qu’on peut laisser tomber.
+- Conclure « n’existe pas » dès que le dénominateur s’annule.
+:::
+:::
+
+::: {#exercice-3-2 data-sorte="exercice" data-num="3.2" data-page="39" data-phys="42" data-id="5UAA3.ex.023" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 3.2]{.exo-titre} [[C1]{.exo-comp} ★☆☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Parmi les expressions suivantes, lesquelles représentent des fonctions rationnelles ? $x$ $3x^{3}+6x+\sqrt{x}$ $\frac{x^{2}+\left|2x\right|}{x^{2}+1}$ $\frac{1}{x}$ $\frac{1}{x^{2}+1}$ $\frac{x^{2}+3x+1}{x^{5}+2 \sqrt[3]{x}}$
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [définition d’une fonction rationnelle](2-les-fonctions-rationnelles.qmd#definition-3-1) : un quotient de deux **polynômes**.
+
+## Indice 2 {.unlisted}
+
+Dans chaque expression, y a-t-il une racine, une valeur absolue ou autre chose qu’un polynôme ?
+
+## Indice 3 {.unlisted}
+
+$x$ s’écrit $\frac{x}{1}$ : est-ce un quotient de deux polynômes ?
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+Fonctions rationnelles :
+
+- $x$ (c’est $\frac{x}{1}$) ;
+- $\frac{1}{x}$ ;
+- $\frac{1}{x^{2}+1}$.
+
+Pas rationnelles :
+
+- $3x^{3} + 6x + \sqrt{x}$ : une racine ;
+- $\frac{x^{2} + \left|2x\right|}{x^{2}+1}$ : une valeur absolue ;
+- $\frac{x^{2}+3x+1}{x^{5}+2 \sqrt[3]{x}}$ : une racine cubique.
+:::
+
+## Pièges {.unlisted}
+
+- Exclure $x$ parce qu’il n’y a pas de trait de fraction : un polynôme est une fonction rationnelle.
+- Accepter la dernière parce qu’elle « ressemble » à une fraction de polynômes.
+:::
+:::
+
+::: {#exercice-3-3 data-sorte="exercice" data-num="3.3" data-page="40" data-phys="43" data-id="5UAA3.ex.024" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 3.3]{.exo-titre} [[A2]{.exo-comp} ★☆☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Soit $f(x) = \frac{1}{(x+1)(x^{2}-4)}$. Calcule les limites de $f(x)$ en $-2$, en $-1$, en $2$ et en $0$. Interprète graphiquement tes résultats.
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [propriété « valeur interdite qui n’annule pas le numérateur »](4-en-une-valeur-interdite-point.qmd#propriete-3-2), les deux exemples qui la suivent, et la [propriété de la limite en un point du domaine](3-en-un-point-du-domaine.qmd#propriete-3-1) (pour $0$).
+
+## Indice 2 {.unlisted}
+
+Quelles sont les valeurs interdites ? En chacune, le numérateur s’annule-t-il ?
+
+## Indice 3 {.unlisted}
+
+$f(x) = \frac{1}{(x+1)(x-2)(x+2)}$ : valeurs interdites $-2$, $-1$ et $2$ ; le numérateur vaut $1 \neq 0$ : trois A.V. Pour chaque côté, dresse un tableau de signes local du dénominateur.
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+$x^{2} - 4 = (x-2)(x+2)$, donc $\operatorname{dom}(f) = \mathbb{R} \setminus \{-2 ; -1 ; 2\}$. Le numérateur vaut $1 \neq 0$ : en chaque valeur interdite, A.V.
+
+- En $-2$ : $x + 1 \approx -1$ ($-$), $x - 2 \approx -4$ ($-$), $x + 2$ change de signe. Dénominateur : $-$ à gauche, $+$ à droite. $\lim\limits_{\substack{x \to -2 \\ x < -2}} f(x) = -\infty$, $\lim\limits_{\substack{x \to -2 \\ x > -2}} f(x) = +\infty$ : A.V. $x = -2$.
+- En $-1$ : $x + 2 \approx 1$ ($+$), $x - 2 \approx -3$ ($-$), $x + 1$ change de signe. Dénominateur : $+$ à gauche, $-$ à droite. $\lim\limits_{\substack{x \to -1 \\ x < -1}} f(x) = +\infty$, $\lim\limits_{\substack{x \to -1 \\ x > -1}} f(x) = -\infty$ : A.V. $x = -1$.
+- En $2$ : $x + 1 \approx 3$ ($+$), $x + 2 \approx 4$ ($+$), $x - 2$ change de signe. $\lim\limits_{\substack{x \to 2 \\ x < 2}} f(x) = -\infty$, $\lim\limits_{\substack{x \to 2 \\ x > 2}} f(x) = +\infty$ : A.V. $x = 2$.
+- En $0$ (dans le domaine) : $\lim\limits_{x \to 0} f(x) = f(0) = \frac{1}{1 \cdot (-4)} = -\frac{1}{4}$ ; le graphique passe par $(0 ; -\frac{1}{4})$.
+:::
+
+## Pièges {.unlisted}
+
+- Oublier la valeur interdite $-2$ (ou $2$) cachée dans $x^{2} - 4$.
+- Se tromper de signe en oubliant les facteurs qui ne changent pas de signe.
+- Chercher une asymptote en $0$ : $0$ est dans le domaine.
+:::
+:::
+
+::: {#exercice-3-4 data-sorte="exercice" data-num="3.4" data-page="40" data-phys="43" data-id="5UAA3.ex.025" data-type="exercice" data-tags="maison" .exo}
+::: {.exo-tete}
+[✎ Exercice 3.4]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A2]{.exo-comp} ★☆☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Soit $f(x) = \frac{x-2}{-x^{2}+4x}$. Calcule les limites de $f(x)$ en $0$ et en $4$. Interprète graphiquement tes résultats.
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [propriété « valeur interdite qui n’annule pas le numérateur »](4-en-une-valeur-interdite-point.qmd#propriete-3-2) et ses exemples.
+
+## Indice 2 {.unlisted}
+
+Factorise le dénominateur $-x^{2} + 4x$. Quelles sont les valeurs interdites ? Le numérateur s’y annule-t-il ?
+
+## Indice 3 {.unlisted}
+
+$-x^{2} + 4x = x(4 - x)$ : valeurs interdites $0$ et $4$. Le numérateur vaut $-2$ en $0$ et $2$ en $4$ : deux A.V. Il reste les signes de chaque côté.
+
+## Solution {.unlisted}
+
+- En $0$ : numérateur $-2$ ($-$) ; $4 - x \approx 4$ ($+$) ; $x$ : $-$ à gauche, $+$ à droite. $\lim\limits_{\substack{x \to 0 \\ x < 0}} f(x) = +\infty$ et $\lim\limits_{\substack{x \to 0 \\ x > 0}} f(x) = -\infty$ : A.V. $x = 0$.
+- En $4$ : numérateur $2$ ($+$) ; $x \approx 4$ ($+$) ; $4 - x$ : $+$ à gauche, $-$ à droite. $\lim\limits_{\substack{x \to 4 \\ x < 4}} f(x) = +\infty$ et $\lim\limits_{\substack{x \to 4 \\ x > 4}} f(x) = -\infty$ : A.V. $x = 4$.
+
+## Pièges {.unlisted}
+
+- Se tromper de signe avec $4 - x$ : il est positif **à gauche** de $4$.
+- Oublier le signe du numérateur ($-2$ en $0$).
+:::
+:::
+
+::: {#exercice-3-5 data-sorte="exercice" data-num="3.5" data-page="40" data-phys="43" data-id="5UAA3.ex.026" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 3.5]{.exo-titre} [[C3]{.exo-comp} ★★☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Soit $f(x) = \frac{(x-1)^{2}}{(x-1)(x+2)}$.
+
+1. Écris la démarche à appliquer pour calculer les limites de $f$ aux valeurs interdites.
+2. Applique ta démarche et interprète graphiquement ton résultat.
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [démarche en une valeur interdite](4-en-une-valeur-interdite-point.qmd#cadre-demarche-en-une-valeur-interdite) (encadré à la fin de la section).
+
+## Indice 2 {.unlisted}
+
+Quelles sont les valeurs interdites ? En chacune, le numérateur s’annule-t-il ?
+
+## Indice 3 {.unlisted}
+
+En $1$, numérateur et dénominateur s’annulent : simplifie par $(x - 1)$. En $-2$, seul le dénominateur s’annule.
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+1. Démarche :
+
+   1. chercher les valeurs interdites ;
+   2. en chacune, remplacer $x$ par $a$ dans le numérateur ;
+   3. s’il ne s’annule pas : A.V., et tableau de signes local pour les limites à gauche et à droite ;
+   4. s’il s’annule : simplifier par $(x - a)$ et recommencer avec la fraction simplifiée.
+2. Valeurs interdites : $1$ et $-2$.
+
+   - En $1$ : le numérateur vaut $0$. Pour $x \neq 1$, $f(x) = \frac{x-1}{x+2}$, et $\lim\limits_{x \to 1} f(x) = \lim\limits_{x \to 1} \frac{x-1}{x+2} = \frac{0}{3} = 0$ : point creux en $(1 ; 0)$.
+   - En $-2$ : le numérateur vaut $9 \neq 0$ : A.V. $x = -2$. Dans la fraction simplifiée, le numérateur vaut $-3$ ($-$) et $x + 2$ passe de $-$ à $+$ : $\lim\limits_{\substack{x \to -2 \\ x < -2}} f(x) = +\infty$ et $\lim\limits_{\substack{x \to -2 \\ x > -2}} f(x) = -\infty$.
+:::
+
+## Pièges {.unlisted}
+
+- Simplifier $\frac{(x-1)^{2}}{x-1}$ en $\frac{1}{x-1}$ : il reste un facteur $(x - 1)$ au numérateur.
+- Conclure à une A.V. en $1$ parce que le dénominateur s’y annule.
+:::
+:::
+
+::: {#exercice-3-6 data-sorte="exercice" data-num="3.6" data-page="40" data-phys="43" data-id="5UAA3.ex.027" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 3.6]{.exo-titre} [[A2]{.exo-comp} ★★☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Soit $f(x) = \frac{2x^{2}-x-3}{x^{3}+2x^{2}+x}$. Calcule les limites de $f$ aux valeurs interdites et interprète graphiquement tes résultats. Attention : après une première simplification, regarde bien ce qu’il reste.
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [démarche en une valeur interdite](4-en-une-valeur-interdite-point.qmd#cadre-demarche-en-une-valeur-interdite), en particulier le cas « le dénominateur s’annule encore ».
+
+## Indice 2 {.unlisted}
+
+Factorise le dénominateur $x^{3} + 2x^{2} + x$ (mets $x$ en évidence). Quelles sont les valeurs interdites ?
+
+## Indice 3 {.unlisted}
+
+$x^{3} + 2x^{2} + x = x(x+1)^{2}$ et $2x^{2} - x - 3 = (x+1)(2x-3)$. Simplifie par $(x + 1)$ : reste-t-il un $(x + 1)$ au dénominateur ?
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+$\operatorname{dom}(f) = \mathbb{R} \setminus \{-1 ; 0\}$. Pour $x \neq -1$ : $f(x) = \frac{(x+1)(2x-3)}{x(x+1)^{2}} = \frac{2x-3}{x(x+1)}$.
+
+- En $-1$ : après simplification, le numérateur vaut $-5 \neq 0$ et le dénominateur s’annule encore : A.V. $x = -1$ (pas un point creux). $x \approx -1$ ($-$), $x + 1$ passe de $-$ à $+$ : le dénominateur passe de $+$ à $-$. $\lim\limits_{\substack{x \to -1 \\ x < -1}} f(x) = -\infty$ et $\lim\limits_{\substack{x \to -1 \\ x > -1}} f(x) = +\infty$.
+- En $0$ : le numérateur vaut $-3 \neq 0$ : A.V. $x = 0$. $x + 1 \approx 1$ ($+$), $x$ passe de $-$ à $+$. $\lim\limits_{\substack{x \to 0 \\ x < 0}} f(x) = +\infty$ et $\lim\limits_{\substack{x \to 0 \\ x > 0}} f(x) = -\infty$.
+:::
+
+## Pièges {.unlisted}
+
+- Conclure à un point creux en $-1$ dès que le numérateur s’y annule : après simplification, il faut regarder à nouveau.
+- Oublier que $(x+1)^{2}$ ne se simplifie qu’une fois avec $(x+1)$.
+:::
+:::
+
+::: {#exercice-3-7 data-sorte="exercice" data-num="3.7" data-page="40" data-phys="43" data-id="5UAA3.ex.028" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 3.7]{.exo-titre} [[C2]{.exo-comp} ★★☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Invente une fonction rationnelle et une valeur interdite $a$ pour lesquelles le calcul de $\lim\limits_{x \to a} f(x)$ est un cas d’indétermination. Explique pourquoi regarder séparément le numérateur et le dénominateur ne permet pas de conclure, puis calcule cette limite et interprète-la graphiquement. (Un second exemple, en $+\infty$, sera demandé au chapitre suivant.)
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis le paragraphe « Second cas : le numérateur s’annule aussi en $a$ » et la [remarque sur les cas d’indétermination](../ch4-chercher-les-asympto/4-on-ne-calcule-pas-avec.qmd#remarque-4-2).
+
+## Indice 2 {.unlisted}
+
+Que faut-il pour que, près de $a$, le numérateur **et** le dénominateur soient tous deux proches de $0$ ?
+
+## Indice 3 {.unlisted}
+
+Mets le même facteur $(x - a)$ au numérateur et au dénominateur, par exemple $(x-2)(x+2)$ au-dessus et $(x-2)$ en dessous.
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+Par exemple $f(x) = \frac{x^{2}-4}{x-2}$ en $a = 2$. Près de $2$, le numérateur et le dénominateur sont tous deux proches de $0$ : un nombre proche de $0$ divisé par un nombre proche de $0$ peut donner n’importe quoi, on ne peut pas conclure en les regardant séparément. On simplifie : $\lim\limits_{x \to 2} \frac{x^{2}-4}{x-2} = \lim\limits_{x \to 2} (x+2) = 4$. Le graphique a un point creux en $(2 ; 4)$.
+:::
+
+## Pièges {.unlisted}
+
+- Proposer $\frac{1}{x-2}$ : seul le dénominateur s’annule, ce n’est pas un cas d’indétermination.
+- Écrire « $\frac{0}{0}$ » comme si c’était un nombre.
+:::
+:::
+
+::: {#exercice-3-8 data-sorte="exercice" data-num="3.8" data-page="40" data-phys="43" data-id="5UAA3.ex.029" data-type="exercice" data-tags="maison" .exo}
+::: {.exo-tete}
+[✎ Exercice 3.8]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C3]{.exo-comp} ★★☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Voici la résolution complète d’un élève. Tous les calculs sont justes. Explique, pour chaque étape, **pourquoi** elle est permise ou nécessaire.
+
+Soit $f(x) = \frac{x^{2} - 4}{x^{2} + x - 2}$.
+
+1. Le dénominateur s’annule en $-2$ et en $1$ : $\operatorname{dom}(f) = \mathbb{R} \setminus \{-2 ; 1\}$.
+2. En $-2$, le numérateur vaut $(-2)^{2} - 4 = 0$. On factorise : $f(x) = \frac{(x-2)(x+2)}{(x+2)(x-1)} = \frac{x-2}{x-1}$ pour $x \neq -2$.
+3. En remplaçant $x$ par $-2$ dans la fraction simplifiée : $\frac{-4}{-3} = \frac{4}{3}$. Donc $\lim\limits_{x \to -2} f(x) = \frac{4}{3}$ et le graphique a un point creux en $(-2 ; \frac{4}{3})$.
+4. En $1$, le numérateur de la fraction simplifiée vaut $1 - 2 = -1$ : la droite $x = 1$ est une A.V.
+5. Juste à gauche de $1$, $x - 1 < 0$ ; juste à droite, $x - 1 > 0$. Donc $\lim\limits_{\substack{x \to 1 \\ x < 1}} f(x) = +\infty$ et $\lim\limits_{\substack{x \to 1 \\ x > 1}} f(x) = -\infty$.
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [démarche en une valeur interdite](4-en-une-valeur-interdite-point.qmd#cadre-demarche-en-une-valeur-interdite) et la [remarque sur la rédaction](4-en-une-valeur-interdite-point.qmd#remarque-3-2).
+
+## Indice 2 {.unlisted}
+
+Pour chaque étape, demande-toi : quelle propriété ou quelle définition du cours l’élève utilise-t-il ?
+
+## Indice 3 {.unlisted}
+
+Étape 2 : pourquoi a-t-on le droit de simplifier par $(x + 2)$ ? Pense au domaine : $x + 2$ peut-il valoir $0$ ?
+
+## Solution {.unlisted}
+
+1. Les valeurs interdites sont les racines du dénominateur ($x^{2} + x - 2 = (x+2)(x-1)$).
+2. En $-2$, numérateur et dénominateur s’annulent : cas d’indétermination, il faut simplifier. On peut diviser par $x + 2$ car, pour $x \neq -2$, $x + 2 \neq 0$.
+3. La fraction simplifiée est égale à $f(x)$ pour tout $x \neq -2$ proche de $-2$ ; c’est une rationnelle définie en $-2$, donc sa limite est sa valeur. Comme $-2 \notin \operatorname{dom}(f)$, c’est un point creux.
+4. En $1$, le numérateur (de la fraction simplifiée) ne s’annule pas : c’est la propriété « valeur interdite qui n’annule pas le numérateur » : A.V.
+5. Le numérateur vaut $-1$ ($-$) près de $1$ : le signe de $f$ est l’opposé de celui de $x - 1$.
+
+## Pièges {.unlisted}
+
+- Justifier l’étape 3 par « on remplace $x$ par $-2$ » sans dire que la fraction simplifiée est définie en $-2$.
+- Oublier le signe du numérateur à l’étape 5.
+:::
+:::
+
+::: {#exercice-3-9 data-sorte="exercice" data-num="3.9" data-page="41" data-phys="44" data-id="5UAA3.ex.030" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 3.9]{.exo-titre} [[T2]{.exo-comp} ★★★]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Invente l’expression analytique d’une fonction rationnelle
+
+1. qui a une A.V. d’équation $x = -1$ ;
+2. qui a un point creux en $(2 ; 1)$ ;
+3. qui a à la fois une A.V. d’équation $x = -1$ et un point creux en $(2 ; 1)$.
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis l’[activité « à toi d’inventer »](4-en-une-valeur-interdite-point.qmd#activite-3-2) et la [démarche en une valeur interdite](4-en-une-valeur-interdite-point.qmd#cadre-demarche-en-une-valeur-interdite).
+
+## Indice 2 {.unlisted}
+
+Qu’est-ce qui, dans l’expression, produit une A.V. en $-1$ ? un point creux en $2$ ? Comment régler la hauteur du point creux ?
+
+## Indice 3 {.unlisted}
+
+Point creux en $2$ : un facteur $(x - 2)$ en haut et en bas. Ensuite, la fraction simplifiée doit valoir $1$ en $x = 2$.
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+1. $f(x) = \frac{1}{x+1}$.
+2. $f(x) = \frac{(x-1)(x-2)}{x-2}$ : pour $x \neq 2$, $f(x) = x - 1$, qui vaut $1$ en $2$.
+3. $f(x) = \frac{3(x-2)}{(x+1)(x-2)}$ : pour $x \neq 2$, $f(x) = \frac{3}{x+1}$, qui vaut $\frac{3}{3} = 1$ en $2$ ; et en $-1$, le numérateur vaut $3 \neq 0$ : A.V.
+:::
+
+## Pièges {.unlisted}
+
+- Obtenir un point creux à la mauvaise hauteur : vérifie la valeur de la fraction simplifiée en $2$.
+- Mettre $(x-2)^{2}$ au dénominateur : après simplification, il reste un $(x-2)$, c’est une A.V.
+:::
+:::

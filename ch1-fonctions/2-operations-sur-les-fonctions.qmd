@@ -1,0 +1,156 @@
+---
+title: "Opérations sur les fonctions"
+---
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+
+::: {#activite-1-2 data-sorte="activite" data-num="1.2" data-page="4" data-phys="7" data-id="5UAA3.benefice-sans-savoir" data-type="activite" data-tags="" .theo .theo-activite}
+::: {.theo-head}
+**Activité 1.2** — un bénéfice, sans le savoir
+:::
+
+::: {.theo-body}
+Une entreprise fabrique un produit. Produire $x$ unités coûte $500$ euros de frais fixes (loyer, machines) plus $3$ euros par unité fabriquée : le coût total est donc
+
+$$
+C(x) = 500 + 3x.
+$$
+
+Chaque unité se vend $8$ euros, donc la recette pour $x$ unités vendues est
+
+$$
+R(x) = 8x.
+$$
+
+1. Le bénéfice, c’est ce qu’il reste de la recette une fois le coût payé. Écris une formule pour le bénéfice $B(x)$ en fonction de $C(x)$ et $R(x)$, puis calcule $B(200)$.
+
+   $B(x) =$ [$R(x) - C(x) = 5x - 500$]{.rep} $B(200) =$ [$500$]{.rep}
+2. La marge, c’est la part de chaque euro de recette qui devient du bénéfice : $M(x) = B(x)/R(x)$. Calcule $M(200)$. Que représente ce nombre, en une phrase ?
+
+   $M(200) =$ [$500/1600 = 0{,}3125$]{.rep}
+
+   ::: {.rep-bloc}
+   Un peu plus de $31 \%$ de chaque euro de recette devient du bénéfice.
+   :::
+3. Tu as sans doute déjà rencontré ce genre de calcul — additionner, soustraire, multiplier ou diviser deux quantités qui dépendent toutes les deux de la même variable $x$ — dans un autre cours ou un autre exercice, sans qu’on te dise que c’était "une opération sur des fonctions". Donne un exemple dont tu te souviens.
+:::
+:::
+
+Dans l’activité précédente, $B$ et $M$ sont de nouvelles fonctions, construites à partir de $C$ et $R$ par les opérations $+$, $-$, $\cdot$ et $/$ que tu connais déjà sur les nombres. Ce n’est pas un hasard isolé : à chaque fois que deux grandeurs qui dépendent d’une même variable se combinent — un coût et une recette, une vitesse et un temps, deux probabilités — on retrouve une des quatre mêmes opérations. Plutôt que de refaire le raisonnement à chaque nouvelle situation, on formalise une bonne fois pour toutes ce que veulent dire $f+g$, $f-g$, $f g$ et $\frac{f}{g}$ pour deux fonctions quelconques.
+
+::: {#definition-1-2 data-sorte="definition" data-num="1.2" data-page="4" data-phys="7" data-id="5UAA3.def.002" data-type="definition" data-tags="" .theo .theo-definition}
+::: {.theo-head}
+**Définition 1.2**
+:::
+
+::: {.theo-body}
+Soit $f$ et $g$ deux fonctions. Alors :
+
+- la fonction $f+g$ est définie par l’équation $(f+g)(x) = f(x) + g(x)$
+- la fonction $f-g$ est définie par l’équation $(f-g)(x) = f(x) - g(x)$
+- la fonction $f g$ est définie par l’équation $(f g)(x) = f(x) \cdot g(x)$
+- la fonction $\frac{f}{g}$ est définie par l’équation $(\frac{f}{g})(x) = \frac{f(x)}{g(x)}$
+:::
+:::
+
+Ainsi, pour calculer l’image d’un nombre pour la somme de deux fonctions, il faut calculer la somme des images.
+
+::: {#exercice-1-2 data-sorte="exercice" data-num="1.2" data-page="5" data-phys="8" data-id="5UAA3.ex.002" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 1.2]{.exo-titre} [[C1]{.exo-comp} ★☆☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Soit $f$ et $g$ deux fonctions. Donne le domaine de définition des fonctions $f+g$, $f-g$, $f g$ et $\frac{f}{g}$.
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [définition des opérations sur les fonctions](#definition-1-2) : pour calculer $(f+g)(x)$, que faut-il pouvoir calculer ?
+
+## Indice 2 {.unlisted}
+
+Pour que $(f+g)(x) = f(x) + g(x)$ existe, faut-il que $f(x)$ existe ? que $g(x)$ existe ? les deux ? Et pour $\frac{f(x)}{g(x)}$, y a-t-il une condition de plus ?
+
+## Indice 3 {.unlisted}
+
+$x$ doit appartenir à la fois à $\operatorname{dom}(f)$ et à $\operatorname{dom}(g)$ : c’est l’intersection $\operatorname{dom}(f) \cap \operatorname{dom}(g)$. Pour le quotient, pense au dénominateur.
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+- $\operatorname{dom}(f+g) = \operatorname{dom}(f-g) = \operatorname{dom}(f g) = \operatorname{dom}(f) \cap \operatorname{dom}(g)$ : il faut pouvoir calculer $f(x)$ **et** $g(x)$.
+- $\operatorname{dom}(\frac{f}{g})$ : les réels de $\operatorname{dom}(f) \cap \operatorname{dom}(g)$ pour lesquels $g(x) \neq 0$ (on ne divise pas par $0$).
+:::
+
+## Pièges {.unlisted}
+
+- Prendre la réunion des domaines au lieu de l’intersection : si $g(x)$ n’existe pas, $f(x) + g(x)$ n’existe pas non plus.
+- Oublier, pour le quotient, d’exclure les racines de $g$.
+:::
+:::
+
+::: {#exercice-1-3 data-sorte="exercice" data-num="1.3" data-page="5" data-phys="8" data-id="5UAA3.ex.003" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 1.3]{.exo-titre} [[C1]{.exo-comp} ★☆☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Voici les graphiques de $f(x) = x$ et $g(x) = \frac{1}{x}$.
+
+```{=html}
+<div class="lim-plot" data-fig="c1-f2"></div>
+```
+
+::: {.lp-legende}
+Trait plein : $f(x) = x$. Trait pointillé : $g(x) = \frac{1}{x}$.
+:::
+
+En lisant les valeurs de $f$ et de $g$ sur le graphique, calcule $(f+g)(x)$, $(f-g)(x)$, $(f g)(x)$ et $(f/g)(x)$ pour $x = -2$, $x=-1$, $x=1$ et $x=2$.
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [définition des opérations](#definition-1-2) : $(f+g)(x) = f(x) + g(x)$, etc. On calcule avec les **images**.
+
+## Indice 2 {.unlisted}
+
+Pour $x = -2$, que valent $f(-2)$ et $g(-2)$ sur le graphique ?
+
+## Indice 3 {.unlisted}
+
+$f(-2) = -2$ et $g(-2) = -\frac{1}{2}$. Donc $(f+g)(-2) = -2 + (-\frac{1}{2}) = -\frac{5}{2}$. Fais de même pour les autres opérations, puis pour $x = -1$, $1$ et $2$.
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+::: {.tableau}
+| $x$ | $-2$ | $-1$ | $1$ | $2$ |
+|:---:|:---:|:---:|:---:|:---:|
+| $f(x)$ | $-2$ | $-1$ | $1$ | $2$ |
+| $g(x)$ | $-\frac{1}{2}$ | $-1$ | $1$ | $\frac{1}{2}$ |
+| $(f+g)(x)$ | $-\frac{5}{2}$ | $-2$ | $2$ | $\frac{5}{2}$ |
+| $(f-g)(x)$ | $-\frac{3}{2}$ | $0$ | $0$ | $\frac{3}{2}$ |
+| $(f g)(x)$ | $1$ | $1$ | $1$ | $1$ |
+| $(f/g)(x)$ | $4$ | $1$ | $1$ | $4$ |
+:::
+
+Remarque : $(f g)(x) = x \cdot \frac{1}{x} = 1$ et $(f/g)(x) = x / (\frac{1}{x}) = x^{2}$, pour tout $x \neq 0$.
+:::
+
+## Pièges {.unlisted}
+
+- Lire $g(-2)$ sur la mauvaise courbe (trait plein ou pointillé).
+- Diviser par une fraction : $-2 / (-\frac{1}{2}) = -2 \cdot (-2) = 4$, pas $1$.
+:::
+:::
+
+::: {.ae-lien}
+[✔ S'autoévaluer sur cette section : test de 4 questions →](../autoeval.qmd#sections=sec-operations)
+:::

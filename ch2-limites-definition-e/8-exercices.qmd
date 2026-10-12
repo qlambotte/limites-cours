@@ -1,0 +1,637 @@
+---
+title: "Exercices"
+---
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+
+::: {#exercice-2-1 data-sorte="exercice" data-num="2.1" data-page="27" data-phys="30" data-id="5UAA3.ex.014" data-type="exercice" data-tags="maison" .exo}
+::: {.exo-tete}
+[✎ Exercice 2.1]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A4]{.exo-comp} ★☆☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Pour chacune des huit fonctions de référence de l’activité « lire les limites des fonctions de référence », lis sur son graphique la limite en $-\infty$ et la limite en $+\infty$. Si une limite n’a pas de sens, indique-le.
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [remarque sur les infinis](4-definition.qmd#remarque-2-1) et la [propriété « trois réponses possibles »](5-quand-une-limite-a-t.qmd#propriete-2-1).
+
+## Indice 2 {.unlisted}
+
+Pour chaque graphique : que fait le point $M$ quand il file vers le bord droit du cadre ? vers le bord gauche ? Et le graphique va-t-il seulement jusqu’au bord gauche ?
+
+## Indice 3 {.unlisted}
+
+Pour $\frac{1}{x}$ : loin à droite, le graphique se rapproche de l’axe horizontal ; la hauteur de $M$ se rapproche de $0$. Donc $\lim\limits_{x \to +\infty} \frac{1}{x} = 0$.
+
+## Solution {.unlisted}
+
+::: {.tableau}
+|   | en $-\infty$ | en $+\infty$ |
+|:---:|:---:|:---:|
+| $k$ | $k$ | $k$ |
+| $x$ | $-\infty$ | $+\infty$ |
+| $\frac{1}{x}$ | $0$ | $0$ |
+| $\left\|x\right\|$ | $+\infty$ | $+\infty$ |
+| $x^{2}$ | $+\infty$ | $+\infty$ |
+| $\sqrt{x}$ | pas de sens | $+\infty$ |
+| $x^{3}$ | $-\infty$ | $+\infty$ |
+| $\sqrt[3]{x}$ | $-\infty$ | $+\infty$ |
+:::
+
+## Pièges {.unlisted}
+
+- Pour $\sqrt{x}$ en $-\infty$ : le graphique ne va pas vers la gauche, la limite n’a pas de sens.
+- Pour $x^{2}$ en $-\infty$ : $x$ est négatif, mais $x^{2}$ est positif et très grand.
+- Pour $\sqrt[3]{x}$ : il monte lentement, mais sans fin.
+:::
+:::
+
+::: {#exercice-2-2 data-sorte="exercice" data-num="2.2" data-page="27" data-phys="30" data-id="5UAA3.ex.015" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 2.2]{.exo-titre} [[A1]{.exo-comp} ★☆☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Pour chaque fonction, écris son domaine comme une union d’intervalles et donne ses bornes. Indique ensuite, pour chaque valeur de $a$ proposée, si la limite de $f(x)$ quand $x$ tend vers $a$ a un sens (sans la calculer).
+
+1. $f(x) = \frac{1}{x+1}$ $a \in \{-1 ; 0 ; -\infty ; +\infty\}$
+2. $f(x) = \sqrt{x-2}$ $a \in \{3 ; 2 ; 0 ; -\infty ; +\infty\}$
+3. $f(x) = \frac{\sqrt{x}}{x-4}$ $a \in \{-1 ; 0 ; 4 ; +\infty\}$
+4. $f(x) = \frac{1}{\sqrt{3-x}}$ $a \in \{3 ; 5 ; -\infty ; +\infty\}$
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [définition « colle au domaine »](5-quand-une-limite-a-t.qmd#definition-2-2) et la [propriété « trois réponses possibles »](5-quand-une-limite-a-t.qmd#propriete-2-1). Pour le domaine : les conditions d’existence du chapitre 1.
+
+## Indice 2 {.unlisted}
+
+Pour chaque valeur de $a$ : est-elle dans le domaine, ou est-ce une borne d’un des intervalles ? Si ce n’est ni l’un ni l’autre, il n’y a aucun point du graphique près de $x = a$.
+
+## Indice 3 {.unlisted}
+
+Fonction 1 : $x + 1 \neq 0$ donne $x \neq -1$, donc $\operatorname{dom}(f) = ]-\infty ; -1[ \cup ]-1 ; +\infty[$, de bornes $-\infty$, $-1$ et $+\infty$. Continue de la même façon.
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+1. $\operatorname{dom}(f) = ]-\infty ; -1[ \cup ]-1 ; +\infty[$, bornes $-\infty$, $-1$, $+\infty$.
+
+   - $a = -1$ : borne, **a un sens** ;
+   - $a = 0$ : dans le domaine, **a un sens** ;
+   - $a = -\infty$ et $a = +\infty$ : bornes, **ont un sens**.
+2. $\operatorname{dom}(f) = [2 ; +\infty[$, bornes $2$ et $+\infty$.
+
+   - $a = 3$ et $a = 2$ : dans le domaine, **ont un sens** ;
+   - $a = 0$ : ni dans le domaine ni borne, **pas de sens** ;
+   - $a = -\infty$ : pas une borne, **pas de sens** ;
+   - $a = +\infty$ : borne, **a un sens**.
+3. $\operatorname{dom}(f) = [0 ; 4[ \cup ]4 ; +\infty[$, bornes $0$, $4$, $+\infty$.
+
+   - $a = -1$ : **pas de sens** ;
+   - $a = 0$, $a = 4$ et $a = +\infty$ : **ont un sens**.
+4. $\operatorname{dom}(f) = ]-\infty ; 3[$ (car $3 - x > 0$), bornes $-\infty$ et $3$.
+
+   - $a = 3$ : borne, **a un sens** ;
+   - $a = 5$ : **pas de sens** ;
+   - $a = -\infty$ : **a un sens** ;
+   - $a = +\infty$ : **pas de sens**.
+:::
+
+## Pièges {.unlisted}
+
+- Confondre « $a$ n’est pas dans le domaine » et « la limite n’a pas de sens » : $-1$ n’est pas dans le domaine de la fonction 1, mais c’est une borne, et c’est justement là que la limite est intéressante.
+- Oublier $\pm \infty$ dans la liste des bornes, ou y mettre $-\infty$ pour $\sqrt{x-2}$.
+- Fonction 4 : garder $3$ dans le domaine (on diviserait par $\sqrt{0} = 0$).
+- Fonction 3 : oublier l’une des deux conditions.
+:::
+:::
+
+::: {#exercice-2-3 data-sorte="exercice" data-num="2.3" data-page="27" data-phys="30" data-id="5UAA3.ex.016" data-type="exercice" data-tags="maison" .exo}
+::: {.exo-tete}
+[✎ Exercice 2.3]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C4]{.exo-comp} ★☆☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Soit $f$ une fonction. Que signifie $\lim\limits_{x \to -10} f(x) = -\infty$ ? Vers quel point se dirige le point $M(x ; f(x))$ du graphique de $f$ ? Mêmes questions pour $\lim\limits_{x \to -\infty} f(x) = -2$.
+
+Esquisse ensuite, dans le repère ci-dessous, le graphique d’une fonction qui vérifie ces deux conditions.
+
+```{=html}
+<div class="lim-plot" data-fig="c2-f43"></div>
+```
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [définition de la limite](4-definition.qmd#definition-2-1) et la [remarque sur les infinis](4-definition.qmd#remarque-2-1) : quel bord du cadre correspond à « $f(x)$ tend vers $-\infty$ » ? à « $x$ tend vers $-\infty$ » ?
+
+## Indice 2 {.unlisted}
+
+Dans $\lim\limits_{x \to -10} f(x) = -\infty$, qu’est-ce qui bouge, et vers quoi ? Que fait alors la hauteur du point $M$ ? Et dans $\lim\limits_{x \to -\infty} f(x) = -2$ ?
+
+## Indice 3 {.unlisted}
+
+Trace d’abord en pointillés les droites $x = -10$ et $y = -2$. Ton graphique doit plonger le long de $x = -10$ et, loin à gauche, longer $y = -2$.
+
+## Solution {.unlisted}
+
+- $\lim\limits_{x \to -10} f(x) = -\infty$ : $M$ se dirige vers $(-10 ; -\infty)$ ; le graphique descend sans fin le long de la droite $x = -10$.
+- $\lim\limits_{x \to -\infty} f(x) = -2$ : $M$ se dirige vers $(-\infty ; -2)$ ; loin à gauche, le graphique se rapproche de la droite $y = -2$.
+
+On attend ensuite un **graphique**. Un graphique possible :
+
+```{=html}
+<div class="lim-plot" data-fig="c2-f44"></div>
+```
+
+À droite de $-10$, tout est permis : les deux conditions n’en disent rien.
+
+## Pièges {.unlisted}
+
+- Lire « $x \to -\infty$ » comme « $x$ se rapproche de $0$ ».
+- Faire remonter le graphique d’un côté de $x = -10$ : la limite vaut $-\infty$ **des deux côtés**.
+:::
+:::
+
+::: {#exercice-2-4 data-sorte="exercice" data-num="2.4" data-page="28" data-phys="31" data-id="5UAA3.ex.017" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 2.4]{.exo-titre} [[A4]{.exo-comp} ★☆☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Chaque graphique ci-dessous est obtenu en déplaçant celui d’une fonction de référence. Pour chaque fonction, lis sur le graphique son domaine et ses bornes, puis détermine les limites demandées. Si une limite n’existe pas, justifie ; si elle n’a pas de sens, indique-le.
+
+::: {.grille style="--n:2"}
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f45"></div>
+```
+
+::: {.lp-legende}
+$f(x) = \frac{1}{x-2} + 1$
+:::
+
+$\lim\limits_{x \to -\infty} f(x)$ $\lim\limits_{x \to 0} f(x)$ \
+ $\lim\limits_{x \to 2} f(x)$ $\lim\limits_{x \to +\infty} f(x)$
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f46"></div>
+```
+
+::: {.lp-legende}
+$g(x) = \sqrt{x+3} - 1$
+:::
+
+$\lim\limits_{x \to -5} g(x)$ $\lim\limits_{x \to -3} g(x)$ \
+ $\lim\limits_{x \to 1} g(x)$ $\lim\limits_{x \to +\infty} g(x)$
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f47"></div>
+```
+
+::: {.lp-legende}
+$h(x) = 2 - \frac{1}{(x+1)^{2}}$
+:::
+
+$\lim\limits_{x \to -\infty} h(x)$ $\lim\limits_{x \to -1} h(x)$ \
+ $\lim\limits_{x \to 0} h(x)$ $\lim\limits_{x \to +\infty} h(x)$
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f48"></div>
+```
+
+::: {.lp-legende}
+$k(x) = \left|x-1\right| - 2$
+:::
+
+$\lim\limits_{x \to -\infty} k(x)$ $\lim\limits_{x \to 1} k(x)$ \
+ $\lim\limits_{x \to 3} k(x)$ $\lim\limits_{x \to +\infty} k(x)$
+:::
+:::
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Reprends le [tableau des fonctions de référence](7-les-limites-des-fonctions-de.qmd#activite-2-7) ; pour les limites qui n’existent pas, relis la [propriété des limites à gauche et à droite](6-limites-a-gauche-et-a.qmd#propriete-2-2).
+
+## Indice 2 {.unlisted}
+
+Avant chaque limite : $a$ colle-t-il au domaine ? Puis : vers quel point se dirige $M$ quand $x$ se rapproche de $a$, d’un côté puis de l’autre ?
+
+## Indice 3 {.unlisted}
+
+Pour $f$ : le graphique de $\frac{1}{x}$ a été déplacé de $2$ vers la droite et de $1$ vers le haut. Près de $x = 2$, que font les deux branches ?
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+**$f(x) = \frac{1}{x-2} + 1$** — domaine $\mathbb{R} \setminus \{2\}$.
+
+- $\lim\limits_{x \to -\infty} f(x) = 1$ et $\lim\limits_{x \to +\infty} f(x) = 1$.
+- $\lim\limits_{x \to 0} f(x) = f(0) = -\frac{1}{2} + 1 = \frac{1}{2}$.
+- $\lim\limits_{x \to 2} f(x)$ **n’existe pas** : $\lim\limits_{\substack{x \to 2 \\ x < 2}} f(x) = -\infty$ et $\lim\limits_{\substack{x \to 2 \\ x > 2}} f(x) = +\infty$.
+
+**$g(x) = \sqrt{x+3} - 1$** — domaine $[-3 ; +\infty[$.
+
+- $\lim\limits_{x \to -5} g(x)$ **n’a pas de sens** : $-5$ ne colle pas au domaine.
+- $\lim\limits_{x \to -3} g(x) = -1$ : on ne s’approche de $-3$ que par la droite, et $g(-3) = -1$.
+- $\lim\limits_{x \to 1} g(x) = g(1) = 1$ ; $\lim\limits_{x \to +\infty} g(x) = +\infty$.
+
+**$h(x) = 2 - \frac{1}{(x+1)^{2}}$** — domaine $\mathbb{R} \setminus \{-1\}$.
+
+- $\lim\limits_{x \to \pm \infty} h(x) = 2$ ; $\lim\limits_{x \to 0} h(x) = h(0) = 1$.
+- $\lim\limits_{x \to -1} h(x) = -\infty$ : les deux côtés descendent sans fin, et $-1$ n’est pas dans le domaine : la limite existe.
+
+**$k(x) = \left|x-1\right| - 2$** — domaine $\mathbb{R}$.
+
+- $\lim\limits_{x \to \pm \infty} k(x) = +\infty$ ; $\lim\limits_{x \to 1} k(x) = -2$ (la pointe du « V ») ; $\lim\limits_{x \to 3} k(x) = 0$.
+:::
+
+## Pièges {.unlisted}
+
+- Pour $f$ en $2$, ne regarder qu’un côté.
+- Pour $h$ en $-1$, croire que la limite n’existe pas parce que $-1$ est une valeur interdite.
+- Pour $g$ en $-3$, croire que la limite n’existe pas « parce qu’on ne peut pas venir de la gauche » : à gauche, il n’y a aucun point du domaine.
+:::
+:::
+
+::: {#exercice-2-5 data-sorte="exercice" data-num="2.5" data-page="29" data-phys="32" data-id="5UAA3.ex.018" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 2.5]{.exo-titre} [[A4]{.exo-comp} ★☆☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Détermine les limites suivantes par lecture graphique. Si une limite n’existe pas, justifie. Si la limite demandée n’a pas de sens pour cette fonction, indique-le.
+
+::: {.grille style="--n:2"}
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f49"></div>
+```
+
+a) $\lim\limits_{x \to -\infty} f(x)$ b) $\lim\limits_{x \to 1} f(x)$ c) $\lim\limits_{x \to +\infty} f(x)$
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f50"></div>
+```
+
+a) $\lim\limits_{x \to -\infty} f(x)$ b) $\lim\limits_{x \to -1} f(x)$ c) $\lim\limits_{x \to +\infty} f(x)$
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f51"></div>
+```
+
+a) $\lim\limits_{x \to -\infty} f(x)$ b) $\lim\limits_{x \to 0} f(x)$ c) $\lim\limits_{x \to +\infty} f(x)$
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f52"></div>
+```
+
+a) $\lim\limits_{x \to -\infty} f(x)$ b) $\lim\limits_{x \to 1} f(x)$ c) $\lim\limits_{x \to +\infty} f(x)$
+:::
+:::
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [propriété « trois réponses possibles »](5-quand-une-limite-a-t.qmd#propriete-2-1). Les droites en tirets sont les asymptotes : elles indiquent où va le graphique hors du repère.
+
+## Indice 2 {.unlisted}
+
+Pour chaque limite en $\pm \infty$ : le graphique va-t-il jusqu’au bord gauche (ou droit) du repère ?
+
+## Indice 3 {.unlisted}
+
+Graphique 1 : il commence juste à droite de la droite $x = -1$. Qu’y a-t-il à gauche ? Pour la limite en $1$, lis simplement la hauteur du graphique en $x = 1$.
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+Les valeurs lues sont approchées.
+
+1. Domaine $]-1 ; +\infty[$.
+
+   - a) **pas de sens** ;
+   - b) $f(1) \approx 0{,}5$ ;
+   - c) $1$.
+2. Domaine $\mathbb{R}$.
+
+   - a) $+\infty$ (le graphique longe l’A.O. en montant) ;
+   - b) $f(-1) \approx -0{,}5$ ;
+   - c) $1$.
+3. Domaine $\mathbb{R} \setminus \{1\}$.
+
+   - a) $-\infty$ ;
+   - b) $f(0) \approx -0{,}8$ ;
+   - c) $+\infty$.
+4. Domaine $]-\infty ; -1[ \cup [2 ; +\infty[$.
+
+   - a) $+\infty$ ;
+   - b) **pas de sens** : $1$ n’est ni dans le domaine ni une borne ;
+   - c) $+\infty$.
+:::
+
+## Pièges {.unlisted}
+
+- Confondre A.O. et A.H. : avec une asymptote oblique, la limite en $\pm \infty$ est infinie.
+- Graphique 1 : répondre « $1$ » en $-\infty$ parce que la droite $y = 1$ traverse le repère.
+- Graphique 4 : répondre « $0$ » en $1$ parce que les deux morceaux s’arrêtent à la hauteur $0$.
+:::
+:::
+
+::: {#exercice-2-6 data-sorte="exercice" data-num="2.6" data-page="30" data-phys="33" data-id="5UAA3.ex.019" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 2.6]{.exo-titre} [[A4]{.exo-comp} ★★☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Traduis en termes de limites les situations numérotées sur chaque graphique. Écris ensuite les équations des asymptotes.
+
+::: {.grille style="--n:2"}
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f53"></div>
+```
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f54"></div>
+```
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f55"></div>
+```
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f56"></div>
+```
+:::
+:::
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [définition des limites à gauche et à droite](6-limites-a-gauche-et-a.qmd#definition-2-3) et la [remarque sur les infinis](4-definition.qmd#remarque-2-1).
+
+## Indice 2 {.unlisted}
+
+Pour chaque bulle : vers quoi va $x$ ? de quel côté ? vers quoi va la hauteur ?
+
+## Indice 3 {.unlisted}
+
+Graphique 1, bulle 1 : la courbe monte sans fin juste à droite de $x = -0{,}5$. Donc $x$ se rapproche de $-0{,}5$ en restant plus grand, et $f(x)$ tend vers $+\infty$.
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+1. Graphique 1
+
+   1. $\lim\limits_{\substack{x \to -0{,}5 \\ x > -0{,}5}} f(x) = +\infty$
+   2. $\lim\limits_{x \to -\infty} f(x) = 2{,}5$
+   3. $\lim\limits_{\substack{x \to -0{,}5 \\ x < -0{,}5}} f(x) = -\infty$
+   4. $\lim\limits_{x \to +\infty} f(x) = 2{,}5$
+
+   Asymptotes : A.V. $x = -0{,}5$ ; A.H. $y = 2{,}5$.
+2. Graphique 2
+
+   1. $\lim\limits_{\substack{x \to -1 \\ x > -1}} f(x) = +\infty$
+   2. $\lim\limits_{x \to -\infty} f(x) = 1$
+   3. $\lim\limits_{\substack{x \to -1 \\ x < -1}} f(x) = -\infty$
+   4. $\lim\limits_{x \to +\infty} f(x) = 1$
+   5. $\lim\limits_{\substack{x \to 1 \\ x > 1}} f(x) = +\infty$
+   6. $\lim\limits_{\substack{x \to 1 \\ x < 1}} f(x) = -\infty$
+
+   Asymptotes : A.V. $x = -1$ et $x = 1$ ; A.H. $y = 1$.
+3. Graphique 3
+
+   1. $\lim\limits_{\substack{x \to 1 \\ x > 1}} f(x) = +\infty$
+   2. $\lim\limits_{x \to -\infty} f(x) = -\infty$
+   3. $\lim\limits_{\substack{x \to 1 \\ x < 1}} f(x) = -\infty$
+   4. $\lim\limits_{x \to +\infty} f(x) = +\infty$
+
+   Asymptotes : A.V. $x = 1$ ; A.O. par $(-5 ; -4)$ et $(4 ; 5)$, de pente $1$ : $y = x + 1$.
+4. Graphique 4
+
+   1. $\lim\limits_{x \to +\infty} f(x) = +\infty$
+   2. $\lim\limits_{x \to -\infty} f(x) = -\infty$
+
+   Asymptote : A.O. $y = x$.
+:::
+
+## Pièges {.unlisted}
+
+- Oublier le côté : « $\lim\limits_{x \to -1} f(x) = +\infty$ » est faux pour le graphique 2.
+- Écrire le côté en exposant ($-1^{+}$) : dans ce cours, la condition s’écrit sous la limite.
+- Confondre l’équation d’une A.V. ($x = \ldots$) et celle d’une A.H. ($y = \ldots$).
+:::
+:::
+
+::: {#exercice-2-7 data-sorte="exercice" data-num="2.7" data-page="31" data-phys="34" data-id="5UAA3.ex.020" data-type="exercice" data-tags="maison" .exo}
+::: {.exo-tete}
+[✎ Exercice 2.7]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A4]{.exo-comp} ★★★]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Analyse le graphique de la fonction suivante : plusieurs des situations rencontrées dans ce chapitre y sont réunies.
+
+```{=html}
+<div class="lim-plot" data-fig="c2-f57"></div>
+```
+
+1. Quel est le domaine de $f$ ?
+2. Détermine graphiquement les limites demandées. Si une limite n’existe pas, justifie. Si la limite demandée n’a pas de sens pour cette fonction, indique-le.
+
+   ::: {.colonnes style="--n:3"}
+   1. $\lim\limits_{x \to -\infty} f(x)$
+   2. $\lim\limits_{x \to -5} f(x)$
+   3. $\lim\limits_{x \to -4} f(x)$
+   4. $\lim\limits_{x \to -3} f(x)$
+   5. $\lim\limits_{x \to -2} f(x)$
+   6. $\lim\limits_{x \to 0} f(x)$
+   7. $\lim\limits_{x \to 1} f(x)$
+   8. $\lim\limits_{x \to 2} f(x)$
+   9. $\lim\limits_{x \to 3} f(x)$
+   10. $\lim\limits_{x \to 0{,}5} f(x)$
+   11. $\lim\limits_{x \to +\infty} f(x)$
+   12. $\lim\limits_{x \to 7} f(x)$
+   :::
+3. Donne les équations des asymptotes.
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Tout sert ici : [colle au domaine](5-quand-une-limite-a-t.qmd#definition-2-2), [trois réponses possibles](5-quand-une-limite-a-t.qmd#propriete-2-1), [limites à gauche et à droite](6-limites-a-gauche-et-a.qmd#propriete-2-2) et la [remarque sur $x = a$](4-definition.qmd#remarque-2-3) (point plein isolé).
+
+## Indice 2 {.unlisted}
+
+Pour le domaine, parcours l’axe des $x$ de gauche à droite et note chaque endroit où le graphique s’interrompt : asymptote, point creux, point plein au bout d’un morceau, trou.
+
+## Indice 3 {.unlisted}
+
+En $x = -5$ : un point creux sur la courbe et un point plein au-dessus. Le point plein, c’est $f(-5)$ ; les limites à gauche et à droite se lisent sur la courbe. Compare.
+
+## Solution {.unlisted}
+
+1. $\operatorname{dom}(f) = ]-\infty ; -4[ \cup ]-4 ; -2[ \cup ]-2 ; 0] \cup [1 ; 3[ \cup ]3 ; 7[$.
+2. Limites :
+
+   - a) $0$ ;
+   - b) n’existe pas : les limites à gauche et à droite valent environ $-0{,}95$, mais $f(-5) = 1$ ;
+   - c) $-\infty$ ;
+   - d) $f(-3) \approx -0{,}2$ ;
+   - e) $\approx 0{,}47$ ;
+   - f) $0{,}75$ ;
+   - g) $0$ ;
+   - h) $f(2) \approx 0{,}8$ ;
+   - i) n’existe pas : à gauche $4$, à droite $1$ ;
+   - j) pas de sens ;
+   - k) pas de sens ;
+   - l) $-\infty$.
+3. A.H. $y = 0$ (à gauche) ; A.V. $x = -4$ et $x = 7$.
+
+## Pièges {.unlisted}
+
+- Oublier le point plein $(-5 ; 1)$ : il empêche la limite en $-5$ d’exister.
+- Donner une valeur en $0{,}5$ ou en $+\infty$ : aucun point du graphique entre $0$ et $1$, ni à droite de $7$.
+:::
+:::
+
+::: {#exercice-2-8 data-sorte="exercice" data-num="2.8" data-page="32" data-phys="35" data-id="5UAA3.ex.021" data-type="exercice" data-tags="maison" .exo}
+::: {.exo-tete}
+[✎ Exercice 2.8]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[T1]{.exo-comp} ★★☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Dans chaque cas, invente le graphique d’une fonction qui répond aux conditions données.
+
+::: {.grille style="--n:2"}
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f58"></div>
+```
+:::
+
+::: {.cellule}
+$\operatorname{dom}(f) = \mathbb{R} \setminus \{1\}$ \
+ $\lim\limits_{x \to -\infty} f(x) = 0$ \
+ $\lim\limits_{x \to 1} f(x) = +\infty$ \
+ $\lim\limits_{x \to +\infty} f(x) = -\infty$
+:::
+:::
+
+::: {.grille style="--n:2"}
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f59"></div>
+```
+:::
+
+::: {.cellule}
+$\operatorname{dom}(f) = ]-\infty ; 5[$ \
+ $\lim\limits_{x \to -\infty} f(x) = +\infty$ \
+ $\lim\limits_{x \to 2} f(x) = -1$ \
+ $\lim\limits_{x \to 5} f(x) = -2$
+:::
+:::
+
+::: {.grille style="--n:2"}
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f60"></div>
+```
+:::
+
+::: {.cellule}
+$\operatorname{dom}(f) = ]-\infty ; 1[ \cup ]1 ; 6[$ \
+ $\lim\limits_{x \to -\infty} f(x) = -\infty$ \
+ $\lim\limits_{\substack{x \to 1 \\ x < 1}} f(x) = -\infty$ \
+ $\lim\limits_{\substack{x \to 1 \\ x > 1}} f(x) = 2$ \
+ $\lim\limits_{x \to 6} f(x) = +\infty$
+:::
+:::
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Chaque limite se traduit par un morceau de graphique : relis la [remarque sur les infinis](4-definition.qmd#remarque-2-1) et les [limites à gauche et à droite](6-limites-a-gauche-et-a.qmd#definition-2-3).
+
+## Indice 2 {.unlisted}
+
+Qu’est-ce qui est imposé ? Des points (pleins ou creux), des asymptotes, les bords du domaine. Place-les d’abord dans le repère.
+
+## Indice 3 {.unlisted}
+
+Cas 2 : le domaine s’arrête en $5$ (exclu). En $5$, $M$ doit se diriger vers $(5 ; -2)$ : on termine par un point creux en $(5 ; -2)$. En $2$, le graphique passe par $(2 ; -1)$. Relie ces éléments par une courbe simple.
+
+## Solution {.unlisted}
+
+On attend des **graphiques**. Il y en a beaucoup de corrects ; en voici un pour chaque cas.
+
+1. A.H. $y = 0$ à gauche ; le graphique monte sans fin **des deux côtés** de $x = 1$ ; à droite, il descend sans fin.
+
+   ```{=html}
+   <div class="lim-plot" data-fig="c2-f61"></div>
+   ```
+2. Rien à droite de $5$ ; à gauche, il monte sans fin ; il passe par $(2 ; -1)$ ; point creux en $(5 ; -2)$.
+
+   ```{=html}
+   <div class="lim-plot" data-fig="c2-f62"></div>
+   ```
+3. Rien à droite de $6$ ; à gauche, il descend sans fin ; à gauche de $1$, il descend le long de $x = 1$ ; à droite de $1$, il repart d’un point creux $(1 ; 2)$ et monte sans fin le long de $x = 6$.
+
+   ```{=html}
+   <div class="lim-plot" data-fig="c2-f63"></div>
+   ```
+
+## Pièges {.unlisted}
+
+- Cas 1 : faire monter une branche et descendre l’autre près de $x = 1$.
+- Cas 2 : un point plein en $(5 ; -2)$, alors que $5$ n’est pas dans le domaine.
+- Cas 3 : relier les deux morceaux de part et d’autre de $1$.
+- Chercher une expression analytique : on demande un dessin.
+:::
+:::

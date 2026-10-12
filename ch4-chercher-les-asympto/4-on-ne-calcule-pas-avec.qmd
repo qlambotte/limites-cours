@@ -1,0 +1,50 @@
+---
+title: "On ne calcule pas avec l’infini"
+---
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+
+::: {#activite-4-7 data-sorte="activite" data-num="4.7" data-page="49" data-phys="52" data-id="5UAA3.trois-soustractions-tres-grands-nombres" data-type="activite" data-tags="" .theo .theo-activite}
+::: {.theo-head}
+**Activité 4.7** — trois soustractions de très grands nombres
+:::
+
+::: {.theo-body}
+Voici trois fonctions. Pour chacune, lorsque $x$ est proche de $+\infty$, les deux termes sont proches de $+\infty$ : on soustrait deux nombres très grands.
+
+$$
+A(x) = x^{2} - x, \quad B(x) = x - x^{2}, \quad C(x) = (x + 1) - x.
+$$
+
+1. Complète le tableau.
+
+   ::: {.tableau}
+   | $x$ | $10$ | $100$ | $1000$ |
+   |:---:|:---:|:---:|:---:|
+   | $A(x)$ | [$90$]{.rep} | [$9900$]{.rep} | [$999 \, 000$]{.rep} |
+   | $B(x)$ | [$-90$]{.rep} | [$-9900$]{.rep} | [$-999 \, 000$]{.rep} |
+   | $C(x)$ | [$1$]{.rep} | [$1$]{.rep} | [$1$]{.rep} |
+   :::
+2. Que valent $\lim\limits_{x \to +\infty} A(x)$, $\lim\limits_{x \to +\infty} B(x)$ et $\lim\limits_{x \to +\infty} C(x)$ ? [$+\infty$, $-\infty$ et $1$]{.rep}
+3. Les trois expressions ont la même allure : « un très grand nombre moins un autre très grand nombre ». Peut-on énoncer une règle qui donnerait le résultat d’une telle soustraction ?
+
+   ::: {.rep-bloc}
+   Non : la même allure donne trois résultats différents. Seule l’analyse de chaque expression (ici : quel terme l’emporte, ou une simplification) permet de conclure.
+   :::
+:::
+:::
+
+::: {#remarque-4-2 data-sorte="remarque" data-num="4.2" data-page="49" data-phys="52" data-id="5UAA3.rem.012" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {.theo-head}
+**Remarque 4.2**
+:::
+
+::: {.theo-body}
+On parle de **cas d’indétermination** lorsque regarder séparément chaque morceau d’une expression ne permet pas de conclure. Ce n’est pas un résultat : c’est un signal qui dit « analyse l’expression ». Nous en avons rencontré deux :
+
+- en une valeur interdite qui annule aussi le numérateur : on simplifie la fraction ;
+- en $\pm \infty$, quand des termes tirent dans des sens opposés : on cherche le terme qui l’emporte.
+
+Attention : $+\infty$ et $-\infty$ ne sont pas des nombres, et on ne calcule pas avec eux. Ils indiquent seulement vers où se dirige le graphique.
+:::
+:::

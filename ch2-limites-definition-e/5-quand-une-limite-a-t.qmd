@@ -1,0 +1,73 @@
+---
+title: "Quand une limite a-t-elle un sens ?"
+---
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+
+::: {#activite-2-5 data-sorte="activite" data-num="2.5" data-page="21" data-phys="24" data-id="5UAA3.peut-se-placer" data-type="activite" data-tags="" .theo .theo-activite}
+::: {.theo-head}
+**Activité 2.5** — où peut-on se placer ?
+:::
+
+::: {.theo-body}
+Voici le graphique de $f(x) = \sqrt{x}$.
+
+```{=html}
+<div class="lim-plot" data-fig="c2-f33"></div>
+```
+
+1. Quel est le domaine de $f$ ? [$[0 ; +\infty[$]{.rep} Quelles sont ses bornes ? [$0$ et $+\infty$]{.rep}
+2. Lorsque $x$ est proche de $4$, de quel point le point $M$ est-il proche ? [$(4 ; 2)$]{.rep}
+3. Lorsque $x$ est proche de $0$ (en restant dans le domaine), de quel point $M$ est-il proche ? [$(0 ; 0)$]{.rep} \
+    Par quel côté $x$ peut-il s’approcher de $0$ ? [uniquement par la droite]{.rep}
+4. Lorsque $x$ est proche de $-2$, que peut-on dire du point $M$ ?
+
+   ::: {.rep-bloc}
+   Rien : aucun point du graphique n’a une abscisse proche de $-2$. La question n’a pas de sens.
+   :::
+5. Lorsque $x$ est proche de $+\infty$, de quel point $M$ est-il proche ? [$(+\infty ; +\infty)$]{.rep}
+:::
+:::
+
+Pour parler de la limite de $f(x)$ quand $x$ tend vers $a$, il faut donc qu’il y ait des éléments du domaine aussi proches qu’on veut de $a$. Rappelons-nous le but : **une limite sert à donner une information sur le graphique de $f$ près de $x = a$**. S’il n’y a aucun point du graphique près de $x = a$, il n’y a rien à décrire, et on ne peut se prononcer sur aucune valeur : la limite n’a pas de sens.
+
+Les fonctions que nous rencontrerons sont toutes définies sur une union d’intervalles, comme $[0 ; +\infty[$ pour $\sqrt{x}$ ou $]-\infty ; 0[ \cup ]0 ; +\infty[$ pour $\frac{1}{x}$. Les **bornes du domaine** sont les bornes de ces intervalles, y compris $+\infty$ et $-\infty$ : $0$ et $+\infty$ pour $\sqrt{x}$ ; $-\infty$, $0$ et $+\infty$ pour $\frac{1}{x}$.
+
+::: {#definition-2-2 data-sorte="definition" data-num="2.2" data-page="22" data-phys="25" data-id="5UAA3.valeur-colle-domaine" data-type="definition" data-tags="" .theo .theo-definition}
+::: {.theo-head}
+**Définition 2.2** — valeur qui « colle au domaine »
+:::
+
+::: {.theo-body}
+Soit $f$ une fonction dont le domaine est une union d’intervalles. On dit que $a$ (réel ou $\pm \infty$) **colle au domaine** de $f$ si $a$ appartient au domaine de $f$ ou si $a$ est une borne du domaine.
+:::
+:::
+
+::: {#propriete-2-1 data-sorte="propriete" data-num="2.1" data-page="22" data-phys="25" data-id="5UAA3.trois-reponses-possibles" data-type="propriete" data-tags="" .theo .theo-propriete}
+::: {.theo-head}
+**Propriété 2.1** — trois réponses possibles
+:::
+
+::: {.theo-body}
+Soit $f$ une fonction et $a$ un réel ou $\pm \infty$.
+
+- Si $a$ ne colle pas au domaine de $f$, la limite de $f(x)$ quand $x$ tend vers $a$ **n’a pas de sens**.
+- Si $a$ colle au domaine de $f$, deux cas sont possibles : la limite **existe** (elle vaut un réel, $+\infty$ ou $-\infty$), ou elle **n’existe pas**.
+:::
+:::
+
+::: {#exemple-2-1 data-sorte="exemple" data-num="2.1" data-page="22" data-phys="25" data-id="5UAA3.exm.001" data-type="exemple" data-tags="" .theo .theo-exemple}
+::: {.theo-head}
+**Exemple 2.1**
+:::
+
+::: {.theo-body}
+- $\lim\limits_{x \to 1} \frac{x^{2}-1}{x-1}$ existe et vaut $2$ ; $\lim\limits_{x \to 0} \frac{1}{x}$ n’existe pas (voir ci-dessous) ; $\lim\limits_{x \to -2} \sqrt{x}$ n’a pas de sens.
+- Pour $f(x) = \sqrt{x}$, de domaine $[0 ; +\infty[$ et de bornes $0$ et $+\infty$, les valeurs qui collent au domaine sont tous les réels positifs ou nuls, et $+\infty$. La limite en $-\infty$ n’a pas de sens.
+- Pour $g(x) = \frac{x^{2}-1}{x-1}$, de domaine $]-\infty ; 1[ \cup ]1 ; +\infty[$ et de bornes $-\infty$, $1$ et $+\infty$, tous les réels ainsi que $-\infty$ et $+\infty$ collent au domaine : toutes les limites de $g$ ont un sens.
+:::
+:::
+
+::: {.ae-lien}
+[✔ S'autoévaluer sur cette section : test de 2 questions →](../autoeval.qmd#sections=sec-lim-sens)
+:::

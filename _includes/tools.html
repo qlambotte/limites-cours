@@ -1,0 +1,145 @@
+<script>
+// Outils à côté du titre : Téléchargement · Thème clair/sombre (plus de lien GitHub : P0, 2026-10).
+(function () {
+
+  var SVG = {
+    maison: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.2 1 7.1l.9 1.1L3 7.3V14a1 1 0 0 0 1 1h3v-4h2v4h3a1 1 0 0 0 1-1V7.3l1.1.9.9-1.1L8 1.2z"/></svg>',
+    download: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1a.75.75 0 0 1 .75.75v6.44l1.97-1.97a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 1.06-1.06l1.97 1.97V1.75A.75.75 0 0 1 8 1zM2.75 12a.75.75 0 0 1 .75.75v.75a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-.75a.75.75 0 0 1 1.5 0v.75A2 2 0 0 1 12 15.5H4a2 2 0 0 1-2-2v-.75a.75.75 0 0 1 .75-.75z"/></svg>',
+    sun: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 4.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM8 0a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1A.75.75 0 0 1 8 0zm0 13a.75.75 0 0 1 .75.75v1a.75.75 0 0 1-1.5 0v-1A.75.75 0 0 1 8 13zM16 8a.75.75 0 0 1-.75.75h-1a.75.75 0 0 1 0-1.5h1A.75.75 0 0 1 16 8zM3 8a.75.75 0 0 1-.75.75h-1a.75.75 0 0 1 0-1.5h1A.75.75 0 0 1 3 8zm10.66-5.66a.75.75 0 0 1 0 1.06l-.7.7a.75.75 0 1 1-1.06-1.06l.7-.7a.75.75 0 0 1 1.06 0zM4.1 11.9a.75.75 0 0 1 0 1.06l-.7.7a.75.75 0 0 1-1.06-1.06l.7-.7a.75.75 0 0 1 1.06 0zm9.56 1.76a.75.75 0 0 1-1.06 0l-.7-.7a.75.75 0 1 1 1.06-1.06l.7.7a.75.75 0 0 1 0 1.06zM4.1 4.1a.75.75 0 0 1-1.06 0l-.7-.7a.75.75 0 0 1 1.06-1.06l.7.7a.75.75 0 0 1 0 1.06z"/></svg>',
+    moon: '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278z"/></svg>'
+  };
+
+  function makeTool(tag, cls, html, title) {
+    var el = document.createElement(tag);
+    el.className = 'imsv-tool ' + (cls || '');
+    el.setAttribute('title', title);
+    el.setAttribute('aria-label', title);
+    el.innerHTML = html;
+    return el;
+  }
+
+  function build() {
+    var host = document.querySelector('.sidebar-tools-main');
+    if (!host) {
+      var title = document.querySelector('#quarto-sidebar .sidebar-title');
+      if (!title) return;
+      host = document.createElement('div');
+      host.className = 'sidebar-tools-main';
+      title.appendChild(host);
+    }
+    if (host.dataset.imsvTools) return;
+    host.dataset.imsvTools = '1';
+
+    // 2) Téléchargement des PDF du cours : liste fournie par typweb
+    //    (window.TYPWEB.pdfs, réglée dans [pdf] de typweb.toml) ; à défaut,
+    //    un menu .dl-menu présent dans le corps de la page.
+    var liens = [];
+    var T = window.TYPWEB || {};
+    var off = window.SITE_OFFSET || '';
+    (T.pdfs || []).forEach(function (p) { liens.push({ href: off + p.fichier, texte: p.titre, detail: p.detail }); });
+    var bodyMenu = document.querySelector('.dl .dl-menu') || document.querySelector('.dl-menu');
+    if (bodyMenu) bodyMenu.querySelectorAll('a').forEach(function (a) {
+      liens.push({ href: a.getAttribute('href'), texte: a.textContent });
+    });
+    var dlWrap = null;
+    if (liens.length) {
+      dlWrap = makeTool('div', 'imsv-dl', SVG.download, 'Télécharger les PDF');
+      dlWrap.setAttribute('role', 'button');
+      dlWrap.setAttribute('tabindex', '0');
+      var menu = document.createElement('div');
+      menu.className = 'imsv-dl-menu';
+      menu.hidden = true;
+      var head = document.createElement('div');
+      head.className = 'imsv-dl-head';
+      head.textContent = 'Télécharger';
+      menu.appendChild(head);
+      liens.forEach(function (l) {
+        var link = document.createElement('a');
+        link.href = l.href;
+        link.setAttribute('download', '');
+        link.textContent = l.texte;
+        if (l.detail) {
+          var d = document.createElement('span');
+          d.className = 'imsv-dl-detail';
+          d.textContent = l.detail;
+          link.appendChild(d);
+        }
+        menu.appendChild(link);
+      });
+      var container = document.querySelector('.dl');
+      if (container) container.hidden = true;      // on masque le menu du corps (doublon)
+      dlWrap.appendChild(menu);
+      function basculer(e) { e.preventDefault(); e.stopPropagation(); menu.hidden = !menu.hidden; }
+      dlWrap.addEventListener('click', basculer);
+      dlWrap.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') basculer(e); if (e.key === 'Escape') menu.hidden = true; });
+      document.addEventListener('click', function () { menu.hidden = true; });
+      menu.addEventListener('click', function (e) { e.stopPropagation(); });
+    }
+
+    // 3) Thème clair / sombre
+    function isDark() { return document.documentElement.getAttribute('data-theme') === 'dark'; }
+    var themeBtn = makeTool('button', '', isDark() ? SVG.sun : SVG.moon,
+                            isDark() ? 'Passer en thème clair' : 'Passer en thème sombre');
+    themeBtn.type = 'button';
+    themeBtn.addEventListener('click', function () {
+      var dark = !isDark();
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      try { localStorage.setItem('imsv-theme', dark ? 'dark' : 'light'); } catch (e) {}
+      themeBtn.innerHTML = dark ? SVG.sun : SVG.moon;
+      themeBtn.setAttribute('title', dark ? 'Passer en thème clair' : 'Passer en thème sombre');
+    });
+
+    var portail = (window.TYPWEB || {}).portail;
+    if (portail) {
+      var home = makeTool('a', '', SVG.maison, 'Tous les cours de l’année');
+      home.setAttribute('href', portail);
+      host.appendChild(home);
+    }
+    if (dlWrap) host.appendChild(dlWrap);
+    host.appendChild(themeBtn);
+    // 4) Mode d'emploi du site (page générée par typweb)
+    if ((window.TYPWEB || {}).modeEmploi) {
+      var aide = makeTool('a', 'imsv-aide', '<b aria-hidden="true">?</b>', 'Mode d’emploi du site');
+      aide.setAttribute('href', off + 'mode-emploi.html');
+      host.appendChild(aide);
+    }
+  }
+
+  // « Aa » (styles à l'essai) et crayon d'annotation : sur grand écran, à côté
+  // du bouton de thème ; sur petit écran (menu latéral replié), en bas à gauche.
+  var grand = window.matchMedia('(min-width: 992px)');
+  function accrocher() {
+    if (document.documentElement.classList.contains('proj')) return;
+    var host = document.querySelector('.sidebar-tools-main');
+    var els = ['.st-menu', '.an-barre'].map(function (sel) { return document.querySelector(sel); })
+                                       .filter(Boolean);
+    if (grand.matches && host) {
+      var fin = Array.prototype.slice.call(host.children, -els.length);
+      if (fin.length !== els.length || fin.some(function (e, i) { return e !== els[i]; }))
+        els.forEach(function (el) { host.appendChild(el); });
+      els.forEach(function (el) { el.classList.add('dans-outils'); });
+    } else {
+      els.forEach(function (el) {
+        if (el.parentNode !== document.body) document.body.appendChild(el);
+        el.classList.remove('dans-outils');
+      });
+    }
+  }
+  window.typwebAccrocher = accrocher;             // appelé en quittant la projection
+  if (grand.addEventListener) grand.addEventListener('change', function () {
+    if (!document.documentElement.classList.contains('proj')) accrocher();
+  });
+  // panneau « Aa » (position fixe, pour ne pas être coupé par le menu latéral) : sous le bouton
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.dans-outils .st-btn');
+    var p = b && b.parentNode.querySelector('.st-panneau');
+    if (p) p.style.top = (b.getBoundingClientRect().bottom + 6) + 'px';
+  }, true);
+
+  document.addEventListener('DOMContentLoaded', function () {
+    build();
+    accrocher();
+    [100, 400, 1200].forEach(function (t) { setTimeout(function () { build(); accrocher(); }, t); });
+  });
+})();
+</script>

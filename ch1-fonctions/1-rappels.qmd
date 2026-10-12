@@ -1,0 +1,121 @@
+---
+title: "Rappels"
+---
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+
+::: {#remarque-1-1 data-sorte="remarque" data-num="1.1" data-page="2" data-phys="5" data-id="5UAA3.rem.001" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {.theo-head}
+**Remarque 1.1**
+:::
+
+::: {.theo-body}
+**Vocabulaire de 4^e^** :
+
+- **Domaine** : l’ensemble des nombres qui ont une image par $f$.
+- **Ensemble image** : l’ensemble des valeurs possibles de $f$.
+- **Expression analytique** : formule qui permet de calculer n’importe quelle image par $f$.
+- **Ordonnée à l’origine** : valeur de $f(0)$.
+- **Racines** : valeurs de $x$ pour lesquelles $f(x) = 0$.
+:::
+:::
+
+::: {#activite-1-1 data-sorte="activite" data-num="1.1" data-page="2" data-phys="5" data-id="5UAA3.fonction-lue-puis-calculee" data-type="activite" data-tags="" .theo .theo-activite}
+::: {.theo-head}
+**Activité 1.1** — une fonction, lue puis calculée
+:::
+
+::: {.theo-body}
+Soit $f(x) = -\frac{x^{3}-2x^{2}-43x-40}{40}$.
+
+```{=html}
+<div class="lim-plot" data-fig="c1-f1"></div>
+```
+
+::: {.lp-legende}
+$f(x) = -\frac{x^{3}-2x^{2}-43x-40}{40}$
+:::
+
+Complète le tableau : d’abord une valeur **lue** sur le graphique (une estimation), puis la valeur **calculée** à partir de l’expression analytique.
+
+::: {.tableau}
+| $x$ | $f(x)$, lu sur le graphique | $f(x)$, calculé |
+|:---:|:---:|:---:|
+| $-6$ | [$\approx 2$]{.rep} | [$1{,}75$]{.rep} |
+| $-5$ | [$0$]{.rep} | [$0$]{.rep} |
+| $0$ | [$1$]{.rep} | [$1$]{.rep} |
+| $3$ | [$4$]{.rep} | [$4$]{.rep} |
+| $8$ | [$0$]{.rep} | [$0$]{.rep} |
+:::
+
+Quel est le domaine de $f$ ? [$\mathbb{R}$]{.rep} Quelle est l’ordonnée à l’origine de $f$ ? [$1$]{.rep} Quelles sont les racines de $f$ ? [$-5$, $-1$ et $8$]{.rep}
+:::
+:::
+
+::: {#definition-1-1 data-sorte="definition" data-num="1.1" data-page="3" data-phys="6" data-id="5UAA3.def.001" data-type="definition" data-tags="" .theo .theo-definition}
+::: {.theo-head}
+**Définition 1.1**
+:::
+
+::: {.theo-body}
+Soit $f$ une fonction et $I$ un intervalle inclus dans $\operatorname{dom}(f)$.
+
+- $f$ est strictement **positive** sur $I$ si $\forall x \in I, f(x) > 0$.
+- $f$ est strictement **négative** sur $I$ si $\forall x \in I, f(x) < 0$.
+:::
+:::
+
+Le signe d’une fonction change uniquement en une racine ou en une valeur interdite. Connaître les racines de $f$ suffit donc, avec un test dans chaque intervalle, à construire son tableau de signes.
+
+::: {#exercice-1-1 data-sorte="exercice" data-num="1.1" data-page="3" data-phys="6" data-id="5UAA3.ex.001" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 1.1]{.exo-titre} [[C2]{.exo-comp} ★☆☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Soit $f$ la fonction de l’activité précédente, de racines $-5$, $-1$ et $8$.
+
+1. Construis le tableau de signes de $f$, à l’aide du graphique.
+2. Vérifie un des signes du tableau par un calcul, en choisissant une valeur test dans un des intervalles.
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [définition du signe d’une fonction](#definition-1-1) et la phrase qui la suit : le signe ne peut changer qu’en une racine (ou en une valeur interdite).
+
+## Indice 2 {.unlisted}
+
+Les racines $-5$, $-1$ et $8$ découpent l’axe des $x$ en quatre intervalles. Sur chacun d’eux, le graphique est-il au-dessus ou en dessous de l’axe horizontal ?
+
+## Indice 3 {.unlisted}
+
+Dresse la première ligne du tableau : $-\infty$, $-5$, $-1$, $8$, $+\infty$. Sous chaque racine, écris $0$. Il reste à remplir les quatre cases entre les racines.
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+En lisant le graphique :
+
+::: {.tableau}
+| $x$ | $-\infty$ |   | $-5$ |   | $-1$ |   | $8$ | $+\infty$ |
+|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| $f(x)$ |   | $+$ | $0$ | $-$ | $0$ | $+$ | $0$ | $-$ |
+:::
+
+Vérification par un calcul, par exemple en $x = 0$ (dans l’intervalle $]-1 ; 8[$) : $f(0) = -\frac{0 - 0 - 0 - 40}{40} = 1 > 0$. Le signe $+$ du tableau est confirmé.
+:::
+
+## Pièges {.unlisted}
+
+- Écrire le signe de $x$ au lieu du signe de $f(x)$ : on regarde la **hauteur** du graphique.
+- Oublier les $0$ sous les racines.
+- Choisir une valeur test qui est une racine ($x = -1$ par exemple) : elle ne dit rien sur le signe de l’intervalle.
+:::
+:::
+
+::: {.ae-lien}
+[✔ S'autoévaluer sur cette section : test de 3 questions →](../autoeval.qmd#sections=sec-rappels)
+:::

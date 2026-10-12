@@ -1,0 +1,31 @@
+<script>
+// Aides (indices / solution / piège) : repliées dans un menu « Coups de pouce ».
+//   - au départ : on ne voit que le bouton  ▶ COUPS DE POUCE  (les onglets sont cachés) ;
+//   - au clic : le bouton passe à  ▼ COUPS DE POUCE  et les onglets apparaissent,
+//     l'onglet « Indice 1 » étant affiché par défaut (comportement natif des tabs) ;
+//   - reclic sur le bouton : tout se referme.
+(function () {
+  function build(a) {
+    if (a.dataset.aidesWired) return;
+    a.dataset.aidesWired = '1';
+    var panel = a.querySelector('.panel-tabset');
+    if (!panel) return;
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'aides-toggle';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.innerHTML = '<span class="aides-caret">▶</span> Coups de pouce';
+    a.insertBefore(btn, a.firstChild);
+    btn.addEventListener('click', function () {
+      var open = a.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      a.querySelector('.aides-caret').textContent = open ? '▼' : '▶';
+    });
+  }
+  function setup() { document.querySelectorAll('.aides').forEach(build); }
+  document.addEventListener('DOMContentLoaded', function () {
+    setup();
+    setTimeout(setup, 100);
+  });
+})();
+</script>

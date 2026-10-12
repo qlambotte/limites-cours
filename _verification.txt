@@ -1,0 +1,5 @@
+Vérification — Limites et asymptotes
+44 exercices, 108 encadrés, 13 objectifs — 1 point à voir
+
+! encadrés sans numéro de page du PDF (56) : activite 3.1, definition 3.1, propriete 3.1, remarque 3.1, exemple 3.1, activite 3.2, activite 3.3, definition 3.2, propriete 3.2, exemple 3.2, exemple 3.3, exemple 3.4, remarque 3.2, exemple 3.5, exercice 3.1, exercice 3.2, exercice 3.3, exercice 3.4, exercice 3.5, exercice 3.6, exercice 3.7, exercice 3.8, exercice 3.9, activite 4.1, propriete 4.1, remarque 4.1, exemple 4.1, activite 4.2, activite 4.3, propriete 4.2, definition 4.1, exemple 4.2, propriete 4.3, definition 4.2, activite 4.4, activite 4.5, activite 4.6, propriete 4.4, exemple 4.3, activite 4.7, remarque 4.2, exemple 4.4, exercice 4.1, exercice 4.2, exercice 4.3, exercice 4.4, exercice 4.5, exercice 4.6, exercice 4.7, exercice 4.8, exercice 4.9, exercice 4.10, exercice 4.11, exercice 4.12, exercice 4.13, exercice 4.14
+    → recompiler le PDF (typweb pdf)

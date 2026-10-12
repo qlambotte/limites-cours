@@ -1,0 +1,148 @@
+---
+title: "Asymptote oblique"
+---
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+
+Lorsque le degré du numérateur dépasse celui du dénominateur, les limites en $\pm \infty$ sont infinies. Le graphique peut alors longer une droite oblique, comme celui de $f_{3}$ ci-dessus… mais pas toujours : le graphique de $x^{2}$ part lui aussi vers $+\infty$, sans jamais longer aucune droite. **Une limite infinie en $\pm \infty$ ne suffit donc pas à garantir une asymptote oblique.** Il faut que l’écart entre le graphique et la droite devienne aussi petit qu’on veut.
+
+::: {#definition-4-2 data-sorte="definition" data-num="4.2" data-page="46" data-phys="49" data-id="5UAA3.asymptote-oblique-2" data-type="definition" data-tags="" .theo .theo-definition}
+::: {.theo-head}
+**Définition 4.2** — asymptote oblique
+:::
+
+::: {.theo-body}
+La droite d’équation $y = m x + p$ (avec $m \neq 0$) est une **asymptote oblique** (A.O.) du graphique de $f$ si
+
+$$
+\lim\limits_{x \to +\infty} (f(x) - (m x + p)) = 0 \quad \text{ou} \quad \lim\limits_{x \to -\infty} (f(x) - (m x + p)) = 0.
+$$
+:::
+:::
+
+::: {#activite-4-4 data-sorte="activite" data-num="4.4" data-page="46" data-phys="49" data-id="5UAA3.mesurer-ecart-entre-graphique-droite" data-type="activite" data-tags="" .theo .theo-activite}
+::: {.theo-head}
+**Activité 4.4** — mesurer l’écart entre un graphique et une droite
+:::
+
+::: {.theo-body}
+Soit $f(x) = \frac{x^{2} + 1}{x}$ et $d$ la droite d’équation $y = x$.
+
+1. Vérifie que, pour $x \neq 0$, $f(x) = x + \frac{1}{x}$. [$\frac{x^{2}+1}{x} = \frac{x^{2}}{x} + \frac{1}{x} = x + \frac{1}{x}$]{.rep}
+2. Sur le graphique, les segments verticaux mesurent l’**écart** entre le graphique de $f$ et la droite $d$, c’est-à-dire la différence $f(x) - x$ entre les deux ordonnées. Complète le tableau.
+
+   ::: {.grille style="--n:2"}
+   ::: {.cellule}
+   ```{=html}
+   <div class="lim-plot" data-fig="c4-f75"></div>
+   ```
+
+   ::: {.lp-legende}
+   $f(x) = x + \frac{1}{x}$ et la droite $d : y = x$
+   :::
+   :::
+
+   ::: {.cellule}
+   ::: {.tableau}
+   | $x$ | $f(x)$ | ordonnée sur $d$ | écart $f(x) - x$ |
+   |:---:|:---:|:---:|:---:|
+   | $1$ | [$2$]{.rep} | [$1$]{.rep} | [$1$]{.rep} |
+   | $2$ | [$2{,}5$]{.rep} | [$2$]{.rep} | [$0{,}5$]{.rep} |
+   | $4$ | [$4{,}25$]{.rep} | [$4$]{.rep} | [$0{,}25$]{.rep} |
+   | $10$ | [$10{,}1$]{.rep} | [$10$]{.rep} | [$0{,}1$]{.rep} |
+   | $100$ | [$100{,}01$]{.rep} | [$100$]{.rep} | [$0{,}01$]{.rep} |
+   | $-10$ | [$-10{,}1$]{.rep} | [$-10$]{.rep} | [$-0{,}1$]{.rep} |
+   :::
+   :::
+   :::
+3. Que devient l’écart lorsque $x$ est proche de $+\infty$ ? Et de $-\infty$ ? La droite $d$ est-elle une A.O. du graphique de $f$ ?
+
+   ::: {.rep-bloc}
+   L’écart $\frac{1}{x}$ est proche de $0$ en $+\infty$ (graphique au-dessus de $d$) comme en $-\infty$ (graphique en dessous de $d$) : $\lim\limits_{x \to \pm \infty} (f(x) - x) = 0$, donc $d$ est une A.O. des deux côtés.
+   :::
+4. Même question avec la droite $d'$ d’équation $y = x + 1$, parallèle à $d$ : que devient l’écart $f(x) - (x + 1)$ lorsque $x$ est proche de $+\infty$ ? $d'$ est-elle une A.O. ?
+
+   ::: {.rep-bloc}
+   $f(x) - (x+1) = \frac{1}{x} - 1$ est proche de $-1$, pas de $0$ : le graphique reste à distance $1$ de $d'$. Ce n’est pas une A.O., même si elle a la bonne direction.
+   :::
+5. Et pour le graphique de $x^{2}$ et la droite d’équation $y = 2x$ : que devient l’écart $x^{2} - 2x$ lorsque $x$ est proche de $+\infty$ ?
+
+   ::: {.rep-bloc}
+   Il est proche de $+\infty$ (le terme $x^{2}$ l’emporte) : la parabole s’éloigne de plus en plus de la droite. Aucune droite n’est une A.O. de la parabole.
+   :::
+:::
+:::
+
+Pour qu’une droite soit une A.O., il ne suffit donc pas que le graphique « parte dans la même direction » : il faut que l’écart entre les deux devienne aussi petit qu’on veut. La difficulté est alors de **trouver** la bonne droite. Pour une fonction rationnelle, une division fait apparaître à la fois la droite et l’écart, comme dans l’écriture $f(x) = x + \frac{1}{x}$ ci-dessus.
+
+::: {#activite-4-5 data-sorte="activite" data-num="4.5" data-page="47" data-phys="50" data-id="5UAA3.asymptote-oblique-mesure" data-type="activite" data-tags="" .theo .theo-activite}
+::: {.theo-head}
+**Activité 4.5** — une asymptote oblique sur mesure
+:::
+
+::: {.theo-body}
+1. En t’inspirant de $f(x) = x + \frac{1}{x}$, invente une fonction dont le graphique a une A.O. d’équation $y = 2x - 1$ et une A.V. d’équation $x = 1$.
+2. Écris-la sous la forme d’un seul quotient. Si on te donnait seulement ce quotient, comment pourrais-tu retrouver l’équation de l’A.O. ?
+
+::: {.rep-bloc}
+Par exemple $2x - 1 + \frac{1}{x-1} = \frac{2x^{2} - 3x + 2}{x-1}$. Pour retrouver $2x - 1$, il faudrait « défaire » la mise au même dénominateur : c’est ce que fait une division euclidienne.
+:::
+:::
+:::
+
+::: {#activite-4-6 data-sorte="activite" data-num="4.6" data-page="47" data-phys="50" data-id="5UAA3.trouver-asymptote-oblique-division" data-type="activite" data-tags="" .theo .theo-activite}
+::: {.theo-head}
+**Activité 4.6** — trouver l’asymptote oblique par une division
+:::
+
+::: {.theo-body}
+Soit $f(x) = \frac{2x^{2} - 1}{x - 1}$.
+
+1. Effectue la division euclidienne de $2x^{2} - 1$ par $x - 1$.
+
+   ::: {.rep-bloc}
+   Quotient $2x + 2$, reste $1$ : $2x^{2} - 1 = (x-1)(2x+2) + 1$.
+   :::
+2. Déduis-en que $f(x) = 2x + 2 + \frac{1}{x-1}$ pour $x \neq 1$.
+3. Calcule $\lim\limits_{x \to \pm \infty} (f(x) - (2x+2)) = \lim\limits_{x \to \pm \infty} \frac{1}{x-1} = \class{rep}{0}$. Conclusion : [la droite $y = 2x + 2$ est une A.O. de chaque côté]{.rep}
+
+```{=html}
+<div class="lim-plot" data-fig="c4-f76"></div>
+```
+
+::: {.lp-legende}
+$f(x) = \frac{2x^{2}-1}{x-1}$
+:::
+:::
+:::
+
+La division fait apparaître $f(x)$ comme la somme d’un polynôme du premier degré (l’équation de l’A.O.) et d’une fraction dont la limite en $\pm \infty$ vaut $0$ (l’écart entre le graphique et l’asymptote). Cela ne fonctionne que si le quotient de la division est du premier degré, c’est-à-dire si le degré du numérateur dépasse de **exactement** $1$ celui du dénominateur.
+
+::: {#propriete-4-4 data-sorte="propriete" data-num="4.4" data-page="48" data-phys="51" data-id="5UAA3.o-fonction-rationnelle" data-type="propriete" data-tags="" .theo .theo-propriete}
+::: {.theo-head}
+**Propriété 4.4** — A.O. d’une fonction rationnelle
+:::
+
+::: {.theo-body}
+Une fonction rationnelle a une A.O. si et seulement si le degré de son numérateur vaut le degré de son dénominateur plus $1$. L’équation de l’A.O. est $y = q(x)$, où $q(x)$ est le quotient de la division euclidienne du numérateur par le dénominateur.
+:::
+:::
+
+::: {#exemple-4-3 data-sorte="exemple" data-num="4.3" data-page="48" data-phys="51" data-id="5UAA3.estimer-valeur-grace-asymptote" data-type="exemple" data-tags="" .theo .theo-exemple}
+::: {.theo-head}
+**Exemple 4.3** — estimer une valeur grâce à une asymptote
+:::
+
+::: {.theo-body}
+Loin à droite, le graphique d’une fonction se confond presque avec son asymptote : on peut utiliser l’équation de l’asymptote pour estimer une valeur de la fonction.
+
+- Pour $f(x) = \frac{2x+1}{x-3}$, d’A.H. $y = 2$ : $f(1000) \approx \class{rep}{2}$. Valeur exacte : $\frac{2001}{997} \approx 2{,}007$.
+- Pour $f(x) = \frac{2x^{2}-1}{x-1}$, d’A.O. $y = 2x + 2$ : $f(1000) \approx \class{rep}{2 \cdot 1000 + 2 = 2002}$. Valeur exacte : $1 \, 999 \, 999 / 999 \approx 2002{,}001$.
+
+L’estimation est d’autant meilleure que $x$ est loin : l’écart entre le graphique et l’asymptote tend vers $0$.
+:::
+:::
+
+::: {.ae-lien}
+[✔ S'autoévaluer sur cette section : test de 6 questions →](../autoeval.qmd#sections=sec-ao)
+:::

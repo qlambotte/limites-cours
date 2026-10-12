@@ -1,0 +1,55 @@
+---
+title: "Un trou dans le graphique"
+---
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+
+::: {#activite-2-3 data-sorte="activite" data-num="2.3" data-page="19" data-phys="22" data-id="5UAA3.valeur-interdite-point-creux" data-type="activite" data-tags="" .theo .theo-activite}
+::: {.theo-head}
+**Activité 2.3** — une valeur interdite, un point creux
+:::
+
+::: {.theo-body}
+Soit $g(x) = \frac{x^{2} - 1}{x - 1}$.
+
+1. Peut-on calculer $g(1)$ ? Pourquoi ? [Non : le dénominateur vaut $0$, donc $1 \notin \operatorname{dom}(g)$.]{.rep}
+2. Complète le tableau.
+
+   ::: {.tableau}
+   | $x$ | $0{,}9$ | $0{,}99$ | $0{,}999$ | $1{,}001$ | $1{,}01$ | $1{,}1$ |
+   |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+   | $g(x)$ | [$1{,}9$]{.rep} | [$1{,}99$]{.rep} | [$1{,}999$]{.rep} | [$2{,}001$]{.rep} | [$2{,}01$]{.rep} | [$2{,}1$]{.rep} |
+   :::
+
+   Lorsque $x$ est proche de $1$, $g(x)$ est proche de [$2$]{.rep}. Vers quel point se dirige le point $M(x ; g(x))$ ? [$(1 ; 2)$]{.rep}
+3. Voici le graphique de $g$ (à gauche). Il ressemble à la droite $y = x + 1$, à un point près : lequel ? [le point $(1 ; 2)$, qui manque : c’est un point creux]{.rep}
+
+::: {.grille style="--n:2"}
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f31"></div>
+```
+
+::: {.lp-legende}
+$g(x) = \frac{x^{2}-1}{x-1}$
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c2-f32"></div>
+```
+
+::: {.lp-legende}
+$h$
+:::
+:::
+:::
+
+4. On fabrique une fonction $h$ (à droite) en « bouchant » autrement le trou : $h(x) = g(x)$ si $x \neq 1$, et $h(1) = 4$. Les points du graphique de $h$ dont l’abscisse est proche de $1$ sont-ils tous proches de $(1 ; 2)$ ?
+
+   ::: {.rep-bloc}
+   Non : le point $(1 ; 4)$ a une abscisse proche de $1$ (elle vaut exactement $1$), mais il n’est pas proche de $(1 ; 2)$.
+   :::
+:::
+:::

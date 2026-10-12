@@ -1,0 +1,146 @@
+---
+title: "Objectifs"
+subtitle: "Compétences à développer dans ce chapitre"
+---
+
+
+<!-- GÉNÉRÉ par typweb (grille de objectifs.typ) : NE PAS ÉDITER. -->
+
+
+::: {.obj-intro}
+Je suis capable de…
+:::
+
+
+::: {#obj-suivi data-cle="limites" data-autoeval="autoeval.html"}
+:::
+
+
+## Connaître {.obj-cat}
+
+::: {.obj-liste}
+
+::: {.obj data-code="C1"}
+[C1]{.obj-code}
+
+::: {.obj-texte}
+Identifier dans l’expression analytique d’une fonction donnée les fonctions usuelles, les opérations et leur hiérarchie.
+:::
+:::
+
+::: {.obj data-code="C2"}
+[C2]{.obj-code}
+
+::: {.obj-texte}
+Donner un exemple de limite de fonction illustrant un cas d’indétermination.
+:::
+:::
+
+::: {.obj data-code="C3"}
+[C3]{.obj-code}
+
+::: {.obj-texte}
+Énoncer la procédure à suivre pour calculer une limite selon les cas rencontrés.
+:::
+:::
+
+::: {.obj data-code="C4"}
+[C4]{.obj-code}
+
+::: {.obj-texte}
+Interpréter et représenter graphiquement le résultat d’une limite.
+:::
+:::
+
+:::
+
+
+## Appliquer {.obj-cat}
+
+::: {.obj-liste}
+
+::: {.obj data-code="A1"}
+[A1]{.obj-code}
+
+::: {.obj-texte}
+Déterminer, à partir de l’expression analytique d’une fonction *(rationnelle)*, son domaine et les limites qui apportent des informations sur son graphique.
+:::
+:::
+
+::: {.obj data-code="A2"}
+[A2]{.obj-code}
+
+::: {.obj-texte}
+Calculer des limites *(de fonctions rationnelles)* et les interpréter graphiquement.
+:::
+:::
+
+::: {.obj data-code="A3"}
+[A3]{.obj-code}
+
+::: {.obj-texte}
+Apparier des graphiques et des informations sur les limites et les asymptotes d’une fonction.
+:::
+:::
+
+::: {.obj data-code="A4"}
+[A4]{.obj-code}
+
+::: {.obj-texte}
+Traduire en termes de limites les comportements asymptotiques d’une fonction, à partir de son graphique.
+:::
+:::
+
+::: {.obj data-code="A5"}
+[A5]{.obj-code}
+
+::: {.obj-texte}
+Rechercher les équations des asymptotes au graphique d’une fonction *(rationnelle)*.
+:::
+:::
+
+::: {.obj data-code="A6"}
+[A6]{.obj-code}
+
+::: {.obj-texte}
+Utiliser le comportement asymptotique d’une fonction pour approcher sa valeur en un point.
+:::
+:::
+
+:::
+
+
+## Transférer {.obj-cat}
+
+::: {.obj-liste}
+
+::: {.obj data-code="T1"}
+[T1]{.obj-code}
+
+::: {.obj-texte}
+Esquisser le graphique d’une fonction vérifiant certaines conditions sur les limites et les asymptotes.
+:::
+:::
+
+::: {.obj data-code="T2"}
+[T2]{.obj-code}
+
+::: {.obj-texte}
+Rechercher l’expression analytique d’une fonction répondant à certaines conditions relatives à ses limites et à ses asymptotes.
+:::
+:::
+
+::: {.obj data-code="T3"}
+[T3]{.obj-code}
+
+::: {.obj-texte}
+Relier l’expression analytique d’une fonction à son graphique et justifier le choix posé par calcul.
+:::
+:::
+
+:::
+
+
+::: {.ae-lien}
+[✔ S'autoévaluer sur ces objectifs →](autoeval.qmd)
+:::

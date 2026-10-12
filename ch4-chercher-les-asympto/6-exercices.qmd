@@ -1,0 +1,680 @@
+---
+title: "Exercices"
+---
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+
+::: {#exercice-4-1 data-sorte="exercice" data-num="4.1" data-page="51" data-phys="54" data-id="5UAA3.ex.031" data-type="exercice" data-tags="maison" .exo}
+::: {.exo-tete}
+[✎ Exercice 4.1]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A2]{.exo-comp} ★☆☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Calcule les limites suivantes. Pour les deux premières, explique ta démarche.
+
+::: {.colonnes style="--n:2"}
+1. $\lim\limits_{x \to -\infty} (1 - 2x - 3x^{3})$
+2. $\lim\limits_{x \to +\infty} (1 - 2x - 3x^{3})$
+3. $\lim\limits_{x \to -\infty} (1 + 5x^{5})$
+4. $\lim\limits_{x \to +\infty} (1 - 2x - 7x^{4})$
+5. $\lim\limits_{x \to 2} (1 - 2x - 7x^{4})$
+6. $\lim\limits_{x \to -\infty} x(1 - x^{2})(x + x^{3})$
+7. $\lim\limits_{x \to +\infty} x(1 + 2x^{2})(1 + x - x^{4})$
+8. $\lim\limits_{x \to 1} x(1 + 2x^{2})(1 + x - x^{4})$
+:::
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [propriété « polynôme en $\pm \infty$ »](1-les-polynomes-en-pm-infty.qmd#propriete-4-1) et la [remarque sur le signe de $a x^{n}$](1-les-polynomes-en-pm-infty.qmd#remarque-4-1). Pour $x \to 2$ ou $x \to 1$ : [limite en un point du domaine](../ch3-chercher-les-points/3-en-un-point-du-domaine.qmd#propriete-3-1).
+
+## Indice 2 {.unlisted}
+
+Quel est le terme de plus haut degré ? Pour un produit, quel est le terme de plus haut degré du développement (sans tout développer) ?
+
+## Indice 3 {.unlisted}
+
+1. Le terme dominant est $-3x^{3}$. En $-\infty$, $x^{3}$ est proche de $-\infty$, donc $-3x^{3}$ est proche de $+\infty$.
+
+## Solution {.unlisted}
+
+1. $\lim\limits_{x \to -\infty} (-3x^{3}) = +\infty$.
+2. $\lim\limits_{x \to +\infty} (-3x^{3}) = -\infty$.
+3. $\lim\limits_{x \to -\infty} 5x^{5} = -\infty$.
+4. $\lim\limits_{x \to +\infty} (-7x^{4}) = -\infty$.
+5. En $2$ (point du domaine) : $1 - 4 - 7 \cdot 16 = -115$.
+6. Terme dominant $x \cdot (-x^{2}) \cdot x^{3} = -x^{6}$ : en $-\infty$, $-\infty$.
+7. Terme dominant $x \cdot 2x^{2} \cdot (-x^{4}) = -2x^{7}$ : en $+\infty$, $-\infty$.
+8. En $1$ : $1 \cdot 3 \cdot 1 = 3$.
+
+## Pièges {.unlisted}
+
+- Oublier le signe du coefficient : $-3x^{3}$ en $-\infty$ donne $+\infty$.
+- Appliquer la règle du terme dominant en $2$ ou en $1$ : elle ne vaut qu’en $\pm \infty$.
+- Écrire « $+\infty - \infty$ » : on ne calcule pas avec l’infini.
+:::
+:::
+
+::: {#exercice-4-2 data-sorte="exercice" data-num="4.2" data-page="51" data-phys="54" data-id="5UAA3.ex.032" data-type="exercice" data-tags="maison" .exo}
+::: {.exo-tete}
+[✎ Exercice 4.2]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A5]{.exo-comp} ★☆☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Calcule les limites en $\pm \infty$ des fonctions des exercices du chapitre précédent, et donne les équations de leurs éventuelles A.H.
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [propriété « A.H. d’une fonction rationnelle »](2-les-fonctions-rationnelles-en-pm.qmd#propriete-4-3).
+
+## Indice 2 {.unlisted}
+
+Pour chaque fonction, quels sont les degrés du numérateur et du dénominateur ?
+
+## Indice 3 {.unlisted}
+
+Exercice 3.3 : numérateur de degré $0$, dénominateur de degré $3$ : la limite en $\pm \infty$ vaut $0$.
+
+## Solution {.unlisted}
+
+- Ex. 3.3, $\frac{1}{(x+1)(x^{2}-4)}$ : degrés $0 < 3$, limites $0$, A.H. $y = 0$.
+- Ex. 3.4, $\frac{x-2}{-x^{2}+4x}$ : degrés $1 < 2$, limites $0$, A.H. $y = 0$.
+- Ex. 3.5, $\frac{(x-1)^{2}}{(x-1)(x+2)}$ : degrés égaux, $\lim\limits_{x \to \pm \infty} \frac{x^{2}}{x^{2}} = 1$, A.H. $y = 1$.
+- Ex. 3.6, $\frac{2x^{2}-x-3}{x^{3}+2x^{2}+x}$ : degrés $2 < 3$, limites $0$, A.H. $y = 0$.
+- Ex. 3.8, $\frac{x^{2}-4}{x^{2}+x-2}$ : degrés égaux, limites $1$, A.H. $y = 1$.
+
+## Pièges {.unlisted}
+
+- Pour $\frac{(x-1)^{2}}{(x-1)(x+2)}$ : compter les degrés sans développer (le numérateur est de degré $2$).
+- Confondre « la limite vaut $0$ » et « il n’y a pas d’A.H. » : $y = 0$ est une A.H.
+:::
+:::
+
+::: {#exercice-4-3 data-sorte="exercice" data-num="4.3" data-page="51" data-phys="54" data-id="5UAA3.ex.033" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 4.3]{.exo-titre} [[A5]{.exo-comp} ★★☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Détermine l’A.O. de chacune des fonctions suivantes.
+
+1. $f(x) = \frac{3x^{2} - 1}{x - 3}$
+2. $g(x) = \frac{2x^{2} - 5x + 3}{x - 2}$
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis l’[activité « trouver l’asymptote oblique par une division »](3-asymptote-oblique.qmd#activite-4-6) et la [propriété « A.O. d’une fonction rationnelle »](3-asymptote-oblique.qmd#propriete-4-4).
+
+## Indice 2 {.unlisted}
+
+Les degrés conviennent-ils (numérateur = dénominateur + 1) ? Quelle division faut-il effectuer ?
+
+## Indice 3 {.unlisted}
+
+Divise $3x^{2} - 1$ par $x - 3$ : premier terme du quotient $3x$ ; $3x(x - 3) = 3x^{2} - 9x$ ; il reste $9x - 1$. Continue.
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+1. $3x^{2} - 1 = (x-3)(3x+9) + 26$, donc $f(x) = 3x + 9 + \frac{26}{x-3}$. Comme $\lim\limits_{x \to \pm \infty} \frac{26}{x-3} = 0$, la droite $y = 3x + 9$ est une A.O. des deux côtés.
+2. $2x^{2} - 5x + 3 = (x-2)(2x-1) + 1$, donc $g(x) = 2x - 1 + \frac{1}{x-2}$ : A.O. $y = 2x - 1$.
+:::
+
+## Pièges {.unlisted}
+
+- Prendre le quotient des termes dominants ($3x$) comme équation de l’A.O. : il manque la constante.
+- Oublier un terme nul dans la division ($3x^{2} + 0x - 1$).
+:::
+:::
+
+::: {#exercice-4-4 data-sorte="exercice" data-num="4.4" data-page="51" data-phys="54" data-id="5UAA3.ex.034" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 4.4]{.exo-titre} [[C4]{.exo-comp} ★★☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Une asymptote horizontale peut-elle couper le graphique d’une fonction ? Et une asymptote verticale ? Et une asymptote oblique ? Justifie à l’aide d’exemples rencontrés depuis le chapitre 2.
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis les définitions de l’[A.H.](2-les-fonctions-rationnelles-en-pm.qmd#definition-4-1), de l’[A.O.](3-asymptote-oblique.qmd#definition-4-2) et de l’[A.V.](../ch3-chercher-les-points/4-en-une-valeur-interdite-point.qmd#definition-3-2) : que disent-elles de ce qui se passe **loin** ? et **près** de la droite ?
+
+## Indice 2 {.unlisted}
+
+Une définition d’asymptote interdit-elle au graphique de toucher la droite ailleurs ?
+
+## Indice 3 {.unlisted}
+
+Repense à l’[activité « un graphique trompeur »](../ch3-chercher-les-points/1-pourquoi-calculer.qmd#activite-3-1) : $10 \frac{\sin x}{x}$ et la droite $y = 0$.
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+- **A.H.** : oui. $f(x) = 10 \frac{\sin x}{x}$ a l’A.H. $y = 0$ et la coupe une infinité de fois. La définition ne parle que de ce qui se passe loin.
+- **A.V.** : pour une fonction rationnelle, jamais : une A.V. est en une valeur interdite, où il n’y a aucun point du graphique.
+- **A.O.** : oui. Dans l’exercice « estimer l’image de $1000$ », $f(x) = \frac{x}{2} - 1 + \frac{5000x}{(x+1)(x-300)}$ coupe son A.O. $y = \frac{x}{2} - 1$ en $x = 0$.
+:::
+
+## Pièges {.unlisted}
+
+- Croire qu’une asymptote est une droite que le graphique « ne touche jamais » : c’est une droite dont il se rapproche de plus en plus.
+:::
+:::
+
+::: {#exercice-4-5 data-sorte="exercice" data-num="4.5" data-page="51" data-phys="54" data-id="5UAA3.ex.035" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 4.5]{.exo-titre} [[A6]{.exo-comp} ★★☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Voici le graphique de deux fonctions $f$ et $g$. Toutes deux ont, vers la droite, une A.O. d’équation $y = \frac{x}{2} - 1$.
+
+::: {.grille style="--n:2"}
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c4-f78"></div>
+```
+
+::: {.lp-legende}
+graphique de $f$
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c4-f79"></div>
+```
+
+::: {.lp-legende}
+graphique de $g$
+:::
+:::
+:::
+
+Pour quel(s) graphique(s) peut-on raisonnablement utiliser l’A.O. pour estimer l’image de $1000$ ? Explique ton choix, et donne une estimation de cette (ces) image(s).
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis l’[exemple « estimer une valeur grâce à une asymptote »](3-asymptote-oblique.qmd#exemple-4-3).
+
+## Indice 2 {.unlisted}
+
+En $x = 1000$, lequel des deux graphiques est déjà très proche de l’asymptote ?
+
+## Indice 3 {.unlisted}
+
+L’estimation par l’asymptote vaut $\frac{1000}{2} - 1 = 499$. Sur le graphique de $g$, la courbe est-elle encore loin de la droite en $1000$ ?
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+Pour $f$ : en $x = 1000$, le graphique se confond presque avec l’A.O. On peut estimer $f(1000) \approx \frac{1000}{2} - 1 = 499$ (valeur exacte $\approx 506$, écart d’environ $1{,}4 \%$).
+
+Pour $g$ : en $x = 1000$, le graphique est encore nettement au-dessus de l’asymptote (écart d’environ $50$). L’estimation $499$ serait trop grossière ; on lit plutôt $g(1000) \approx 550$ sur le graphique.
+:::
+
+## Pièges {.unlisted}
+
+- Utiliser l’asymptote sans vérifier que l’écart est déjà petit en $1000$.
+- Croire que deux fonctions qui ont la même A.O. ont des valeurs proches partout.
+:::
+:::
+
+::: {#exercice-4-6 data-sorte="exercice" data-num="4.6" data-page="52" data-phys="55" data-id="5UAA3.ex.036" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 4.6]{.exo-titre} [[A3]{.exo-comp} ★★☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Associe chaque expression analytique à l’information qui lui correspond, sans faire de calcul détaillé.
+
+::: {.grille style="--n:2"}
+::: {.cellule}
+1. $f_{1}(x) = \frac{4x^{2}}{2x^{2}+1}$
+2. $f_{2}(x) = \frac{2x}{x-7}$
+3. $f_{3}(x) = -2x + 5 + \frac{1}{x-5}$
+4. $f_{4}(x) = \frac{2x}{x+1}$
+5. $f_{5}(x) = x + \frac{7}{x^{2}-4}$
+6. $f_{6}(x) = \frac{2x^{5}}{(x+1)(x+10)}$
+:::
+
+::: {.cellule}
+a) A.V. $x = 5$ et A.O. $y = -2x + 5$
+b) deux A.V., en $-1$ et en $-10$, ni A.H. ni A.O.
+c) pas d’A.V. et une A.H. $y = 2$
+d) deux A.V., en $-2$ et en $2$, et une A.O. $y = x$
+e) A.V. $x = 7$ et A.H. $y = 2$
+f) A.V. $x = -1$ et A.H. $y = 2$
+:::
+:::
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [synthèse](5-synthese.qmd#cadre-rechercher-les-caracteristiques-graphiqu) : valeurs interdites → A.V. ; comparaison des degrés → A.H. ou A.O.
+
+## Indice 2 {.unlisted}
+
+Pour chaque expression : quelles sont les valeurs interdites ? Quels sont les degrés du numérateur et du dénominateur ?
+
+## Indice 3 {.unlisted}
+
+$f_{1}(x) = \frac{4x^{2}}{2x^{2}+1}$ : le dénominateur ne s’annule jamais ; les degrés sont égaux, $\frac{4}{2} = 2$.
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+- $f_{1}$ → c) pas d’A.V., A.H. $y = 2$.
+- $f_{2}$ → e) A.V. $x = 7$, A.H. $y = 2$.
+- $f_{3}$ → a) A.V. $x = 5$, A.O. $y = -2x + 5$.
+- $f_{4}$ → f) A.V. $x = -1$, A.H. $y = 2$.
+- $f_{5}$ → d) A.V. en $-2$ et $2$, A.O. $y = x$.
+- $f_{6}$ → b) A.V. en $-1$ et $-10$ ; degrés $5$ et $2$ : ni A.H. ni A.O.
+:::
+
+## Pièges {.unlisted}
+
+- Pour $f_{1}$ : chercher une valeur interdite, alors que $2x^{2} + 1 > 0$.
+- Pour $f_{3}$ et $f_{5}$ : l’A.O. se lit directement, sans division.
+:::
+:::
+
+::: {#exercice-4-7 data-sorte="exercice" data-num="4.7" data-page="52" data-phys="55" data-id="5UAA3.ex.037" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 4.7]{.exo-titre} [[T3]{.exo-comp} ★★★]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Associe chaque expression analytique à son graphique. Justifie chaque choix par un calcul (valeurs interdites, limites, asymptotes). $f_{1}(x) = \frac{3-x^{2}}{x-1}$ $f_{2}(x) = \frac{x}{(x-1)^{2}}$ $f_{3}(x) = \frac{x^{2}-x-2}{x-1}$ $f_{4}(x) = \frac{x^{3}-x+2}{3x-3}$
+
+::: {.grille style="--n:2"}
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c4-f80"></div>
+```
+
+::: {.lp-legende}
+A
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c4-f81"></div>
+```
+
+::: {.lp-legende}
+B
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c4-f82"></div>
+```
+
+::: {.lp-legende}
+C
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c4-f83"></div>
+```
+
+::: {.lp-legende}
+D
+:::
+:::
+:::
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [synthèse](5-synthese.qmd#cadre-rechercher-les-caracteristiques-graphiqu) et la [propriété sur l’A.O.](3-asymptote-oblique.qmd#propriete-4-4).
+
+## Indice 2 {.unlisted}
+
+Les quatre fonctions ont la même valeur interdite ($1$). Qu’est-ce qui les distingue en $\pm \infty$ ?
+
+## Indice 3 {.unlisted}
+
+$f_{2}(x) = \frac{x}{(x-1)^{2}}$ : degrés $1 < 2$, donc A.H. $y = 0$. Et près de $1$, $(x-1)^{2} > 0$ : quel est le signe de $f_{2}$ des deux côtés ?
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+- $f_{2} = \frac{x}{(x-1)^{2}}$ : A.H. $y = 0$ ; près de $1$, le numérateur vaut $1 > 0$ et le dénominateur est positif : $+\infty$ des deux côtés → graphique **B**.
+- $f_{1} = \frac{3-x^{2}}{x-1}$ : $-x^{2} + 3 = (x-1)(-x-1) + 2$, A.O. $y = -x - 1$ (descendante) → graphique **C**.
+- $f_{3} = \frac{x^{2}-x-2}{x-1}$ : $x^{2} - x - 2 = (x-1) x - 2$, A.O. $y = x$ (montante) → graphique **A**.
+- $f_{4} = \frac{x^{3}-x+2}{3x-3}$ : degrés $3$ et $1$, ni A.H. ni A.O. → graphique **D**.
+:::
+
+## Pièges {.unlisted}
+
+- Justifier par l’allure seule : l’énoncé demande un calcul.
+- Oublier que $f_{1}$ et $f_{3}$ ont toutes deux une A.O. : c’est sa pente qui les distingue.
+:::
+:::
+
+::: {#exercice-4-8 data-sorte="exercice" data-num="4.8" data-page="53" data-phys="56" data-id="5UAA3.ex.038" data-type="exercice" data-tags="maison" .exo}
+::: {.exo-tete}
+[✎ Exercice 4.8]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A1]{.exo-comp} ★★☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Pour chacune des fonctions suivantes, détermine le domaine, puis indique **quelles limites il faut calculer** pour connaître ses points creux et ses asymptotes, et pourquoi. Calcule ensuite ces limites et interprète-les graphiquement.
+
+::: {.colonnes style="--n:3"}
+a) $f(x) = \frac{x^{2} - 9}{x^{2} - x - 6}$
+b) $g(x) = \frac{x^{2} + 1}{x + 1}$
+c) $h(x) = \frac{3}{x^{2} + 1}$
+:::
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [synthèse](5-synthese.qmd#cadre-rechercher-les-caracteristiques-graphiqu) : les limites à calculer sont celles aux bornes du domaine.
+
+## Indice 2 {.unlisted}
+
+Pour chaque fonction : quelles sont les bornes du domaine ? C’est là, et seulement là, qu’il faut calculer des limites.
+
+## Indice 3 {.unlisted}
+
+$f$ : $x^{2} - x - 6 = (x-3)(x+2)$ ; limites en $-2$, en $3$ et en $\pm \infty$.
+
+## Solution {.unlisted}
+
+a) $f$ : $\operatorname{dom}(f) = \mathbb{R} \setminus \{-2 ; 3\}$. En $3$ : $f(x) = \frac{x+3}{x+2}$ pour $x \neq 3$, limite $\frac{6}{5}$, point creux $(3 ; \frac{6}{5})$. En $-2$ : A.V. ; $\lim\limits_{\substack{x \to -2 \\ x < -2}} f(x) = -\infty$, $\lim\limits_{\substack{x \to -2 \\ x > -2}} f(x) = +\infty$. En $\pm \infty$ : A.H. $y = 1$.
+b) $g$ : $\operatorname{dom}(g) = \mathbb{R} \setminus \{-1\}$. En $-1$ : numérateur $2$, A.V. ; $\lim\limits_{\substack{x \to -1 \\ x < -1}} g(x) = -\infty$, $\lim\limits_{\substack{x \to -1 \\ x > -1}} g(x) = +\infty$. En $\pm \infty$ : $x^{2} + 1 = (x+1)(x-1) + 2$, A.O. $y = x - 1$.
+c) $h$ : $\operatorname{dom}(h) = \mathbb{R}$ ; seules les limites en $\pm \infty$ comptent : $0$, A.H. $y = 0$.
+
+## Pièges {.unlisted}
+
+- Calculer des limites en des points du domaine : elles n’apprennent rien.
+- Pour $h$ : chercher une valeur interdite alors que $x^{2} + 1 > 0$.
+:::
+:::
+
+::: {#exercice-4-9 data-sorte="exercice" data-num="4.9" data-page="53" data-phys="56" data-id="5UAA3.ex.039" data-type="exercice" data-tags="maison" .exo}
+::: {.exo-tete}
+[✎ Exercice 4.9]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C3]{.exo-comp} ★★☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Écris la démarche à suivre pour déterminer les éventuelles A.H. et A.O. d’une fonction rationnelle. Applique-la ensuite à $f(x) = \frac{x^{2} + 3}{x - 1}$.
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis les propriétés [A.H. d’une fonction rationnelle](2-les-fonctions-rationnelles-en-pm.qmd#propriete-4-3) et [A.O. d’une fonction rationnelle](3-asymptote-oblique.qmd#propriete-4-4).
+
+## Indice 2 {.unlisted}
+
+Qu’est-ce qui décide entre A.H., A.O. ou rien ? Quel calcul donne l’équation de l’A.O. ?
+
+## Indice 3 {.unlisted}
+
+Pour $f(x) = \frac{x^{2}+3}{x-1}$ : degrés $2$ et $1$. Effectue la division de $x^{2} + 3$ par $x - 1$.
+
+## Solution {.unlisted}
+
+Démarche : comparer le degré $n$ du numérateur et le degré $m$ du dénominateur.
+
+- $n < m$ : A.H. $y = 0$ ;
+- $n = m$ : A.H. $y = \frac{a}{b}$ (quotient des coefficients dominants) ;
+- $n = m + 1$ : A.O., dont l’équation est le quotient de la division euclidienne ;
+- $n > m + 1$ : ni A.H. ni A.O.
+
+Pour $f$ : $n = 2 = m + 1$.
+
+- Division : $x^{2} + 3 = (x-1)(x+1) + 4$, donc $f(x) = x + 1 + \frac{4}{x-1}$.
+- $\lim\limits_{x \to \pm \infty} \frac{4}{x-1} = 0$ : la droite $y = x + 1$ est une A.O. des deux côtés.
+- Pas d’A.H. : les limites en $\pm \infty$ sont infinies.
+
+## Pièges {.unlisted}
+
+- Oublier le cas $n > m + 1$.
+- S’arrêter à « la limite est infinie » sans chercher l’A.O.
+:::
+:::
+
+::: {#exercice-4-10 data-sorte="exercice" data-num="4.10" data-page="54" data-phys="57" data-id="5UAA3.ex.040" data-type="exercice" data-tags="maison" .exo}
+::: {.exo-tete}
+[✎ Exercice 4.10]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C3]{.exo-comp} ★★☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Voici l’étude d’une fonction par un élève. Tous les calculs sont justes. Explique, pour chaque étape, **pourquoi** elle est permise ou nécessaire.
+
+Soit $f(x) = \frac{x^{2} + x}{x - 2}$.
+
+a) $\operatorname{dom}(f) = \mathbb{R} \setminus \{2\}$.
+b) En $2$, le numérateur vaut $4 + 2 = 6 \neq 0$ : la droite $x = 2$ est une A.V.
+c) Juste à gauche de $2$, $x - 2 < 0$, donc $\lim\limits_{\substack{x \to 2 \\ x < 2}} f(x) = -\infty$ ; juste à droite, $\lim\limits_{\substack{x \to 2 \\ x > 2}} f(x) = +\infty$.
+d) $\lim\limits_{x \to \pm \infty} f(x) = \lim\limits_{x \to \pm \infty} \frac{x^{2}}{x} = \lim\limits_{x \to \pm \infty} x$ : $-\infty$ en $-\infty$, $+\infty$ en $+\infty$. Pas d’A.H.
+e) Le degré du numérateur dépasse de $1$ celui du dénominateur. Division euclidienne : $x^{2} + x = (x - 2)(x + 3) + 6$, donc $f(x) = x + 3 + \frac{6}{x - 2}$.
+f) $\lim\limits_{x \to \pm \infty} \frac{6}{x - 2} = 0$, donc la droite $y = x + 3$ est une A.O. des deux côtés.
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [synthèse](5-synthese.qmd#cadre-rechercher-les-caracteristiques-graphiqu) : chaque étape de l’élève en suit une ligne.
+
+## Indice 2 {.unlisted}
+
+Pour chaque étape, quelle propriété du cours est utilisée ?
+
+## Indice 3 {.unlisted}
+
+Étape 2 : le numérateur ne s’annule pas en la valeur interdite. Quelle propriété s’applique ?
+
+## Solution {.unlisted}
+
+a) Le domaine : on exclut la racine du dénominateur.
+b) Propriété « valeur interdite qui n’annule pas le numérateur » : A.V.
+c) Près de $2$, le numérateur est positif (proche de $6$) : le signe de $f$ est celui de $x - 2$.
+d) Propriété « fonction rationnelle en $\pm \infty$ » : on garde les termes dominants. Degré du numérateur plus grand : pas d’A.H.
+e) Degrés $n = m + 1$ : une A.O. est possible ; la division la fait apparaître.
+f) Définition de l’A.O. : l’écart $f(x) - (x + 3) = \frac{6}{x-2}$ tend vers $0$.
+
+## Pièges {.unlisted}
+
+- Justifier l’étape 3 sans parler du signe du numérateur.
+:::
+:::
+
+::: {#exercice-4-11 data-sorte="exercice" data-num="4.11" data-page="54" data-phys="57" data-id="5UAA3.ex.041" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 4.11]{.exo-titre} [[C4]{.exo-comp} ★★☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Voici la copie d’un élève pour $f(x) = \frac{x^{2} - 1}{x^{2} - 3x + 2}$. Elle contient plusieurs erreurs de raisonnement (même quand le résultat est juste). Trouve-les, explique-les et corrige-les.
+
+a) « Le dénominateur s’annule en $1$ et en $2$. En $1$, on ne peut pas diviser par $0$, donc la droite $x = 1$ est une A.V. »
+b) « En $2$, le numérateur vaut $3$. Juste à gauche de $2$, $f(x)$ est très grand, donc $\lim\limits_{\substack{x \to 2 \\ x < 2}} f(x) = +\infty$. »
+c) « En $+\infty$, le numérateur et le dénominateur valent $+\infty$, et $\frac{+\infty}{+\infty} = 1$. Donc $\lim\limits_{x \to +\infty} f(x) = 1$. »
+d) « En $-\infty$, $x$ est très petit, donc proche de $0$ : $f(x)$ est proche de $f(0) = -\frac{1}{2}$. »
+
+Autre copie : « $\lim\limits_{x \to +\infty} x^{2} = +\infty$, donc le graphique de $x^{2}$ a une asymptote oblique. »
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis la [démarche en une valeur interdite](../ch3-chercher-les-points/4-en-une-valeur-interdite-point.qmd#cadre-demarche-en-une-valeur-interdite), la [remarque « on ne calcule pas avec l’infini »](4-on-ne-calcule-pas-avec.qmd#remarque-4-2) et l’[activité sur l’écart](3-asymptote-oblique.qmd#activite-4-4) (A.O.).
+
+## Indice 2 {.unlisted}
+
+Dans chaque phrase, quel raisonnement est utilisé ? Est-il valable, même si la conclusion est juste ?
+
+## Indice 3 {.unlisted}
+
+Phrase 1 : que vaut le numérateur $x^{2} - 1$ en $1$ ?
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+$f(x) = \frac{(x-1)(x+1)}{(x-1)(x-2)}$.
+
+a) Faux : en $1$, le numérateur vaut aussi $0$. On simplifie : $f(x) = \frac{x+1}{x-2}$ pour $x \neq 1$, et la limite vaut $\frac{2}{-1} = -2$ : point creux en $(1 ; -2)$, pas d’A.V.
+b) Faux : « très grand » sans signe. Numérateur $\approx 3 > 0$, $x - 1 \approx 1 > 0$, $x - 2 < 0$ à gauche : $\lim\limits_{\substack{x \to 2 \\ x < 2}} f(x) = -\infty$ (le résultat était faux aussi).
+c) Résultat juste, raisonnement faux : $\frac{+\infty}{+\infty}$ n’est pas un calcul. Correct : $\lim\limits_{x \to +\infty} \frac{x^{2}}{x^{2}} = 1$.
+d) Faux : en $-\infty$, $x$ est négatif et très grand en valeur absolue, pas proche de $0$. La limite vaut $1$ (A.H. $y = 1$).
+
+Autre copie : une limite infinie ne suffit pas. Il faudrait une droite dont l’écart avec le graphique tend vers $0$ ; pour $x^{2}$, l’écart avec toute droite tend vers $+\infty$ : pas d’A.O.
+:::
+
+## Pièges {.unlisted}
+
+- Ne corriger que les résultats faux : la phrase 3 a un bon résultat mais un raisonnement interdit.
+:::
+:::
+
+::: {#exercice-4-12 data-sorte="exercice" data-num="4.12" data-page="54" data-phys="57" data-id="5UAA3.ex.042" data-type="exercice" data-tags="maison" .exo}
+::: {.exo-tete}
+[✎ Exercice 4.12]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C2]{.exo-comp} ★★☆]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Invente une fonction rationnelle dont le calcul de la limite en $+\infty$ est un cas d’indétermination. Explique pourquoi regarder séparément chaque terme ne permet pas de conclure, puis calcule cette limite.
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis l’[activité « qui l’emporte ? »](1-les-polynomes-en-pm-infty.qmd#activite-4-1) et la [remarque sur les cas d’indétermination](4-on-ne-calcule-pas-avec.qmd#remarque-4-2).
+
+## Indice 2 {.unlisted}
+
+Quand, en $+\infty$, regarder chaque morceau séparément ne permet-il pas de conclure ?
+
+## Indice 3 {.unlisted}
+
+Choisis un numérateur et un dénominateur qui sont tous deux proches de $+\infty$ en $+\infty$, comme $2x + 1$ et $x - 3$.
+
+## Solution {.unlisted}
+
+Par exemple $f(x) = \frac{2x+1}{x-3}$ : en $+\infty$, le numérateur et le dénominateur sont tous deux proches de $+\infty$ ; un très grand nombre divisé par un très grand nombre peut donner n’importe quoi. Les termes dominants : $\lim\limits_{x \to +\infty} \frac{2x}{x} = 2$.
+
+## Pièges {.unlisted}
+
+- Proposer $\frac{1}{x}$ : en $+\infty$, le numérateur ne grandit pas, il n’y a pas d’indétermination.
+:::
+:::
+
+::: {#exercice-4-13 data-sorte="exercice" data-num="4.13" data-page="54" data-phys="57" data-id="5UAA3.ex.043" data-type="exercice" data-tags="maison" .exo}
+::: {.exo-tete}
+[✎ Exercice 4.13]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[T2]{.exo-comp} ★★★]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Trouve l’expression analytique d’une fonction dont le graphique a une A.V. d’équation $x = 1$ et une A.O. d’équation $y = x - 3$.
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Relis l’[activité « une asymptote oblique sur mesure »](3-asymptote-oblique.qmd#activite-4-5).
+
+## Indice 2 {.unlisted}
+
+Comment écrire une fonction qui ressemble à $x - 3$ loin, et qui monte ou descend sans fin près de $x = 1$ ?
+
+## Indice 3 {.unlisted}
+
+Ajoute à $x - 3$ un terme qui tend vers $0$ en $\pm \infty$ et qui est infini en $1$.
+
+## Solution {.unlisted}
+
+$f(x) = x - 3 + \frac{1}{x-1} = \frac{(x-3)(x-1) + 1}{x-1} = \frac{x^{2} - 4x + 4}{x-1}$.
+
+## Pièges {.unlisted}
+
+- Écrire $\frac{x-3}{x-1}$ : cette fonction a une A.H., pas une A.O.
+:::
+:::
+
+::: {#exercice-4-14 data-sorte="exercice" data-num="4.14" data-page="54" data-phys="57" data-id="5UAA3.ex.044" data-type="exercice" data-tags="" .exo}
+::: {.exo-tete}
+[✎ Exercice 4.14]{.exo-titre} [[T1]{.exo-comp} ★★★]{.exo-meta}
+:::
+
+::: {.exo-corps}
+Sans calculatrice, esquisse le graphique de $f(x) = \frac{x^{2} - 4}{x^{2} - x - 2}$ : cherche d’abord son domaine, ses points creux et ses asymptotes.
+:::
+:::
+
+::: {.aides}
+::: {.panel-tabset}
+## Indice 1 {.unlisted}
+
+Suis la [synthèse](5-synthese.qmd#cadre-rechercher-les-caracteristiques-graphiqu) étape par étape, comme dans l’[exemple « une étude complète »](5-synthese.qmd#exemple-4-4).
+
+## Indice 2 {.unlisted}
+
+Quelles sont les valeurs interdites ? Le numérateur s’y annule-t-il ?
+
+## Indice 3 {.unlisted}
+
+$x^{2} - 4 = (x-2)(x+2)$ et $x^{2} - x - 2 = (x-2)(x+1)$ : simplifie par $(x - 2)$.
+
+## Solution {.unlisted}
+
+::: {.solution-classe}
+a) Domaine : $\mathbb{R} \setminus \{-1 ; 2\}$.
+b) En $2$ : $f(x) = \frac{x+2}{x+1}$ pour $x \neq 2$ ; limite $\frac{4}{3}$ : point creux $(2 ; \frac{4}{3})$.
+c) En $-1$ : numérateur $1 \neq 0$ : A.V. $x = -1$ ; $\lim\limits_{\substack{x \to -1 \\ x < -1}} f(x) = -\infty$, $\lim\limits_{\substack{x \to -1 \\ x > -1}} f(x) = +\infty$.
+d) En $\pm \infty$ : degrés égaux, A.H. $y = 1$.
+e) Esquisse : $f$ s’annule en $-2$ et vaut $2$ en $0$ ; signe : $+$ avant $-2$, $-$ entre $-2$ et $-1$, $+$ après $-1$. On obtient une hyperbole d’asymptotes $x = -1$ et $y = 1$, avec un trou en $(2 ; \frac{4}{3})$.
+:::
+
+## Pièges {.unlisted}
+
+- Oublier le point creux en $2$ sur l’esquisse.
+- Dessiner une A.V. en $2$.
+:::
+:::

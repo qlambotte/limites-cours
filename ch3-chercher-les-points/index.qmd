@@ -1,0 +1,20 @@
+---
+title: "Chapitre 3 — Chercher les points creux et les asymptotes verticales"
+---
+
+<!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
+
+
+
+## Sections
+
+1. [Pourquoi calculer ?](1-pourquoi-calculer.qmd)
+2. [Les fonctions rationnelles](2-les-fonctions-rationnelles.qmd)
+3. [En un point du domaine : rien à chercher](3-en-un-point-du-domaine.qmd)
+4. [En une valeur interdite : point creux ou asymptote verticale ?](4-en-une-valeur-interdite-point.qmd)
+5. [Exercices](5-exercices.qmd) []{.suivi-sec data-exos="3.1 3.2 3.3 3.4 3.5 3.6 3.7 3.8 3.9"}
+
+## À faire à la maison
+
+- [Exercice 3.4](5-exercices.qmd#exercice-3-4)
+- [Exercice 3.8](5-exercices.qmd#exercice-3-8)
