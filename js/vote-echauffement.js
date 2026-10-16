@@ -5,7 +5,8 @@
    la moitié / peu). Un seul bouton principal en bas ; Espace fait la même chose.
    QCM : les votes lus par le smartphone (page de scan, P7) s'ajoutent par « Lire le QR » ou
    « Taper un code » : répartition A à D, taux de réussite, et niveau proposé d'après ce taux
-   (le prof peut le changer). Seuls les totaux par lettre sont enregistrés, pas les numéros.
+   (le prof peut le changer). Enregistrés : totaux par lettre et détail par numéro de carte (aucun nom ;
+   la correspondance numéro → élève reste sur l'ordinateur du prof, voir « typweb eleves »).
    Chargé par vote.js. Documentation : typweb/doc/couche-prof.md.
    ============================================================ */
 (function () {
@@ -61,7 +62,14 @@
         if (i > vu) return;                            // éléments non atteints : pas posés
         var e = { id: it.id, type: it.type, role: it.role || (it.type === "exercice" ? "algebre" : null), niveau: etats[i].niveau };
         if (it.type === "exercice") e.graine = it.graine;
-        if (etats[i].cartes) e.votes = totaux(etats[i].cartes);      // totaux par lettre seulement (aucun numéro)
+        if (it.type === "qcm") e.bonne = lettreBonne(it);
+        if (etats[i].presents) e.presents = etats[i].presents;
+        if (etats[i].cartes) {                                       // cartes lues : totaux + détail par numéro (jamais de nom)
+          e.votes = totaux(etats[i].cartes);
+          e.cartes = {};
+          Object.keys(etats[i].cartes).map(Number).sort(function (a, b) { return a - b; })
+            .forEach(function (n) { e.cartes[String(n)] = etats[i].cartes[n]; });
+        }
         lots.push(e);
       });
       return lots;
@@ -120,6 +128,7 @@
         if (!d.ok) { U.alerte(d.erreur); return false; }
         if (d.question && d.question !== it.id) U.alerte("Attention : ce QR a été fait pour une autre question (" + d.question + ").");
         st.cartes = d.cartes;
+        st.presents = d.presents || null;
         var t = totaux(d.cartes), n = d.n, b = lettreBonne(it);
         if (n && b) st.niveau = niveauDuTaux(t[b] / n);              // proposé ; un geste le change
         maj();
@@ -144,7 +153,7 @@
           }, "Lit avec la caméra le QR des votes affiché par le smartphone (page de scan)"),
           bouton("Taper un code", "tv-lien", function () { zone.hidden = !zone.hidden; if (!zone.hidden) code.focus(); },
                  "Tape le code affiché sous le QR (ex. 3A 12C 40B)"),
-          bouton("Effacer", "tv-lien", function () { etats[cur].cartes = null; maj(); }, "Oublie les votes lus pour cette question")
+          bouton("Effacer", "tv-lien", function () { etats[cur].cartes = null; etats[cur].presents = null; maj(); }, "Oublie les votes lus pour cette question")
         ]),
         zone, r.scanRes
       ]);
@@ -158,13 +167,15 @@
         if (c) c.parentNode.removeChild(c);
       });
       if (!st.cartes) { r.scanRes.appendChild(h("span", { "class": "tv-note", text: "Aucune carte lue pour cette question." })); return; }
-      var t = totaux(st.cartes), n = Object.keys(st.cartes).length, b = lettreBonne(it);
+      var t = totaux(st.cartes), n = Object.keys(st.cartes).length, b = lettreBonne(it), p = st.presents;
       LET.forEach(function (l) {
         r.scanRes.appendChild(h("span", { "class": "tv-scan-l" + (st.revealed && l === b ? " bonne" : "") }, [h("b", { text: l }), h("span", { text: " " + t[l] })]));
       });
       var ok = b ? t[b] : 0;
+      var votants = n + " carte(s)" + (p ? " sur " + p + " présent(s)" : "");
       r.scanRes.appendChild(h("span", { "class": "tv-scan-taux", text: st.revealed
-        ? "Réussite : " + ok + " / " + n + " (" + Math.round(100 * ok / n) + " %)" : n + " carte(s) · réussite visible après la révélation" }));
+        ? "Réussite : " + ok + " / " + n + " (" + Math.round(100 * ok / n) + " %) · " + votants
+        : votants + " · réussite visible après la révélation" }));
       if (st.revealed) {                                   // répartition aussi sur les options (visible en projection)
         Array.prototype.forEach.call(r.main.querySelectorAll(".tv-o2"), function (o) {
           var k = o.getAttribute("data-k");

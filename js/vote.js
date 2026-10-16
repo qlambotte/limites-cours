@@ -255,27 +255,34 @@
     while (e && garde++ < 20) { out.push(e.id); e = e.parent ? parId[e.parent] : null; }
     return out;
   }
-  // 2 ou 3 QCM de compréhension pour la section : on cherche d'abord dans son sous-arbre ; s'il en a
-  // moins de 2, on remonte (section parente, chapitre, puis le cours entier) jusqu'à en avoir 2.
-  // Dans cette réserve : jamais posées à cette classe d'abord, puis les moins posées ; à égalité, la plus
-  // proche de la section, puis l'ordre de la banque.
+  // 2 ou 3 QCM de compréhension pour la section, COHÉRENTS avec ce qui a été vu : d'abord ceux du sous-arbre
+  // de la section ; s'il y en a moins de 2, ceux des sections PRÉCÉDENTES du même chapitre. Jamais une
+  // question sur une matière située plus loin dans le cours, ni d'un autre chapitre : s'il n'y a rien,
+  // le lien reste celui des élèves (S'autoévaluer). Dans cette réserve : jamais posées à cette classe
+  // d'abord, puis les moins posées ; à égalité, la plus proche de la section, puis l'ordre de la banque.
   function choisirComprehension(sectionId, classe, nMax) {
     nMax = nMax || 3;
     var data = donnees; if (!data) return [];
     var n = poses(classe || P.classe());
-    var niveaux = chaine(sectionId);
-    var qcms = data.qcm.filter(function (q) { return q.usage === "comprehension"; }).map(function (q, i) {
-      var ch = chaine(q.sur), d = niveaux.length;      // d : premier niveau (0 = la section) qui contient la question
-      for (var l = 0; l < niveaux.length; l++) if (ch.indexOf(niveaux[l]) >= 0) { d = l; break; }
-      return { id: q.id, i: i, d: d };
+    var niveaux = chaine(sectionId);                 // la section, ses parents… jusqu'au chapitre
+    var chapitre = niveaux[niveaux.length - 1];
+    var ix = I.index(), pos = {};
+    (ix && ix.elements || []).forEach(function (e, i) { pos[e.id] = i; });
+    var pSec = pos[sectionId];
+    var qcms = [];
+    data.qcm.forEach(function (q, i) {
+      if (q.usage !== "comprehension") return;
+      var ch = chaine(q.sur);
+      if (!ch.length) return;
+      if (ch.indexOf(sectionId) >= 0) { qcms.push({ id: q.id, i: i, d: 0, p: pos[q.sur] }); return; }
+      // même chapitre, matière située AVANT la section
+      if (ch.indexOf(chapitre) >= 0 && pSec !== undefined && pos[q.sur] !== undefined && pos[q.sur] < pSec)
+        qcms.push({ id: q.id, i: i, d: 1, p: pos[q.sur] });
     });
-    var reserve = qcms;
-    for (var l = 0; l <= niveaux.length; l++) {
-      reserve = qcms.filter(function (c) { return c.d <= l; });
-      if (reserve.length >= 2) break;
-    }
+    var reserve = qcms.filter(function (c) { return c.d === 0; });
+    if (reserve.length < 2) reserve = qcms;
     return reserve.sort(function (a, b) {
-      return ((n[a.id] || 0) - (n[b.id] || 0)) || (a.d - b.d) || (a.i - b.i);
+      return ((n[a.id] || 0) - (n[b.id] || 0)) || (a.d - b.d) || ((b.p || 0) - (a.p || 0)) || (a.i - b.i);
     }).slice(0, nMax).map(function (c) { return c.id; });
   }
 

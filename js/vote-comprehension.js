@@ -88,7 +88,7 @@
       if (snap === st.enreg) return;
       var n = LET.map(function (k) { return st.votes[k]; });
       var extra = {
-        sid: o.sid, manche: st.manche, n: n, total: t,
+        sid: o.sid, manche: st.manche, n: n, total: t, presents: effectif,
         taux: Math.round(1000 * n[st.it.bonne] / t) / 1000, bonne: LET[st.it.bonne]
       };
       if (nCartes(st)) extra.cartes = cartesTriees(st);   // détail par numéro de carte (jamais de nom)
@@ -268,8 +268,10 @@
           var d = Q.decoder(texte);
           if (!d.ok) { U.alerte(d.erreur); return false; }
           if (d.question && d.question !== s().it.id) U.alerte("Attention : ce QR a été fait pour une autre question (" + d.question + ").");
+          if (d.presents) { effectif = d.presents; maj(); }            // présents indiqués par le smartphone
           var rep = ecran.recevoirCartes(d.cartes);
-          U.alerte(rep.ok ? rep.recues + " carte(s) reçue(s)." : "Aucune carte reçue : " + rep.erreur);
+          U.alerte(rep.ok ? rep.recues + " carte(s) reçue(s)" + (d.presents ? " · " + d.presents + " présents." : ".")
+                          : "Aucune carte reçue : " + rep.erreur);
           return rep.ok;
         }, function (e) { U.alerte(e.message); return false; });
       }
