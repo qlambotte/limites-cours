@@ -180,3 +180,11 @@ a[data-tw-test] { text-decoration-color: #c28a1b; }
 .tv-cartes-code { display: flex; gap: 8px; align-items: center; margin: 6px 0; }
 .tv-cartes-code[hidden] { display: none; }
 .tv-champ-code { font: inherit; font-size: 18px; padding: 6px 10px; border: 2px solid #000; border-radius: 4px; min-width: 14em; }
+
+/* Échauffement : votes lus par le smartphone (P7) */
+.tv-scan { margin: 18px 0 8px; padding: 10px 0 12px; border-top: 2px solid var(--encre); border-bottom: 1px solid var(--filet); font: 16px/1.4 var(--sans); }
+.tv-scan-res { display: flex; flex-wrap: wrap; align-items: baseline; gap: 18px; margin-top: 8px; font-variant-numeric: tabular-nums; }
+.tv-scan-l { font-size: 20px; }
+.tv-scan-l.bonne { border-bottom: 4px solid var(--acc); }
+.tv-scan-taux { font-weight: 700; }
+.tv-o2 .tv-compte2 { margin-left: auto; font: 700 26px var(--sans); font-variant-numeric: tabular-nums; }

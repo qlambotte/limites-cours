@@ -3,6 +3,9 @@
    (QCM ou exercices d'algèbre), volontairement allégée. Pas de comptage par option :
    le prof révèle, puis note d'un geste « Combien ont réussi ? » (presque tous / environ
    la moitié / peu). Un seul bouton principal en bas ; Espace fait la même chose.
+   QCM : les votes lus par le smartphone (page de scan, P7) s'ajoutent par « Lire le QR » ou
+   « Taper un code » : répartition A à D, taux de réussite, et niveau proposé d'après ce taux
+   (le prof peut le changer). Seuls les totaux par lettre sont enregistrés, pas les numéros.
    Chargé par vote.js. Documentation : typweb/doc/couche-prof.md.
    ============================================================ */
 (function () {
@@ -16,6 +19,9 @@
   // niveau de réussite (trois niveaux, mêmes pour les QCM et les exercices) : 2, 1, 0
   var NIVEAUX = [{ n: 2, texte: "Presque tous" }, { n: 1, texte: "Environ la moitié" }, { n: 0, texte: "Peu" }];
   var DUREE_MINUTEUR = 120;
+  var LET = ["A", "B", "C", "D"];
+  // niveau proposé d'après le taux de réussite des cartes : ≥ 80 % presque tous, ≥ 40 % la moitié, sinon peu
+  function niveauDuTaux(t) { return t >= 0.8 ? 2 : t >= 0.4 ? 1 : 0; }
 
   V.modes.echauffement = { ouvrir: ouvrir, NIVEAUX: NIVEAUX };
 
@@ -31,7 +37,7 @@
   function ouvrir(o) {
     var classe = o.classe, items = o.items, cours = (o.data && o.data.cours) || "";
     var ecran = U.ouvrirEcran("tv-ech", "Échauffement");
-    var etats = items.map(function () { return { revealed: false, niveau: null, pieges: false }; });
+    var etats = items.map(function () { return { revealed: false, niveau: null, pieges: false, cartes: null }; });
     var cur = 0, vu = 0, dernier = null, minuteur = null;
     var r = {};
 
@@ -55,6 +61,7 @@
         if (i > vu) return;                            // éléments non atteints : pas posés
         var e = { id: it.id, type: it.type, role: it.role || (it.type === "exercice" ? "algebre" : null), niveau: etats[i].niveau };
         if (it.type === "exercice") e.graine = it.graine;
+        if (etats[i].cartes) e.votes = totaux(etats[i].cartes);      // totaux par lettre seulement (aucun numéro)
         lots.push(e);
       });
       return lots;
@@ -100,6 +107,72 @@
       maj();
     }
 
+    /* ----- votes par carte (smartphone) ----- */
+    function totaux(cartes) {
+      var t = { A: 0, B: 0, C: 0, D: 0 };
+      Object.keys(cartes).forEach(function (n) { if (t[cartes[n]] !== undefined) t[cartes[n]]++; });
+      return t;
+    }
+    function lettreBonne(it) { return it.options[it.bonne] ? it.options[it.bonne].k : null; }
+    function appliquerCode(texte) {
+      return U.chargerQrVotes().then(function (Q) {
+        var d = Q.decoder(texte), it = items[cur], st = etats[cur];
+        if (!d.ok) { U.alerte(d.erreur); return false; }
+        if (d.question && d.question !== it.id) U.alerte("Attention : ce QR a été fait pour une autre question (" + d.question + ").");
+        st.cartes = d.cartes;
+        var t = totaux(d.cartes), n = d.n, b = lettreBonne(it);
+        if (n && b) st.niveau = niveauDuTaux(t[b] / n);              // proposé ; un geste le change
+        maj();
+        U.alerte(n + " carte(s) reçue(s).");
+        return true;
+      }, function (e) { U.alerte(e.message); return false; });
+    }
+    function zoneScan() {
+      var code = h("input", { type: "text", "class": "tv-champ-code", "aria-label": "Code des votes (ex. 3A 12C 40B)",
+                              placeholder: "3A 12C 40B", autocomplete: "off", spellcheck: "false" });
+      function valider() { appliquerCode(code.value).then(function (ok) { if (ok) { code.value = ""; zone.hidden = true; } }); }
+      var zone = h("div", { "class": "tv-cartes-code" }, [code, bouton("Appliquer", "tv-lien", valider)]);
+      zone.hidden = true;
+      code.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); valider(); } });
+      r.scanRes = h("div", { "class": "tv-scan-res", "aria-live": "polite" });
+      return h("div", { "class": "tv-scan tv-prof" }, [
+        h("div", { "class": "tv-cartes-tete" }, [
+          h("b", { "class": "tv-cartes-titre", text: "Cartes" }),
+          h("span", { "class": "tv-sp" }),
+          bouton("Lire le QR", "tv-lien", function () {
+            U.lireQr().then(appliquerCode, function (e) { if (!/annulée/.test(e.message)) U.alerte(e.message); });
+          }, "Lit avec la caméra le QR des votes affiché par le smartphone (page de scan)"),
+          bouton("Taper un code", "tv-lien", function () { zone.hidden = !zone.hidden; if (!zone.hidden) code.focus(); },
+                 "Tape le code affiché sous le QR (ex. 3A 12C 40B)"),
+          bouton("Effacer", "tv-lien", function () { etats[cur].cartes = null; maj(); }, "Oublie les votes lus pour cette question")
+        ]),
+        zone, r.scanRes
+      ]);
+    }
+    function majScan() {
+      var it = items[cur], st = etats[cur];
+      if (!r.scanRes || !it || it.type !== "qcm") return;
+      r.scanRes.textContent = "";
+      Array.prototype.forEach.call(r.main.querySelectorAll(".tv-o2"), function (o) {
+        var c = o.querySelector(".tv-compte2");
+        if (c) c.parentNode.removeChild(c);
+      });
+      if (!st.cartes) { r.scanRes.appendChild(h("span", { "class": "tv-note", text: "Aucune carte lue pour cette question." })); return; }
+      var t = totaux(st.cartes), n = Object.keys(st.cartes).length, b = lettreBonne(it);
+      LET.forEach(function (l) {
+        r.scanRes.appendChild(h("span", { "class": "tv-scan-l" + (st.revealed && l === b ? " bonne" : "") }, [h("b", { text: l }), h("span", { text: " " + t[l] })]));
+      });
+      var ok = b ? t[b] : 0;
+      r.scanRes.appendChild(h("span", { "class": "tv-scan-taux", text: st.revealed
+        ? "Réussite : " + ok + " / " + n + " (" + Math.round(100 * ok / n) + " %)" : n + " carte(s) · réussite visible après la révélation" }));
+      if (st.revealed) {                                   // répartition aussi sur les options (visible en projection)
+        Array.prototype.forEach.call(r.main.querySelectorAll(".tv-o2"), function (o) {
+          var k = o.getAttribute("data-k");
+          o.appendChild(h("span", { "class": "tv-compte2", text: String(t[k] || 0) }));
+        });
+      }
+    }
+
     /* ----- rendu ----- */
     function construire() {
       r.main.textContent = "";
@@ -116,6 +189,8 @@
           return b;
         })));
       r.main.appendChild(r.eval);
+      r.scanRes = null;
+      if (it.type === "qcm") r.main.appendChild(zoneScan());
       maj();
       U.composer(r.main);
     }
@@ -173,7 +248,8 @@
         liste.appendChild(h("div", { "class": "tv-ligne" }, [
           h("span", { "class": "tv-num", text: String(i + 1) }),
           h("span", { "class": "tv-q", html: md(it.enonce, true) }),
-          h("span", { "class": "tv-niv", text: libelleNiveau(n) }),
+          h("span", { "class": "tv-niv", text: libelleNiveau(n) + (etats[i].cartes && it.type === "qcm" && lettreBonne(it) ?
+            " (" + totaux(etats[i].cartes)[lettreBonne(it)] + "/" + Object.keys(etats[i].cartes).length + ")" : "") }),
           h("span", {}, [n === 0 ? h("span", { "class": "tv-rev", text: "à reprendre" }) : null])
         ]));
       });
@@ -206,6 +282,7 @@
         var on = st.niveau !== null && +b.getAttribute("data-n") === st.niveau;
         b.classList.toggle("on", on); b.setAttribute("aria-pressed", on ? "true" : "false");
       });
+      majScan();
       r.bPrincipal.textContent = !st.revealed ? (it.type === "qcm" ? "Révéler la réponse" : "Afficher la correction")
                                               : cur === items.length - 1 ? "Bilan →" : "Suivant →";
     }

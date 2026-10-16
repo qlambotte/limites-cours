@@ -472,10 +472,15 @@
           if (!etape(d.private === true, d.private === true ? "Le dépôt est privé." : "Le dépôt est PUBLIC : les données seraient visibles de tous. Passe-le en privé.")) return { ok: false, etapes: etapes, erreur: "Dépôt public." };
           var perm = d.permissions || {};
           if (!etape(perm.push === true, perm.push === true ? "Droit d'écriture sur le contenu : oui." : "Pas de droit d'écriture : le jeton doit avoir « Contents : lecture et écriture ».")) return { ok: false, etapes: etapes, erreur: "Écriture refusée." };
-          var u = await appel("GET", "/user/repos?per_page=5", { jeton: tok, tolere: [403] });
+          // Un jeton fine-grained lit TOUJOURS les dépôts publics (lecture seule, comme sans jeton) : GitHub les
+          // liste aussi. Seuls comptent les AUTRES dépôts PRIVÉS : ceux-là, le jeton ne doit pas y accéder.
+          var u = await appel("GET", "/user/repos?per_page=100", { jeton: tok, tolere: [403] });
           if (u.status === 200) {
-            var liste = json(u, "dépôts");
-            if (!etape(liste.length === 1 && liste[0].full_name === d.full_name, liste.length === 1 && liste[0].full_name === d.full_name ? "Le jeton ne donne accès qu'à ce dépôt." : "Le jeton donne accès à d'autres dépôts : crée un jeton limité à « suivi-classes » seulement."))
+            var autres = json(u, "dépôts").filter(function (x) { return x.full_name !== d.full_name && x.private === true; })
+              .map(function (x) { return x.full_name; });
+            if (!etape(!autres.length, !autres.length ? "Le jeton ne donne accès qu'à ce dépôt privé (les dépôts publics restent lisibles par tous)."
+                : "Le jeton donne aussi accès à d'autres dépôts privés (" + autres.slice(0, 3).join(", ") + (autres.length > 3 ? "…" : "") +
+                  ") : dans « Repository access », choisis « Only select repositories » et seulement « " + d.full_name.split("/")[1] + " »."))
               return { ok: false, etapes: etapes, erreur: "Jeton trop large." };
           } else etape(true, "Portée : liste des dépôts non vérifiable avec ce jeton (acceptable).");
           return { ok: true, etapes: etapes };
