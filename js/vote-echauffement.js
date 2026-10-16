@@ -217,6 +217,7 @@
       if (e.key.length === 1 && e.key.toUpperCase() === "P") { ecran.projeter(!ecran.proj); return true; }
       return false;
     };
+    ecran.sauver = enreg;
     ecran.surFermeture = function () {
       arreterMinuteur();
       enreg();

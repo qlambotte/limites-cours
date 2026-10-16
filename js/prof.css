@@ -88,6 +88,10 @@ html.tw-marge-etroite .tw-m > .theo-head, html.tw-marge-etroite .tw-m > .exo-tet
 .tw-prof-compteur { font-weight: 700; }
 .tw-prof-etat { font-style: italic; }
 .tw-prof-etat[hidden] { display: none; }
+/* classe active changée dans un autre onglet (page de pilotage) : avis bien visible */
+.tw-prof-avis { margin-top: 6px; max-width: 320px; padding: 8px 10px; background: #fff; border: 3px solid #000; font-weight: 700; }
+.tw-prof-avis[hidden] { display: none; }
+.tw-prof-puce.tw-prof-alerte { background: #000; color: #fff; }
 html[data-theme=dark] .tw-prof { color: #fff; }
 html[data-theme=dark] .tw-prof-puce, html[data-theme=dark] .tw-prof-panneau,
 html[data-theme=dark] .tw-prof-classe, html[data-theme=dark] .tw-prof-btn { background: #000; color: #fff; border-color: #fff; }

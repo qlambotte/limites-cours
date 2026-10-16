@@ -92,6 +92,23 @@ html.tv-ouvert, html.tv-ouvert body { overflow: hidden; }
 .tv-hint.atteint { border-left: 6px solid var(--encre); padding: 8px 14px; }
 .tv-legende { margin-top: 18px; font: 14px/1.7 var(--sans); color: var(--texte2); }
 
+/* votes par carte (saisie et lecture automatique des cartes) : prof seulement, noir/blanc/ocre */
+.tv-cartes { margin: 0 0 22px; padding: 10px 0 12px; border-top: 2px solid var(--encre); border-bottom: 1px solid var(--filet); font: 16px/1.4 var(--sans); }
+.tv-cartes-tete { display: flex; align-items: center; gap: 12px; }
+.tv-cartes-titre { font: 700 12px var(--sans); letter-spacing: .14em; text-transform: uppercase; }
+.tv-cartes-ajout { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; margin: 6px 0 10px; }
+.tv-cartes-ajout .tv-sp0 { display: inline-flex; gap: 6px; }
+.tv-ecran .tv-champ-carte { font: 700 20px var(--sans); width: 4.2ch; text-align: center; padding: 6px 4px; min-height: 44px;
+  border: 2px solid var(--encre); border-radius: 0; background: #fff; color: var(--encre); }
+.tv-ecran .tv-champ-carte:focus-visible { outline: 3px solid var(--acc); outline-offset: 2px; }
+.tv-puces { display: flex; flex-wrap: wrap; gap: 6px; }
+.tv-puce { display: inline-flex; border: 2px solid var(--encre); }
+.tv-ecran .tv-puce button { border: 0; min-height: 40px; padding: 4px 10px; font: 15px var(--sans); }
+.tv-ecran .tv-puce .tv-puce-l { font-weight: 700; }
+.tv-ecran .tv-puce .tv-puce-x { border-left: 2px solid var(--encre); padding: 4px 10px; }
+.tv-ecart { margin-top: 8px; border-left: 6px solid var(--acc); background: var(--accbg); padding: 6px 12px; font: 15px var(--sans); }
+.tv-ecart:empty { display: none; }
+
 /* ---------- mode B : échauffement allégé ---------- */
 .tv-opts2 { display: grid; grid-template-columns: 1fr 1fr; gap: 34px 56px; }
 .tv-o2 { display: flex; align-items: baseline; gap: 20px; border-top: 2px solid var(--encre); padding-top: 12px; transition: opacity .25s; }
@@ -155,3 +172,11 @@ a[data-tw-test] { text-decoration-color: #c28a1b; }
   .tv-bilan .tv-ligne { grid-template-columns: 2rem 1fr; }
 }
 @media print { .tv-ecran, .tv-points, .tv-toast { display: none !important; } }
+
+/* ---- lecture du QR des votes (P7) et saisie d'un code ---- */
+.tv-qr { position: fixed; inset: 0; z-index: 4000; background: #000; color: #fff; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 14px; padding: 16px; font: 18px/1.4 system-ui, sans-serif; }
+.tv-qr-video { max-width: 100%; max-height: 70vh; border: 3px solid #fff; }
+.tv-cartes-code { display: flex; gap: 8px; align-items: center; margin: 6px 0; }
+.tv-cartes-code[hidden] { display: none; }
+.tv-champ-code { font: inherit; font-size: 18px; padding: 6px 10px; border: 2px solid #000; border-radius: 4px; min-width: 14em; }

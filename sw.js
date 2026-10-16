@@ -32,9 +32,9 @@ self.addEventListener("fetch", function (e) {
   if (req.method !== "GET") return;
   var url = new URL(req.url);
   if (/\.pdf$/i.test(url.pathname)) return;
-  // pages, index.json et prof.js (couche prof) : réseau d'abord, copie si hors ligne
+  // pages, index.json, prof.js (couche prof) et sync.js (synchronisation) : réseau d'abord, copie si hors ligne
   var page = req.mode === "navigate" || (req.headers.get("accept") || "").indexOf("text/html") >= 0
-             || /(\.json|\/prof\.js)$/.test(url.pathname);
+             || /(\.json|\/prof\.js|\/sync\.js)$/.test(url.pathname);
   if (page) {
     e.respondWith(fetch(req).then(function (r) { return garder(req, r); }).catch(function () {
       return caches.match(req, { ignoreSearch: true }).then(function (r) {

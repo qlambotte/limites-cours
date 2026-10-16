@@ -1,20 +1,6 @@
 {
   "classes": [
-    {
-      "code": "5GT-A",
-      "effectif": 24
-    },
-    {
-      "code": "5TT-A",
-      "effectif": 24
-    },
-    {
-      "code": "6GT-A",
-      "effectif": 24
-    },
-    {
-      "code": "6TT-B",
-      "effectif": 24
-    }
+    { "code": "5TTy", "effectif": 20 },
+    { "code": "6TTi", "effectif": 20 }
   ]
 }
