@@ -10,6 +10,8 @@ project:
     - js/*.json
     - index.json
     - sw.js
+    - prof-classe/classe.json
+    - prof-classe/index.html
     - limites.pdf
     - limites-corrige.pdf
 

@@ -23,3 +23,8 @@ actifs = ["fonctions"]
 [module.fonctions]
 donnees = ["courbes-anciennes.typ"]
 replier-avant-chapitre = "Limites"
+
+[classe]
+# Banque de classe (P2) : emplacement de classe.json (relatif au site, ou absolu, ex. un dépôt privé).
+# sortie  = "prof-classe/classe.json"
+# niveaux = ["5e"]       # sous-types d'algèbre inclus (défaut : l'année du cours)

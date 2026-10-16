@@ -4,3 +4,5 @@
 /_data/
 _rapport.txt
 _edition/
+# banque de classe (bonnes réponses) : jamais dans le dépôt public, elle vit dans suivi-classes/banques/
+prof-classe/

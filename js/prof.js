@@ -19,7 +19,7 @@
   var CLE = "typweb.prof.v1";
   var CLE_CLASSE = "typweb.classe";
   var CLE_DRAPEAU = "typweb.prof";
-  var SCHEMA = 1;
+  var SCHEMA = 2;               // 2 : événements vote / echauffement / exercice (doc/couche-prof.md)
   var MARQUABLES = { definition: 1, propriete: 1, remarque: 1, exemple: 1, activite: 1, exercice: 1 };
   var SELECTEUR = "[data-id][data-type]";
   // Zones où un clic ne marque pas (liens, boutons, champs, réponses cachées,
@@ -73,11 +73,13 @@
     catch (e) { a = Math.random().toString(36).slice(2, 12); }
     return Date.now().toString(36) + "-" + a;
   }
-  function ajouter(classe, el, action) {
+  function ajouter(classe, el, action, extra) {
     if (lectureSeule || !classe || !el) return false;
     var ev = lire();                                   // relire juste avant d'écrire (autres onglets)
     if (lectureSeule) return false;
-    ev.push({ id: idEvenement(), t: Date.now(), c: classe, el: el, a: action });
+    var e = { id: idEvenement(), t: Date.now(), c: classe, el: el, a: action };
+    if (extra) Object.keys(extra).forEach(function (k) { if (!(k in e)) e[k] = extra[k]; });
+    ev.push(e);
     var ok = ecrire(ev);
     if (ok) notifier();
     return ok;
@@ -88,7 +90,44 @@
   }
 
   /* ---------- classe active ---------- */
-  var classes = [];
+  var classes = [], effectifs = {};
+  var EFFECTIF_DEFAUT = 24;
+  // effectif de la classe (prof-config.json, champ « effectif »), sinon valeur par défaut
+  function effectif(classe) {
+    var n = effectifs[classe || classeActive()];
+    return n > 0 ? n : EFFECTIF_DEFAUT;
+  }
+  // Classes et effectifs fournis par la page de pilotage (P4) : le site et les notes ne dépendent pas des
+  // classes. Quand cette liste existe, elle remplace celle de prof-config.json (qui reste un repli).
+  var CLE_CLASSES = "typweb.prof.classes";
+  function classesLocales() {
+    var brut = null;
+    try { brut = localStorage.getItem(CLE_CLASSES); } catch (e) { return null; }
+    if (!brut) return null;
+    try { var j = JSON.parse(brut); return Array.isArray(j) ? j : null; } catch (e) { return null; }
+  }
+  function appliquerClassesLocales() {
+    var l = classesLocales();
+    if (!l) return false;
+    classes = []; effectifs = {};
+    l.forEach(function (c) {
+      var code = String(c && typeof c === "object" ? c.code : c);
+      classes.push(code);
+      if (c && typeof c === "object" && c.effectif > 0) effectifs[code] = Math.round(c.effectif);
+    });
+    return true;
+  }
+  // liste : [{ code, effectif? }] ou [code]. Écrit dans le stockage local de l'appareil.
+  function definirClasses(liste) {
+    if (!Array.isArray(liste)) return false;
+    var propre = liste.map(function (c) {
+      return c && typeof c === "object" ? { code: String(c.code), effectif: c.effectif > 0 ? Math.round(c.effectif) : undefined } : { code: String(c) };
+    });
+    try { localStorage.setItem(CLE_CLASSES, JSON.stringify(propre)); } catch (e) { return false; }
+    appliquerClassesLocales();
+    notifier();
+    return true;
+  }
   function classeActive() {
     try { return localStorage.getItem(CLE_CLASSE) || ""; } catch (e) { return ""; }
   }
@@ -104,7 +143,7 @@
     var dernier = {}, out = {}, ev = lire(), i, e;
     for (i = 0; i < ev.length; i++) {
       e = ev[i];
-      if (e && e.c === classe) dernier[e.el] = e;
+      if (e && e.c === classe && (e.a === "vu" || e.a === "annule")) dernier[e.el] = e;
     }
     Object.keys(dernier).forEach(function (el) {
       if (dernier[el].a === "vu") out[el] = { t: dernier[el].t, jour: jourDe(dernier[el].t) };
@@ -300,9 +339,36 @@
     r.etat.textContent = msg;
     r.etat.hidden = !msg;
   }
+  function objetExport() {
+    return { format: "typweb.prof.v1", exporte: new Date().toISOString(), v: SCHEMA, ev: lire() };
+  }
+  // Fusionne un export (objet ou texte JSON) dans le journal : événements réunis, dédoublonnés par id,
+  // triés par (t, id). Ne supprime rien. Renvoie { ok, ajoutes, ignores } ou { ok: false, erreur }.
+  function importer(source) {
+    var obj = source;
+    if (typeof source === "string") { try { obj = JSON.parse(source); } catch (e) { return { ok: false, erreur: "fichier illisible (JSON invalide)" }; } }
+    if (!obj || typeof obj !== "object" || !Array.isArray(obj.ev) || (obj.format && obj.format !== "typweb.prof.v1"))
+      return { ok: false, erreur: "fichier non reconnu : un export de marques typweb est attendu" };
+    if (obj.v > SCHEMA) return { ok: false, erreur: "export d'une version plus récente de la couche prof (v" + obj.v + ")" };
+    var cur = lire();
+    if (lectureSeule) return { ok: false, erreur: "journal en lecture seule (" + erreurStockage + ")" };
+    var connus = {}, ajoutes = 0, ignores = 0;
+    cur.forEach(function (e) { if (e && e.id) connus[e.id] = 1; });
+    obj.ev.forEach(function (e) {
+      var bon = e && typeof e.id === "string" && typeof e.t === "number" && typeof e.c === "string" &&
+                typeof e.el === "string" && typeof e.a === "string";
+      if (!bon || connus[e.id]) { ignores++; return; }
+      connus[e.id] = 1; cur.push(e); ajoutes++;
+    });
+    if (ajoutes) {
+      cur.sort(function (a, b) { return a.t - b.t || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0); });
+      if (!ecrire(cur)) return { ok: false, erreur: erreurStockage };
+      notifier();
+    }
+    return { ok: true, ajoutes: ajoutes, ignores: ignores };
+  }
   function exporter() {
-    var charge = JSON.stringify({ format: "typweb.prof.v1", exporte: new Date().toISOString(),
-                                  v: SCHEMA, ev: lire() }, null, 1);
+    var charge = JSON.stringify(objetExport(), null, 1);
     var a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([charge], { type: "application/json" }));
     a.download = "marques-typweb-" + jourDe(Date.now()) + ".json";
@@ -348,12 +414,17 @@
     setTimeout(function () { el.classList.remove("tw-reprise"); }, 2500);
   }
   function reprise() {
+    if (new URLSearchParams(location.search).get("reprise") !== "1") return;
+    reprendre();
+  }
+  // Va au dernier élément marqué de la classe active (ou le rejoint sur sa page).
+  // Renvoie false s'il n'y a rien à reprendre.
+  function reprendre() {
     var p = new URLSearchParams(location.search);
-    if (p.get("reprise") !== "1") return;
     var classe = classeActive();
-    if (!classe) { ouvrirBandeau(true); return; }
+    if (!classe) { ouvrirBandeau(true); return false; }
     var d = dernierMarque(classe, UAA);
-    if (!d) return;
+    if (!d) return false;
     p.delete("reprise");
     var q = p.toString();
     try { history.replaceState(null, "", location.pathname + (q ? "?" + q : "") + location.hash); } catch (e) {}
@@ -365,14 +436,15 @@
       var aller = function () { if (!bouge) el.scrollIntoView({ block: "center" }); };
       aller(); surbrillance(el);
       setTimeout(aller, 1200);                                    // après la mise en page de MathJax
-      return;
+      return true;
     }
     // l'élément est sur une autre page du cours : y aller (l'index donne l'adresse)
     var e = index && parId[d.el];
-    if (!e) return;
+    if (!e) return false;
     var u = new URL(e.ancre, RACINE);
     u.searchParams.set("reprise", "1");
     location.href = u.href;
+    return true;
   }
 
   /* ---------- abonnements, API ---------- */
@@ -381,7 +453,8 @@
     abonnes.slice().forEach(function (f) { try { f(); } catch (e) {} });
   }
   window.addEventListener("storage", function (ev) {
-    if (ev.key === CLE || ev.key === CLE_CLASSE || ev.key === null) notifier();
+    if (ev.key === CLE_CLASSES) appliquerClassesLocales();
+    if (ev.key === CLE || ev.key === CLE_CLASSE || ev.key === CLE_CLASSES || ev.key === null) notifier();
   });
 
   window.typwebProf = {
@@ -396,23 +469,54 @@
     marquer: function (id, classe) { return ajouter(classe || classeActive(), id, "vu"); },
     annuler: function (id, classe) { return ajouter(classe || classeActive(), id, "annule"); },
     evenements: function () { return lire().slice(); },
+    exporter: objetExport,            // () → { format, exporte, v, ev } : tout le journal
+    importer: importer,               // (objet | texte) → { ok, ajoutes, ignores } | { ok: false, erreur } ; fusion sans perte
+    definirClasses: definirClasses,   // ([{ code, effectif? }]) → true ; liste fournie par la page de pilotage (P4)
+    effectif: effectif,               // (classe?) → effectif de la classe (prof-config.json)
+    reprendre: reprendre,             // () → va au dernier élément marqué ; false s'il n'y en a pas
     abonner: function (f) {
       abonnes.push(f);
       return function () { abonnes = abonnes.filter(function (g) { return g !== f; }); };
+    },
+    // Pour vote.js (P3) : ne pas utiliser ailleurs.
+    interne: {
+      ajouter: ajouter,               // (classe, el, action, extra?) → ajoute un événement au journal
+      index: function () { return index; },
+      parId: function () { return parId; },
+      racine: RACINE, base: BASE, uaa: UAA,
+      page: pageCourante
     }
   };
 
+  /* ---------- écrans de vote (P3) : chargés avec la couche prof, jamais pour les élèves ---------- */
+  function chargerVote() {
+    if (!BASE) return;
+    var s = document.createElement("script");
+    s.src = BASE + "vote.js"; s.async = false;
+    document.head.appendChild(s);
+  }
+
   /* ---------- démarrage ---------- */
   function demarrer() {
+    appliquerClassesLocales();
     construireBandeau();
     document.addEventListener("click", surClic);
     rendre();
     var config = BASE ? fetch(BASE + "prof-config.json", { cache: "no-cache" })
         .then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
       : Promise.resolve(null);
+    chargerVote();
     Promise.all([config, chargerIndex()]).then(function (res) {
-      if (res[0] && Array.isArray(res[0].classes)) classes = res[0].classes.map(String);
-      rendre();
+      if (res[0] && Array.isArray(res[0].classes)) {
+        // « 5GT-A » ou { "code": "5GT-A", "effectif": 24 } (les deux formes sont acceptées)
+        classes = res[0].classes.map(function (c) { return String(c && typeof c === "object" ? c.code : c); });
+        res[0].classes.forEach(function (c) {
+          if (c && typeof c === "object" && c.effectif > 0) effectifs[String(c.code)] = Math.round(c.effectif);
+        });
+        if (res[0].effectifDefaut > 0) EFFECTIF_DEFAUT = Math.round(res[0].effectifDefaut);
+      }
+      appliquerClassesLocales();                    // la liste de la page de pilotage l'emporte
+      notifier();                                   // index chargé : les abonnés (vote.js) se rafraîchissent
       reprise();
     });
   }
