@@ -398,31 +398,77 @@
     });
     return qrPret;
   }
-  // Ouvre la caméra arrière, lit un QR (BarcodeDetector du navigateur) et rend son texte. Rien n'est enregistré.
-  function lireQr() {
-    if (!("BarcodeDetector" in window) || !navigator.mediaDevices || !navigator.mediaDevices.getUserMedia)
-      return Promise.reject(new Error("Ce navigateur ne lit pas les QR : tape le code affiché sous le QR (« Taper un code »)."));
-    return Promise.resolve(window.BarcodeDetector.getSupportedFormats ? window.BarcodeDetector.getSupportedFormats() : ["qr_code"])
-      .then(function (f) { if (f.indexOf("qr_code") < 0) throw new Error("Lecture de QR non prise en charge : tape le code (« Taper un code »)."); })
-      .then(function () { return navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: { ideal: "environment" } } }); })
-      .then(function (flux) {
+  // jsQR (Apache-2.0, fichier js/jsQR.js du site) lit les QR dans les navigateurs sans BarcodeDetector
+  // (Firefox, Chrome/Chromium sous Linux ou Windows…). Chargé seulement si le navigateur n'a pas de lecteur natif.
+  var jsqrPret = null;
+  function chargerJsQr() {
+    if (window.jsQR) return Promise.resolve(window.jsQR);
+    if (!jsqrPret) jsqrPret = new Promise(function (res, rej) {
+      var s = document.createElement("script");
+      s.src = BASE + "jsQR.js"; s.async = true;
+      s.onload = function () { window.jsQR ? res(window.jsQR) : rej(new Error("jsQR.js illisible")); };
+      s.onerror = function () { jsqrPret = null; rej(new Error("Ce navigateur ne lit pas les QR et js/jsQR.js manque (voir doc/couche-prof.md) : tape le code affiché sous le QR (« Taper un code »).")); };
+      document.head.appendChild(s);
+    });
+    return jsqrPret;
+  }
+  // Rend une fonction video → Promise(texte du QR | null) : lecteur natif si le navigateur en a un, sinon jsQR.
+  function lecteurQr() {
+    var natif = "BarcodeDetector" in window;
+    var verif = !natif ? Promise.resolve(false)
+      : Promise.resolve(window.BarcodeDetector.getSupportedFormats ? window.BarcodeDetector.getSupportedFormats() : ["qr_code"])
+          .then(function (f) { return f.indexOf("qr_code") >= 0; }, function () { return false; });
+    return verif.then(function (ok) {
+      if (ok) {
+        var det = new window.BarcodeDetector({ formats: ["qr_code"] });
+        return function (video) { return det.detect(video).then(function (c) { return c && c.length ? c[0].rawValue : null; }); };
+      }
+      return chargerJsQr().then(function (jsQR) {
+        var cv = document.createElement("canvas"), cx = cv.getContext("2d", { willReadFrequently: true });
+        return function (video) {
+          var w = video.videoWidth, h0 = video.videoHeight;
+          if (!w || !h0) return Promise.resolve(null);
+          var k = Math.min(1, 800 / w);
+          cv.width = Math.round(w * k); cv.height = Math.round(h0 * k);
+          cx.drawImage(video, 0, 0, cv.width, cv.height);
+          var img = cx.getImageData(0, 0, cv.width, cv.height);
+          var r = jsQR(img.data, cv.width, cv.height, { inversionAttempts: "dontInvert" });   // le QR du smartphone est noir sur blanc
+          return Promise.resolve(r && r.data ? r.data : null);
+        };
+      });
+    });
+  }
+  // Ouvre la caméra arrière, lit un QR (lecteur du navigateur, ou jsQR) et rend son texte. Rien n'est enregistré.
+  // lireQr({ dans: élément }) : la caméra s'affiche dans cet élément (tiroir des cartes) au lieu du plein écran.
+  function lireQr(opt) {
+    var dans = opt && opt.dans;
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia)
+      return Promise.reject(new Error("Pas de caméra accessible (page en http ? caméra refusée ?) : tape le code affiché sous le QR (« Taper un code »)."));
+    return lecteurQr()
+      .then(function (lire) {
+        return navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: { ideal: "environment" } } }).then(function (flux) {
+          return { lire: lire, flux: flux };
+        }, function (e) { throw new Error("Caméra refusée ou absente (" + ((e && e.name) || "erreur") + ") : tape le code affiché sous le QR (« Taper un code »)."); });
+      })
+      .then(function (o) {
+        var flux = o.flux, lire = o.lire;
         return new Promise(function (res, rej) {
-          var det = new window.BarcodeDetector({ formats: ["qr_code"] }), fini = false;
+          var fini = false;
           var video = h("video", { "class": "tv-qr-video", playsinline: "", muted: "" });
-          var fond = h("div", { "class": "tv-qr", role: "dialog", "aria-label": "Lecture du QR des votes" }, [
+          var fond = h("div", { "class": dans ? "tv-qr-dans" : "tv-qr", role: dans ? "group" : "dialog", "aria-label": "Lecture du QR des votes" }, [
             video, h("p", { text: "Vise le QR affiché par le smartphone." }),
-            bouton("Annuler", "tv-primaire", function () { stop(); rej(new Error("lecture annulée")); })
+            bouton("Annuler", dans ? "tv-lien" : "tv-primaire", function () { stop(); rej(new Error("lecture annulée")); })
           ]);
           function stop() { fini = true; flux.getTracks().forEach(function (t) { t.stop(); }); fond.remove(); }
-          document.body.appendChild(fond);
+          (dans || document.body).appendChild(fond);
           video.srcObject = flux; video.muted = true;
           video.play().catch(function () {});
           (function boucle() {
             if (fini) return;
             if (video.readyState < 2) { setTimeout(boucle, 150); return; }
-            det.detect(video).then(function (codes) {
+            lire(video).then(function (texte) {
               if (fini) return;
-              if (codes && codes.length) { stop(); res(codes[0].rawValue); } else setTimeout(boucle, 150);
+              if (texte) { stop(); res(texte); } else setTimeout(boucle, 150);
             }, function () { setTimeout(boucle, 300); });
           })();
         });

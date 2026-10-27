@@ -239,8 +239,8 @@
       r.main.appendChild(h("h1", { "class": "tv-enonce", html: md(it.enonce, true) }));
       r.main.appendChild(somme);                       // total et taux en haut : toujours visibles, même quand les retours allongent la page
       r.cartes = panneauCartes();
-      r.main.appendChild(r.cartes);
-      r.main.appendChild(opts);
+      r.deux = h("div", { "class": "tv-deux" }, [opts, r.cartes]);       // réponses à gauche, tiroir des cartes à droite
+      r.main.appendChild(r.deux);
       r.main.appendChild(r.legende);
       r.main.scrollTop = 0;
       maj();
@@ -250,6 +250,7 @@
     function panneauCartes() {
       var champ = h("input", { type: "text", inputmode: "numeric", pattern: "[0-9]*", maxlength: "3", size: "3", "class": "tv-champ-carte",
                                "aria-label": "Numéro de carte", placeholder: "n°" });
+      r.champ = champ;
       function pose(l) {
         var v = champ.value.trim();
         if (!/^\d{1,3}$/.test(v)) { U.alerte("Tape d'abord le numéro de la carte."); champ.focus(); return; }
@@ -260,7 +261,8 @@
         if (LET.indexOf(k) >= 0 && !e.ctrlKey && !e.metaKey && !e.altKey) { e.preventDefault(); pose(k); }
       });
       var lettres = LET.map(function (l) { return bouton(l, "tv-pm", function () { pose(l); }, "Carte " + l); });
-      r.puces = h("div", { "class": "tv-puces" });
+      r.tuiles = h("div", { "class": "tv-tuiles", role: "group", "aria-label": "Cartes de la classe" });
+      r.statut = h("div", { "class": "tv-cartes-ok", role: "status" });
       r.ecartCartes = h("div", { "class": "tv-ecart" });
       // Votes lus par le smartphone (page de scan, P7) : QR lu par la caméra de la tablette, ou code tapé.
       function appliquerCode(texte) {
@@ -275,41 +277,64 @@
           return rep.ok;
         }, function (e) { U.alerte(e.message); return false; });
       }
+      // Caméra : s'ouvre dans le tiroir, à la place du bouton, et le rend à la fin de la lecture.
+      var zoneCam = h("div", { "class": "tv-cam" });
+      var bScan = bouton("📷 Scanner le QR", "tv-primaire tv-scanner", function () {
+        bScan.hidden = true;
+        var fin = function () { bScan.hidden = false; };
+        U.lireQr({ dans: zoneCam }).then(function (t) { fin(); return appliquerCode(t); },
+                                         function (e) { fin(); if (!/annulée/.test(e.message)) U.alerte(e.message); });
+      }, "Lit avec la caméra le QR des votes affiché par le smartphone (page de scan)");
       var code = h("input", { type: "text", "class": "tv-champ-code", "aria-label": "Code des votes (ex. 3A 12C 40B)",
-                              placeholder: "3A 12C 40B", autocomplete: "off", spellcheck: "false" });
-      var zoneCode = h("div", { "class": "tv-cartes-code" }, [code,
-        bouton("Appliquer", "tv-lien", function () { appliquerCode(code.value).then(function (ok) { if (ok) { code.value = ""; zoneCode.hidden = true; } }); })]);
-      zoneCode.hidden = true;
-      code.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); appliquerCode(code.value).then(function (ok) { if (ok) { code.value = ""; zoneCode.hidden = true; } }); } });
-      return h("div", { "class": "tv-cartes tv-prof" }, [
-        h("div", { "class": "tv-cartes-tete" }, [
-          h("b", { "class": "tv-cartes-titre", text: "Votes par carte" }),
-          h("span", { "class": "tv-sp" }),
-          bouton("Lire le QR", "tv-lien", function () {
-            U.lireQr().then(appliquerCode, function (e) { if (!/annulée/.test(e.message)) U.alerte(e.message); });
-          }, "Lit avec la caméra le QR des votes affiché par le smartphone (page de scan)"),
-          bouton("Taper un code", "tv-lien", function () { zoneCode.hidden = !zoneCode.hidden; if (!zoneCode.hidden) code.focus(); },
-                 "Tape le code affiché sous le QR (ex. 3A 12C 40B)"),
+                              placeholder: "ou taper un code : 3A 12C 40B", autocomplete: "off", spellcheck: "false" });
+      function valider() { appliquerCode(code.value).then(function (ok) { if (ok) code.value = ""; }); }
+      code.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); valider(); } });
+      var zoneCode = h("div", { "class": "tv-cartes-code" }, [code, bouton("OK", "tv-lien", valider)]);
+      return h("div", { "class": "tv-tiroir tv-cartes tv-prof", role: "complementary", "aria-label": "Lecture des cartes" }, [
+        h("div", { "class": "tv-tiroir-tete" }, [
+          h("b", { "class": "tv-cartes-titre", text: "Lecture des cartes" }),
           bouton("Tout effacer", "tv-lien", function () {
             var st = s(); Object.keys(st.cartes).forEach(function (n) { retirerCarte(n); });
           }, "Efface le détail par carte (les compteurs suivent)")
         ]),
-        zoneCode,
+        zoneCam, bScan,
+        r.statut,
+        r.tuiles,
+        h("p", { "class": "tv-tuile-legende", text: "Toucher une tuile : A → B → C → D → retirer. Tuile pointillée : carte pas reçue (toucher pour la saisir)." }),
         h("div", { "class": "tv-cartes-ajout" }, [h("span", { text: "Carte n°" }), champ, h("span", { "class": "tv-sp0" }, lettres)]),
-        r.puces, r.ecartCartes
+        zoneCode,
+        r.ecartCartes
       ]);
+    }
+    function tuileClic(n) {
+      var l = s().cartes[n];
+      if (!l) { r.champ.value = String(n); r.champ.focus({ preventScroll: true }); return; }
+      var i = LET.indexOf(l);
+      if (i >= LET.length - 1) retirerCarte(n); else poserCarte(n, LET[i + 1]);
     }
     function majCartes() {
       var st = s(), nums = Object.keys(st.cartes).map(Number).sort(function (a, b) { return a - b; });
-      r.cartes.style.display = cartesOuvert || nums.length ? "" : "none";
-      r.bCartes.textContent = nums.length ? "Par carte (" + nums.length + ")" : "Par carte";
-      r.puces.textContent = "";
-      nums.forEach(function (n) {
-        r.puces.appendChild(h("span", { "class": "tv-puce" }, [
-          bouton(n + " · " + st.cartes[n], "tv-puce-l", function () { suivante(n); }, "Carte " + n + " : " + st.cartes[n] + " (toucher pour changer de lettre)"),
-          bouton("×", "tv-puce-x", function () { retirerCarte(n); }, "Retirer la carte " + n)
-        ]));
-      });
+      var visible = cartesOuvert || nums.length > 0;
+      r.cartes.style.display = visible ? "" : "none";
+      r.deux.classList.toggle("avec-tiroir", visible);
+      r.bCartes.textContent = nums.length ? "Cartes (" + nums.length + ")" : "Cartes";
+      // tuiles : une par numéro de carte, de 1 à l'effectif (ou au plus grand numéro reçu)
+      var N = Math.max(effectif, nums.length ? nums[nums.length - 1] : 0);
+      r.tuiles.textContent = "";
+      for (var n = 1; n <= N; n++) {
+        (function (n) {
+          var l = st.cartes[n];
+          var t = h("button", { type: "button", "class": "tv-tuile " + (l || "vide"),
+                                "aria-label": l ? "Carte " + n + " : " + l + " (toucher pour changer)" : "Carte " + n + " : pas reçue" },
+                    [h("span", { text: String(n) }), h("b", { text: l || "·" })]);
+          t.addEventListener("click", function () { tuileClic(n); });
+          r.tuiles.appendChild(t);
+        })(n);
+      }
+      var recues = nums.length;
+      if (!recues) { r.statut.textContent = "Aucune carte reçue : scanne le QR du smartphone, ou saisis les numéros."; r.statut.className = "tv-cartes-ok"; }
+      else if (recues >= effectif) { r.statut.textContent = "✓ " + recues + " carte" + (recues > 1 ? "s" : "") + " reçue" + (recues > 1 ? "s" : "") + " · " + effectif + " présents"; r.statut.className = "tv-cartes-ok ok"; }
+      else { r.statut.textContent = recues + " carte" + (recues > 1 ? "s" : "") + " reçue" + (recues > 1 ? "s" : "") + " sur " + effectif + " présents : il en manque " + (effectif - recues) + "."; r.statut.className = "tv-cartes-ok"; }
       var t = decompte(st), ecart = nums.length && LET.some(function (k) { return t[k] !== st.votes[k]; });
       r.ecartCartes.textContent = ecart ? "Les compteurs ont été corrigés à la main : ils ne correspondent plus exactement au détail par carte." : "";
     }
