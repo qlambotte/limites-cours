@@ -324,6 +324,12 @@
     calque = document.createElementNS(NS, "svg");
     calque.setAttribute("class", "an-calque"); calque.setAttribute("aria-hidden", "true");
     document.body.appendChild(calque);
+    // La barre d'outils est rangée dans le menu latéral (#quarto-sidebar, z-index 1) : tant qu'un outil capte les clics
+    // (stylo, gomme), le calque (z-index 1030) la recouvrait et on ne pouvait plus le désactiver. On remonte le menu
+    // latéral au-dessus du calque pendant l'annotation.
+    var rehaut = document.createElement("style");
+    rehaut.textContent = 'html[data-annot] #quarto-sidebar { z-index: 1040 !important; }';
+    document.head.appendChild(rehaut);
     couche = document.createElement("div"); couche.className = "an-couche an-ui";
     document.body.appendChild(couche);
 
