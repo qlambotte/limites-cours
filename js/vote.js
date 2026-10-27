@@ -255,28 +255,29 @@
     while (e && garde++ < 20) { out.push(e.id); e = e.parent ? parId[e.parent] : null; }
     return out;
   }
-  // 2 ou 3 QCM de compréhension pour la section, COHÉRENTS avec ce qui a été vu : d'abord ceux du sous-arbre
-  // de la section ; s'il y en a moins de 2, ceux des sections PRÉCÉDENTES du même chapitre. Jamais une
-  // question sur une matière située plus loin dans le cours, ni d'un autre chapitre : s'il n'y a rien,
-  // le lien reste celui des élèves (S'autoévaluer). Dans cette réserve : jamais posées à cette classe
-  // d'abord, puis les moins posées ; à égalité, la plus proche de la section, puis l'ordre de la banque.
-  function choisirComprehension(sectionId, classe, nMax) {
+  // 2 ou 3 QCM de compréhension pour une PAGE (une ou plusieurs sections), COHÉRENTS avec ce qui a été vu :
+  // d'abord ceux du sous-arbre des sections de la page ; s'il y en a moins de 2, ceux des sections PRÉCÉDENTES
+  // du même chapitre. Jamais une question sur une matière située plus loin dans le cours, ni d'un autre
+  // chapitre : s'il n'y a rien, pas de bouton. Dans cette réserve : jamais posées à cette classe d'abord,
+  // puis les moins posées ; à égalité, la plus proche de la page, puis l'ordre de la banque.
+  function choisirComprehensionIds(sections, classe, nMax) {
     nMax = nMax || 3;
-    var data = donnees; if (!data) return [];
+    var data = donnees; if (!data || !sections || !sections.length) return [];
     var n = poses(classe || P.classe());
-    var niveaux = chaine(sectionId);                 // la section, ses parents… jusqu'au chapitre
+    var niveaux = chaine(sections[0]);               // la section, ses parents… jusqu'au chapitre
     var chapitre = niveaux[niveaux.length - 1];
     var ix = I.index(), pos = {};
     (ix && ix.elements || []).forEach(function (e, i) { pos[e.id] = i; });
-    var pSec = pos[sectionId];
+    var pMin = Infinity;
+    sections.forEach(function (id) { if (pos[id] !== undefined && pos[id] < pMin) pMin = pos[id]; });
     var qcms = [];
     data.qcm.forEach(function (q, i) {
       if (q.usage !== "comprehension") return;
       var ch = chaine(q.sur);
       if (!ch.length) return;
-      if (ch.indexOf(sectionId) >= 0) { qcms.push({ id: q.id, i: i, d: 0, p: pos[q.sur] }); return; }
-      // même chapitre, matière située AVANT la section
-      if (ch.indexOf(chapitre) >= 0 && pSec !== undefined && pos[q.sur] !== undefined && pos[q.sur] < pSec)
+      if (sections.some(function (id) { return ch.indexOf(id) >= 0; })) { qcms.push({ id: q.id, i: i, d: 0, p: pos[q.sur] }); return; }
+      // même chapitre, matière située AVANT la page
+      if (ch.indexOf(chapitre) >= 0 && pMin !== Infinity && pos[q.sur] !== undefined && pos[q.sur] < pMin)
         qcms.push({ id: q.id, i: i, d: 1, p: pos[q.sur] });
     });
     var reserve = qcms.filter(function (c) { return c.d === 0; });
@@ -285,6 +286,7 @@
       return ((n[a.id] || 0) - (n[b.id] || 0)) || (a.d - b.d) || ((b.p || 0) - (a.p || 0)) || (a.i - b.i);
     }).slice(0, nMax).map(function (c) { return c.id; });
   }
+  function choisirComprehension(sectionId, classe, nMax) { return choisirComprehensionIds([sectionId], classe, nMax); }
 
   /* ---------- journal : écriture ---------- */
   function idSession() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 7); }
@@ -545,37 +547,43 @@
       o.b.style.top = (r.bottom + sy - hb / 2) + "px";
     });
   }
-  function sectionDePage() {
-    var idx = I.index(), page = I.page(), best = null;
-    if (!idx) return null;
+  // Toutes les sections (et le chapitre) dont la page est la page courante.
+  function sectionsDePage() {
+    var idx = I.index(), page = I.page(), out = [];
+    if (!idx) return out;
     idx.elements.forEach(function (e) {
-      if ((e.type === "section" || e.type === "chapitre") && e.ancre.split("#")[0] === page && !best) best = e.id;
+      if ((e.type === "section" || e.type === "chapitre") && e.ancre.split("#")[0] === page) out.push(e.id);
     });
-    return best;
+    return out;
   }
+  function titrePage(ids) { return ids.length ? titreSection(ids[0]) : ""; }
+  // « Tester la compréhension » : un bouton À CÔTÉ de « S'autoévaluer » (qui reste celui des élèves, à la maison),
+  // en fin de chaque page qui a une autoévaluation. Posé à la classe, avec les cartes.
   function majTest() {
-    var classe = P.classe(), liens = document.querySelectorAll(".ae-lien a");
-    if (!liens.length) return;
-    var sec = sectionDePage();
-    Array.prototype.forEach.call(liens, function (a) {
-      var ids = sec && classe ? choisirComprehension(sec, classe) : [];
-      if (!ids.length) {                               // rien à poser : le lien reste celui des élèves
-        if (a.hasAttribute("data-tw-test")) { a.textContent = a.getAttribute("data-tw-orig"); a.removeAttribute("data-tw-test"); }
-        return;
+    var blocs = document.querySelectorAll(".ae-lien");
+    if (!blocs.length) return;
+    var classe = P.classe(), ids = sectionsDePage();
+    var qs = classe && ids.length ? choisirComprehensionIds(ids, classe) : [];
+    Array.prototype.forEach.call(blocs, function (bloc) {
+      var ligne = bloc.querySelector(".tv-test-ligne");
+      if (!qs.length) { if (ligne) ligne.remove(); return; }       // rien à poser : le lien reste celui des élèves
+      if (!ligne) {
+        ligne = h("p", { "class": "tv-test-ligne" });
+        ligne.appendChild(h("a", { "class": "tv-test-btn", href: "#", role: "button" }));
+        bloc.appendChild(ligne);
       }
-      if (!a.hasAttribute("data-tw-orig")) a.setAttribute("data-tw-orig", a.textContent);
-      a.setAttribute("data-tw-test", sec);
-      a.textContent = "✔ Tester la compréhension : " + ids.length + " question" + (ids.length > 1 ? "s" : "") + " →";
+      var a = ligne.firstChild;
+      a.textContent = "✔ Tester la compréhension en classe : " + qs.length + " question" + (qs.length > 1 ? "s" : "") + " →";
     });
   }
   document.addEventListener("click", function (e) {
-    var a = e.target && e.target.closest && e.target.closest("a[data-tw-test]");
+    var a = e.target && e.target.closest && e.target.closest("a.tv-test-btn");
     if (!a) return;
     e.preventDefault(); e.stopPropagation();
-    var sec = a.getAttribute("data-tw-test"), classe = P.classe();
-    var ids = choisirComprehension(sec, classe);
-    if (!ids.length) return;
-    start({ mode: "comprehension", items: ids, titre: titreSection(sec) }).catch(function () {});
+    var ids = sectionsDePage(), classe = P.classe();
+    var qs = choisirComprehensionIds(ids, classe);
+    if (!qs.length) return;
+    start({ mode: "comprehension", items: qs, titre: titrePage(ids) }).catch(function () {});
   }, true);
 
   /* ---------- lanceur de test de l'échauffement (remplacé par la page de pilotage, P4) ---------- */
@@ -618,6 +626,7 @@
     return true;
   };
   V.choisirComprehension = function (sectionId, classe, nMax) { return choisirComprehension(sectionId, classe, nMax); };
+  V.choisirComprehensionPage = function (classe, nMax) { return choisirComprehensionIds(sectionsDePage(), classe, nMax); };
   V.poses = poses;
   V.md = md;
   V.fermer = function () { if (courant) courant.fermer(); };
@@ -639,20 +648,38 @@
   function replanifier() {
     if (planifie) return;
     planifie = true;
-    requestAnimationFrame(function () { planifie = false; majPoints(); });
+    requestAnimationFrame(function () { planifie = false; majPoints(); majEtat(); });
   }
   P.abonner(replanifier);
   window.addEventListener("resize", function () { positionner(); fermerMenu(); });
   window.addEventListener("load", function () { [0, 1000, 3000].forEach(function (t) { setTimeout(replanifier, t); }); });
   if (window.ResizeObserver) { try { new ResizeObserver(function () { positionner(); }).observe(document.body); } catch (e) {} }
 
+  // État affiché dans le panneau du bandeau prof : sans classe choisie ou sans banque, le lien « S'autoévaluer »
+  // reste celui des élèves sans rien dire ; cette ligne dit pourquoi.
+  var erreurBanque = "";
+  function majEtat() {
+    var panneau = document.querySelector(".tw-prof-panneau"); if (!panneau) return;
+    var d = panneau.querySelector(".tv-etat");
+    if (!d) { d = h("div", { "class": "tv-etat" }); panneau.insertBefore(d, panneau.firstChild); }
+    var txt, ok = false, classe = P.classe();
+    if (erreurBanque) txt = "Banque de classe indisponible : " + erreurBanque;
+    else if (!donnees) txt = "Banque de classe : chargement…";
+    else if (!classe) txt = "Choisis la classe active (menu ci-dessus) : « Tester la compréhension » n'apparaît que pour une classe.";
+    else {
+      var nc = donnees.qcm.filter(function (q) { return q.usage === "comprehension"; }).length;
+      txt = "Banque de classe : " + nc + " QCM de compréhension pour " + classe + ". « Tester la compréhension » remplace « S'autoévaluer » en fin de section."; ok = true;
+    }
+    d.textContent = txt; d.className = "tv-etat" + (ok ? " ok" : "");
+  }
   function demarrer() {
     var css = document.createElement("link");
     css.rel = "stylesheet"; css.href = BASE + "vote.css";
     document.head.appendChild(css);
     lanceurTest();
     chargerScripts();                                  // les deux modes en mémoire : fonctionne ensuite sans réseau
-    charger().then(replanifier, function () {});       // banque absente : pas de bouton, pas d'erreur
+    charger().then(function () { erreurBanque = ""; replanifier(); },
+                   function (e) { erreurBanque = (e && e.message) || "erreur inconnue"; majEtat(); });   // banque absente : pas de bouton ; la raison est dans le panneau
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", demarrer);
   else demarrer();

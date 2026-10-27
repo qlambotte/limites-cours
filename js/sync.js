@@ -36,7 +36,7 @@
 
   var CLE_ETAT = "typweb.sync.v1", CLE_JETON = "typweb.sync.jeton", CLE_LOT = "typweb.sync.lot",
       CLE_VERROU = "typweb.sync.verrou", CLE_CONFIG = "typweb.sync.config", CLE_JOURNAL = "typweb.prof.v1";
-  var FORMAT_LOT = "typweb.sync.lot.v1";
+  var FORMAT_LOT = "typweb.sync.lot.v1", FORMAT_CLE = "typweb.sync.cle.v1";
   var CHEMIN_CONFIG = "config/pilotage.json";
   var MAX_LOT = 500, MAX_LOTS_PAR_PASSE = 20, SIMULTANES = 4, DELAI_REQUETE = 15000, VERROU_MS = 60000;
   var ITERATIONS_PBKDF2 = 250000;
@@ -530,6 +530,39 @@
       // Retire le chiffrement (le jeton est de nouveau stocké en clair sur l'appareil).
       dechiffrerJeton: function () { if (!jetonMem) throw Erreur("verrouille", "Déverrouille d'abord le jeton."); ecrire(CLE_JETON, jetonMem); notifier(); return true; },
 
+      /* --- clé de synchronisation : un fichier qui remet l'appareil en service (navigateur qui efface ses données) ---
+         Le jeton y est chiffré par une phrase secrète (PBKDF2-SHA256 puis AES-GCM, le dépôt sert de données associées) ;
+         le dépôt et le nom d'appareil sont en clair. Le fichier reste sur l'appareil ou une clé USB : jamais dans un dépôt. */
+      exporterCle: async function (phrase) {
+        if (!cryptoW || !cryptoW.subtle) throw Erreur("crypto", "Le chiffrement n'est pas disponible dans ce navigateur (page non sécurisée ?).");
+        if (!phrase || String(phrase).length < 8) throw Erreur("crypto", "Phrase secrète trop courte (8 caractères au moins).");
+        var e = chargerEtat(), tok = jeton();
+        if (!e.depot || !lire(CLE_JETON)) throw Erreur("jeton", "La synchronisation n'est pas configurée sur cet appareil : rien à enregistrer.");
+        if (!tok) throw Erreur("verrouille", "Déverrouille d'abord le jeton (phrase secrète de l'appareil).");
+        var sel = cryptoW.getRandomValues(new Uint8Array(16)), iv = cryptoW.getRandomValues(new Uint8Array(12));
+        var cle = await derivee(phrase, sel);
+        var ct = new Uint8Array(await cryptoW.subtle.encrypt({ name: "AES-GCM", iv: iv, additionalData: donneesAssociees(e.depot) }, cle, new TextEncoder().encode(tok)));
+        return JSON.stringify({ format: FORMAT_CLE, cree: new Date(maintenant()).toISOString(), depot: e.depot, appareil: e.appareil,
+          branche: e.branche, intervalle: e.intervalle,
+          jeton: { kdf: "PBKDF2-SHA256", chiffre: "AES-GCM", iter: ITERATIONS_PBKDF2, sel: octetsB64(sel), iv: octetsB64(iv), ct: octetsB64(ct) },
+          note: "Clé de synchronisation du pilotage. Le jeton est chiffré par ta phrase secrète. Ne place pas ce fichier dans un dépôt ni dans un dossier publié." }, null, 1);
+      },
+      // Lit une clé sans la déchiffrer (pour l'afficher) : { depot, appareil, cree } ; erreur « cle » si le fichier n'en est pas une.
+      lireCle: function (texte) { var k = lireCleObj(texte); return { depot: k.depot, appareil: k.appareil, cree: k.cree || "" }; },
+      // Déchiffre la clé et configure l'appareil. o : { appareil?, garderChiffre? } (garderChiffre : le jeton reste chiffré
+      // sur l'appareil par la même phrase, à saisir à chaque session).
+      importerCle: async function (texte, phrase, o) {
+        o = o || {};
+        var k = lireCleObj(texte), tok;
+        if (!cryptoW || !cryptoW.subtle) throw Erreur("crypto", "Le chiffrement n'est pas disponible dans ce navigateur (page non sécurisée ?).");
+        try {
+          var cle = await derivee(phrase, b64Octets(k.jeton.sel), k.jeton.iter);
+          tok = new TextDecoder().decode(await cryptoW.subtle.decrypt({ name: "AES-GCM", iv: b64Octets(k.jeton.iv), additionalData: donneesAssociees(k.depot) }, cle, b64Octets(k.jeton.ct)));
+        } catch (err) { throw Erreur("phrase", "Phrase secrète incorrecte (ou clé abîmée)."); }
+        return api.configurer({ jeton: tok, depot: k.depot, appareil: o.appareil || k.appareil, branche: k.branche,
+                                intervalle: k.intervalle, phrase: o.garderChiffre ? phrase : undefined });
+      },
+
       /* --- opérations --- */
       enAttente: function () { return enAttenteListe().length; },
       envoyer: function () { return operation(envoyerInterne); },
@@ -609,6 +642,16 @@
       arreter: function () { if (minuteur) clearInterval(minuteur); minuteur = null; }
     };
 
+    function donneesAssociees(depot) { return new TextEncoder().encode(FORMAT_CLE + "|" + depot); }
+    function lireCleObj(texte) {
+      var k = null;
+      try { k = typeof texte === "string" ? JSON.parse(texte) : texte; } catch (e) { k = null; }
+      var j = k && k.jeton;
+      if (!k || k.format !== FORMAT_CLE || !RE_DEPOT.test(String(k.depot || "")) || !j || typeof j.sel !== "string" || typeof j.iv !== "string" ||
+          typeof j.ct !== "string" || !(j.iter >= 100000 && j.iter <= 5000000))
+        throw Erreur("cle", "Ce fichier n'est pas une clé de synchronisation du pilotage.");
+      return k;
+    }
     async function derivee(phrase, sel, iter) {
       var base = await cryptoW.subtle.importKey("raw", new TextEncoder().encode(String(phrase)), "PBKDF2", false, ["deriveKey"]);
       return cryptoW.subtle.deriveKey({ name: "PBKDF2", salt: sel, iterations: iter || ITERATIONS_PBKDF2, hash: "SHA-256" }, base,
@@ -625,5 +668,5 @@
     return api;
   }
 
-  return { creer: creer, slug: slug, FORMAT_LOT: FORMAT_LOT, CLES: { etat: CLE_ETAT, jeton: CLE_JETON, lot: CLE_LOT, config: CLE_CONFIG } };
+  return { creer: creer, slug: slug, FORMAT_LOT: FORMAT_LOT, FORMAT_CLE: FORMAT_CLE, CLES: { etat: CLE_ETAT, jeton: CLE_JETON, lot: CLE_LOT, config: CLE_CONFIG } };
 });
