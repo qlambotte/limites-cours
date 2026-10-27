@@ -532,7 +532,9 @@
     return null;
   }
   function titreSection(id) { var e = I.parId()[id]; return e ? String(e.titre || "").replace(/^Chapitre \d+\s*[—-]\s*/, "") : ""; }
-  function fermerMenu() { if (menuOuvert) { menuOuvert.remove(); menuOuvert = null; } }
+  function fermerMenu() {
+    if (menuOuvert) { if (menuOuvert._b) menuOuvert._b.setAttribute("aria-expanded", "false"); menuOuvert.remove(); menuOuvert = null; }
+  }
   function poser(q) {
     fermerMenu();
     start({ mode: "comprehension", items: [q.id], titre: "" }).catch(function () {});
@@ -547,6 +549,7 @@
     var r = b.getBoundingClientRect();
     m.style.top = (r.bottom + window.scrollY + 4) + "px";
     m.style.left = Math.max(8, r.right + window.scrollX - 300) + "px";
+    m._b = b; b.setAttribute("aria-expanded", "true");
     points.appendChild(m); menuOuvert = m;
   }
   function majPoints() {
@@ -569,7 +572,9 @@
       bulles = cles.map(function (id) {
         var qs = parSur[id];
         var b = bouton(qs.length > 1 ? "Poser à la classe (" + qs.length + ")" : "Poser à la classe", "tv-pose", function () {
-          if (qs.length === 1) poser(qs[0]); else ouvrirMenu(b, qs);
+          if (qs.length === 1) poser(qs[0]);
+          else if (menuOuvert && menuOuvert._b === b) fermerMenu();      // un second clic referme le menu
+          else ouvrirMenu(b, qs);
         });
         b.setAttribute("data-sur", id);
         b.setAttribute("aria-haspopup", qs.length > 1 ? "menu" : "dialog");
