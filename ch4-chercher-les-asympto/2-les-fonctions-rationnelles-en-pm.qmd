@@ -4,7 +4,7 @@ title: "Les fonctions rationnelles en ±∞ : asymptote horizontale ?"
 
 <!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
 
-::: {#activite-4-2 data-sorte="activite" data-num="4.2" data-page="43" data-phys="46" data-id="5UAA3.asymptote-horizontale-mesure" data-type="activite" data-tags="" .theo .theo-activite}
+::: {#activite-4-2 data-sorte="activite" data-num="4.2" data-page="41" data-phys="44" data-id="5UAA3.asymptote-horizontale-mesure" data-type="activite" data-tags="" .theo .theo-activite}
 ::: {.theo-head}
 **Activité 4.2** — une asymptote horizontale sur mesure
 :::
@@ -19,7 +19,7 @@ Par exemple $3 + \frac{1}{x} = \frac{3x + 1}{x}$. Les termes de plus haut degré
 :::
 :::
 
-::: {#activite-4-3 data-sorte="activite" data-num="4.3" data-page="43" data-phys="46" data-id="5UAA3.quotient-deux-termes-dominants" data-type="activite" data-tags="" .theo .theo-activite}
+::: {#activite-4-3 data-sorte="activite" data-num="4.3" data-page="41" data-phys="44" data-id="5UAA3.quotient-deux-termes-dominants" data-type="activite" data-tags="" .theo .theo-activite}
 ::: {.theo-head}
 **Activité 4.3** — un quotient de deux termes dominants
 :::
@@ -50,7 +50,7 @@ $f(x) = \frac{2x+1}{x-3}$
 :::
 :::
 
-::: {#propriete-4-2 data-sorte="propriete" data-num="4.2" data-page="44" data-phys="47" data-id="5UAA3.fonction-rationnelle-2" data-type="propriete" data-tags="" .theo .theo-propriete}
+::: {#propriete-4-2 data-sorte="propriete" data-num="4.2" data-page="42" data-phys="45" data-id="5UAA3.fonction-rationnelle-2" data-type="propriete" data-tags="" .theo .theo-propriete}
 ::: {.theo-head}
 **Propriété 4.2** — fonction rationnelle en $\pm \infty$
 :::
@@ -64,7 +64,7 @@ $$
 :::
 :::
 
-::: {#definition-4-1 data-sorte="definition" data-num="4.1" data-page="44" data-phys="47" data-id="5UAA3.asymptote-horizontale" data-type="definition" data-tags="" .theo .theo-definition}
+::: {#definition-4-1 data-sorte="definition" data-num="4.1" data-page="42" data-phys="45" data-id="5UAA3.asymptote-horizontale" data-type="definition" data-tags="" .theo .theo-definition}
 ::: {.theo-head}
 **Définition 4.1** — asymptote horizontale
 :::
@@ -78,7 +78,7 @@ $$
 :::
 :::
 
-::: {#exemple-4-2 data-sorte="exemple" data-num="4.2" data-page="44" data-phys="47" data-id="5UAA3.exm.009" data-type="exemple" data-tags="" .theo .theo-exemple}
+::: {#exemple-4-2 data-sorte="exemple" data-num="4.2" data-page="42" data-phys="45" data-id="5UAA3.exm.009" data-type="exemple" data-tags="" .theo .theo-exemple}
 ::: {.theo-head}
 **Exemple 4.2**
 :::
@@ -135,7 +135,7 @@ $\lim\limits_{x \to \pm \infty} f_{3}(x) = \lim\limits_{x \to \pm \infty} \frac{
 :::
 :::
 
-::: {#propriete-4-3 data-sorte="propriete" data-num="4.3" data-page="45" data-phys="48" data-id="5UAA3.h-fonction-rationnelle" data-type="propriete" data-tags="" .theo .theo-propriete}
+::: {#propriete-4-3 data-sorte="propriete" data-num="4.3" data-page="43" data-phys="46" data-id="5UAA3.h-fonction-rationnelle" data-type="propriete" data-tags="" .theo .theo-propriete}
 ::: {.theo-head}
 **Propriété 4.3** — A.H. d’une fonction rationnelle
 :::

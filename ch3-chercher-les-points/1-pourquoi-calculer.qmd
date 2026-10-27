@@ -6,7 +6,7 @@ title: "Pourquoi calculer ?"
 
 Jusqu’ici, nous avons lu les limites sur des graphiques. Mais un graphique ne montre jamais qu’une partie de la fonction, et il peut tromper.
 
-::: {#activite-3-1 data-sorte="activite" data-num="3.1" data-page="33" data-phys="36" data-id="5UAA3.graphique-trompeur" data-type="activite" data-tags="" .theo .theo-activite}
+::: {#activite-3-1 data-sorte="activite" data-num="3.1" data-page="32" data-phys="35" data-id="5UAA3.graphique-trompeur" data-type="activite" data-tags="" .theo .theo-activite}
 ::: {.theo-head}
 **Activité 3.1** — un graphique trompeur
 :::

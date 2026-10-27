@@ -4,7 +4,7 @@ title: "Exercices"
 
 <!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
 
-::: {#exercice-4-1 data-sorte="exercice" data-num="4.1" data-page="51" data-phys="54" data-id="5UAA3.ex.031" data-type="exercice" data-tags="maison" .exo}
+::: {#exercice-4-1 data-sorte="exercice" data-num="4.1" data-page="48" data-phys="51" data-id="5UAA3.ex.031" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
 [✎ Exercice 4.1]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A2]{.exo-comp} ★☆☆]{.exo-meta}
 :::
@@ -58,7 +58,7 @@ Quel est le terme de plus haut degré ? Pour un produit, quel est le terme de pl
 :::
 :::
 
-::: {#exercice-4-2 data-sorte="exercice" data-num="4.2" data-page="51" data-phys="54" data-id="5UAA3.ex.032" data-type="exercice" data-tags="maison" .exo}
+::: {#exercice-4-2 data-sorte="exercice" data-num="4.2" data-page="49" data-phys="52" data-id="5UAA3.ex.032" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
 [✎ Exercice 4.2]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A5]{.exo-comp} ★☆☆]{.exo-meta}
 :::
@@ -97,7 +97,7 @@ Exercice 3.3 : numérateur de degré $0$, dénominateur de degré $3$ : la limit
 :::
 :::
 
-::: {#exercice-4-3 data-sorte="exercice" data-num="4.3" data-page="51" data-phys="54" data-id="5UAA3.ex.033" data-type="exercice" data-tags="" .exo}
+::: {#exercice-4-3 data-sorte="exercice" data-num="4.3" data-page="49" data-phys="52" data-id="5UAA3.ex.033" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
 [✎ Exercice 4.3]{.exo-titre} [[A5]{.exo-comp} ★★☆]{.exo-meta}
 :::
@@ -138,7 +138,7 @@ Divise $3x^{2} - 1$ par $x - 3$ : premier terme du quotient $3x$ ; $3x(x - 3) = 
 :::
 :::
 
-::: {#exercice-4-4 data-sorte="exercice" data-num="4.4" data-page="51" data-phys="54" data-id="5UAA3.ex.034" data-type="exercice" data-tags="" .exo}
+::: {#exercice-4-4 data-sorte="exercice" data-num="4.4" data-page="49" data-phys="52" data-id="5UAA3.ex.034" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
 [✎ Exercice 4.4]{.exo-titre} [[C4]{.exo-comp} ★★☆]{.exo-meta}
 :::
@@ -176,7 +176,7 @@ Repense à l’[activité « un graphique trompeur »](../ch3-chercher-les-point
 :::
 :::
 
-::: {#exercice-4-5 data-sorte="exercice" data-num="4.5" data-page="51" data-phys="54" data-id="5UAA3.ex.035" data-type="exercice" data-tags="" .exo}
+::: {#exercice-4-5 data-sorte="exercice" data-num="4.5" data-page="49" data-phys="52" data-id="5UAA3.ex.035" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
 [✎ Exercice 4.5]{.exo-titre} [[A6]{.exo-comp} ★★☆]{.exo-meta}
 :::
@@ -239,7 +239,7 @@ Pour $g$ : en $x = 1000$, le graphique est encore nettement au-dessus de l’asy
 :::
 :::
 
-::: {#exercice-4-6 data-sorte="exercice" data-num="4.6" data-page="52" data-phys="55" data-id="5UAA3.ex.036" data-type="exercice" data-tags="" .exo}
+::: {#exercice-4-6 data-sorte="exercice" data-num="4.6" data-page="50" data-phys="53" data-id="5UAA3.ex.036" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
 [✎ Exercice 4.6]{.exo-titre} [[A3]{.exo-comp} ★★☆]{.exo-meta}
 :::
@@ -301,7 +301,7 @@ $f_{1}(x) = \frac{4x^{2}}{2x^{2}+1}$ : le dénominateur ne s’annule jamais ; l
 :::
 :::
 
-::: {#exercice-4-7 data-sorte="exercice" data-num="4.7" data-page="52" data-phys="55" data-id="5UAA3.ex.037" data-type="exercice" data-tags="" .exo}
+::: {#exercice-4-7 data-sorte="exercice" data-num="4.7" data-page="50" data-phys="53" data-id="5UAA3.ex.037" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
 [✎ Exercice 4.7]{.exo-titre} [[T3]{.exo-comp} ★★★]{.exo-meta}
 :::
@@ -383,7 +383,7 @@ $f_{2}(x) = \frac{x}{(x-1)^{2}}$ : degrés $1 < 2$, donc A.H. $y = 0$. Et près 
 :::
 :::
 
-::: {#exercice-4-8 data-sorte="exercice" data-num="4.8" data-page="53" data-phys="56" data-id="5UAA3.ex.038" data-type="exercice" data-tags="maison" .exo}
+::: {#exercice-4-8 data-sorte="exercice" data-num="4.8" data-page="51" data-phys="54" data-id="5UAA3.ex.038" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
 [✎ Exercice 4.8]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A1]{.exo-comp} ★★☆]{.exo-meta}
 :::
@@ -415,8 +415,8 @@ $f$ : $x^{2} - x - 6 = (x-3)(x+2)$ ; limites en $-2$, en $3$ et en $\pm \infty$.
 
 ## Solution {.unlisted}
 
-a) $f$ : $\operatorname{dom}(f) = \mathbb{R} \setminus \{-2 ; 3\}$. En $3$ : $f(x) = \frac{x+3}{x+2}$ pour $x \neq 3$, limite $\frac{6}{5}$, point creux $(3 ; \frac{6}{5})$. En $-2$ : A.V. ; $\lim\limits_{\substack{x \to -2 \\ x < -2}} f(x) = -\infty$, $\lim\limits_{\substack{x \to -2 \\ x > -2}} f(x) = +\infty$. En $\pm \infty$ : A.H. $y = 1$.
-b) $g$ : $\operatorname{dom}(g) = \mathbb{R} \setminus \{-1\}$. En $-1$ : numérateur $2$, A.V. ; $\lim\limits_{\substack{x \to -1 \\ x < -1}} g(x) = -\infty$, $\lim\limits_{\substack{x \to -1 \\ x > -1}} g(x) = +\infty$. En $\pm \infty$ : $x^{2} + 1 = (x+1)(x-1) + 2$, A.O. $y = x - 1$.
+a) $f$ : $\operatorname{dom}(f) = \mathbb{R} \setminus \{-2 ; 3\}$. En $3$ : $f(x) = \frac{x+3}{x+2}$ pour $x \neq 3$, limite $\frac{6}{5}$, point creux $(3 ; \frac{6}{5})$. En $-2$ : A.V. ; $\lim\limits_{x \overset{<}{\to} -2} f(x) = -\infty$, $\lim\limits_{x \overset{>}{\to} -2} f(x) = +\infty$. En $\pm \infty$ : A.H. $y = 1$.
+b) $g$ : $\operatorname{dom}(g) = \mathbb{R} \setminus \{-1\}$. En $-1$ : numérateur $2$, A.V. ; $\lim\limits_{x \overset{<}{\to} -1} g(x) = -\infty$, $\lim\limits_{x \overset{>}{\to} -1} g(x) = +\infty$. En $\pm \infty$ : $x^{2} + 1 = (x+1)(x-1) + 2$, A.O. $y = x - 1$.
 c) $h$ : $\operatorname{dom}(h) = \mathbb{R}$ ; seules les limites en $\pm \infty$ comptent : $0$, A.H. $y = 0$.
 
 ## Pièges {.unlisted}
@@ -426,7 +426,7 @@ c) $h$ : $\operatorname{dom}(h) = \mathbb{R}$ ; seules les limites en $\pm \inft
 :::
 :::
 
-::: {#exercice-4-9 data-sorte="exercice" data-num="4.9" data-page="53" data-phys="56" data-id="5UAA3.ex.039" data-type="exercice" data-tags="maison" .exo}
+::: {#exercice-4-9 data-sorte="exercice" data-num="4.9" data-page="51" data-phys="54" data-id="5UAA3.ex.039" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
 [✎ Exercice 4.9]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C3]{.exo-comp} ★★☆]{.exo-meta}
 :::
@@ -472,7 +472,7 @@ Pour $f$ : $n = 2 = m + 1$.
 :::
 :::
 
-::: {#exercice-4-10 data-sorte="exercice" data-num="4.10" data-page="54" data-phys="57" data-id="5UAA3.ex.040" data-type="exercice" data-tags="maison" .exo}
+::: {#exercice-4-10 data-sorte="exercice" data-num="4.10" data-page="51" data-phys="54" data-id="5UAA3.ex.040" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
 [✎ Exercice 4.10]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C3]{.exo-comp} ★★☆]{.exo-meta}
 :::
@@ -484,7 +484,7 @@ Soit $f(x) = \frac{x^{2} + x}{x - 2}$.
 
 a) $\operatorname{dom}(f) = \mathbb{R} \setminus \{2\}$.
 b) En $2$, le numérateur vaut $4 + 2 = 6 \neq 0$ : la droite $x = 2$ est une A.V.
-c) Juste à gauche de $2$, $x - 2 < 0$, donc $\lim\limits_{\substack{x \to 2 \\ x < 2}} f(x) = -\infty$ ; juste à droite, $\lim\limits_{\substack{x \to 2 \\ x > 2}} f(x) = +\infty$.
+c) Juste à gauche de $2$, $x - 2 < 0$, donc $\lim\limits_{x \overset{<}{\to} 2} f(x) = -\infty$ ; juste à droite, $\lim\limits_{x \overset{>}{\to} 2} f(x) = +\infty$.
 d) $\lim\limits_{x \to \pm \infty} f(x) = \lim\limits_{x \to \pm \infty} \frac{x^{2}}{x} = \lim\limits_{x \to \pm \infty} x$ : $-\infty$ en $-\infty$, $+\infty$ en $+\infty$. Pas d’A.H.
 e) Le degré du numérateur dépasse de $1$ celui du dénominateur. Division euclidienne : $x^{2} + x = (x - 2)(x + 3) + 6$, donc $f(x) = x + 3 + \frac{6}{x - 2}$.
 f) $\lim\limits_{x \to \pm \infty} \frac{6}{x - 2} = 0$, donc la droite $y = x + 3$ est une A.O. des deux côtés.
@@ -520,7 +520,7 @@ f) Définition de l’A.O. : l’écart $f(x) - (x + 3) = \frac{6}{x-2}$ tend ve
 :::
 :::
 
-::: {#exercice-4-11 data-sorte="exercice" data-num="4.11" data-page="54" data-phys="57" data-id="5UAA3.ex.041" data-type="exercice" data-tags="" .exo}
+::: {#exercice-4-11 data-sorte="exercice" data-num="4.11" data-page="52" data-phys="55" data-id="5UAA3.ex.041" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
 [✎ Exercice 4.11]{.exo-titre} [[C4]{.exo-comp} ★★☆]{.exo-meta}
 :::
@@ -529,7 +529,7 @@ f) Définition de l’A.O. : l’écart $f(x) - (x + 3) = \frac{6}{x-2}$ tend ve
 Voici la copie d’un élève pour $f(x) = \frac{x^{2} - 1}{x^{2} - 3x + 2}$. Elle contient plusieurs erreurs de raisonnement (même quand le résultat est juste). Trouve-les, explique-les et corrige-les.
 
 a) « Le dénominateur s’annule en $1$ et en $2$. En $1$, on ne peut pas diviser par $0$, donc la droite $x = 1$ est une A.V. »
-b) « En $2$, le numérateur vaut $3$. Juste à gauche de $2$, $f(x)$ est très grand, donc $\lim\limits_{\substack{x \to 2 \\ x < 2}} f(x) = +\infty$. »
+b) « En $2$, le numérateur vaut $3$. Juste à gauche de $2$, $f(x)$ est très grand, donc $\lim\limits_{x \overset{<}{\to} 2} f(x) = +\infty$. »
 c) « En $+\infty$, le numérateur et le dénominateur valent $+\infty$, et $\frac{+\infty}{+\infty} = 1$. Donc $\lim\limits_{x \to +\infty} f(x) = 1$. »
 d) « En $-\infty$, $x$ est très petit, donc proche de $0$ : $f(x)$ est proche de $f(0) = -\frac{1}{2}$. »
 
@@ -557,7 +557,7 @@ Phrase 1 : que vaut le numérateur $x^{2} - 1$ en $1$ ?
 $f(x) = \frac{(x-1)(x+1)}{(x-1)(x-2)}$.
 
 a) Faux : en $1$, le numérateur vaut aussi $0$. On simplifie : $f(x) = \frac{x+1}{x-2}$ pour $x \neq 1$, et la limite vaut $\frac{2}{-1} = -2$ : point creux en $(1 ; -2)$, pas d’A.V.
-b) Faux : « très grand » sans signe. Numérateur $\approx 3 > 0$, $x - 1 \approx 1 > 0$, $x - 2 < 0$ à gauche : $\lim\limits_{\substack{x \to 2 \\ x < 2}} f(x) = -\infty$ (le résultat était faux aussi).
+b) Faux : « très grand » sans signe. Numérateur $\approx 3 > 0$, $x - 1 \approx 1 > 0$, $x - 2 < 0$ à gauche : $\lim\limits_{x \overset{<}{\to} 2} f(x) = -\infty$ (le résultat était faux aussi).
 c) Résultat juste, raisonnement faux : $\frac{+\infty}{+\infty}$ n’est pas un calcul. Correct : $\lim\limits_{x \to +\infty} \frac{x^{2}}{x^{2}} = 1$.
 d) Faux : en $-\infty$, $x$ est négatif et très grand en valeur absolue, pas proche de $0$. La limite vaut $1$ (A.H. $y = 1$).
 
@@ -570,7 +570,7 @@ Autre copie : une limite infinie ne suffit pas. Il faudrait une droite dont l’
 :::
 :::
 
-::: {#exercice-4-12 data-sorte="exercice" data-num="4.12" data-page="54" data-phys="57" data-id="5UAA3.ex.042" data-type="exercice" data-tags="maison" .exo}
+::: {#exercice-4-12 data-sorte="exercice" data-num="4.12" data-page="52" data-phys="55" data-id="5UAA3.ex.042" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
 [✎ Exercice 4.12]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C2]{.exo-comp} ★★☆]{.exo-meta}
 :::
@@ -604,7 +604,7 @@ Par exemple $f(x) = \frac{2x+1}{x-3}$ : en $+\infty$, le numérateur et le déno
 :::
 :::
 
-::: {#exercice-4-13 data-sorte="exercice" data-num="4.13" data-page="54" data-phys="57" data-id="5UAA3.ex.043" data-type="exercice" data-tags="maison" .exo}
+::: {#exercice-4-13 data-sorte="exercice" data-num="4.13" data-page="52" data-phys="55" data-id="5UAA3.ex.043" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
 [✎ Exercice 4.13]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[T2]{.exo-comp} ★★★]{.exo-meta}
 :::
@@ -638,7 +638,7 @@ $f(x) = x - 3 + \frac{1}{x-1} = \frac{(x-3)(x-1) + 1}{x-1} = \frac{x^{2} - 4x + 
 :::
 :::
 
-::: {#exercice-4-14 data-sorte="exercice" data-num="4.14" data-page="54" data-phys="57" data-id="5UAA3.ex.044" data-type="exercice" data-tags="" .exo}
+::: {#exercice-4-14 data-sorte="exercice" data-num="4.14" data-page="52" data-phys="55" data-id="5UAA3.ex.044" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
 [✎ Exercice 4.14]{.exo-titre} [[T1]{.exo-comp} ★★★]{.exo-meta}
 :::
@@ -667,7 +667,7 @@ $x^{2} - 4 = (x-2)(x+2)$ et $x^{2} - x - 2 = (x-2)(x+1)$ : simplifie par $(x - 2
 ::: {.solution-classe}
 a) Domaine : $\mathbb{R} \setminus \{-1 ; 2\}$.
 b) En $2$ : $f(x) = \frac{x+2}{x+1}$ pour $x \neq 2$ ; limite $\frac{4}{3}$ : point creux $(2 ; \frac{4}{3})$.
-c) En $-1$ : numérateur $1 \neq 0$ : A.V. $x = -1$ ; $\lim\limits_{\substack{x \to -1 \\ x < -1}} f(x) = -\infty$, $\lim\limits_{\substack{x \to -1 \\ x > -1}} f(x) = +\infty$.
+c) En $-1$ : numérateur $1 \neq 0$ : A.V. $x = -1$ ; $\lim\limits_{x \overset{<}{\to} -1} f(x) = -\infty$, $\lim\limits_{x \overset{>}{\to} -1} f(x) = +\infty$.
 d) En $\pm \infty$ : degrés égaux, A.H. $y = 1$.
 e) Esquisse : $f$ s’annule en $-2$ et vaut $2$ en $0$ ; signe : $+$ avant $-2$, $-$ entre $-2$ et $-1$, $+$ après $-1$. On obtient une hyperbole d’asymptotes $x = -1$ et $y = 1$, avec un trou en $(2 ; \frac{4}{3})$.
 :::

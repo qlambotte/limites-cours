@@ -4,7 +4,7 @@ title: "Un trou dans le graphique"
 
 <!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
 
-::: {#activite-2-3 data-sorte="activite" data-num="2.3" data-page="19" data-phys="22" data-id="5UAA3.valeur-interdite-point-creux" data-type="activite" data-tags="" .theo .theo-activite}
+::: {#activite-2-3 data-sorte="activite" data-num="2.3" data-page="18" data-phys="21" data-id="5UAA3.valeur-interdite-point-creux" data-type="activite" data-tags="" .theo .theo-activite}
 ::: {.theo-head}
 **Activité 2.3** — une valeur interdite, un point creux
 :::

@@ -77,7 +77,7 @@ $$
 
 ### Définition
 
-::: {#ess-definition-2-1 data-sorte="definition" data-num="2.1" data-page="20" data-phys="23" data-id="5UAA3.limite-fonction" data-type="definition" data-tags="" .theo .theo-definition}
+::: {#ess-definition-2-1 data-sorte="definition" data-num="2.1" data-page="19" data-phys="22" data-id="5UAA3.limite-fonction" data-type="definition" data-tags="" .theo .theo-definition}
 ::: {.theo-head}
 **Définition 2.1** — limite d’une fonction
 :::
@@ -101,7 +101,7 @@ $$
 
 ### Quand une limite a-t-elle un sens ?
 
-::: {#ess-definition-2-2 data-sorte="definition" data-num="2.2" data-page="22" data-phys="25" data-id="5UAA3.valeur-colle-domaine" data-type="definition" data-tags="" .theo .theo-definition}
+::: {#ess-definition-2-2 data-sorte="definition" data-num="2.2" data-page="21" data-phys="24" data-id="5UAA3.valeur-colle-domaine" data-type="definition" data-tags="" .theo .theo-definition}
 ::: {.theo-head}
 **Définition 2.2** — valeur qui « colle au domaine »
 :::
@@ -134,7 +134,7 @@ Soit $f$ une fonction et $a$ un réel ou $\pm \infty$.
 
 ### Limites à gauche et à droite
 
-::: {#ess-definition-2-3 data-sorte="definition" data-num="2.3" data-page="23" data-phys="26" data-id="5UAA3.limites-gauche-droite-2" data-type="definition" data-tags="" .theo .theo-definition}
+::: {#ess-definition-2-3 data-sorte="definition" data-num="2.3" data-page="22" data-phys="25" data-id="5UAA3.limites-gauche-droite-2" data-type="definition" data-tags="" .theo .theo-definition}
 ::: {.theo-head}
 **Définition 2.3** — limites à gauche et à droite
 :::
@@ -145,12 +145,12 @@ Soit $f$ une fonction, $a \in \mathbb{R}$ et $b$ un nombre réel ou $\pm \infty$
 - On dit que la **limite à gauche** de $f(x)$ quand $x$ tend vers $a$ vaut $b$ si, lorsque $x$ (pris dans le domaine de $f$ et **strictement inférieur** à $a$) se rapproche autant qu’on veut de $a$, $f(x)$ se rapproche autant qu’on veut de $b$. Ceci se note
 
   $$
-  \lim\limits_{\substack{x \to a \\ x < a}} f(x) = b.
+  \lim\limits_{x \overset{<}{\to} a} f(x) = b.
   $$
 - On dit que la **limite à droite** de $f(x)$ quand $x$ tend vers $a$ vaut $b$ si, lorsque $x$ (pris dans le domaine de $f$ et **strictement supérieur** à $a$) se rapproche autant qu’on veut de $a$, $f(x)$ se rapproche autant qu’on veut de $b$. Ceci se note
 
   $$
-  \lim\limits_{\substack{x \to a \\ x > a}} f(x) = b.
+  \lim\limits_{x \overset{>}{\to} a} f(x) = b.
   $$
 :::
 :::
@@ -159,7 +159,7 @@ Soit $f$ une fonction, $a \in \mathbb{R}$ et $b$ un nombre réel ou $\pm \infty$
 [↗ dans le cours](ch2-limites-definition-e/6-limites-a-gauche-et-a.qmd#definition-2-3)
 :::
 
-::: {#ess-propriete-2-2 data-sorte="propriete" data-num="2.2" data-page="24" data-phys="27" data-id="5UAA3.prop.001" data-type="propriete" data-tags="" .theo .theo-propriete}
+::: {#ess-propriete-2-2 data-sorte="propriete" data-num="2.2" data-page="23" data-phys="26" data-id="5UAA3.prop.001" data-type="propriete" data-tags="" .theo .theo-propriete}
 ::: {.theo-head}
 **Propriété 2.2**
 :::
@@ -168,7 +168,7 @@ Soit $f$ une fonction, $a \in \mathbb{R}$ et $b$ un nombre réel ou $\pm \infty$
 Soit $f$ une fonction définie à gauche et à droite de $a \in \mathbb{R}$, et $b$ un nombre réel ou $\pm \infty$. Alors $\lim\limits_{x \to a} f(x) = b$ si et seulement si
 
 $$
-\lim\limits_{\substack{x \to a \\ x < a}} f(x) = b \quad \text{et} \quad \lim\limits_{\substack{x \to a \\ x > a}} f(x) = b,
+\lim\limits_{x \overset{<}{\to} a} f(x) = b \quad \text{et} \quad \lim\limits_{x \overset{>}{\to} a} f(x) = b,
 $$
 
 et, si $f(a)$ existe, $f(a) = b$.
@@ -183,7 +183,7 @@ et, si $f(a)$ existe, $f(a) = b$.
 
 ### Les fonctions rationnelles
 
-::: {#ess-definition-3-1 data-sorte="definition" data-num="3.1" data-page="34" data-phys="37" data-id="5UAA3.fonction-rationnelle" data-type="definition" data-tags="" .theo .theo-definition}
+::: {#ess-definition-3-1 data-sorte="definition" data-num="3.1" data-page="33" data-phys="36" data-id="5UAA3.fonction-rationnelle" data-type="definition" data-tags="" .theo .theo-definition}
 ::: {.theo-head}
 **Définition 3.1** — fonction rationnelle
 :::
@@ -199,7 +199,7 @@ Une **fonction rationnelle** est un quotient de deux fonctions polynomiales : $f
 
 ### En un point du domaine : rien à chercher
 
-::: {#ess-propriete-3-1 data-sorte="propriete" data-num="3.1" data-page="35" data-phys="38" data-id="5UAA3.limite-point-domaine" data-type="propriete" data-tags="" .theo .theo-propriete}
+::: {#ess-propriete-3-1 data-sorte="propriete" data-num="3.1" data-page="33" data-phys="36" data-id="5UAA3.limite-point-domaine" data-type="propriete" data-tags="" .theo .theo-propriete}
 ::: {.theo-head}
 **Propriété 3.1** — limite en un point du domaine
 :::
@@ -221,7 +221,7 @@ Autrement dit, pour calculer la limite, il suffit de remplacer $x$ par $a$.
 
 ### En une valeur interdite : point creux ou asymptote verticale ?
 
-::: {#ess-definition-3-2 data-sorte="definition" data-num="3.2" data-page="36" data-phys="39" data-id="5UAA3.asymptote-verticale-point-creux" data-type="definition" data-tags="" .theo .theo-definition}
+::: {#ess-definition-3-2 data-sorte="definition" data-num="3.2" data-page="35" data-phys="38" data-id="5UAA3.asymptote-verticale-point-creux" data-type="definition" data-tags="" .theo .theo-definition}
 ::: {.theo-head}
 **Définition 3.2** — asymptote verticale, point creux
 :::
@@ -238,7 +238,7 @@ Soit $f$ une fonction et $a$ un réel qui colle au domaine de $f$.
 [↗ dans le cours](ch3-chercher-les-points/4-en-une-valeur-interdite-point.qmd#definition-3-2)
 :::
 
-::: {#ess-propriete-3-2 data-sorte="propriete" data-num="3.2" data-page="37" data-phys="40" data-id="5UAA3.valeur-interdite-n-annule-numerateur" data-type="propriete" data-tags="" .theo .theo-propriete}
+::: {#ess-propriete-3-2 data-sorte="propriete" data-num="3.2" data-page="35" data-phys="38" data-id="5UAA3.valeur-interdite-n-annule-numerateur" data-type="propriete" data-tags="" .theo .theo-propriete}
 ::: {.theo-head}
 **Propriété 3.2** — valeur interdite qui n’annule pas le numérateur
 :::
@@ -256,7 +256,7 @@ Soit $f(x) = \frac{P(x)}{Q(x)}$ une fonction rationnelle et $a$ une valeur inter
 
 ### Les polynômes en $\pm \infty$ : le terme qui l’emporte
 
-::: {#ess-propriete-4-1 data-sorte="propriete" data-num="4.1" data-page="43" data-phys="46" data-id="5UAA3.polynome" data-type="propriete" data-tags="" .theo .theo-propriete}
+::: {#ess-propriete-4-1 data-sorte="propriete" data-num="4.1" data-page="41" data-phys="44" data-id="5UAA3.polynome" data-type="propriete" data-tags="" .theo .theo-propriete}
 ::: {.theo-head}
 **Propriété 4.1** — polynôme en $\pm \infty$
 :::
@@ -276,7 +276,7 @@ $$
 
 ### Les fonctions rationnelles en $\pm \infty$ : asymptote horizontale ?
 
-::: {#ess-propriete-4-2 data-sorte="propriete" data-num="4.2" data-page="44" data-phys="47" data-id="5UAA3.fonction-rationnelle-2" data-type="propriete" data-tags="" .theo .theo-propriete}
+::: {#ess-propriete-4-2 data-sorte="propriete" data-num="4.2" data-page="42" data-phys="45" data-id="5UAA3.fonction-rationnelle-2" data-type="propriete" data-tags="" .theo .theo-propriete}
 ::: {.theo-head}
 **Propriété 4.2** — fonction rationnelle en $\pm \infty$
 :::
@@ -294,7 +294,7 @@ $$
 [↗ dans le cours](ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.qmd#propriete-4-2)
 :::
 
-::: {#ess-definition-4-1 data-sorte="definition" data-num="4.1" data-page="44" data-phys="47" data-id="5UAA3.asymptote-horizontale" data-type="definition" data-tags="" .theo .theo-definition}
+::: {#ess-definition-4-1 data-sorte="definition" data-num="4.1" data-page="42" data-phys="45" data-id="5UAA3.asymptote-horizontale" data-type="definition" data-tags="" .theo .theo-definition}
 ::: {.theo-head}
 **Définition 4.1** — asymptote horizontale
 :::
@@ -312,7 +312,7 @@ $$
 [↗ dans le cours](ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.qmd#definition-4-1)
 :::
 
-::: {#ess-propriete-4-3 data-sorte="propriete" data-num="4.3" data-page="45" data-phys="48" data-id="5UAA3.h-fonction-rationnelle" data-type="propriete" data-tags="" .theo .theo-propriete}
+::: {#ess-propriete-4-3 data-sorte="propriete" data-num="4.3" data-page="43" data-phys="46" data-id="5UAA3.h-fonction-rationnelle" data-type="propriete" data-tags="" .theo .theo-propriete}
 ::: {.theo-head}
 **Propriété 4.3** — A.H. d’une fonction rationnelle
 :::
@@ -332,7 +332,7 @@ Soit $f$ une fonction rationnelle, $n$ le degré de son numérateur et $m$ celui
 
 ### Asymptote oblique
 
-::: {#ess-definition-4-2 data-sorte="definition" data-num="4.2" data-page="46" data-phys="49" data-id="5UAA3.asymptote-oblique-2" data-type="definition" data-tags="" .theo .theo-definition}
+::: {#ess-definition-4-2 data-sorte="definition" data-num="4.2" data-page="44" data-phys="47" data-id="5UAA3.asymptote-oblique-2" data-type="definition" data-tags="" .theo .theo-definition}
 ::: {.theo-head}
 **Définition 4.2** — asymptote oblique
 :::
@@ -350,7 +350,7 @@ $$
 [↗ dans le cours](ch4-chercher-les-asympto/3-asymptote-oblique.qmd#definition-4-2)
 :::
 
-::: {#ess-propriete-4-4 data-sorte="propriete" data-num="4.4" data-page="48" data-phys="51" data-id="5UAA3.o-fonction-rationnelle" data-type="propriete" data-tags="" .theo .theo-propriete}
+::: {#ess-propriete-4-4 data-sorte="propriete" data-num="4.4" data-page="46" data-phys="49" data-id="5UAA3.o-fonction-rationnelle" data-type="propriete" data-tags="" .theo .theo-propriete}
 ::: {.theo-head}
 **Propriété 4.4** — A.O. d’une fonction rationnelle
 :::

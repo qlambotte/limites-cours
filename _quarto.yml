@@ -10,8 +10,6 @@ project:
     - js/*.json
     - index.json
     - sw.js
-    - prof-classe/classe.json
-    - prof-classe/index.html
     - limites.pdf
     - limites-corrige.pdf
 
@@ -77,6 +75,7 @@ format:
   html:
     theme:
       - cosmo
+      - polices.scss
       - theme.scss
       - styles-essai.scss
     include-in-header:

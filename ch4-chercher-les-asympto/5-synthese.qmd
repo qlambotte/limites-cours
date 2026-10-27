@@ -18,7 +18,7 @@ title: "Synthèse"
 4. **Esquisse** le graphique à partir de ces informations, et vérifie-la avec une calculatrice graphique.
 :::
 
-::: {#exemple-4-4 data-sorte="exemple" data-num="4.4" data-page="50" data-phys="53" data-id="5UAA3.etude-complete" data-type="exemple" data-tags="" .theo .theo-exemple}
+::: {#exemple-4-4 data-sorte="exemple" data-num="4.4" data-page="47" data-phys="50" data-id="5UAA3.etude-complete" data-type="exemple" data-tags="" .theo .theo-exemple}
 ::: {.theo-head}
 **Exemple 4.4** — une étude complète
 :::
@@ -38,7 +38,7 @@ Soit $f(x) = \frac{x^{2} + 2x - 3}{x^{2} - 1}$.
    | $f(x)$ |   | [$+$]{.rep} | [$0$]{.rep} | [$-$]{.rep} | [$\Vert$]{.rep} | [$+$]{.rep} |   |
    :::
 
-   D’où $\lim\limits_{\substack{x \to -1 \\ x < -1}} f(x) = \class{rep}{-\infty}$ et $\lim\limits_{\substack{x \to -1 \\ x > -1}} f(x) = \class{rep}{+\infty}$.
+   D’où $\lim\limits_{x \overset{<}{\to} -1} f(x) = \class{rep}{-\infty}$ et $\lim\limits_{x \overset{>}{\to} -1} f(x) = \class{rep}{+\infty}$.
 4. **En $\pm \infty$.** Les degrés sont égaux : $\lim\limits_{x \to \pm \infty} f(x) = \lim\limits_{x \to \pm \infty} \frac{x^{2}}{x^{2}} = \class{rep}{1}$, donc [A.H. d’équation $y = 1$]{.rep}.
 
 ```{=html}

@@ -73,16 +73,33 @@
     catch (e) { a = Math.random().toString(36).slice(2, 12); }
     return Date.now().toString(36) + "-" + a;
   }
+  // Identifiant d'appareil (P5) : fixé à la configuration de la synchronisation ; sert à départager deux
+  // événements simultanés au moment de la fusion. Absent tant que la synchronisation n'est pas configurée.
+  function appareilId() {
+    try { var j = JSON.parse(localStorage.getItem("typweb.sync.v1") || "null"); return j && typeof j.appareil === "string" ? j.appareil : ""; }
+    catch (e) { return ""; }
+  }
   function ajouter(classe, el, action, extra) {
     if (lectureSeule || !classe || !el) return false;
     var ev = lire();                                   // relire juste avant d'écrire (autres onglets)
     if (lectureSeule) return false;
-    var e = { id: idEvenement(), t: Date.now(), c: classe, el: el, a: action };
+    // Horodatage « causal » : un geste est toujours daté après tout événement déjà connu sur le même
+    // (classe, élément), même si celui-ci vient d'un appareil dont l'horloge avance (P5).
+    var t = Date.now(), i;
+    for (i = 0; i < ev.length; i++) if (ev[i] && ev[i].c === classe && ev[i].el === el && ev[i].t >= t) t = ev[i].t + 1;
+    var e = { id: idEvenement(), t: t, c: classe, el: el, a: action }, d = appareilId();
+    if (d) e.d = d;
     if (extra) Object.keys(extra).forEach(function (k) { if (!(k in e)) e[k] = extra[k]; });
     ev.push(e);
     var ok = ecrire(ev);
     if (ok) notifier();
     return ok;
+  }
+  // Ordre total des événements, identique sur tous les appareils : (t, appareil, id), comparaison de chaînes
+  // par points de code (pas de localeCompare : son résultat dépend de la langue du navigateur).
+  function cmpEv(a, b) {
+    var da = String(a.d || ""), db = String(b.d || "");
+    return a.t - b.t || (da < db ? -1 : da > db ? 1 : 0) || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
   }
   function jourDe(t) {                                 // AAAA-MM-JJ, heure locale de l'appareil
     var d = new Date(t), m = d.getMonth() + 1, j = d.getDate();
@@ -138,26 +155,40 @@
 
   /* ---------- état dérivé du journal ---------- */
   // { élément: { t, jour } } pour les éléments actuellement « vu » dans la classe
-  function etat(classe) {
-    classe = classe || classeActive();
-    var dernier = {}, out = {}, ev = lire(), i, e;
+  // Dernier événement « vu » / « annule » par élément, selon (t, appareil, id), quel que soit l'ordre du tableau.
+  // Un « annule » qui porte `ref` annule CE « vu » seulement (erreur de clic sur un élément revu : la marque
+  // d'une séance précédente réapparaît) ; un « annule » sans `ref` (ancien format, API annuler) retire l'élément.
+  function derniers(ev, classe) {
+    var dernier = {}, annules = {}, i, e;
+    for (i = 0; i < ev.length; i++) { e = ev[i]; if (e && e.c === classe && e.a === "annule" && e.ref) annules[e.ref] = 1; }
     for (i = 0; i < ev.length; i++) {
       e = ev[i];
-      if (e && e.c === classe && (e.a === "vu" || e.a === "annule")) dernier[e.el] = e;
+      if (!e || e.c !== classe || (e.a !== "vu" && e.a !== "annule")) continue;
+      if (e.a === "annule" && e.ref) continue;
+      if (e.a === "vu" && annules[e.id]) continue;
+      if (!dernier[e.el] || cmpEv(e, dernier[e.el]) > 0) dernier[e.el] = e;
     }
+    return dernier;
+  }
+  function etat(classe) {
+    classe = classe || classeActive();
+    var out = {}, dernier = derniers(lire(), classe);
     Object.keys(dernier).forEach(function (el) {
       if (dernier[el].a === "vu") out[el] = { t: dernier[el].t, jour: jourDe(dernier[el].t) };
     });
     return out;
   }
   function dansCours(id, prefixe) { return !prefixe || id.indexOf(prefixe + ".") === 0; }
+  // Point d'arrêt : l'élément vu le plus AVANCÉ dans le cours (ordre de index.json) ; revoir une définition
+  // d'un chapitre précédent ne fait donc pas reculer la reprise. Sans index : le plus récent.
   function dernierMarque(classe, prefixe) {
-    var s = etat(classe), best = null;
+    var s = etat(classe), best = null, pos = positions();
     Object.keys(s).forEach(function (el) {
       if (!dansCours(el, prefixe)) return;
-      if (!best || s[el].t >= best.t) best = { el: el, t: s[el].t };
+      var p = pos ? (pos[el] === undefined ? -1 : pos[el]) : 0;
+      if (!best || p > best.p || (p === best.p && s[el].t >= best.t)) best = { el: el, t: s[el].t, p: p };
     });
-    return best;
+    return best ? { el: best.el, t: best.t } : null;
   }
   function seance(classe, jour, prefixe) {
     jour = jour || jourDe(Date.now());
@@ -174,13 +205,19 @@
     return fetch(url, { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; })
       .then(function (j) {
         if (!j || !Array.isArray(j.elements)) return null;
-        index = j; enfants = {}; parId = {};
+        index = j; enfants = {}; parId = {}; pos = null;
         j.elements.forEach(function (e) {
           parId[e.id] = e;
           if (e.parent) (enfants[e.parent] = enfants[e.parent] || []).push(e.id);
         });
         return j;
       }).catch(function () { return null; });
+  }
+  var pos = null;
+  function positions() {                              // { id: rang dans index.json } ou null
+    if (!index) return null;
+    if (!pos) { pos = {}; index.elements.forEach(function (e, i) { pos[e.id] = i; }); }
+    return pos;
   }
   function marquableIndex(e) {
     return !!MARQUABLES[e.type] && (e.etiquettes || []).indexOf("maison") < 0;
@@ -295,7 +332,20 @@
     bOff.type = "button"; bOff.title = "Désactiver le mode prof sur cet appareil";
     var bExp = noeud("button", "tw-prof-btn", "Exporter les marques");
     bExp.type = "button";
+    var syncTxt = noeud("div", "tw-prof-sync"); syncTxt.hidden = true;
+    var bSync = noeud("button", "tw-prof-btn", "Synchroniser"); bSync.type = "button"; bSync.hidden = true;
+    bSync.addEventListener("click", function () { if (window.typwebSync) window.typwebSync.synchroniser(); });
     panneau.appendChild(sel); panneau.appendChild(compteur); panneau.appendChild(etatTxt);
+    panneau.appendChild(syncTxt); panneau.appendChild(bSync);
+    // Sonomètre (P8) : le module n'est chargé qu'au premier clic ; sonometre.js met à jour ce bouton
+    var bSon = noeud("button", "tw-prof-btn", "Sonomètre : arrêté ▶");
+    bSon.type = "button"; bSon.setAttribute("data-outil", "sonometre");
+    bSon.title = "Marche / arrêt du sonomètre de classe (touche S)";
+    bSon.addEventListener("click", function () { surSonometre(function (s) { s.basculer(); }); });
+    var bSonReg = noeud("button", "tw-prof-btn", "Réglages du sonomètre");
+    bSonReg.type = "button";
+    bSonReg.addEventListener("click", function () { surSonometre(function (s) { s.ouvrirReglages(true); }); });
+    panneau.appendChild(bSon); panneau.appendChild(bSonReg);
     panneau.appendChild(bExp); panneau.appendChild(bOff);
     bandeau.appendChild(puce); bandeau.appendChild(panneau);
     puce.addEventListener("click", function () { ouvrirBandeau(panneau.hidden); });
@@ -305,7 +355,9 @@
       location.reload();
     });
     bExp.addEventListener("click", exporter);
-    bandeau._r = { puce: puce, panneau: panneau, sel: sel, compteur: compteur, etat: etatTxt };
+    var alerte = noeud("div", "tw-prof-avis"); alerte.hidden = true; alerte.setAttribute("role", "status");
+    bandeau.appendChild(alerte);
+    bandeau._r = { puce: puce, panneau: panneau, sel: sel, compteur: compteur, etat: etatTxt, sync: syncTxt, bSync: bSync, alerte: alerte };
     document.body.appendChild(bandeau);
   }
   function ouvrirBandeau(oui) {
@@ -339,6 +391,14 @@
     r.etat.textContent = msg;
     r.etat.hidden = !msg;
   }
+  // État de la synchronisation dans le panneau (rien tant qu'aucun jeton n'est configuré sur l'appareil).
+  function majSync() {
+    if (!bandeau) return;
+    var r = bandeau._r, st = window.typwebSync && window.typwebSync.statut ? window.typwebSync.statut() : null;
+    var actif = !!st && st.etat !== "inactif";
+    r.sync.hidden = r.bSync.hidden = !actif;
+    if (actif) { r.sync.textContent = st.texte; r.sync.setAttribute("data-etat", st.etat); }
+  }
   function objetExport() {
     return { format: "typweb.prof.v1", exporte: new Date().toISOString(), v: SCHEMA, ev: lire() };
   }
@@ -361,7 +421,7 @@
       connus[e.id] = 1; cur.push(e); ajoutes++;
     });
     if (ajoutes) {
-      cur.sort(function (a, b) { return a.t - b.t || (a.id < b.id ? -1 : a.id > b.id ? 1 : 0); });
+      cur.sort(cmpEv);                                    // (t, appareil, id) : même ordre sur tous les appareils
       if (!ecrire(cur)) return { ok: false, erreur: erreurStockage };
       notifier();
     }
@@ -401,8 +461,10 @@
     var v = etat(classe)[id];
     // pas encore vu, ou vu à une séance précédente : on (re)marque pour aujourd'hui ;
     // vu aujourd'hui : on retire (erreur de clic)
-    if (v && v.jour === jourDe(now)) ajouter(classe, id, "annule");
-    else ajouter(classe, id, "vu");
+    if (v && v.jour === jourDe(now)) {
+      var d = derniers(lire(), classe)[id];
+      ajouter(classe, id, "annule", d && d.a === "vu" ? { ref: d.id } : null);
+    } else ajouter(classe, id, "vu");
   }
 
   /* ---------- reprise du cours (?reprise=1) ---------- */
@@ -447,6 +509,17 @@
     return true;
   }
 
+  // La classe active a été changée ailleurs (page de pilotage, autre onglet) : bien visible quelques secondes.
+  function signalerClasse(c) {
+    if (!bandeau) return;
+    var r = bandeau._r;
+    r.puce.classList.add("tw-prof-alerte");
+    r.alerte.textContent = "Classe active changée : " + c + " (autre onglet). Vérifie avant de marquer.";
+    r.alerte.hidden = false;
+    clearTimeout(signalerClasse.t);
+    signalerClasse.t = setTimeout(function () { r.puce.classList.remove("tw-prof-alerte"); r.alerte.hidden = true; }, 8000);
+  }
+
   /* ---------- abonnements, API ---------- */
   function notifier() {
     rendre();
@@ -454,11 +527,14 @@
   }
   window.addEventListener("storage", function (ev) {
     if (ev.key === CLE_CLASSES) appliquerClassesLocales();
+    if (ev.key === CLE_CLASSE && ev.newValue && ev.oldValue && ev.newValue !== ev.oldValue) signalerClasse(ev.newValue);
     if (ev.key === CLE || ev.key === CLE_CLASSE || ev.key === CLE_CLASSES || ev.key === null) notifier();
   });
 
   window.typwebProf = {
     version: SCHEMA,
+    // Fonctions disponibles : la page de pilotage refuse une couche trop ancienne (cours à reconstruire).
+    capacites: ["sync", "annule-ref", "arret-position", "banque-privee"],
     classes: function () { return classes.slice(); },
     classe: classeActive,
     fixerClasse: fixerClasse,
@@ -496,6 +572,73 @@
     document.head.appendChild(s);
   }
 
+  /* ---------- synchronisation (P5) : chargée avec la couche prof, inactive sans jeton configuré ---------- */
+  function chargerSync() {
+    if (window.typwebSync) { window.typwebSync.lier(window.typwebProf); relierSync(); return; }   // déjà chargée (page de pilotage)
+    if (!BASE) return;
+    var s = document.createElement("script");
+    s.src = BASE + "sync.js"; s.async = false;
+    s.onload = function () { relierSync(); };
+    s.onerror = function () { window.typwebProf.syncAbsente = true; };     // site sans sync.js (ancien site, test)
+    document.head.appendChild(s);
+  }
+  function relierSync() {
+    if (window.typwebSync && window.typwebSync.abonner) window.typwebSync.abonner(majSync);
+    majSync();
+  }
+
+  /* ---------- sonomètre (P8) : chargé À LA DEMANDE (bouton, touche S, reprise), jamais avec la couche ---------- */
+  var attenteSon = null;
+  function surSonometre(f) {
+    if (window.typwebSonometre) { f(window.typwebSonometre); return; }
+    if (!BASE) return;
+    if (!attenteSon) {
+      attenteSon = [];
+      var s = document.createElement("script");
+      s.src = BASE + "sonometre.js"; s.async = true;
+      s.onload = function () {
+        var liste = attenteSon; attenteSon = null;
+        liste.forEach(function (g) { if (window.typwebSonometre) g(window.typwebSonometre); });
+      };
+      s.onerror = function () { attenteSon = null; };
+      document.head.appendChild(s);
+    }
+    attenteSon.push(f);
+  }
+  // Clavier : V marque (ou retire) l'élément marquable au centre de l'écran, comme un clic.
+  function elementCentral() {
+    var y = window.innerHeight / 2, best = null, dmin = Infinity;
+    elementsPage().forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (!r.height) return;
+      var d = y < r.top ? r.top - y : (y > r.bottom ? y - r.bottom : 0);
+      if (d < dmin) { dmin = d; best = el; }
+    });
+    return best;
+  }
+  document.addEventListener("keydown", function (e) {
+    if ((e.key !== "v" && e.key !== "V") || e.ctrlKey || e.metaKey || e.altKey || e.repeat) return;
+    var c = e.target;
+    if (c && (c.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(c.tagName))) return;
+    if (document.documentElement.classList.contains("tv-ouvert")) return;      // écran de vote ouvert
+    var el = elementCentral();
+    if (!el) return;
+    var classe = classeActive();
+    if (!classe) { ouvrirBandeau(true); return; }
+    var id = el.getAttribute("data-id"), v = etat(classe)[id];
+    if (v && v.jour === jourDe(Date.now())) {
+      var d = derniers(lire(), classe)[id];
+      ajouter(classe, id, "annule", d && d.a === "vu" ? { ref: d.id } : null);
+    } else ajouter(classe, id, "vu");
+    el.classList.add("tw-reprise"); setTimeout(function () { el.classList.remove("tw-reprise"); }, 600);
+  });
+  document.addEventListener("keydown", function (e) {      // S : marche / arrêt (hors champs de saisie)
+    if ((e.key !== "s" && e.key !== "S") || e.ctrlKey || e.metaKey || e.altKey || e.repeat) return;
+    var c = e.target;
+    if (c && (c.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(c.tagName))) return;
+    surSonometre(function (s) { s.basculer(); });
+  });
+
   /* ---------- démarrage ---------- */
   function demarrer() {
     appliquerClassesLocales();
@@ -506,6 +649,9 @@
         .then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; })
       : Promise.resolve(null);
     chargerVote();
+    chargerSync();
+    // page suivante du cours : le sonomètre qui tournait reprend (micro déjà autorisé), sinon rien n'est chargé
+    try { if (sessionStorage.getItem("typweb.sonometre.actif") === "1") surSonometre(function (s) { s.reprendre(); }); } catch (e) {}
     Promise.all([config, chargerIndex()]).then(function (res) {
       if (res[0] && Array.isArray(res[0].classes)) {
         // « 5GT-A » ou { "code": "5GT-A", "effectif": 24 } (les deux formes sont acceptées)

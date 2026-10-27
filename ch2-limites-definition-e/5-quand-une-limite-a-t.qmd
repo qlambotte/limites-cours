@@ -33,7 +33,7 @@ Pour parler de la limite de $f(x)$ quand $x$ tend vers $a$, il faut donc qu’il
 
 Les fonctions que nous rencontrerons sont toutes définies sur une union d’intervalles, comme $[0 ; +\infty[$ pour $\sqrt{x}$ ou $]-\infty ; 0[ \cup ]0 ; +\infty[$ pour $\frac{1}{x}$. Les **bornes du domaine** sont les bornes de ces intervalles, y compris $+\infty$ et $-\infty$ : $0$ et $+\infty$ pour $\sqrt{x}$ ; $-\infty$, $0$ et $+\infty$ pour $\frac{1}{x}$.
 
-::: {#definition-2-2 data-sorte="definition" data-num="2.2" data-page="22" data-phys="25" data-id="5UAA3.valeur-colle-domaine" data-type="definition" data-tags="" .theo .theo-definition}
+::: {#definition-2-2 data-sorte="definition" data-num="2.2" data-page="21" data-phys="24" data-id="5UAA3.valeur-colle-domaine" data-type="definition" data-tags="" .theo .theo-definition}
 ::: {.theo-head}
 **Définition 2.2** — valeur qui « colle au domaine »
 :::

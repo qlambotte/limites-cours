@@ -26,8 +26,9 @@
     if (!items.length) return Promise.reject(new Error("le mode compréhension ne prend que des QCM"));
     var effectif = P.effectif(classe), seuil = lireSeuil(), cur = 0;
     var etats = items.map(function (it) {
-      return { it: it, manche: 1, votes: { A: 0, B: 0, C: 0, D: 0 }, revealed: false, enreg: null, histo: [] };
+      return { it: it, manche: 1, votes: { A: 0, B: 0, C: 0, D: 0 }, cartes: {}, revealed: false, enreg: null, histo: [] };
     });
+    var cartesOuvert = false;                          // panneau « Votes par carte » déplié
     var ecran = U.ouvrirEcran("tv-comp", "Moment de vérification");
     var r = {};                                        // références DOM de la question affichée
 
@@ -54,11 +55,13 @@
       h("b", { "class": "tv-val" }),
       bouton("+", "tv-pm", function () { seuil = Math.min(100, seuil + 5); ecrireSeuil(seuil); maj(); }, "Seuil de réussite +5 points")
     ]);
+    r.bCartes = bouton("Par carte", "tv-lien tv-prof", function () { cartesOuvert = !cartesOuvert; majCartes(); },
+                       "Saisir ou corriger les votes par numéro de carte");
     r.bRevote = bouton("Revoter", "tv-lien", function () { revoter(); },
                        "Facultatif : nouvelle manche, compteurs à zéro (la manche précédente reste dans le journal)");
     r.bPrincipal = bouton("Révéler la réponse", "tv-primaire", function () { principal(); });
     var pied = h("div", { "class": "tv-pied tv-prof" }, [
-      r.bPrec, r.bRaz, r.effectif, r.seuil, h("span", { "class": "tv-sp" }), r.bRevote, r.bPrincipal
+      r.bPrec, r.bRaz, r.bCartes, r.effectif, r.seuil, h("span", { "class": "tv-sp" }), r.bRevote, r.bPrincipal
     ]);
     r.main = h("main", { "class": "tv-main" });
     ecran.el.appendChild(haut); ecran.el.appendChild(r.main); ecran.el.appendChild(pied);
@@ -68,7 +71,13 @@
     function total(st) { return LET.reduce(function (a, k) { return a + st.votes[k]; }, 0); }
     function nbonnes(st) { return st.votes[LET[st.it.bonne]]; }
     function taux(st) { var t = total(st); return t ? nbonnes(st) / t : null; }
-    function snapshot(st) { return JSON.stringify([st.manche, LET.map(function (k) { return st.votes[k]; })]); }
+    function nCartes(st) { return Object.keys(st.cartes).length; }
+    function cartesTriees(st) {                        // { "numéro": "lettre" }, numéros croissants
+      var o = {};
+      Object.keys(st.cartes).map(Number).sort(function (a, b) { return a - b; }).forEach(function (n) { o[String(n)] = st.cartes[n]; });
+      return o;
+    }
+    function snapshot(st) { return JSON.stringify([st.manche, LET.map(function (k) { return st.votes[k]; }), cartesTriees(st)]); }
 
     // Journal : un événement `vote` par manche, écrit à la révélation puis corrigé (même manche,
     // même session : le dernier gagne) si les compteurs changent ensuite. Rien si aucun vote compté.
@@ -78,10 +87,12 @@
       var snap = snapshot(st);
       if (snap === st.enreg) return;
       var n = LET.map(function (k) { return st.votes[k]; });
-      if (U.enregistrer(classe, st.it.id, "vote", {
-        sid: o.sid, manche: st.manche, n: n, total: t,
+      var extra = {
+        sid: o.sid, manche: st.manche, n: n, total: t, presents: effectif,
         taux: Math.round(1000 * n[st.it.bonne] / t) / 1000, bonne: LET[st.it.bonne]
-      })) st.enreg = snap;
+      };
+      if (nCartes(st)) extra.cartes = cartesTriees(st);   // détail par numéro de carte (jamais de nom)
+      if (U.enregistrer(classe, st.it.id, "vote", extra)) st.enreg = snap;
     }
     function enregTout() { etats.forEach(enreg); }
 
@@ -94,9 +105,62 @@
     function raz() {
       var st = s();
       LET.forEach(function (k) { st.votes[k] = 0; });
+      st.cartes = {};
       st.revealed = false; st.enreg = null;
       maj();
     }
+    /* ----- votes par carte (P3 complété pour P7) : le numéro de carte remplace le comptage à la main ----- */
+    function poserCarte(num, lettre) {
+      var st = s(), ancien = st.cartes[num];
+      if (ancien === lettre) return;
+      if (ancien) st.votes[ancien] = Math.max(0, st.votes[ancien] - 1);
+      st.cartes[num] = lettre; st.votes[lettre] += 1;
+      maj();
+    }
+    function retirerCarte(num) {
+      var st = s(), ancien = st.cartes[num];
+      if (!ancien) return;
+      delete st.cartes[num];
+      st.votes[ancien] = Math.max(0, st.votes[ancien] - 1);
+      maj();
+    }
+    function suivante(num) { poserCarte(num, LET[(LET.indexOf(s().cartes[num]) + 1) % LET.length]); }
+    function decompte(st) { var t = { A: 0, B: 0, C: 0, D: 0 }; Object.keys(st.cartes).forEach(function (n) { t[st.cartes[n]] += 1; }); return t; }
+    // entrée : { "12": "B", … } ou [[12, "B"], …] ou [{ numero: 12, reponse: "B" }, …]
+    function normaliserCartes(entree) {
+      var paires = [], refuses = [], ok = {};
+      if (Array.isArray(entree)) {
+        entree.forEach(function (x) {
+          if (Array.isArray(x)) paires.push([x[0], x[1]]);
+          else if (x && typeof x === "object") paires.push([x.numero !== undefined ? x.numero : x.n !== undefined ? x.n : x.carte, x.reponse !== undefined ? x.reponse : x.r !== undefined ? x.r : x.lettre]);
+          else refuses.push(String(x));
+        });
+      } else if (entree && typeof entree === "object") {
+        Object.keys(entree).forEach(function (k) { paires.push([k, entree[k]]); });
+      }
+      paires.forEach(function (p) {
+        var n = String(p[0]).trim(), l = String(p[1] === null || p[1] === undefined ? "" : p[1]).trim().toUpperCase();
+        if (!/^\d{1,3}$/.test(n) || LET.indexOf(l) < 0) { refuses.push(n + ":" + l); return; }
+        ok[+n] = l;
+      });
+      return { cartes: ok, refuses: refuses };
+    }
+    // Reçoit un lot de votes par carte (lecture automatique, P7, ou saisie). Remplace le détail de la question
+    // affichée (mode « fusionner » : complète) et recalcule les compteurs d'après ce détail.
+    ecran.recevoirCartes = function (entree, opt) {
+      opt = opt || {};
+      var rep = normaliserCartes(entree), st = s(), n = Object.keys(rep.cartes).length;
+      if (!n) return { ok: false, erreur: "aucune carte valide", refuses: rep.refuses };
+      var avant = nCartes(st), t;
+      st.cartes = opt.mode === "fusionner" ? Object.assign({}, st.cartes, rep.cartes) : rep.cartes;
+      t = decompte(st);
+      LET.forEach(function (k) { st.votes[k] = t[k]; });
+      cartesOuvert = true;
+      maj();
+      return { ok: true, recues: n, total: nCartes(st), remplace: opt.mode === "fusionner" ? 0 : avant, refuses: rep.refuses };
+    };
+    ecran.cartes = function () { return cartesTriees(s()); };
+
     function reveler(oui) {
       var st = s();
       st.revealed = oui;
@@ -109,7 +173,7 @@
       if (!st.revealed) return;
       enreg(st);
       st.histo.push({ manche: st.manche, taux: taux(st) });
-      st.manche += 1; st.enreg = null; st.revealed = false;
+      st.manche += 1; st.enreg = null; st.revealed = false; st.cartes = {};
       LET.forEach(function (k) { st.votes[k] = 0; });
       maj();
     }
@@ -174,11 +238,80 @@
       r.main.appendChild(ctx);
       r.main.appendChild(h("h1", { "class": "tv-enonce", html: md(it.enonce, true) }));
       r.main.appendChild(somme);                       // total et taux en haut : toujours visibles, même quand les retours allongent la page
+      r.cartes = panneauCartes();
+      r.main.appendChild(r.cartes);
       r.main.appendChild(opts);
       r.main.appendChild(r.legende);
       r.main.scrollTop = 0;
       maj();
       U.composer(r.main);
+    }
+
+    function panneauCartes() {
+      var champ = h("input", { type: "text", inputmode: "numeric", pattern: "[0-9]*", maxlength: "3", size: "3", "class": "tv-champ-carte",
+                               "aria-label": "Numéro de carte", placeholder: "n°" });
+      function pose(l) {
+        var v = champ.value.trim();
+        if (!/^\d{1,3}$/.test(v)) { U.alerte("Tape d'abord le numéro de la carte."); champ.focus(); return; }
+        poserCarte(+v, l); champ.value = ""; champ.focus({ preventScroll: true });
+      }
+      champ.addEventListener("keydown", function (e) {
+        var k = e.key.length === 1 ? e.key.toUpperCase() : "";
+        if (LET.indexOf(k) >= 0 && !e.ctrlKey && !e.metaKey && !e.altKey) { e.preventDefault(); pose(k); }
+      });
+      var lettres = LET.map(function (l) { return bouton(l, "tv-pm", function () { pose(l); }, "Carte " + l); });
+      r.puces = h("div", { "class": "tv-puces" });
+      r.ecartCartes = h("div", { "class": "tv-ecart" });
+      // Votes lus par le smartphone (page de scan, P7) : QR lu par la caméra de la tablette, ou code tapé.
+      function appliquerCode(texte) {
+        return U.chargerQrVotes().then(function (Q) {
+          var d = Q.decoder(texte);
+          if (!d.ok) { U.alerte(d.erreur); return false; }
+          if (d.question && d.question !== s().it.id) U.alerte("Attention : ce QR a été fait pour une autre question (" + d.question + ").");
+          if (d.presents) { effectif = d.presents; maj(); }            // présents indiqués par le smartphone
+          var rep = ecran.recevoirCartes(d.cartes);
+          U.alerte(rep.ok ? rep.recues + " carte(s) reçue(s)" + (d.presents ? " · " + d.presents + " présents." : ".")
+                          : "Aucune carte reçue : " + rep.erreur);
+          return rep.ok;
+        }, function (e) { U.alerte(e.message); return false; });
+      }
+      var code = h("input", { type: "text", "class": "tv-champ-code", "aria-label": "Code des votes (ex. 3A 12C 40B)",
+                              placeholder: "3A 12C 40B", autocomplete: "off", spellcheck: "false" });
+      var zoneCode = h("div", { "class": "tv-cartes-code" }, [code,
+        bouton("Appliquer", "tv-lien", function () { appliquerCode(code.value).then(function (ok) { if (ok) { code.value = ""; zoneCode.hidden = true; } }); })]);
+      zoneCode.hidden = true;
+      code.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); appliquerCode(code.value).then(function (ok) { if (ok) { code.value = ""; zoneCode.hidden = true; } }); } });
+      return h("div", { "class": "tv-cartes tv-prof" }, [
+        h("div", { "class": "tv-cartes-tete" }, [
+          h("b", { "class": "tv-cartes-titre", text: "Votes par carte" }),
+          h("span", { "class": "tv-sp" }),
+          bouton("Lire le QR", "tv-lien", function () {
+            U.lireQr().then(appliquerCode, function (e) { if (!/annulée/.test(e.message)) U.alerte(e.message); });
+          }, "Lit avec la caméra le QR des votes affiché par le smartphone (page de scan)"),
+          bouton("Taper un code", "tv-lien", function () { zoneCode.hidden = !zoneCode.hidden; if (!zoneCode.hidden) code.focus(); },
+                 "Tape le code affiché sous le QR (ex. 3A 12C 40B)"),
+          bouton("Tout effacer", "tv-lien", function () {
+            var st = s(); Object.keys(st.cartes).forEach(function (n) { retirerCarte(n); });
+          }, "Efface le détail par carte (les compteurs suivent)")
+        ]),
+        zoneCode,
+        h("div", { "class": "tv-cartes-ajout" }, [h("span", { text: "Carte n°" }), champ, h("span", { "class": "tv-sp0" }, lettres)]),
+        r.puces, r.ecartCartes
+      ]);
+    }
+    function majCartes() {
+      var st = s(), nums = Object.keys(st.cartes).map(Number).sort(function (a, b) { return a - b; });
+      r.cartes.style.display = cartesOuvert || nums.length ? "" : "none";
+      r.bCartes.textContent = nums.length ? "Par carte (" + nums.length + ")" : "Par carte";
+      r.puces.textContent = "";
+      nums.forEach(function (n) {
+        r.puces.appendChild(h("span", { "class": "tv-puce" }, [
+          bouton(n + " · " + st.cartes[n], "tv-puce-l", function () { suivante(n); }, "Carte " + n + " : " + st.cartes[n] + " (toucher pour changer de lettre)"),
+          bouton("×", "tv-puce-x", function () { retirerCarte(n); }, "Retirer la carte " + n)
+        ]));
+      });
+      var t = decompte(st), ecart = nums.length && LET.some(function (k) { return t[k] !== st.votes[k]; });
+      r.ecartCartes.textContent = ecart ? "Les compteurs ont été corrigés à la main : ils ne correspondent plus exactement au détail par carte." : "";
     }
 
     function maj() {
@@ -235,6 +368,7 @@
       r.bPrec.style.visibility = cur > 0 ? "visible" : "hidden";
       r.bRevote.style.display = rev && t ? "" : "none";
       r.bPrincipal.textContent = !rev ? "Révéler la réponse" : cur < etats.length - 1 ? "Question suivante →" : "Terminer";
+      majCartes();
     }
 
     /* ----- clavier ----- */
@@ -248,6 +382,8 @@
       if (e.key === "ArrowLeft") { aller(cur - 1); return true; }
       return false;
     };
+    ecran.sauver = enregTout;
+    ecran.aPerdre = function () { return etats.some(function (st) { return total(st) > 0 && !st.revealed; }); };
     ecran.surFermeture = function () {
       enregTout();
       if (o.apres) { try { o.apres(); } catch (e) {} }

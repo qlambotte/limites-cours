@@ -129,7 +129,7 @@ C’est le graphique de $\left|x\right|$. Cohérent : $j(-3) = 3 = \left|-3\righ
 :::
 :::
 
-::: {#remarque-1-2 data-sorte="remarque" data-num="1.2" data-page="8" data-phys="11" data-id="5UAA3.rem.002" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {#remarque-1-2 data-sorte="remarque" data-num="1.2" data-page="7" data-phys="10" data-id="5UAA3.rem.002" data-type="remarque" data-tags="" .theo .theo-remarque}
 ::: {.theo-head}
 **Remarque 1.2**
 :::
@@ -139,7 +139,7 @@ La composition de deux fonctions n’est pas commutative : en général les fonc
 :::
 :::
 
-::: {#exercice-1-4 data-sorte="exercice" data-num="1.4" data-page="8" data-phys="11" data-id="5UAA3.ex.004" data-type="exercice" data-tags="maison" .exo}
+::: {#exercice-1-4 data-sorte="exercice" data-num="1.4" data-page="7" data-phys="10" data-id="5UAA3.ex.004" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
 [✎ Exercice 1.4]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C1]{.exo-comp} ★☆☆]{.exo-meta}
 :::
@@ -267,7 +267,7 @@ $x^{3}$ et $\frac{1}{x}$ sont deux blocs de référence ; on les additionne : $h
 :::
 :::
 
-::: {#exercice-1-6 data-sorte="exercice" data-num="1.6" data-page="9" data-phys="12" data-id="5UAA3.ex.006" data-type="exercice" data-tags="maison" .exo}
+::: {#exercice-1-6 data-sorte="exercice" data-num="1.6" data-page="8" data-phys="11" data-id="5UAA3.ex.006" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
 [✎ Exercice 1.6]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C1]{.exo-comp} ★★☆]{.exo-meta}
 :::

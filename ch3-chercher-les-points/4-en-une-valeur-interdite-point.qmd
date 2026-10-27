@@ -4,7 +4,7 @@ title: "En une valeur interdite : point creux ou asymptote verticale ?"
 
 <!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
 
-::: {#activite-3-2 data-sorte="activite" data-num="3.2" data-page="35" data-phys="38" data-id="5UAA3.toi-inventer" data-type="activite" data-tags="" .theo .theo-activite}
+::: {#activite-3-2 data-sorte="activite" data-num="3.2" data-page="34" data-phys="37" data-id="5UAA3.toi-inventer" data-type="activite" data-tags="" .theo .theo-activite}
 ::: {.theo-head}
 **Activité 3.2** — à toi d’inventer
 :::
@@ -22,7 +22,7 @@ Par exemple $\frac{(x+3)(x-2)}{x-2}$ : pour $x \neq 2$, elle vaut $x + 3$, qui v
 
 L’activité suivante vérifie, sur un tableau de valeurs, la conjecture que tu viens de formuler.
 
-::: {#activite-3-3 data-sorte="activite" data-num="3.3" data-page="36" data-phys="39" data-id="5UAA3.deux-valeurs-interdites-deux-graphiques" data-type="activite" data-tags="" .theo .theo-activite}
+::: {#activite-3-3 data-sorte="activite" data-num="3.3" data-page="34" data-phys="37" data-id="5UAA3.deux-valeurs-interdites-deux-graphiques" data-type="activite" data-tags="" .theo .theo-activite}
 ::: {.theo-head}
 **Activité 3.3** — deux valeurs interdites, deux graphiques
 :::
@@ -74,7 +74,7 @@ $k(x) = \frac{x+1}{x-1}$ : une A.V.
 
 L’activité fait apparaître les deux situations possibles en une valeur interdite, et les deux caractéristiques graphiques que nous cherchons.
 
-::: {#definition-3-2 data-sorte="definition" data-num="3.2" data-page="36" data-phys="39" data-id="5UAA3.asymptote-verticale-point-creux" data-type="definition" data-tags="" .theo .theo-definition}
+::: {#definition-3-2 data-sorte="definition" data-num="3.2" data-page="35" data-phys="38" data-id="5UAA3.asymptote-verticale-point-creux" data-type="definition" data-tags="" .theo .theo-definition}
 ::: {.theo-head}
 **Définition 3.2** — asymptote verticale, point creux
 :::
@@ -89,7 +89,7 @@ Soit $f$ une fonction et $a$ un réel qui colle au domaine de $f$.
 
 ## Premier cas : le numérateur ne s’annule pas en $a$
 
-::: {#propriete-3-2 data-sorte="propriete" data-num="3.2" data-page="37" data-phys="40" data-id="5UAA3.valeur-interdite-n-annule-numerateur" data-type="propriete" data-tags="" .theo .theo-propriete}
+::: {#propriete-3-2 data-sorte="propriete" data-num="3.2" data-page="35" data-phys="38" data-id="5UAA3.valeur-interdite-n-annule-numerateur" data-type="propriete" data-tags="" .theo .theo-propriete}
 ::: {.theo-head}
 **Propriété 3.2** — valeur interdite qui n’annule pas le numérateur
 :::
@@ -101,7 +101,7 @@ Soit $f(x) = \frac{P(x)}{Q(x)}$ une fonction rationnelle et $a$ une valeur inter
 
 Inutile pour cela de dresser le tableau de signes complet de $f$. Près de $a$, le numérateur est proche de $P(a) \neq 0$ : il a donc le **signe de $P(a)$**. Il suffit d’étudier le signe du dénominateur juste à gauche et juste à droite de $a$ : un facteur $(x - a)$ change de signe en $a$, un facteur $(x - a)^{2}$ n’en change pas, et les autres facteurs gardent le signe de leur valeur en $a$. On résume cela dans un **tableau de signes local**.
 
-::: {#exemple-3-2 data-sorte="exemple" data-num="3.2" data-page="37" data-phys="40" data-id="5UAA3.exm.004" data-type="exemple" data-tags="" .theo .theo-exemple}
+::: {#exemple-3-2 data-sorte="exemple" data-num="3.2" data-page="36" data-phys="39" data-id="5UAA3.exm.004" data-type="exemple" data-tags="" .theo .theo-exemple}
 ::: {.theo-head}
 **Exemple 3.2**
 :::
@@ -127,11 +127,11 @@ Soit $f(x) = \frac{1}{x+2}$, de domaine $\mathbb{R} \setminus \{-2\}$. Le numér
 :::
 :::
 
-On en déduit $\lim\limits_{\substack{x \to -2 \\ x < -2}} f(x) = \class{rep}{-\infty}$ et $\lim\limits_{\substack{x \to -2 \\ x > -2}} f(x) = \class{rep}{+\infty}$. En particulier, $\lim\limits_{x \to -2} f(x)$ [n’existe pas]{.rep}.
+On en déduit $\lim\limits_{x \overset{<}{\to} -2} f(x) = \class{rep}{-\infty}$ et $\lim\limits_{x \overset{>}{\to} -2} f(x) = \class{rep}{+\infty}$. En particulier, $\lim\limits_{x \to -2} f(x)$ [n’existe pas]{.rep}.
 :::
 :::
 
-::: {#exemple-3-3 data-sorte="exemple" data-num="3.3" data-page="37" data-phys="40" data-id="5UAA3.exm.005" data-type="exemple" data-tags="" .theo .theo-exemple}
+::: {#exemple-3-3 data-sorte="exemple" data-num="3.3" data-page="36" data-phys="39" data-id="5UAA3.exm.005" data-type="exemple" data-tags="" .theo .theo-exemple}
 ::: {.theo-head}
 **Exemple 3.3**
 :::
@@ -157,7 +157,7 @@ Soit $f(x) = \frac{-1}{(x-1)^{2}}$, de domaine $\mathbb{R} \setminus \{1\}$. Le 
 :::
 :::
 
-On en déduit $\lim\limits_{\substack{x \to 1 \\ x < 1}} f(x) = \lim\limits_{\substack{x \to 1 \\ x > 1}} f(x) = \class{rep}{-\infty}$. Cette fois, la limite existe : $\lim\limits_{x \to 1} f(x) = \class{rep}{-\infty}$. Une asymptote verticale n’empêche donc pas la limite d’exister.
+On en déduit $\lim\limits_{x \overset{<}{\to} 1} f(x) = \lim\limits_{x \overset{>}{\to} 1} f(x) = \class{rep}{-\infty}$. Cette fois, la limite existe : $\lim\limits_{x \to 1} f(x) = \class{rep}{-\infty}$. Une asymptote verticale n’empêche donc pas la limite d’exister.
 :::
 :::
 
@@ -165,7 +165,7 @@ On en déduit $\lim\limits_{\substack{x \to 1 \\ x < 1}} f(x) = \lim\limits_{\su
 
 Si $a$ est une racine du numérateur **et** du dénominateur, on ne peut rien conclure directement : lorsque $x$ est proche de $a$, on divise un nombre proche de $0$ par un autre nombre proche de $0$, et le résultat peut être n’importe quoi. On parle de **cas d’indétermination**. Mais $a$ étant racine des deux polynômes, chacun d’eux se factorise par $(x - a)$ : on peut simplifier la fraction.
 
-::: {#exemple-3-4 data-sorte="exemple" data-num="3.4" data-page="38" data-phys="41" data-id="5UAA3.exm.006" data-type="exemple" data-tags="" .theo .theo-exemple}
+::: {#exemple-3-4 data-sorte="exemple" data-num="3.4" data-page="37" data-phys="40" data-id="5UAA3.exm.006" data-type="exemple" data-tags="" .theo .theo-exemple}
 ::: {.theo-head}
 **Exemple 3.4**
 :::
@@ -193,7 +193,7 @@ Ainsi $\lim\limits_{x \to -1} f(x) = \class{rep}{\frac{1}{2}}$ : comme $-1 \noti
 :::
 :::
 
-::: {#remarque-3-2 data-sorte="remarque" data-num="3.2" data-page="38" data-phys="41" data-id="5UAA3.rem.010" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {#remarque-3-2 data-sorte="remarque" data-num="3.2" data-page="37" data-phys="40" data-id="5UAA3.rem.010" data-type="remarque" data-tags="" .theo .theo-remarque}
 ::: {.theo-head}
 **Remarque 3.2**
 :::
@@ -209,7 +209,7 @@ $$
 :::
 :::
 
-::: {#exemple-3-5 data-sorte="exemple" data-num="3.5" data-page="39" data-phys="42" data-id="5UAA3.exm.007" data-type="exemple" data-tags="" .theo .theo-exemple}
+::: {#exemple-3-5 data-sorte="exemple" data-num="3.5" data-page="37" data-phys="40" data-id="5UAA3.exm.007" data-type="exemple" data-tags="" .theo .theo-exemple}
 ::: {.theo-head}
 **Exemple 3.5**
 :::

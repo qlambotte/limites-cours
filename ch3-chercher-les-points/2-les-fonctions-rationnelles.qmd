@@ -6,7 +6,7 @@ title: "Les fonctions rationnelles"
 
 Dans ce chapitre et le suivant, nous calculerons des limites de fonctions rationnelles.
 
-::: {#definition-3-1 data-sorte="definition" data-num="3.1" data-page="34" data-phys="37" data-id="5UAA3.fonction-rationnelle" data-type="definition" data-tags="" .theo .theo-definition}
+::: {#definition-3-1 data-sorte="definition" data-num="3.1" data-page="33" data-phys="36" data-id="5UAA3.fonction-rationnelle" data-type="definition" data-tags="" .theo .theo-definition}
 ::: {.theo-head}
 **Définition 3.1** — fonction rationnelle
 :::

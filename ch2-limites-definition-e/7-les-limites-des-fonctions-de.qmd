@@ -4,7 +4,7 @@ title: "Les limites des fonctions de référence"
 
 <!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
 
-::: {#activite-2-7 data-sorte="activite" data-num="2.7" data-page="24" data-phys="27" data-id="5UAA3.lire-limites-fonctions-reference" data-type="activite" data-tags="" .theo .theo-activite}
+::: {#activite-2-7 data-sorte="activite" data-num="2.7" data-page="23" data-phys="26" data-id="5UAA3.lire-limites-fonctions-reference" data-type="activite" data-tags="" .theo .theo-activite}
 ::: {.theo-head}
 **Activité 2.7** — lire les limites des fonctions de référence
 :::
@@ -115,7 +115,7 @@ Pour chacune de ces fonctions, la limite en un point $a$ du domaine existe et va
 :::
 :::
 
-::: {#remarque-2-5 data-sorte="remarque" data-num="2.5" data-page="26" data-phys="29" data-id="5UAA3.rem.008" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {#remarque-2-5 data-sorte="remarque" data-num="2.5" data-page="25" data-phys="28" data-id="5UAA3.rem.008" data-type="remarque" data-tags="" .theo .theo-remarque}
 ::: {.theo-head}
 **Remarque 2.5**
 :::

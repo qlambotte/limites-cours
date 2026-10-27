@@ -4,7 +4,7 @@ title: "Exercices"
 
 <!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
 
-::: {#exercice-3-1 data-sorte="exercice" data-num="3.1" data-page="39" data-phys="42" data-id="5UAA3.ex.022" data-type="exercice" data-tags="" .exo}
+::: {#exercice-3-1 data-sorte="exercice" data-num="3.1" data-page="38" data-phys="41" data-id="5UAA3.ex.022" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
 [✎ Exercice 3.1]{.exo-titre} [[C3]{.exo-comp} ★☆☆]{.exo-meta}
 :::
@@ -51,7 +51,7 @@ La rédaction **2** est correcte.
 :::
 :::
 
-::: {#exercice-3-2 data-sorte="exercice" data-num="3.2" data-page="39" data-phys="42" data-id="5UAA3.ex.023" data-type="exercice" data-tags="" .exo}
+::: {#exercice-3-2 data-sorte="exercice" data-num="3.2" data-page="38" data-phys="41" data-id="5UAA3.ex.023" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
 [✎ Exercice 3.2]{.exo-titre} [[C1]{.exo-comp} ★☆☆]{.exo-meta}
 :::
@@ -98,7 +98,7 @@ Pas rationnelles :
 :::
 :::
 
-::: {#exercice-3-3 data-sorte="exercice" data-num="3.3" data-page="40" data-phys="43" data-id="5UAA3.ex.024" data-type="exercice" data-tags="" .exo}
+::: {#exercice-3-3 data-sorte="exercice" data-num="3.3" data-page="38" data-phys="41" data-id="5UAA3.ex.024" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
 [✎ Exercice 3.3]{.exo-titre} [[A2]{.exo-comp} ★☆☆]{.exo-meta}
 :::
@@ -127,9 +127,9 @@ $f(x) = \frac{1}{(x+1)(x-2)(x+2)}$ : valeurs interdites $-2$, $-1$ et $2$ ; le n
 ::: {.solution-classe}
 $x^{2} - 4 = (x-2)(x+2)$, donc $\operatorname{dom}(f) = \mathbb{R} \setminus \{-2 ; -1 ; 2\}$. Le numérateur vaut $1 \neq 0$ : en chaque valeur interdite, A.V.
 
-- En $-2$ : $x + 1 \approx -1$ ($-$), $x - 2 \approx -4$ ($-$), $x + 2$ change de signe. Dénominateur : $-$ à gauche, $+$ à droite. $\lim\limits_{\substack{x \to -2 \\ x < -2}} f(x) = -\infty$, $\lim\limits_{\substack{x \to -2 \\ x > -2}} f(x) = +\infty$ : A.V. $x = -2$.
-- En $-1$ : $x + 2 \approx 1$ ($+$), $x - 2 \approx -3$ ($-$), $x + 1$ change de signe. Dénominateur : $+$ à gauche, $-$ à droite. $\lim\limits_{\substack{x \to -1 \\ x < -1}} f(x) = +\infty$, $\lim\limits_{\substack{x \to -1 \\ x > -1}} f(x) = -\infty$ : A.V. $x = -1$.
-- En $2$ : $x + 1 \approx 3$ ($+$), $x + 2 \approx 4$ ($+$), $x - 2$ change de signe. $\lim\limits_{\substack{x \to 2 \\ x < 2}} f(x) = -\infty$, $\lim\limits_{\substack{x \to 2 \\ x > 2}} f(x) = +\infty$ : A.V. $x = 2$.
+- En $-2$ : $x + 1 \approx -1$ ($-$), $x - 2 \approx -4$ ($-$), $x + 2$ change de signe. Dénominateur : $-$ à gauche, $+$ à droite. $\lim\limits_{x \overset{<}{\to} -2} f(x) = -\infty$, $\lim\limits_{x \overset{>}{\to} -2} f(x) = +\infty$ : A.V. $x = -2$.
+- En $-1$ : $x + 2 \approx 1$ ($+$), $x - 2 \approx -3$ ($-$), $x + 1$ change de signe. Dénominateur : $+$ à gauche, $-$ à droite. $\lim\limits_{x \overset{<}{\to} -1} f(x) = +\infty$, $\lim\limits_{x \overset{>}{\to} -1} f(x) = -\infty$ : A.V. $x = -1$.
+- En $2$ : $x + 1 \approx 3$ ($+$), $x + 2 \approx 4$ ($+$), $x - 2$ change de signe. $\lim\limits_{x \overset{<}{\to} 2} f(x) = -\infty$, $\lim\limits_{x \overset{>}{\to} 2} f(x) = +\infty$ : A.V. $x = 2$.
 - En $0$ (dans le domaine) : $\lim\limits_{x \to 0} f(x) = f(0) = \frac{1}{1 \cdot (-4)} = -\frac{1}{4}$ ; le graphique passe par $(0 ; -\frac{1}{4})$.
 :::
 
@@ -141,7 +141,7 @@ $x^{2} - 4 = (x-2)(x+2)$, donc $\operatorname{dom}(f) = \mathbb{R} \setminus \{-
 :::
 :::
 
-::: {#exercice-3-4 data-sorte="exercice" data-num="3.4" data-page="40" data-phys="43" data-id="5UAA3.ex.025" data-type="exercice" data-tags="maison" .exo}
+::: {#exercice-3-4 data-sorte="exercice" data-num="3.4" data-page="38" data-phys="41" data-id="5UAA3.ex.025" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
 [✎ Exercice 3.4]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A2]{.exo-comp} ★☆☆]{.exo-meta}
 :::
@@ -167,8 +167,8 @@ $-x^{2} + 4x = x(4 - x)$ : valeurs interdites $0$ et $4$. Le numérateur vaut $-
 
 ## Solution {.unlisted}
 
-- En $0$ : numérateur $-2$ ($-$) ; $4 - x \approx 4$ ($+$) ; $x$ : $-$ à gauche, $+$ à droite. $\lim\limits_{\substack{x \to 0 \\ x < 0}} f(x) = +\infty$ et $\lim\limits_{\substack{x \to 0 \\ x > 0}} f(x) = -\infty$ : A.V. $x = 0$.
-- En $4$ : numérateur $2$ ($+$) ; $x \approx 4$ ($+$) ; $4 - x$ : $+$ à gauche, $-$ à droite. $\lim\limits_{\substack{x \to 4 \\ x < 4}} f(x) = +\infty$ et $\lim\limits_{\substack{x \to 4 \\ x > 4}} f(x) = -\infty$ : A.V. $x = 4$.
+- En $0$ : numérateur $-2$ ($-$) ; $4 - x \approx 4$ ($+$) ; $x$ : $-$ à gauche, $+$ à droite. $\lim\limits_{x \overset{<}{\to} 0} f(x) = +\infty$ et $\lim\limits_{x \overset{>}{\to} 0} f(x) = -\infty$ : A.V. $x = 0$.
+- En $4$ : numérateur $2$ ($+$) ; $x \approx 4$ ($+$) ; $4 - x$ : $+$ à gauche, $-$ à droite. $\lim\limits_{x \overset{<}{\to} 4} f(x) = +\infty$ et $\lim\limits_{x \overset{>}{\to} 4} f(x) = -\infty$ : A.V. $x = 4$.
 
 ## Pièges {.unlisted}
 
@@ -177,7 +177,7 @@ $-x^{2} + 4x = x(4 - x)$ : valeurs interdites $0$ et $4$. Le numérateur vaut $-
 :::
 :::
 
-::: {#exercice-3-5 data-sorte="exercice" data-num="3.5" data-page="40" data-phys="43" data-id="5UAA3.ex.026" data-type="exercice" data-tags="" .exo}
+::: {#exercice-3-5 data-sorte="exercice" data-num="3.5" data-page="38" data-phys="41" data-id="5UAA3.ex.026" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
 [✎ Exercice 3.5]{.exo-titre} [[C3]{.exo-comp} ★★☆]{.exo-meta}
 :::
@@ -216,7 +216,7 @@ En $1$, numérateur et dénominateur s’annulent : simplifie par $(x - 1)$. En 
 2. Valeurs interdites : $1$ et $-2$.
 
    - En $1$ : le numérateur vaut $0$. Pour $x \neq 1$, $f(x) = \frac{x-1}{x+2}$, et $\lim\limits_{x \to 1} f(x) = \lim\limits_{x \to 1} \frac{x-1}{x+2} = \frac{0}{3} = 0$ : point creux en $(1 ; 0)$.
-   - En $-2$ : le numérateur vaut $9 \neq 0$ : A.V. $x = -2$. Dans la fraction simplifiée, le numérateur vaut $-3$ ($-$) et $x + 2$ passe de $-$ à $+$ : $\lim\limits_{\substack{x \to -2 \\ x < -2}} f(x) = +\infty$ et $\lim\limits_{\substack{x \to -2 \\ x > -2}} f(x) = -\infty$.
+   - En $-2$ : le numérateur vaut $9 \neq 0$ : A.V. $x = -2$. Dans la fraction simplifiée, le numérateur vaut $-3$ ($-$) et $x + 2$ passe de $-$ à $+$ : $\lim\limits_{x \overset{<}{\to} -2} f(x) = +\infty$ et $\lim\limits_{x \overset{>}{\to} -2} f(x) = -\infty$.
 :::
 
 ## Pièges {.unlisted}
@@ -226,7 +226,7 @@ En $1$, numérateur et dénominateur s’annulent : simplifie par $(x - 1)$. En 
 :::
 :::
 
-::: {#exercice-3-6 data-sorte="exercice" data-num="3.6" data-page="40" data-phys="43" data-id="5UAA3.ex.027" data-type="exercice" data-tags="" .exo}
+::: {#exercice-3-6 data-sorte="exercice" data-num="3.6" data-page="39" data-phys="42" data-id="5UAA3.ex.027" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
 [✎ Exercice 3.6]{.exo-titre} [[A2]{.exo-comp} ★★☆]{.exo-meta}
 :::
@@ -255,8 +255,8 @@ $x^{3} + 2x^{2} + x = x(x+1)^{2}$ et $2x^{2} - x - 3 = (x+1)(2x-3)$. Simplifie p
 ::: {.solution-classe}
 $\operatorname{dom}(f) = \mathbb{R} \setminus \{-1 ; 0\}$. Pour $x \neq -1$ : $f(x) = \frac{(x+1)(2x-3)}{x(x+1)^{2}} = \frac{2x-3}{x(x+1)}$.
 
-- En $-1$ : après simplification, le numérateur vaut $-5 \neq 0$ et le dénominateur s’annule encore : A.V. $x = -1$ (pas un point creux). $x \approx -1$ ($-$), $x + 1$ passe de $-$ à $+$ : le dénominateur passe de $+$ à $-$. $\lim\limits_{\substack{x \to -1 \\ x < -1}} f(x) = -\infty$ et $\lim\limits_{\substack{x \to -1 \\ x > -1}} f(x) = +\infty$.
-- En $0$ : le numérateur vaut $-3 \neq 0$ : A.V. $x = 0$. $x + 1 \approx 1$ ($+$), $x$ passe de $-$ à $+$. $\lim\limits_{\substack{x \to 0 \\ x < 0}} f(x) = +\infty$ et $\lim\limits_{\substack{x \to 0 \\ x > 0}} f(x) = -\infty$.
+- En $-1$ : après simplification, le numérateur vaut $-5 \neq 0$ et le dénominateur s’annule encore : A.V. $x = -1$ (pas un point creux). $x \approx -1$ ($-$), $x + 1$ passe de $-$ à $+$ : le dénominateur passe de $+$ à $-$. $\lim\limits_{x \overset{<}{\to} -1} f(x) = -\infty$ et $\lim\limits_{x \overset{>}{\to} -1} f(x) = +\infty$.
+- En $0$ : le numérateur vaut $-3 \neq 0$ : A.V. $x = 0$. $x + 1 \approx 1$ ($+$), $x$ passe de $-$ à $+$. $\lim\limits_{x \overset{<}{\to} 0} f(x) = +\infty$ et $\lim\limits_{x \overset{>}{\to} 0} f(x) = -\infty$.
 :::
 
 ## Pièges {.unlisted}
@@ -266,7 +266,7 @@ $\operatorname{dom}(f) = \mathbb{R} \setminus \{-1 ; 0\}$. Pour $x \neq -1$ : $f
 :::
 :::
 
-::: {#exercice-3-7 data-sorte="exercice" data-num="3.7" data-page="40" data-phys="43" data-id="5UAA3.ex.028" data-type="exercice" data-tags="" .exo}
+::: {#exercice-3-7 data-sorte="exercice" data-num="3.7" data-page="39" data-phys="42" data-id="5UAA3.ex.028" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
 [✎ Exercice 3.7]{.exo-titre} [[C2]{.exo-comp} ★★☆]{.exo-meta}
 :::
@@ -303,7 +303,7 @@ Par exemple $f(x) = \frac{x^{2}-4}{x-2}$ en $a = 2$. Près de $2$, le numérateu
 :::
 :::
 
-::: {#exercice-3-8 data-sorte="exercice" data-num="3.8" data-page="40" data-phys="43" data-id="5UAA3.ex.029" data-type="exercice" data-tags="maison" .exo}
+::: {#exercice-3-8 data-sorte="exercice" data-num="3.8" data-page="39" data-phys="42" data-id="5UAA3.ex.029" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
 [✎ Exercice 3.8]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C3]{.exo-comp} ★★☆]{.exo-meta}
 :::
@@ -317,7 +317,7 @@ Soit $f(x) = \frac{x^{2} - 4}{x^{2} + x - 2}$.
 2. En $-2$, le numérateur vaut $(-2)^{2} - 4 = 0$. On factorise : $f(x) = \frac{(x-2)(x+2)}{(x+2)(x-1)} = \frac{x-2}{x-1}$ pour $x \neq -2$.
 3. En remplaçant $x$ par $-2$ dans la fraction simplifiée : $\frac{-4}{-3} = \frac{4}{3}$. Donc $\lim\limits_{x \to -2} f(x) = \frac{4}{3}$ et le graphique a un point creux en $(-2 ; \frac{4}{3})$.
 4. En $1$, le numérateur de la fraction simplifiée vaut $1 - 2 = -1$ : la droite $x = 1$ est une A.V.
-5. Juste à gauche de $1$, $x - 1 < 0$ ; juste à droite, $x - 1 > 0$. Donc $\lim\limits_{\substack{x \to 1 \\ x < 1}} f(x) = +\infty$ et $\lim\limits_{\substack{x \to 1 \\ x > 1}} f(x) = -\infty$.
+5. Juste à gauche de $1$, $x - 1 < 0$ ; juste à droite, $x - 1 > 0$. Donc $\lim\limits_{x \overset{<}{\to} 1} f(x) = +\infty$ et $\lim\limits_{x \overset{>}{\to} 1} f(x) = -\infty$.
 :::
 :::
 
@@ -350,7 +350,7 @@ Pour chaque étape, demande-toi : quelle propriété ou quelle définition du co
 :::
 :::
 
-::: {#exercice-3-9 data-sorte="exercice" data-num="3.9" data-page="41" data-phys="44" data-id="5UAA3.ex.030" data-type="exercice" data-tags="" .exo}
+::: {#exercice-3-9 data-sorte="exercice" data-num="3.9" data-page="39" data-phys="42" data-id="5UAA3.ex.030" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
 [✎ Exercice 3.9]{.exo-titre} [[T2]{.exo-comp} ★★★]{.exo-meta}
 :::

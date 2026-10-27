@@ -4,7 +4,7 @@ title: "Définition"
 
 <!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
 
-::: {#definition-2-1 data-sorte="definition" data-num="2.1" data-page="20" data-phys="23" data-id="5UAA3.limite-fonction" data-type="definition" data-tags="" .theo .theo-definition}
+::: {#definition-2-1 data-sorte="definition" data-num="2.1" data-page="19" data-phys="22" data-id="5UAA3.limite-fonction" data-type="definition" data-tags="" .theo .theo-definition}
 ::: {.theo-head}
 **Définition 2.1** — limite d’une fonction
 :::
@@ -22,7 +22,7 @@ $$
 :::
 :::
 
-::: {#remarque-2-1 data-sorte="remarque" data-num="2.1" data-page="20" data-phys="23" data-id="5UAA3.rem.004" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {#remarque-2-1 data-sorte="remarque" data-num="2.1" data-page="19" data-phys="22" data-id="5UAA3.rem.004" data-type="remarque" data-tags="" .theo .theo-remarque}
 ::: {.theo-head}
 **Remarque 2.1**
 :::
@@ -75,7 +75,7 @@ $$
 :::
 :::
 
-::: {#remarque-2-2 data-sorte="remarque" data-num="2.2" data-page="21" data-phys="24" data-id="5UAA3.rem.005" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {#remarque-2-2 data-sorte="remarque" data-num="2.2" data-page="20" data-phys="23" data-id="5UAA3.rem.005" data-type="remarque" data-tags="" .theo .theo-remarque}
 ::: {.theo-head}
 **Remarque 2.2**
 :::
@@ -90,7 +90,7 @@ Dans l’écriture $\lim\limits_{x \to a} f(x) = b$, chaque élément a un rôle
 :::
 :::
 
-::: {#remarque-2-3 data-sorte="remarque" data-num="2.3" data-page="21" data-phys="24" data-id="5UAA3.rem.006" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {#remarque-2-3 data-sorte="remarque" data-num="2.3" data-page="20" data-phys="23" data-id="5UAA3.rem.006" data-type="remarque" data-tags="" .theo .theo-remarque}
 ::: {.theo-head}
 **Remarque 2.3**
 :::

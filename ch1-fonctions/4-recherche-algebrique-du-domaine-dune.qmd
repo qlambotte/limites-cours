@@ -69,7 +69,7 @@ $\frac{1}{x-4}$ est du type $\frac{1}{a}$ avec $a = x - 4$ : quelle est la condi
 :::
 :::
 
-::: {#exercice-1-8 data-sorte="exercice" data-num="1.8" data-page="10" data-phys="13" data-id="5UAA3.ex.008" data-type="exercice" data-tags="" .exo}
+::: {#exercice-1-8 data-sorte="exercice" data-num="1.8" data-page="9" data-phys="12" data-id="5UAA3.ex.008" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
 [✎ Exercice 1.8]{.exo-titre} [[A1]{.exo-comp} ★☆☆]{.exo-meta}
 :::

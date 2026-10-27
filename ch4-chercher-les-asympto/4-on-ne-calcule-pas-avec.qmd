@@ -4,7 +4,7 @@ title: "On ne calcule pas avec l’infini"
 
 <!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
 
-::: {#activite-4-7 data-sorte="activite" data-num="4.7" data-page="49" data-phys="52" data-id="5UAA3.trois-soustractions-tres-grands-nombres" data-type="activite" data-tags="" .theo .theo-activite}
+::: {#activite-4-7 data-sorte="activite" data-num="4.7" data-page="46" data-phys="49" data-id="5UAA3.trois-soustractions-tres-grands-nombres" data-type="activite" data-tags="" .theo .theo-activite}
 ::: {.theo-head}
 **Activité 4.7** — trois soustractions de très grands nombres
 :::
@@ -34,7 +34,7 @@ $$
 :::
 :::
 
-::: {#remarque-4-2 data-sorte="remarque" data-num="4.2" data-page="49" data-phys="52" data-id="5UAA3.rem.012" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {#remarque-4-2 data-sorte="remarque" data-num="4.2" data-page="47" data-phys="50" data-id="5UAA3.rem.012" data-type="remarque" data-tags="" .theo .theo-remarque}
 ::: {.theo-head}
 **Remarque 4.2**
 :::

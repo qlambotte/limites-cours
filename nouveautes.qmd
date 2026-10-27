@@ -5,6 +5,15 @@ subtitle: "Ce qui a changé dans le cours en ligne"
 
 <!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
 
+## 27/10/2026
+
+- [Limites à gauche et à droite](ch2-limites-definition-e/6-limites-a-gauche-et-a.qmd) — modifié : [Définition 2.3](ch2-limites-definition-e/6-limites-a-gauche-et-a.qmd#definition-2-3), [Propriété 2.2](ch2-limites-definition-e/6-limites-a-gauche-et-a.qmd#propriete-2-2), [Exemple 2.2](ch2-limites-definition-e/6-limites-a-gauche-et-a.qmd#exemple-2-2)
+- [Exercices](ch2-limites-definition-e/8-exercices.qmd) — modifié : [Exercice 2.8](ch2-limites-definition-e/8-exercices.qmd#exercice-2-8)
+- [En une valeur interdite : point creux ou asymptote verticale ?](ch3-chercher-les-points/4-en-une-valeur-interdite-point.qmd) — modifié : [Exemple 3.2](ch3-chercher-les-points/4-en-une-valeur-interdite-point.qmd#exemple-3-2), [Exemple 3.3](ch3-chercher-les-points/4-en-une-valeur-interdite-point.qmd#exemple-3-3)
+- [Exercices](ch3-chercher-les-points/5-exercices.qmd) — modifié : [Exercice 3.8](ch3-chercher-les-points/5-exercices.qmd#exercice-3-8)
+- [Synthèse](ch4-chercher-les-asympto/5-synthese.qmd) — modifié : [Exemple 4.4](ch4-chercher-les-asympto/5-synthese.qmd#exemple-4-4)
+- [Exercices](ch4-chercher-les-asympto/6-exercices.qmd) — modifié : [Exercice 4.10](ch4-chercher-les-asympto/6-exercices.qmd#exercice-4-10), [Exercice 4.11](ch4-chercher-les-asympto/6-exercices.qmd#exercice-4-11)
+
 ## 02/10/2026
 
 - [Les polynômes en ±∞ : le terme qui l’emporte](ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.qmd) — modifié : [Remarque 4.1](ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.qmd#remarque-4-1)

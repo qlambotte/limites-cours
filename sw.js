@@ -3,7 +3,7 @@
      gardée ; toutes les pages sont mises de côté à la première visite ;
    - le reste (scripts, styles, figures, polices, MathJax) : copie gardée,
      rafraîchie en arrière-plan. Les PDF ne sont pas mis de côté (trop lourds). */
-var VERSION = "7380c6df93";
+var VERSION = "a911977ebb";
 var CACHE = "typweb-" + VERSION;
 var PAGES = ["./", "index.html", "index.json", "autoeval.html", "ch1-fonctions/1-rappels.html", "ch1-fonctions/2-operations-sur-les-fonctions.html", "ch1-fonctions/3-reconnaitre-une-composee.html", "ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html", "ch1-fonctions/5-asymptotes-premier-contact.html", "ch1-fonctions/index.html", "ch2-limites-definition-e/1-decrire-un-graphique-sans-le.html", "ch2-limites-definition-e/2-un-point-qui-se-deplace.html", "ch2-limites-definition-e/3-un-trou-dans-le-graphique.html", "ch2-limites-definition-e/4-definition.html", "ch2-limites-definition-e/5-quand-une-limite-a-t.html", "ch2-limites-definition-e/6-limites-a-gauche-et-a.html", "ch2-limites-definition-e/7-les-limites-des-fonctions-de.html", "ch2-limites-definition-e/8-exercices.html", "ch2-limites-definition-e/index.html", "ch3-chercher-les-points/1-pourquoi-calculer.html", "ch3-chercher-les-points/2-les-fonctions-rationnelles.html", "ch3-chercher-les-points/3-en-un-point-du-domaine.html", "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html", "ch3-chercher-les-points/5-exercices.html", "ch3-chercher-les-points/index.html", "ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.html", "ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.html", "ch4-chercher-les-asympto/3-asymptote-oblique.html", "ch4-chercher-les-asympto/4-on-ne-calcule-pas-avec.html", "ch4-chercher-les-asympto/5-synthese.html", "ch4-chercher-les-asympto/6-exercices.html", "ch4-chercher-les-asympto/index.html", "essentiel.html", "mode-emploi.html", "nouveautes.html", "objectifs.html"];
 
@@ -32,9 +32,10 @@ self.addEventListener("fetch", function (e) {
   if (req.method !== "GET") return;
   var url = new URL(req.url);
   if (/\.pdf$/i.test(url.pathname)) return;
-  // pages, index.json et prof.js (couche prof) : réseau d'abord, copie si hors ligne
+  // pages, index.json et scripts de la couche prof (prof, sync, vote*, qr-votes, sonomètre) : réseau d'abord,
+  // copie si hors ligne (sinon, après une publication, la tablette garderait une visite l'ancien écran de vote)
   var page = req.mode === "navigate" || (req.headers.get("accept") || "").indexOf("text/html") >= 0
-             || /(\.json|\/prof\.js)$/.test(url.pathname);
+             || /(\.json|\/(prof|sync|qr-votes|sonometre|vote[\w-]*)\.(js|css))$/.test(url.pathname);
   if (page) {
     e.respondWith(fetch(req).then(function (r) { return garder(req, r); }).catch(function () {
       return caches.match(req, { ignoreSearch: true }).then(function (r) {

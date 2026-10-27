@@ -1,19 +1,18 @@
 /*-- scss:defaults --*/
 
 // Couleurs de marque (servent aussi de base Bootstrap)
-$blue:   #1f5fbf;
+$blue:   #46607e;
 $primary:       $blue;
 $link-color:    $blue;
 
-// Typographie — Roboto (corps) + Roboto Slab (titres), façon « bookup ».
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400&family=Roboto+Slab:wght@500;600;700&family=JetBrains+Mono&display=swap');
+// Typographie — charte « Ardoise et cuivre » : Inter (texte, interface) + TeX Gyre Pagella (titres, énoncés).
+// Les polices sont intégrées au CSS (polices.scss) : aucun serveur externe.
+$font-family-sans-serif: "Inter", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+$font-family-serif:      "TeX Gyre Pagella", "Palatino Linotype", Palatino, Georgia, serif;
+$font-family-monospace:  ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 
-$font-family-sans-serif: "Roboto", system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
-$font-family-serif:      "Roboto Slab", Georgia, "Times New Roman", serif;
-$font-family-monospace:  "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
-
-$headings-font-family: "Roboto Slab", Georgia, serif;
-$headings-font-weight: 600;
+$headings-font-family: "TeX Gyre Pagella", "Palatino Linotype", Palatino, Georgia, serif;
+$headings-font-weight: 500;
 $font-size-root: 16.5px;
 $line-height-base: 1.62;
 
@@ -22,47 +21,26 @@ $line-height-base: 1.62;
 // =====================================================================
 //  Jetons de couleur — clair par défaut, sombre via [data-theme="dark"]
 // =====================================================================
-:root {
-  --accent:     #1f5fbf;
-  --h:          #14304a;
-  --muted:      #5a6b7b;
-  --rule:       #e5e9ef;
-  --page-bg:    #ffffff;
-  --text:       #24313d;
-  --side-bg:    #fbfcfd;
-  --card-bg:    #f6f8fb;
-  --card-brd:   #e5e9ef;
-  --exo-body:   #fffdfb;
-  --exo-bg:     #fdf3e8;
-  --exo-brd:    #f0dcc4;
-  --exo-accent: #c76e00;
-  --exo-title:  #9a4f00;
-  --tip-bg:     #f2f7ff;
-  --tip-brd:    #dbe7fb;
-  --thead-bg:   #f4f7fa;
-  --hover-bg:   #eef3fb;
-  --input-bg:   #ffffff;
+// Charte « Ardoise et cuivre » : l'ardoise structure, le cuivre attire l'œil, l'olive confirme.
+// Aucun noir pur ; contraste du texte ≥ 4,5:1 en jour comme en soir (vérifié par tests/test_charte.py).
+:root, :root[data-theme="light"] {
+  --accent: #46607e; --h: #2f3a47; --muted: #59626e; --rule: #e4e8ee; --page-bg: #f4f5f7; --text: #242c36;
+  --side-bg: #f4f5f7; --card-bg: #ffffff; --card-brd: #e4e8ee; --hover-bg: #e4e8ee; --input-bg: #ffffff; --thead-bg: #eef0f3;
+  --carte: #ffffff; --ombre: #1a1a2a0f; --q: #f2f3f5;
+  --ard: #3d4b5c; --ard-t: #e8ecf1; --cu: #cf8150; --cu-f: #8c4a22; --cu-t: #f7e7dc; --ol: #7c9c6b; --ol-f: #4e6a40; --ol-t: #e6efe0;
+  --pr-f: #5e4170; --pr-t: #efe9f3;
+  --tip-bg: #eef2f7; --tip-brd: #d9e0e9;
+  --exo-body: #ffffff; --exo-bg: #f7e7dc; --exo-brd: #f7e7dc; --exo-accent: #cf8150; --exo-title: #8c4a22;
+  --serif-t: "TeX Gyre Pagella", "Palatino Linotype", Palatino, Georgia, serif;
 }
 :root[data-theme="dark"] {
-  --accent:     #6ea8ff;
-  --h:          #e8eef6;
-  --muted:      #9db0c1;
-  --rule:       #26323d;
-  --page-bg:    #11171d;
-  --text:       #c7d2dc;
-  --side-bg:    #0f151b;
-  --card-bg:    #171f27;
-  --card-brd:   #2a3540;
-  --exo-body:   #1c1712;
-  --exo-bg:     #2a2016;
-  --exo-brd:    #4a3826;
-  --exo-accent: #d98a3a;
-  --exo-title:  #f0b878;
-  --tip-bg:     #14202b;
-  --tip-brd:    #24455f;
-  --thead-bg:   #1b232c;
-  --hover-bg:   #202b35;
-  --input-bg:   #171f27;
+  --accent: #a9c1de; --h: #e8ebef; --muted: #aab3be; --rule: #36404b; --page-bg: #1e242c; --text: #dde2e8;
+  --side-bg: #1e242c; --card-bg: #27303a; --card-brd: #36404b; --hover-bg: #2f3842; --input-bg: #2f3842; --thead-bg: #2f3842;
+  --carte: #27303a; --ombre: #00000040; --q: #2f3842;
+  --ard: #c9d3df; --ard-t: #2c3542; --cu: #e8b593; --cu-f: #f0c9ad; --cu-t: #3a2f2a; --ol: #9cba8c; --ol-f: #c3d8b8; --ol-t: #27322a;
+  --pr-f: #d6c2e3; --pr-t: #312a3a;
+  --tip-bg: #26303b; --tip-brd: #36404b;
+  --exo-body: #27303a; --exo-bg: #3a2f2a; --exo-brd: #3a2f2a; --exo-accent: #e8b593; --exo-title: #f0c9ad;
 }
 
 body { -webkit-font-smoothing: antialiased; background: var(--page-bg); color: var(--text); }
@@ -234,19 +212,16 @@ html[data-theme="dark"] blockquote { color: var(--muted); }
 // =====================================================================
 //  Boîtes de cours (théorie) — Définition · Propriété · Exemple · Remarque
 // =====================================================================
-:root {
-  --def-accent: #1d6fb8; --def-bg: #f2f8fd;
-  --prop-accent: #c1002a; --prop-bg: #fdf2f4;
-  --exm-accent: #0a7d4d; --exm-bg: #f0f8f4;
-  --rem-accent: #6a737d; --rem-bg: #f4f6f8;
-  --ret-accent: #e0a800; --ret-bg: #fff7d6;
+// Boîtes de cours : une famille de teinte par type (voir « Charte » en fin de fichier).
+:root, :root[data-theme="light"] {
+  --def-accent: #3d4b5c; --def-bg: #e8ecf1; --prop-accent: #8c4a22; --prop-bg: #f7e7dc;
+  --exm-accent: #4e6a40; --exm-bg: #ffffff; --rem-accent: #59626e; --rem-bg: #f2f3f5;
+  --ret-accent: #cf8150; --ret-bg: #f7e7dc;
 }
 :root[data-theme="dark"] {
-  --def-accent: #5aa9e6; --def-bg: #12222f;
-  --prop-accent: #ef6b85; --prop-bg: #2a141a;
-  --exm-accent: #4fbF87; --exm-bg: #10241b;
-  --rem-accent: #9db0c1; --rem-bg: #171f27;
-  --ret-accent: #e6c357; --ret-bg: #2a2410;
+  --def-accent: #c9d3df; --def-bg: #2c3542; --prop-accent: #f0c9ad; --prop-bg: #3a2f2a;
+  --exm-accent: #c3d8b8; --exm-bg: #27303a; --rem-accent: #aab3be; --rem-bg: #2f3842;
+  --ret-accent: #e8b593; --ret-bg: #3a2f2a;
 }
 .theo {
   margin: 1.1rem 0; border: 1px solid var(--card-brd); border-left-width: 4px;
@@ -289,16 +264,16 @@ html[data-theme="dark"] blockquote { color: var(--muted); }
 // =====================================================================
 //  ===  Ajouts propres au cours « Limites et asymptotes »  ===
 // =====================================================================
-:root {
-  --act-accent: #6d3bbf; --act-bg: #f7f3fd;          // activités (violet des notes)
-  --exo-c: #8a5a00; --exo-fond: #fffaf1;             // exercices (brun des notes)
-  --grille: #24313d; --courbe: #1d6fb8; --mobile: #c1002a; --cible: #c76e00; --asym: #c1002a;
-  --an-noir: #111111;
+:root, :root[data-theme="light"] {
+  --act-accent: #5e4170; --act-bg: #efe9f3;
+  --exo-c: #8c4a22; --exo-fond: #ffffff;
+  --grille: #59626e; --courbe: #46607e; --mobile: #c0573e; --cible: #cf8150; --asym: #c0573e;
+  --an-noir: #242c36;
 }
 :root[data-theme="dark"] {
-  --act-accent: #a88bf0; --act-bg: #1b1628;
-  --exo-c: #e0a64a; --exo-fond: #1c1712;
-  --grille: #c7d2dc; --courbe: #5aa9e6; --mobile: #ef6b85; --cible: #e6a24f; --asym: #ef6b85;
+  --act-accent: #d6c2e3; --act-bg: #312a3a;
+  --exo-c: #f0c9ad; --exo-fond: #27303a;
+  --grille: #aab3be; --courbe: #a9c1de; --mobile: #e8a08a; --cible: #e8b593; --asym: #e8a08a;
   --an-noir: #f2f2f2;
 }
 .theo-activite { border-color: var(--act-accent); }
@@ -691,3 +666,87 @@ html.proj-tab-ouvert .proj-minu { z-index: 1090; }
 
 // icône « ? » (mode d'emploi)
 .imsv-aide b { font: 700 1.05rem/1 $font-family-sans-serif; }
+
+// =====================================================================
+//  Charte « Ardoise et cuivre » (rendu par défaut des notes en ligne)
+//  Cartes arrondies sans bordure, pilules, ombres légères. Les PDF (Typst) ne sont pas concernés.
+// =====================================================================
+body { font-family: $font-family-sans-serif; background: var(--page-bg); }
+h1, h2, h3, h4, .title, .sidebar-title a, .book-title { font-family: var(--serif-t) !important; color: var(--h); }
+h1.title { font-weight: 500; font-size: 2.5rem; letter-spacing: -.01em; }
+h2 { border-top: 0 !important; font-weight: 500; font-size: 1.65rem; }
+#quarto-sidebar, .sidebar.margin-sidebar { background: var(--side-bg) !important; border-right: 0 !important; }
+.sidebar-title a { font-size: 1.35rem; font-weight: 600; }
+.sidebar-navigation .sidebar-item-text { color: var(--muted); }
+.sidebar-navigation .sidebar-link.active, .sidebar-navigation .active { background: var(--ard-t); color: var(--ard) !important; border-radius: 99px;
+  padding: 2px 10px !important; margin-left: -10px; font-weight: 600; }
+.sidebar-search input, #quarto-search input { border-radius: 99px !important; background: var(--carte) !important; border: 0 !important; box-shadow: 0 1px 4px var(--ombre); }
+.imsv-tool { color: var(--ard) !important; border-radius: 50% !important; background: var(--carte) !important; box-shadow: 0 1px 4px var(--ombre); margin-right: 4px; width: 2.1rem !important; height: 2.1rem !important; }
+main a { color: var(--accent); }
+
+/* ---------- encadrés : cartes arrondies, une famille de couleur par type ---------- */
+.theo { border: 0 !important; border-radius: 22px !important; background: var(--carte); box-shadow: 0 1px 2px var(--ombre), 0 10px 28px var(--ombre); overflow: hidden; margin: 1.4rem 0 !important; }
+.theo-head { background: transparent !important; color: var(--h) !important; font-family: var(--serif-t) !important; font-weight: 600 !important; font-size: 1.15rem;
+  padding: 1rem 1.25rem .15rem !important; }
+.theo-head::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: currentColor; flex: none; }
+.theo-body { background: transparent !important; padding: .45rem 1.25rem 1.1rem !important; }
+.theo-definition { background: var(--ard-t); } .theo-definition .theo-head { color: var(--ard) !important; }
+.theo-propriete { background: var(--cu-t); } .theo-propriete .theo-head { color: var(--cu-f) !important; }
+.theo-exemple .theo-head { color: var(--ol-f) !important; }
+.theo-remarque { background: var(--q); box-shadow: none; } .theo-remarque .theo-head { color: var(--muted) !important; }
+.theo-activite .theo-head { color: var(--pr-f) !important; }
+.theo-activite { box-shadow: 0 0 0 2px var(--pr-t), 0 10px 28px var(--ombre); }
+.theo-activite .theo-head .theo-label::before { content: "" !important; }
+.theo-aretenir { border: 0 !important; border-radius: 18px !important; background: var(--cu-t) !important; box-shadow: inset 6px 0 0 var(--cu); padding: 1rem 1.25rem !important; }
+.theo-head button, .rep-tout { font: 600 .85rem $font-family-sans-serif !important; color: inherit !important; background: var(--carte) !important; border: 0 !important;
+  border-radius: 99px !important; padding: .35rem .9rem !important; box-shadow: 0 1px 4px var(--ombre); }
+.theo-head .proj-outil, .theo-head .imsv-tool { box-shadow: none; background: transparent !important; }
+
+/* ---------- exercices : en-tête cuivre pâle, carte blanche ---------- */
+.exo { border: 0 !important; border-radius: 22px !important; background: var(--carte); box-shadow: 0 1px 2px var(--ombre), 0 10px 28px var(--ombre); overflow: hidden; margin: 1.6rem 0 .4rem !important; }
+.exo-tete { background: var(--cu-t) !important; color: var(--cu-f) !important; font-family: var(--serif-t) !important; font-size: 1.12rem; padding: .7rem 1.2rem !important; }
+.exo-tete .exo-meta, .exo-tete .exo-hash, .exo-tete .exo-maison { color: var(--cu-f) !important; }
+.exo-tete .exo-comp { background: var(--carte) !important; color: var(--cu-f); border-radius: 8px !important; padding: .05rem .45rem !important; }
+.exo-tete button, .exo-tete .imsv-tool { background: transparent !important; box-shadow: none; color: var(--cu-f) !important; }
+.exo-corps { background: transparent !important; padding: .9rem 1.25rem 1rem !important; }
+.suivi-barre, .suivi { background: transparent !important; border-top: 1px solid var(--rule) !important; }
+.suivi-b { border: 0 !important; background: var(--q) !important; color: var(--text) !important; border-radius: 99px !important; padding: .3rem .9rem !important; }
+.suivi-b-ok, .suivi-b.on, .suivi-b[aria-pressed=true] { background: var(--ol-t) !important; color: var(--ol-f) !important; }
+
+/* coups de pouce : bouton pilule, onglets en segments */
+.aides-toggle { text-transform: none !important; letter-spacing: 0 !important; font: 600 .95rem $font-family-sans-serif !important; color: var(--cu-f) !important;
+  background: var(--cu-t); border: 0; border-radius: 99px; padding: .45rem 1rem !important; }
+.aides .panel-tabset { background: var(--carte); border-radius: 20px; padding: .6rem; box-shadow: 0 1px 2px var(--ombre), 0 10px 28px var(--ombre); margin-top: .6rem !important; }
+.aides .panel-tabset > .nav-tabs { border: 0 !important; background: var(--q); border-radius: 99px; padding: 4px; display: inline-flex; gap: 2px; }
+.aides .nav-tabs .nav-link { border: 0 !important; border-radius: 99px !important; color: var(--muted) !important; padding: .35rem 1rem !important; font-weight: 600; }
+.aides .nav-tabs .nav-link.active { background: var(--carte) !important; color: var(--h) !important; box-shadow: 0 1px 4px var(--ombre); }
+.aides .tab-content { border: 0 !important; padding: .8rem .8rem .4rem !important; }
+
+/* réponses cachées */
+.rep { border: 1.5px dashed #9aa6b4 !important; border-radius: 14px !important; background: var(--q) !important; color: var(--muted) !important; }
+:root[data-theme="dark"] .rep { border-color: #6b7785 !important; }
+.lp-fig svg, .sp-canvas svg { border: 0 !important; border-radius: 16px !important; background: var(--carte) !important; box-shadow: 0 1px 2px var(--ombre), 0 6px 18px var(--ombre); }
+.lp-chip.on, .lp-btn2 { background: var(--ard) !important; border-color: var(--ard) !important; color: var(--carte) !important; border-radius: 99px !important; }
+.lp-chip, .lp-ain, .lp-btn { border-radius: 99px !important; }
+.lp-live { border: 0 !important; border-radius: 16px !important; background: var(--q) !important; }
+
+/* bulle « page des notes » */
+.bulle-pdf { border: 0 !important; border-radius: 99px !important; background: var(--carte) !important; color: var(--ard) !important; box-shadow: 0 6px 20px #2f3a4726 !important; padding: .45rem .9rem !important; }
+.bulle-pdf .bp-p { font-family: var(--serif-t); }
+#quarto-margin-sidebar a[class*="pdf"], .margin-sidebar .bulle-pdf { border: 0 !important; }
+.quarto-secondary-nav { background: var(--page-bg) !important; border: 0 !important; }
+.page-notes { border: 0 !important; border-radius: 18px !important; background: var(--carte) !important; color: var(--ard) !important; box-shadow: 0 1px 2px var(--ombre), 0 8px 22px var(--ombre) !important; }
+.page-notes .pn-fl, .page-notes b { color: var(--cu-f) !important; }
+.page-notes b { font-family: var(--serif-t); }
+.sidebar-search, #quarto-search, #quarto-search .aa-Form, .aa-Autocomplete, .aa-Form { background: var(--carte) !important; border: 0 !important; border-radius: 99px !important; }
+.aa-Input { color: var(--text) !important; background: transparent !important; }
+
+.maison { color: var(--carte) !important; }
+.exo-tete .maison { background: var(--cu-f); }
+:root[data-theme="dark"] .exo-tete .maison { background: var(--cu-f); color: var(--cu-t) !important; }
+.sidebar-navigation .sidebar-link.active { white-space: normal; }
+@media (max-width: 575.98px) {
+  h1.title { font-size: 2rem; }
+  .theo, .exo { border-radius: 18px !important; }
+  .bulle-pdf { padding: .4rem .75rem !important; }
+}

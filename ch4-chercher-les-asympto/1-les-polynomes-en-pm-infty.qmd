@@ -4,7 +4,7 @@ title: "Les polynômes en ±∞ : le terme qui l’emporte"
 
 <!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
 
-::: {#activite-4-1 data-sorte="activite" data-num="4.1" data-page="42" data-phys="45" data-id="5UAA3.emporte" data-type="activite" data-tags="" .theo .theo-activite}
+::: {#activite-4-1 data-sorte="activite" data-num="4.1" data-page="40" data-phys="43" data-id="5UAA3.emporte" data-type="activite" data-tags="" .theo .theo-activite}
 ::: {.theo-head}
 **Activité 4.1** — qui l’emporte ?
 :::
@@ -26,7 +26,7 @@ Soit $P(x) = x^{2} - 100 x$. Lorsque $x$ est proche de $+\infty$, le terme $x^{2
 :::
 :::
 
-::: {#propriete-4-1 data-sorte="propriete" data-num="4.1" data-page="43" data-phys="46" data-id="5UAA3.polynome" data-type="propriete" data-tags="" .theo .theo-propriete}
+::: {#propriete-4-1 data-sorte="propriete" data-num="4.1" data-page="41" data-phys="44" data-id="5UAA3.polynome" data-type="propriete" data-tags="" .theo .theo-propriete}
 ::: {.theo-head}
 **Propriété 4.1** — polynôme en $\pm \infty$
 :::
@@ -40,7 +40,7 @@ $$
 :::
 :::
 
-::: {#remarque-4-1 data-sorte="remarque" data-num="4.1" data-page="43" data-phys="46" data-id="5UAA3.rem.011" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {#remarque-4-1 data-sorte="remarque" data-num="4.1" data-page="41" data-phys="44" data-id="5UAA3.rem.011" data-type="remarque" data-tags="" .theo .theo-remarque}
 ::: {.theo-head}
 **Remarque 4.1**
 :::
@@ -50,7 +50,7 @@ Pour calculer $\lim\limits_{x \to \pm \infty} a x^{n}$, on combine le signe de $
 :::
 :::
 
-::: {#exemple-4-1 data-sorte="exemple" data-num="4.1" data-page="43" data-phys="46" data-id="5UAA3.exm.008" data-type="exemple" data-tags="" .theo .theo-exemple}
+::: {#exemple-4-1 data-sorte="exemple" data-num="4.1" data-page="41" data-phys="44" data-id="5UAA3.exm.008" data-type="exemple" data-tags="" .theo .theo-exemple}
 ::: {.theo-head}
 **Exemple 4.1**
 :::

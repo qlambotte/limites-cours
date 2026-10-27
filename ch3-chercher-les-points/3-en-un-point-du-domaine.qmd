@@ -6,7 +6,7 @@ title: "En un point du domaine : rien à chercher"
 
 Dans l’activité sur les fonctions de référence, nous avons observé qu’en un point $a$ du domaine, la limite vaut $f(a)$. Les fonctions rationnelles étant construites à partir de $x$ et de constantes par les opérations $+$, $-$, $\cdot$ et $/$, elles héritent de ce comportement.
 
-::: {#propriete-3-1 data-sorte="propriete" data-num="3.1" data-page="35" data-phys="38" data-id="5UAA3.limite-point-domaine" data-type="propriete" data-tags="" .theo .theo-propriete}
+::: {#propriete-3-1 data-sorte="propriete" data-num="3.1" data-page="33" data-phys="36" data-id="5UAA3.limite-point-domaine" data-type="propriete" data-tags="" .theo .theo-propriete}
 ::: {.theo-head}
 **Propriété 3.1** — limite en un point du domaine
 :::
@@ -24,7 +24,7 @@ Autrement dit, pour calculer la limite, il suffit de remplacer $x$ par $a$.
 
 En un point du domaine, le graphique d’une fonction rationnelle passe donc tranquillement par le point $(a ; f(a))$ : pas de point creux, pas d’asymptote. **Pour trouver les caractéristiques qui nous intéressent, inutile de chercher là.**
 
-::: {#remarque-3-1 data-sorte="remarque" data-num="3.1" data-page="35" data-phys="38" data-id="5UAA3.rem.009" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {#remarque-3-1 data-sorte="remarque" data-num="3.1" data-page="34" data-phys="37" data-id="5UAA3.rem.009" data-type="remarque" data-tags="" .theo .theo-remarque}
 ::: {.theo-head}
 **Remarque 3.1**
 :::
@@ -34,7 +34,7 @@ Cette propriété n’est pas vraie pour toutes les fonctions : pour la fonction
 :::
 :::
 
-::: {#exemple-3-1 data-sorte="exemple" data-num="3.1" data-page="35" data-phys="38" data-id="5UAA3.exm.003" data-type="exemple" data-tags="" .theo .theo-exemple}
+::: {#exemple-3-1 data-sorte="exemple" data-num="3.1" data-page="34" data-phys="37" data-id="5UAA3.exm.003" data-type="exemple" data-tags="" .theo .theo-exemple}
 ::: {.theo-head}
 **Exemple 3.1**
 :::
