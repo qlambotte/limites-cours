@@ -57,7 +57,7 @@ La rédaction **2** est correcte.
 :::
 
 ::: {.exo-corps}
-Parmi les expressions suivantes, lesquelles représentent des fonctions rationnelles ? $x$ $3x^{3}+6x+\sqrt{x}$ $\frac{x^{2}+\left|2x\right|}{x^{2}+1}$ $\frac{1}{x}$ $\frac{1}{x^{2}+1}$ $\frac{x^{2}+3x+1}{x^{5}+2 \sqrt[3]{x}}$
+Parmi les expressions suivantes, lesquelles représentent des fonctions rationnelles ? $x$ $3x^{3}+6x+\sqrt{x}$ $\frac{x^{2}+\left\vert 2x\right\vert{}}{x^{2}+1}$ $\frac{1}{x}$ $\frac{1}{x^{2}+1}$ $\frac{x^{2}+3x+1}{x^{5}+2 \sqrt[3]{x}}$
 :::
 :::
 
@@ -87,7 +87,7 @@ Fonctions rationnelles :
 Pas rationnelles :
 
 - $3x^{3} + 6x + \sqrt{x}$ : une racine ;
-- $\frac{x^{2} + \left|2x\right|}{x^{2}+1}$ : une valeur absolue ;
+- $\frac{x^{2} + \left\vert 2x\right\vert{}}{x^{2}+1}$ : une valeur absolue ;
 - $\frac{x^{2}+3x+1}{x^{5}+2 \sqrt[3]{x}}$ : une racine cubique.
 :::
 

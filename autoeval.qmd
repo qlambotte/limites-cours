@@ -580,7 +580,7 @@ Dans cet ordre, on obtiendrait $(\sqrt{x})^{2} - 4 = x - 4$ (pour $x \geq 0$), p
 
 ::: {.ae-prop}
 ::: {.ae-r}
-$q(x) = \sqrt{x^{2}} - \sqrt{4} = \left|x\right| - 2$ : c’est une différence.
+$q(x) = \sqrt{x^{2}} - \sqrt{4} = \left\vert x\right\vert{} - 2$ : c’est une différence.
 :::
 
 ::: {.ae-fb}
@@ -594,7 +594,7 @@ On calcule $x^{2}$, puis on applique la racine carrée, puis on retire $4$.
 :::
 
 ::: {.ae-fb}
-Cet ordre donne $\sqrt{x^{2}} - 4 = \left|x\right| - 4$ : le $-4$ serait hors de la racine. Dans $q$, le $-4$ est sous la racine : on le retire **avant** d’appliquer la racine.
+Cet ordre donne $\sqrt{x^{2}} - 4 = \left\vert x\right\vert{} - 4$ : le $-4$ serait hors de la racine. Dans $q$, le $-4$ est sous la racine : on le retire **avant** d’appliquer la racine.
 :::
 :::
 :::
@@ -1562,11 +1562,11 @@ $\sqrt{x}$ n’est pas un polynôme : un quotient ne suffit pas, il faut que le 
 
 ::: {.ae-prop}
 ::: {.ae-r}
-$\frac{x^{2} + \left|x\right|}{x^{2} + 1}$
+$\frac{x^{2} + \left\vert x\right\vert{}}{x^{2} + 1}$
 :::
 
 ::: {.ae-fb}
-$\left|x\right|$ n’est pas un polynôme : le numérateur n’est donc pas un polynôme.
+$\left\vert x\right\vert{}$ n’est pas un polynôme : le numérateur n’est donc pas un polynôme.
 :::
 :::
 

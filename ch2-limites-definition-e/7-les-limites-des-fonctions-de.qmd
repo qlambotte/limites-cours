@@ -49,7 +49,7 @@ $f(x) = \frac{1}{x}$
 ```
 
 ::: {.lp-legende}
-$f(x) = \left|x\right|$
+$f(x) = \left\vert x\right\vert{}$
 :::
 :::
 
@@ -100,7 +100,7 @@ $f(x) = \sqrt[3]{x}$
 | $f(x) = k$ | [$k$]{.rep} | [$k$]{.rep} | [$k$]{.rep} |
 | $f(x) = x$ | [$-2$]{.rep} | [$0$]{.rep} | [$a$]{.rep} |
 | $f(x) = \frac{1}{x}$ | [$-\frac{1}{2}$]{.rep} | [n’existe pas]{.rep} | [$\frac{1}{a}$]{.rep} |
-| $f(x) = \left\|x\right\|$ | [$2$]{.rep} | [$0$]{.rep} | [$\left\|a\right\|$]{.rep} |
+| $f(x) = \left\vert x\right\vert{}$ | [$2$]{.rep} | [$0$]{.rep} | [$\left\vert a\right\vert{}$]{.rep} |
 | $f(x) = x^{2}$ | [$4$]{.rep} | [$0$]{.rep} | [$a^{2}$]{.rep} |
 | $f(x) = \sqrt{x}$ | [pas de sens]{.rep} | [$0$]{.rep} | [$\sqrt{a}$]{.rep} |
 | $f(x) = x^{3}$ | [$-8$]{.rep} | [$0$]{.rep} | [$a^{3}$]{.rep} |

@@ -10,7 +10,7 @@ title: "Reconnaître une composée"
 :::
 
 ::: {.theo-body}
-En 4^e^, tu as appris à reconnaître et à tracer un petit nombre de fonctions de référence : $x$, $x^{2}$, $x^{3}$, $\frac{1}{x}$, $\sqrt{x}$, $\sqrt[3]{x}$, $\left|x\right|$, et les fonctions constantes. La plupart des fonctions que tu rencontreras cette année ne sont pas nouvelles : ce sont ces quelques blocs de base, assemblés soit par les opérations $+, -, \cdot, /$ que tu viens de voir, soit par une nouvelle opération, la **composition** — qui consiste à appliquer un bloc, puis un **autre** bloc, au résultat du premier. (Attention : une expression comme $x^{2}+1$ n’est pas une composition — c’est la somme du bloc $x^{2}$ et de la fonction constante $1$, une opération que tu connais déjà.)
+En 4^e^, tu as appris à reconnaître et à tracer un petit nombre de fonctions de référence : $x$, $x^{2}$, $x^{3}$, $\frac{1}{x}$, $\sqrt{x}$, $\sqrt[3]{x}$, $\left\vert x\right\vert{}$, et les fonctions constantes. La plupart des fonctions que tu rencontreras cette année ne sont pas nouvelles : ce sont ces quelques blocs de base, assemblés soit par les opérations $+, -, \cdot, /$ que tu viens de voir, soit par une nouvelle opération, la **composition** — qui consiste à appliquer un bloc, puis un **autre** bloc, au résultat du premier. (Attention : une expression comme $x^{2}+1$ n’est pas une composition — c’est la somme du bloc $x^{2}$ et de la fonction constante $1$, une opération que tu connais déjà.)
 
 Compare les deux graphiques suivants.
 
@@ -124,7 +124,7 @@ $j(x) = \sqrt{x^{2}}$
 Reconnais-tu le graphique de $j$ ? À quelle fonction de référence, déjà connue, est-il identique ? Est-ce cohérent avec le résultat de $j(-3)$ calculé ci-dessus ?
 
 ::: {.rep-bloc}
-C’est le graphique de $\left|x\right|$. Cohérent : $j(-3) = 3 = \left|-3\right|$, alors que $-3 \neq -3$ si on avait juste "simplifié" $\sqrt{x^{2}}$ en $x$.
+C’est le graphique de $\left\vert x\right\vert{}$. Cohérent : $j(-3) = 3 = \left\vert -3\right\vert{}$, alors que $-3 \neq -3$ si on avait juste "simplifié" $\sqrt{x^{2}}$ en $x$.
 :::
 :::
 :::
@@ -255,7 +255,7 @@ $$
 et les fonctions simples seront les fonctions de référence :
 
 $$
-x, x^{2}, x^{3}, x^{n}, \frac{1}{x}, \sqrt{x}, \sqrt[3]{x}, \left|x\right|, k.
+x, x^{2}, x^{3}, x^{n}, \frac{1}{x}, \sqrt{x}, \sqrt[3]{x}, \left\vert x\right\vert{}, k.
 $$
 
 Soit $f(x) = \sqrt{x^{3} + \frac{1}{x}}$. Décomposons $f$.

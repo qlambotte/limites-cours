@@ -36,7 +36,7 @@ Pour $\frac{1}{x}$ : loin à droite, le graphique se rapproche de l’axe horizo
 | $k$ | $k$ | $k$ |
 | $x$ | $-\infty$ | $+\infty$ |
 | $\frac{1}{x}$ | $0$ | $0$ |
-| $\left\|x\right\|$ | $+\infty$ | $+\infty$ |
+| $\left\vert x\right\vert{}$ | $+\infty$ | $+\infty$ |
 | $x^{2}$ | $+\infty$ | $+\infty$ |
 | $\sqrt{x}$ | pas de sens | $+\infty$ |
 | $x^{3}$ | $-\infty$ | $+\infty$ |
@@ -219,7 +219,7 @@ $\lim\limits_{x \to -\infty} h(x)$ $\lim\limits_{x \to -1} h(x)$ \
 ```
 
 ::: {.lp-legende}
-$k(x) = \left|x-1\right| - 2$
+$k(x) = \left\vert x-1\right\vert{} - 2$
 :::
 
 $\lim\limits_{x \to -\infty} k(x)$ $\lim\limits_{x \to 1} k(x)$ \
@@ -263,7 +263,7 @@ Pour $f$ : le graphique de $\frac{1}{x}$ a été déplacé de $2$ vers la droite
 - $\lim\limits_{x \to \pm \infty} h(x) = 2$ ; $\lim\limits_{x \to 0} h(x) = h(0) = 1$.
 - $\lim\limits_{x \to -1} h(x) = -\infty$ : les deux côtés descendent sans fin, et $-1$ n’est pas dans le domaine : la limite existe.
 
-**$k(x) = \left|x-1\right| - 2$** — domaine $\mathbb{R}$.
+**$k(x) = \left\vert x-1\right\vert{} - 2$** — domaine $\mathbb{R}$.
 
 - $\lim\limits_{x \to \pm \infty} k(x) = +\infty$ ; $\lim\limits_{x \to 1} k(x) = -2$ (la pointe du « V ») ; $\lim\limits_{x \to 3} k(x) = 0$.
 :::
