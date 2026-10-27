@@ -566,11 +566,18 @@
     var qs = classe && ids.length ? choisirComprehensionIds(ids, classe) : [];
     Array.prototype.forEach.call(blocs, function (bloc) {
       var ligne = bloc.querySelector(".tv-test-ligne");
-      if (!qs.length) { if (ligne) ligne.remove(); return; }       // rien à poser : le lien reste celui des élèves
-      if (!ligne) {
-        ligne = h("p", { "class": "tv-test-ligne" });
+      if (!ligne) { ligne = h("p", { "class": "tv-test-ligne" }); bloc.appendChild(ligne); }
+      // En mode prof, le lien « S'autoévaluer » des élèves est masqué (vote.css) : cette ligne est seule.
+      if (!qs.length) {
+        ligne.textContent = "";
+        ligne.appendChild(h("span", { "class": "tv-test-vide" }));
+        ligne.firstChild.textContent = classe ? "Aucune question de compréhension pour cette page dans la banque de classe."
+                                              : "Choisis la classe active pour tester la compréhension.";
+        return;
+      }
+      if (!ligne.firstChild || ligne.firstChild.tagName !== "A") {
+        ligne.textContent = "";
         ligne.appendChild(h("a", { "class": "tv-test-btn", href: "#", role: "button" }));
-        bloc.appendChild(ligne);
       }
       var a = ligne.firstChild;
       a.textContent = "✔ Tester la compréhension en classe : " + qs.length + " question" + (qs.length > 1 ? "s" : "") + " →";
@@ -673,6 +680,7 @@
     d.textContent = txt; d.className = "tv-etat" + (ok ? " ok" : "");
   }
   function demarrer() {
+    document.documentElement.classList.add("tv-mode-prof");      // masque « S'autoévaluer » (vote.css) : en mode prof, seul le test de compréhension
     var css = document.createElement("link");
     css.rel = "stylesheet"; css.href = BASE + "vote.css";
     document.head.appendChild(css);

@@ -194,6 +194,9 @@ a.tv-test-btn { display: inline-block; font: 600 .92rem Inter, system-ui, sans-s
   background: #566779; border-radius: 999px; padding: .4rem 1rem; box-shadow: 0 6px 16px #1a1a2a22; }
 a.tv-test-btn:hover { filter: brightness(1.1); }
 html[data-theme="dark"] a.tv-test-btn { background: #d38d5f; color: #1e242c !important; }
+/* Mode prof : le lien « S'autoévaluer » (élèves, à la maison) disparaît ; seule reste la ligne « Tester la compréhension ». */
+html.tv-mode-prof .ae-lien > :not(.tv-test-ligne) { display: none !important; }
+.tv-test-vide { font: italic .88rem Inter, system-ui, sans-serif; opacity: .7; }
 
 /* ---------- tablette en portrait, petits écrans ---------- */
 @media (max-width: 760px) {
