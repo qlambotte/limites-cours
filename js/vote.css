@@ -192,8 +192,11 @@ html[data-theme="dark"] .tv-toast { color: #1e242c; background: var(--acc); }
 .tv-test-ligne { margin: .5rem 0 0; }
 a.tv-test-btn { display: inline-block; font: 600 .92rem Inter, system-ui, sans-serif; text-decoration: none !important; color: #fff !important;
   background: #566779; border-radius: 999px; padding: .4rem 1rem; box-shadow: 0 6px 16px #1a1a2a22; }
+.ae-lien a.tv-test-btn, .ae-lien a.tv-test-btn:hover, .ae-lien a.tv-test-btn:focus, .ae-lien a.tv-test-btn:active, .ae-lien a.tv-test-btn:visited {
+  background: #566779; color: #fff !important; border-color: transparent; }
 a.tv-test-btn:hover { filter: brightness(1.1); }
-html[data-theme="dark"] a.tv-test-btn { background: #d38d5f; color: #1e242c !important; }
+html[data-theme="dark"] a.tv-test-btn, html[data-theme="dark"] .ae-lien a.tv-test-btn, html[data-theme="dark"] .ae-lien a.tv-test-btn:hover,
+html[data-theme="dark"] .ae-lien a.tv-test-btn:focus, html[data-theme="dark"] .ae-lien a.tv-test-btn:active, html[data-theme="dark"] .ae-lien a.tv-test-btn:visited { background: #d38d5f; color: #1e242c !important; }
 /* Mode prof : le lien « S'autoévaluer » (élèves, à la maison) disparaît ; seule reste la ligne « Tester la compréhension ». */
 html.tv-mode-prof .ae-lien > :not(.tv-test-ligne) { display: none !important; }
 .tv-test-vide { font: italic .88rem Inter, system-ui, sans-serif; opacity: .7; }

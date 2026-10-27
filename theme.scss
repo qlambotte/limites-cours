@@ -750,3 +750,26 @@ main a { color: var(--accent); }
   .theo, .exo { border-radius: 18px !important; }
   .bulle-pdf { padding: .4rem .75rem !important; }
 }
+
+/* ---------- Ajustements « cartes contrastées » (variante C, 2026-10-28) ----------
+   Icônes d'en-tête regroupées dans une seule pastille (plus d'ovales séparés),
+   contour de chaque encadré dans la couleur de son type, remarque visible
+   (carte blanche + barre) au lieu d'être fondue dans le fond de page,
+   texte un peu plus aéré, menu latéral : page active en plein. */
+.sidebar-tools-main { display: inline-flex !important; gap: 0 !important; background: var(--carte); border-radius: 99px; box-shadow: 0 1px 4px var(--ombre); padding: 2px 4px; }
+.imsv-tool { background: none !important; box-shadow: none !important; border-radius: 99px !important; width: 1.85rem !important; height: 1.85rem !important; margin: 0 !important; color: var(--ard) !important; }
+.imsv-tool:hover { background: var(--ard-t) !important; }
+.theo-head .imsv-tool, .exo-tete .imsv-tool { background: transparent !important; }
+body { line-height: 1.68; }
+main p, main li { max-width: 68ch; }
+.theo { border-radius: 18px !important; box-shadow: 0 1px 2px var(--ombre), 0 4px 14px var(--ombre) !important; }
+.theo-definition { background: var(--ard-t) !important; box-shadow: inset 0 0 0 1.5px var(--ard), 0 1px 2px var(--ombre) !important; }
+.theo-propriete { background: var(--cu-t) !important; box-shadow: inset 0 0 0 1.5px var(--cu), 0 1px 2px var(--ombre) !important; }
+.theo-exemple { box-shadow: inset 0 0 0 1.5px var(--ol), 0 1px 2px var(--ombre) !important; }
+.theo-remarque { background: var(--carte) !important; box-shadow: inset 0 0 0 1.5px var(--rule), 0 1px 2px var(--ombre) !important; border-left: 6px solid var(--muted) !important; }
+.theo-remarque .theo-head { color: var(--h) !important; }
+.theo-head::before { width: 12px; height: 12px; border-radius: 3px; transform: rotate(45deg); }
+.sidebar-navigation .sidebar-link.active, .sidebar-navigation .active { border-radius: 8px !important; background: var(--ard) !important; color: var(--carte) !important; padding: 3px 10px !important; }
+.sidebar-navigation .sidebar-item-text { font-size: .92rem; }
+.sidebar-navigation .active .sidebar-item-text { color: inherit; }
+@media (max-width: 575.98px) { .theo { border-radius: 14px !important; } }
