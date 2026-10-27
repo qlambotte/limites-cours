@@ -104,22 +104,51 @@
     return undefined;
   }
 
-  // ---------- trajet du point : x en fonction du curseur v ----------
-  // a fini (s = côté, e = écart de départ, p = dépassement) :
-  //   v ∈ [0 ; 800]    approche géométrique  x = a + s·e·10^(−5v/800)
-  //   v ∈ ]800 ; 850[  x = a (permis par la définition)
-  //   v ∈ [850 ; 1000] dépassement  x = a − s·p·10^(−5 + 5u)
-  // a = ±∞ : x = x0 ± (10^(6v/1000) − 1)
+  // ---------- trajet du point : x en fonction du curseur v (0 → 1000) ----------
+  // x croît toujours avec v : avant = à gauche, après = à droite.
+  // a fini : v = 500 ⇒ x = a (palier 490–510) ; chaque moitié est géométrique
+  //   v ∈ [0 ; 490]    x = a − g·10^(−5v/490)    (g = distance au bord gauche de la fenêtre)
+  //   v ∈ [510 ; 1000] x = a + d·10^(−5 + 5(v−510)/490)
+  // a = +∞ : v = 1000 ⇒ x = +∞ ; avant, x = xmin + 10^(6v/990) − 1 (M à gauche)
+  // a = −∞ : v = 0 ⇒ x = −∞ ; après, x = xmax − (10^(6(1000−v)/990) − 1)
+  function bords(st) {
+    return { g: Math.max(st.a - st.xmin, st.ecart), d: Math.max(st.xmax - st.a, st.ecart) };
+  }
   function xDe(st, v) {
     var a = st.a;
-    if (a === INF || a === -INF) return st.x0 + (a === INF ? 1 : -1) * (Math.pow(10, 6 * v / 1000) - 1);
-    if (v <= 800) return a + st.cote * st.ecart * Math.pow(10, -5 * v / 800);
-    if (v < 850) return a;
-    return a - st.cote * st.dep * Math.pow(10, -5 + 5 * (v - 850) / 150);
+    if (a === INF) return v >= 990 ? INF : st.xmin + Math.pow(10, 6 * v / 990) - 1;
+    if (a === -INF) return v <= 10 ? -INF : st.xmax - (Math.pow(10, 6 * (1000 - v) / 990) - 1);
+    var b = bords(st);
+    if (v < 490) return a - b.g * Math.pow(10, -5 * v / 490);
+    if (v <= 510) return a;
+    return a + b.d * Math.pow(10, -5 + 5 * (v - 510) / 490);
+  }
+  function vDe(st, x) {            // fonction réciproque (le curseur se cale sur x)
+    var a = st.a, t;
+    if (a === INF) {
+      if (x === INF) return 1000;
+      t = Math.log(Math.max(x - st.xmin, 0) + 1) / Math.LN10;
+      return Math.min(989, 990 * t / 6);
+    }
+    if (a === -INF) {
+      if (x === -INF) return 0;
+      t = Math.log(Math.max(st.xmax - x, 0) + 1) / Math.LN10;
+      return Math.max(11, 1000 - 990 * t / 6);
+    }
+    var b = bords(st);
+    if (x === a) return 500;
+    if (x < a) {
+      t = -Math.log((a - x) / b.g) / Math.LN10;           // 0 … 5
+      return Math.max(0, Math.min(489.99, 490 * t / 5));
+    }
+    t = 5 + Math.log((x - a) / b.d) / Math.LN10;
+    return Math.max(510.01, Math.min(1000, 510 + 490 * t / 5));
   }
   function crans(st) {
-    if (st.a === INF || st.a === -INF) return [0, 1, 2, 3, 4, 5, 6].map(function (k) { return k * 1000 / 6; });
-    return [0, 160, 320, 480, 640, 800, 825, 850, 880, 910, 940, 970, 1000];
+    var k, r = [];
+    if (st.a === INF) { for (k = 0; k <= 6; k++) r.push(k * 165); r.push(1000); return r; }
+    if (st.a === -INF) { r.push(0); for (k = 0; k <= 6; k++) r.push(1000 - (6 - k) * 165); return r.map(function (v) { return Math.round(v * 100) / 100; }); }
+    return [0, 98, 196, 294, 392, 490, 500, 510, 608, 706, 804, 902, 1000];
   }
 
   function el(tag, attrs, parent) {
@@ -430,11 +459,22 @@
       if (isFinite(v) && v > 0) return v;
       return fig[nomF] > 0 ? fig[nomF] : 1;
     }
-    var st = { a: null, x0: null, cote: 1, c: fig.courbes[0],
-               ecart: param("ecart", "ecart"), dep: param("depassement", "depassement") };
-    function ev(x) { return evaluer(st.c, x, W); }
+    var st = { a: null, x: null, v0: 0, c: fig.courbes[0], xmin: xmin, xmax: xmax,
+               ecart: param("ecart", "ecart") };
+    // f(x) ; en ±∞ : tendance de f (+∞, −∞ ou valeur limite)
+    function ev(x) {
+      if (x === INF || x === -INF) {
+        var s = x > 0 ? 1 : -1, y1 = evaluer(st.c, s * 1e6, W), y2 = evaluer(st.c, s * 1e12, W);
+        if (y2 === undefined) return undefined;
+        if (y1 !== undefined && Math.abs(y2 - y1) > 0.1 && Math.abs(y2) > Math.abs(y1)) return y2 > 0 ? INF : -INF;
+        return y2;
+      }
+      return evaluer(st.c, x, W);
+    }
+    function curX() { return st.x !== null ? st.x : xDe(st, parseFloat(range.value)); }
     function fmtY(v) {
       if (v === undefined) return "n'existe pas";
+      if (!isFinite(v)) return fmt(v);
       if (!st.c.approx) return fmt(v);
       return "≈ " + NF.format(Math.round(v * 100) / 100 || 0).replace("-", "−");
     }
@@ -445,7 +485,7 @@
     }
 
     function choisirA(a) {
-      st.a = a; st.x0 = null; range.value = 0;
+      st.a = a; st.x = null; st.v0 = 0; range.value = 0;
       chipEls.forEach(function (c) { c[1].classList.toggle("on", c[0] === a); });
       aIn.value = chipEls.some(function (c) { return c[0] === a; }) ? "" : fmtA(a);
       bordG.classList.toggle("on", a === -INF);
@@ -458,58 +498,77 @@
         aLab.textContent = "a = " + fmt(a);
         aLab.style.display = on ? "" : "none";
       } else { aLine.style.display = "none"; aLab.style.display = "none"; }
-      render();
+      departAuto();
     }
 
+    // position de départ : près de a (côté où f existe), ou à gauche / à droite pour ±∞
+    function departAuto() {
+      var a = st.a, k, v, c;
+      if (isFinite(a)) {
+        for (k = 0; k < fig.courbes.length; k++) {
+          c = fig.courbes[k];
+          if (evaluer(c, a + st.ecart, W) !== undefined) { placer(a + st.ecart, c); return; }
+          if (evaluer(c, a - st.ecart, W) !== undefined) { placer(a - st.ecart, c); return; }
+        }
+      } else {
+        for (v = 0; v <= 980; v += 10) {
+          var x = xDe(st, v);
+          for (k = 0; k < fig.courbes.length; k++)
+            if (evaluer(fig.courbes[k], x, W) !== undefined) { st.c = fig.courbes[k]; range.value = v; st.v0 = v; st.x = null; render(); return; }
+        }
+      }
+      st.x = null; st.v0 = 0; range.value = 0; render();
+    }
+
+    // poser M en x (le curseur se cale) ; v0 = départ de la trace
+    function poser(x, nouveauDepart) {
+      st.x = x;
+      range.value = vDe(st, x);
+      if (nouveauDepart) st.v0 = parseFloat(range.value);
+      render();
+    }
     function placer(x, courbe) {
       if (st.a === null) return;
       if (courbe) st.c = courbe;
-      if (isFinite(st.a)) {
-        if (Math.abs(x - st.a) < 1e-9) { info.textContent = "Clique à gauche ou à droite de a."; return; }
-        st.cote = x > st.a ? 1 : -1;
-        st.x0 = st.a + st.cote * st.ecart;
-      } else {
-        var x0 = snapX(x);
-        st.x0 = ev(x0) === undefined ? x : x0;
-      }
-      range.value = 0; render();
+      poser(x, true);
     }
 
     function render() {
       echelle.innerHTML = "";
-      if (st.a === null) { info.textContent = "Choisis une valeur de a."; return; }
-      if (st.x0 === null) {
-        info.innerHTML = "Clique sur la courbe pour placer le point <b>M</b>.";
+      if (st.a === null) {
+        info.textContent = "Choisis une valeur de a.";
+        range.disabled = true; prev.disabled = next.disabled = bNote.disabled = true;
         gM.style.display = "none"; trail.setAttribute("d", "");
-        vals.querySelector('[data-r="x"]').textContent = "—";
-        vals.querySelector('[data-r="y"]').textContent = "—";
-        note.textContent = ""; range.disabled = true; prev.disabled = next.disabled = bNote.disabled = true;
         return;
       }
       range.disabled = false; prev.disabled = next.disabled = bNote.disabled = false;
       var inf = !isFinite(st.a);
       info.innerHTML = inf
-        ? "Fais avancer <b>M</b> : <i>x</i> devient " + (st.a > 0 ? "de plus en plus grand." : "négatif, de plus en plus grand en valeur absolue.")
-        : "Fais avancer <b>M</b> : <i>x</i> se rapproche de " + fmt(st.a) + " par la " + (st.cote > 0 ? "droite" : "gauche") + ", l'atteint, puis le dépasse.";
+        ? "Fais glisser le curseur ou <b>M</b> : " + (st.a > 0
+            ? "tout à droite, <i>x</i> = +∞ ; avant, <i>x</i> est de plus en plus grand."
+            : "tout à gauche, <i>x</i> = −∞ ; après, <i>x</i> est de plus en plus petit (en valeur absolue : grand).")
+        : "Fais glisser le curseur ou <b>M</b> : au milieu, <i>x</i> = " + fmt(st.a) + " ; avant, <i>x</i> &lt; " + fmt(st.a) + " ; après, <i>x</i> &gt; " + fmt(st.a) + ".";
       echelle.innerHTML = inf
-        ? "<span>départ</span><span>" + (st.a > 0 ? "vers +∞" : "vers −∞") + "</span>"
-        : "<span>départ</span><span><i>x</i> = " + fmt(st.a) + "</span><span>au-delà</span>";
+        ? (st.a > 0 ? "<span>à gauche</span><span><i>x</i> = +∞</span>" : "<span><i>x</i> = −∞</span><span>à droite</span>")
+        : "<span><i>x</i> &lt; " + fmt(st.a) + "</span><span><i>x</i> = " + fmt(st.a) + "</span><span><i>x</i> &gt; " + fmt(st.a) + "</span>";
 
       var v = parseFloat(range.value);
-      var x = xDe(st, v), y = ev(x);
+      var x = curX(), y = ev(x);
       vals.querySelector('[data-r="x"]').textContent = fmt(x);
       vals.querySelector('[data-r="y"]').textContent = fmtY(y);
       if (y === undefined) {
         note.textContent = (isFinite(st.a) && x === st.a)
           ? "f(" + fmt(x) + ") n'existe pas : " + fmt(x) + " n'est pas dans le domaine. Pas de point M."
           : "Aucun point du graphique n'a cette abscisse : " + fmt(x) + " n'est pas dans le domaine.";
+      } else if (!isFinite(x)) {
+        note.textContent = "±∞ n'est pas un nombre : M est tout au bord, et f(x) donne la tendance (limite).";
       } else if (isFinite(st.a) && x === st.a) {
         note.textContent = "x = a est permis : M est le point du graphique d'abscisse " + fmt(x) + ".";
       } else note.textContent = "";
 
       var d = "", pen = false, n = 240;
       for (var i = 0; i <= n; i++) {
-        var vi = v * i / n, xi = xDe(st, vi), yi = ev(xi);
+        var vi = st.v0 + (v - st.v0) * i / n, xi = i === n ? x : xDe(st, vi), yi = ev(xi);
         if (yi === undefined) { pen = false; continue; }
         d += (pen ? "L" : "M") + X(xi).toFixed(2) + " " + Y(yi).toFixed(2);
         pen = true;
@@ -520,7 +579,8 @@
       if (rowE) {
         var txt = "—", asy = fig.asymptotes;
         if (y !== undefined) {
-          if (isFinite(st.a)) {
+          if (!isFinite(x)) { /* pas d'écart à l'infini */ }
+          else if (isFinite(st.a)) {
             var av = asy.filter(function (s) { return Math.abs(s[0][0] - s[1][0]) < 1e-9 && Math.abs(s[0][0] - st.a) < 1e-9; })[0];
             if (av) {
               txt = fmt(Math.abs(x - st.a)) + " (horizontal : distance de x à " + fmt(st.a) + ")";
@@ -550,29 +610,35 @@
 
     function pas(dir) {
       var c = crans(st), v = parseFloat(range.value), k;
+      st.x = null;
       if (dir > 0) { for (k = 0; k < c.length; k++) if (c[k] > v + 1e-6) break; if (k < c.length) range.value = c[k]; }
       else { for (k = c.length - 1; k >= 0; k--) if (c[k] < v - 1e-6) break; if (k >= 0) range.value = c[k]; }
       render();
     }
 
-    range.addEventListener("input", render);
+    range.addEventListener("input", function () { st.x = null; render(); });
     prev.addEventListener("click", function () { pas(-1); });
     next.addEventListener("click", function () { pas(1); });
     bNote.addEventListener("click", function () {
-      var x = xDe(st, parseFloat(range.value)), y = ev(x);
+      var x = curX(), y = ev(x);
       var tr = document.createElement("tr");
       tr.innerHTML = "<td>" + fmt(x) + "</td><td>" + fmtY(y) + "</td>";
       tab.tBodies[0].appendChild(tr); tab.hidden = false;
     });
     bClr.addEventListener("click", function () { tab.tBodies[0].innerHTML = ""; tab.hidden = true; });
 
-    // clic sur une courbe : la plus proche, et l'abscisse du point visé
-    svg.addEventListener("click", function (evt) {
-      if (st.a === null) return;
+    // clic / glissement : M se place (et se laisse tirer) exactement sur la courbe
+    function pointSvg(evt) {
       var pt = svg.createSVGPoint(); pt.x = evt.clientX; pt.y = evt.clientY;
-      var p = pt.matrixTransform(svg.getScreenCTM().inverse());
-      if (p.x < PX0 || p.x > PX1 || p.y < PY0 || p.y > PY1) return;
-      var best = null, bc = null, bd = 18;
+      return pt.matrixTransform(svg.getScreenCTM().inverse());
+    }
+    var tire = false;
+    svg.style.touchAction = "pan-y";
+    svg.addEventListener("pointerdown", function (evt) {
+      if (st.a === null || (evt.button !== undefined && evt.button > 0)) return;
+      var p = pointSvg(evt);
+      if (p.x < PX0 - 6 || p.x > PX1 + 6 || p.y < PY0 - 6 || p.y > PY1 + 6) return;
+      var best = null, bc = null, bd = 22;
       fig.courbes.forEach(function (c) {
         for (var sx = PX0; sx <= PX1; sx += 0.5) {
           var x = xmin + (sx - PX0) / Ux, y = evaluer(c, x, W);
@@ -583,7 +649,18 @@
       });
       if (best === null) { info.textContent = "Clique plus près de la courbe."; return; }
       placer(best, bc);
+      tire = true;
+      try { svg.setPointerCapture(evt.pointerId); } catch (e) {}
     });
+    svg.addEventListener("pointermove", function (evt) {
+      if (!tire) return;
+      var p = pointSvg(evt);
+      var x = Math.max(xmin, Math.min(xmax, xmin + (p.x - PX0) / Ux));
+      if (ev(x) !== undefined) poser(x, false);
+    });
+    function finTire() { tire = false; }
+    svg.addEventListener("pointerup", finTire);
+    svg.addEventListener("pointercancel", finTire);
 
     // départ : la valeur proposée, côté où la fonction est définie
     if (fig.depart) {
