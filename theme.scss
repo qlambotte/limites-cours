@@ -761,7 +761,11 @@ main a { color: var(--accent); }
 .imsv-tool:hover { background: var(--ard-t) !important; }
 .theo-head .imsv-tool, .exo-tete .imsv-tool { background: transparent !important; }
 body { line-height: 1.68; }
-main p, main li { max-width: 68ch; }
+/* Texte et cartes occupent la même largeur (plus de paragraphes étroits à côté de cartes larges). */
+/* Bande de titre d'un exercice : compétence et niveau tout à droite, le bouton « tableau » après eux. */
+.exo-tete { display: flex !important; align-items: center; gap: .6rem; }
+.exo-tete > p { margin: 0 !important; flex: 1; display: flex; align-items: center; gap: .9rem; }
+.exo-tete .exo-meta { margin-left: auto !important; white-space: nowrap; }
 .theo { border-radius: 18px !important; box-shadow: 0 1px 2px var(--ombre), 0 4px 14px var(--ombre) !important; }
 .theo-definition { background: var(--ard-t) !important; box-shadow: inset 0 0 0 1.5px var(--ard), 0 1px 2px var(--ombre) !important; }
 .theo-propriete { background: var(--cu-t) !important; box-shadow: inset 0 0 0 1.5px var(--cu), 0 1px 2px var(--ombre) !important; }

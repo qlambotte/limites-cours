@@ -271,3 +271,6 @@ html[data-theme="dark"] .tv-ecran .tv-tuile.D { background: #2d3550; color: #c9d
 .tw-prof-panneau .tv-etat { font: 13px/1.35 Inter, system-ui, sans-serif; margin: 4px 0 8px; padding: 6px 10px; border-radius: 10px;
   background: #f6e4d9; color: #8c4a22; }
 .tw-prof-panneau .tv-etat.ok { background: #e6efe0; color: #4e6a40; }
+
+/* Mode prof : le bilan « Mon suivi » (élèves) en haut de page est masqué. */
+html.tv-mode-prof .suivi-page { display: none !important; }
