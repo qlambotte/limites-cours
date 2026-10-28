@@ -462,6 +462,7 @@ span.rep { border-bottom: 1.5px dashed var(--muted); border-radius: 3px; cursor:
 span.rep * { color: transparent !important; }
 span.rep.vu { color: var(--accent); background: transparent; }
 span.rep.vu * { color: var(--accent) !important; }
+@media print { .rep:not(.vu), .rep:not(.vu) * { color: inherit !important; background: none !important; } }
 mjx-container .rep { cursor: pointer; background: var(--card-bg); color: transparent; border-bottom: 1.5px dashed var(--muted); }
 mjx-container .rep.vu { color: var(--accent); background: transparent; }
 .rep-bloc { display: block; cursor: pointer; border: 1.5px dashed var(--muted); border-radius: 6px; padding: .35rem .8rem;
@@ -723,8 +724,14 @@ main a { color: var(--accent); }
 .aides .tab-content { border: 0 !important; padding: .8rem .8rem .4rem !important; }
 
 /* réponses cachées */
-.rep { border: 1.5px dashed #9aa6b4 !important; border-radius: 14px !important; background: var(--q) !important; color: var(--muted) !important; }
-:root[data-theme="dark"] .rep { border-color: #6b7785 !important; }
+/* Réponse CACHÉE : pastille en tirets, texte invisible (y compris le texte hors formule :
+   « color: var(--muted) » le laissait lire avant le clic). Une fois dévoilée (.vu), les règles
+   de base s'appliquent (couleur d'accent, fond transparent). */
+.rep:not(.vu) { border: 1.5px dashed #9aa6b4 !important; border-radius: 14px !important; background: var(--q) !important; color: transparent !important; }
+.rep:not(.vu) * { color: transparent !important; }
+:root[data-theme="dark"] .rep:not(.vu) { border-color: #6b7785 !important; }
+.rep.vu { color: var(--accent) !important; background: transparent !important; }
+.rep.vu * { color: var(--accent) !important; }
 .lp-fig svg, .sp-canvas svg { border: 0 !important; border-radius: 16px !important; background: var(--carte) !important; box-shadow: 0 1px 2px var(--ombre), 0 6px 18px var(--ombre); }
 .lp-chip.on, .lp-btn2 { background: var(--ard) !important; border-color: var(--ard) !important; color: var(--carte) !important; border-radius: 99px !important; }
 .lp-chip, .lp-ain, .lp-btn { border-radius: 99px !important; }
@@ -776,4 +783,8 @@ body { line-height: 1.68; }
 .sidebar-navigation .sidebar-link.active, .sidebar-navigation .active { border-radius: 8px !important; background: var(--ard) !important; color: var(--carte) !important; padding: 3px 10px !important; }
 .sidebar-navigation .sidebar-item-text { font-size: .92rem; }
 .sidebar-navigation .active .sidebar-item-text { color: inherit; }
+/* Page active : texte clair sur fond ardoise, quel que soit le « style à l'essai » (menu Aa)
+   — certains forcent une couleur sombre sur .active, illisible sur ce fond. */
+html body .sidebar-navigation .sidebar-item .sidebar-link.active,
+html body .sidebar-navigation .sidebar-item .sidebar-link.active .sidebar-item-text { color: var(--carte) !important; }
 @media (max-width: 575.98px) { .theo { border-radius: 14px !important; } }
