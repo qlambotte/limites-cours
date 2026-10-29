@@ -788,3 +788,21 @@ body { line-height: 1.68; }
 html body .sidebar-navigation .sidebar-item .sidebar-link.active,
 html body .sidebar-navigation .sidebar-item .sidebar-link.active .sidebar-item-text { color: var(--carte) !important; }
 @media (max-width: 575.98px) { .theo { border-radius: 14px !important; } }
+
+
+/* ---------- Solutions : réponse finale puis « Je veux plus de détails » (format IMSV, 2026-10-29) ---------- */
+.aides .reponse { border-left: 3px solid var(--accent); background: var(--q); border-radius: 0 12px 12px 0;
+  padding: .55rem .9rem .6rem; margin: .1rem 0 .7rem; }
+.aides .reponse::before { content: "Réponse"; display: block; font: 700 .7rem $font-family-sans-serif; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--muted); margin-bottom: .2rem; }
+.aides .reponse > :last-child { margin-bottom: 0; }
+.aides .reponse ol, .aides .reponse ul { margin-bottom: 0; padding-left: 1.3rem; }
+details.tw-details { margin: .2rem 0 .4rem; }
+details.tw-details > summary { cursor: pointer; list-style: none; display: inline-block; font: 600 .9rem $font-family-sans-serif;
+  color: var(--accent); padding: .3rem .8rem; border-radius: 99px; background: var(--q); user-select: none; }
+details.tw-details > summary::-webkit-details-marker { display: none; }
+details.tw-details > summary::before { content: "▸ "; }
+details.tw-details[open] > summary::before { content: "▾ "; }
+details.tw-details > summary:hover { background: var(--hover-bg); }
+details.tw-details .tw-expl { padding: .6rem .2rem 0; }
+@media print { details.tw-details > summary { display: none; } details.tw-details .tw-expl { display: block !important; } }

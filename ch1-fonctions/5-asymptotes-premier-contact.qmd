@@ -113,6 +113,18 @@ Pour chaque graphique, regarde les bords : près de quelle droite le graphique m
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+1. A.H. $y = 0$ ; pas d’A.V. (point creux en $-1$).
+2. A.V. $x = 1$ ; A.O. $y = x - 1$.
+3. A.V. $x = 1$ ; A.O. $y = -x + 1$.
+4. A.V. $x = 1$ ; ni A.H. ni A.O.
+5. Aucune asymptote.
+6. A.V. $x = -1$ et $x = 1$ ; A.H. $y = 0$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 1. $\frac{x+1}{x^{3}+x^{2}+x+1}$ : A.H. $y = 0$. Pas d’A.V. : en $-1$, il y a un point creux.
 2. A.V. $x = 1$ ; A.O. $y = x - 1$.
@@ -121,6 +133,9 @@ Pour chaque graphique, regarde les bords : près de quelle droite le graphique m
 5. Aucune asymptote.
 6. A.V. $x = -1$ et $x = 1$ ; A.H. $y = 0$.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -160,6 +175,13 @@ Dessine au moins une branche qui longe la droite $x = 4$ en montant (ou en desce
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+Un graphique qui monte ou descend sans fin le long de la droite $x = 4$, tracée en pointillés, sans jamais la toucher.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 On attend un **graphique**, pas une expression. Un graphique possible parmi beaucoup d’autres :
 
@@ -173,6 +195,9 @@ Ce qui compte :
 - près d’elle, le graphique monte ou descend sans fin (ici : il descend à gauche, il monte à droite) ;
 - il ne la touche jamais.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -212,6 +237,13 @@ Dessine le graphique comme tu veux au milieu du repère, puis, en allant vers le
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+Un graphique qui, loin à droite ou loin à gauche, se rapproche de plus en plus de la droite $y = -2$, tracée en pointillés.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 On attend un **graphique**. Un graphique possible :
 
 ```{=html}
@@ -219,6 +251,9 @@ On attend un **graphique**. Un graphique possible :
 ```
 
 Ce qui compte : la droite $y = -2$ est tracée ; loin à droite (ou à gauche, ou des deux côtés), le graphique s’en rapproche de plus en plus. Au milieu, il peut faire ce qu’il veut, même couper la droite.
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -257,6 +292,13 @@ La droite passe par $(0 ; -1)$ et $(2 ; 0)$ (elle monte de $1$ quand $x$ augment
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+Un graphique qui, loin à droite ou loin à gauche, se rapproche de plus en plus de la droite $y = \frac{x}{2} - 1$, tracée en pointillés avec la bonne pente.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 On attend un **graphique**. Un graphique possible :
 
 ```{=html}
@@ -264,6 +306,9 @@ On attend un **graphique**. Un graphique possible :
 ```
 
 Ce qui compte : la droite $y = \frac{x}{2} - 1$ est tracée avec la bonne pente ; loin à droite (ou des deux côtés), le graphique s’en rapproche de plus en plus.
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 

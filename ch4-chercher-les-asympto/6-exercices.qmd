@@ -41,6 +41,20 @@ Quel est le terme de plus haut degré ? Pour un produit, quel est le terme de pl
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+1. $+\infty$.
+2. $-\infty$.
+3. $-\infty$.
+4. $-\infty$.
+5. $-115$.
+6. $-\infty$.
+7. $-\infty$.
+8. $3$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 1. $\lim\limits_{x \to -\infty} (-3x^{3}) = +\infty$.
 2. $\lim\limits_{x \to +\infty} (-3x^{3}) = -\infty$.
 3. $\lim\limits_{x \to -\infty} 5x^{5} = -\infty$.
@@ -49,6 +63,9 @@ Quel est le terme de plus haut degré ? Pour un produit, quel est le terme de pl
 6. Terme dominant $x \cdot (-x^{2}) \cdot x^{3} = -x^{6}$ : en $-\infty$, $-\infty$.
 7. Terme dominant $x \cdot 2x^{2} \cdot (-x^{4}) = -2x^{7}$ : en $+\infty$, $-\infty$.
 8. En $1$ : $1 \cdot 3 \cdot 1 = 3$.
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -84,11 +101,21 @@ Exercice 3.3 : numérateur de degré $0$, dénominateur de degré $3$ : la limit
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+A.H. $y = 0$ pour les fonctions des exercices 3.3, 3.4 et 3.6 ; A.H. $y = 1$ pour celles des exercices 3.5 et 3.8.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 - Ex. 3.3, $\frac{1}{(x+1)(x^{2}-4)}$ : degrés $0 < 3$, limites $0$, A.H. $y = 0$.
 - Ex. 3.4, $\frac{x-2}{-x^{2}+4x}$ : degrés $1 < 2$, limites $0$, A.H. $y = 0$.
 - Ex. 3.5, $\frac{(x-1)^{2}}{(x-1)(x+2)}$ : degrés égaux, $\lim\limits_{x \to \pm \infty} \frac{x^{2}}{x^{2}} = 1$, A.H. $y = 1$.
 - Ex. 3.6, $\frac{2x^{2}-x-3}{x^{3}+2x^{2}+x}$ : degrés $2 < 3$, limites $0$, A.H. $y = 0$.
 - Ex. 3.8, $\frac{x^{2}-4}{x^{2}+x-2}$ : degrés égaux, limites $1$, A.H. $y = 1$.
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -126,10 +153,21 @@ Divise $3x^{2} - 1$ par $x - 3$ : premier terme du quotient $3x$ ; $3x(x - 3) = 
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+1. A.O. $y = 3x + 9$.
+2. A.O. $y = 2x - 1$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 1. $3x^{2} - 1 = (x-3)(3x+9) + 26$, donc $f(x) = 3x + 9 + \frac{26}{x-3}$. Comme $\lim\limits_{x \to \pm \infty} \frac{26}{x-3} = 0$, la droite $y = 3x + 9$ est une A.O. des deux côtés.
 2. $2x^{2} - 5x + 3 = (x-2)(2x-1) + 1$, donc $g(x) = 2x - 1 + \frac{1}{x-2}$ : A.O. $y = 2x - 1$.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -164,11 +202,21 @@ Repense à l’[activité « un graphique trompeur »](../ch3-chercher-les-point
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+Une A.H. et une A.O. peuvent couper le graphique ; l’A.V. d’une fonction rationnelle ne le coupe jamais.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 - **A.H.** : oui. $f(x) = 10 \frac{\sin x}{x}$ a l’A.H. $y = 0$ et la coupe une infinité de fois. La définition ne parle que de ce qui se passe loin.
 - **A.V.** : pour une fonction rationnelle, jamais : une A.V. est en une valeur interdite, où il n’y a aucun point du graphique.
 - **A.O.** : oui. Dans l’exercice « estimer l’image de $1000$ », $f(x) = \frac{x}{2} - 1 + \frac{5000x}{(x+1)(x-300)}$ coupe son A.O. $y = \frac{x}{2} - 1$ en $x = 0$.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -226,11 +274,21 @@ L’estimation par l’asymptote vaut $\frac{1000}{2} - 1 = 499$. Sur le graphiq
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+L’asymptote permet d’estimer $f(1000) \approx 499$, mais pas $g(1000)$ : en $1000$, le graphique de $g$ est encore loin de l’asymptote, et on lit $g(1000) \approx 550$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 Pour $f$ : en $x = 1000$, le graphique se confond presque avec l’A.O. On peut estimer $f(1000) \approx \frac{1000}{2} - 1 = 499$ (valeur exacte $\approx 506$, écart d’environ $1{,}4 \%$).
 
 Pour $g$ : en $x = 1000$, le graphique est encore nettement au-dessus de l’asymptote (écart d’environ $50$). L’estimation $499$ serait trop grossière ; on lit plutôt $g(1000) \approx 550$ sur le graphique.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -285,6 +343,13 @@ $f_{1}(x) = \frac{4x^{2}}{2x^{2}+1}$ : le dénominateur ne s’annule jamais ; l
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+$f_{1}$ → c), $f_{2}$ → e), $f_{3}$ → a), $f_{4}$ → f), $f_{5}$ → d) et $f_{6}$ → b).
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 - $f_{1}$ → c) pas d’A.V., A.H. $y = 2$.
 - $f_{2}$ → e) A.V. $x = 7$, A.H. $y = 2$.
@@ -293,6 +358,9 @@ $f_{1}(x) = \frac{4x^{2}}{2x^{2}+1}$ : le dénominateur ne s’annule jamais ; l
 - $f_{5}$ → d) A.V. en $-2$ et $2$, A.O. $y = x$.
 - $f_{6}$ → b) A.V. en $-1$ et $-10$ ; degrés $5$ et $2$ : ni A.H. ni A.O.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -369,12 +437,22 @@ $f_{2}(x) = \frac{x}{(x-1)^{2}}$ : degrés $1 < 2$, donc A.H. $y = 0$. Et près 
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+$f_{1}$ → C, $f_{2}$ → B, $f_{3}$ → A et $f_{4}$ → D.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 - $f_{2} = \frac{x}{(x-1)^{2}}$ : A.H. $y = 0$ ; près de $1$, le numérateur vaut $1 > 0$ et le dénominateur est positif : $+\infty$ des deux côtés → graphique **B**.
 - $f_{1} = \frac{3-x^{2}}{x-1}$ : $-x^{2} + 3 = (x-1)(-x-1) + 2$, A.O. $y = -x - 1$ (descendante) → graphique **C**.
 - $f_{3} = \frac{x^{2}-x-2}{x-1}$ : $x^{2} - x - 2 = (x-1) x - 2$, A.O. $y = x$ (montante) → graphique **A**.
 - $f_{4} = \frac{x^{3}-x+2}{3x-3}$ : degrés $3$ et $1$, ni A.H. ni A.O. → graphique **D**.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -415,9 +493,21 @@ $f$ : $x^{2} - x - 6 = (x-3)(x+2)$ ; limites en $-2$, en $3$ et en $\pm \infty$.
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+a) $\operatorname{dom}(f) = \mathbb{R} \setminus \{-2 ; 3\}$ ; point creux $(3 ; \frac{6}{5})$, A.V. $x = -2$ et A.H. $y = 1$.
+b) $\operatorname{dom}(g) = \mathbb{R} \setminus \{-1\}$ ; A.V. $x = -1$ et A.O. $y = x - 1$.
+c) $\operatorname{dom}(h) = \mathbb{R}$ ; A.H. $y = 0$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 a) $f$ : $\operatorname{dom}(f) = \mathbb{R} \setminus \{-2 ; 3\}$. En $3$ : $f(x) = \frac{x+3}{x+2}$ pour $x \neq 3$, limite $\frac{6}{5}$, point creux $(3 ; \frac{6}{5})$. En $-2$ : A.V. ; $\lim\limits_{x \overset{<}{\to} -2} f(x) = -\infty$, $\lim\limits_{x \overset{>}{\to} -2} f(x) = +\infty$. En $\pm \infty$ : A.H. $y = 1$.
 b) $g$ : $\operatorname{dom}(g) = \mathbb{R} \setminus \{-1\}$. En $-1$ : numérateur $2$, A.V. ; $\lim\limits_{x \overset{<}{\to} -1} g(x) = -\infty$, $\lim\limits_{x \overset{>}{\to} -1} g(x) = +\infty$. En $\pm \infty$ : $x^{2} + 1 = (x+1)(x-1) + 2$, A.O. $y = x - 1$.
 c) $h$ : $\operatorname{dom}(h) = \mathbb{R}$ ; seules les limites en $\pm \infty$ comptent : $0$, A.H. $y = 0$.
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -452,6 +542,13 @@ Pour $f(x) = \frac{x^{2}+3}{x-1}$ : degrés $2$ et $1$. Effectue la division de 
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+On compare le degré $n$ du numérateur et le degré $m$ du dénominateur : si $n < m$, A.H. $y = 0$ ; si $n = m$, A.H. $y = \frac{a}{b}$ ; si $n = m + 1$, A.O. donnée par la division ; si $n > m + 1$, ni A.H. ni A.O. Pour $f$ : A.O. $y = x + 1$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 Démarche : comparer le degré $n$ du numérateur et le degré $m$ du dénominateur.
 
 - $n < m$ : A.H. $y = 0$ ;
@@ -464,6 +561,9 @@ Pour $f$ : $n = 2 = m + 1$.
 - Division : $x^{2} + 3 = (x-1)(x+1) + 4$, donc $f(x) = x + 1 + \frac{4}{x-1}$.
 - $\lim\limits_{x \to \pm \infty} \frac{4}{x-1} = 0$ : la droite $y = x + 1$ est une A.O. des deux côtés.
 - Pas d’A.H. : les limites en $\pm \infty$ sont infinies.
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -507,12 +607,22 @@ Pour chaque étape, quelle propriété du cours est utilisée ?
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+L’élève utilise successivement : le domaine, la propriété « valeur interdite qui n’annule pas le numérateur », le signe du numérateur, les termes dominants en $\pm \infty$, la division qui fait apparaître l’A.O. et la définition de l’A.O.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 a) Le domaine : on exclut la racine du dénominateur.
 b) Propriété « valeur interdite qui n’annule pas le numérateur » : A.V.
 c) Près de $2$, le numérateur est positif (proche de $6$) : le signe de $f$ est celui de $x - 2$.
 d) Propriété « fonction rationnelle en $\pm \infty$ » : on garde les termes dominants. Degré du numérateur plus grand : pas d’A.H.
 e) Degrés $n = m + 1$ : une A.O. est possible ; la division la fait apparaître.
 f) Définition de l’A.O. : l’écart $f(x) - (x + 3) = \frac{6}{x-2}$ tend vers $0$.
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -553,6 +663,13 @@ Phrase 1 : que vaut le numérateur $x^{2} - 1$ en $1$ ?
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+Les phrases 1, 2 et 4 sont fausses ; la phrase 3 a un résultat juste mais un raisonnement interdit. Il faut conclure : point creux en $(1 ; -2)$, $\lim\limits_{x \overset{<}{\to} 2} f(x) = -\infty$, et $\lim\limits_{x \to \pm \infty} f(x) = 1$ (A.H. $y = 1$).
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 $f(x) = \frac{(x-1)(x+1)}{(x-1)(x-2)}$.
 
@@ -563,6 +680,9 @@ d) Faux : en $-\infty$, $x$ est négatif et très grand en valeur absolue, pas p
 
 Autre copie : une limite infinie ne suffit pas. Il faudrait une droite dont l’écart avec le graphique tend vers $0$ ; pour $x^{2}$, l’écart avec toute droite tend vers $+\infty$ : pas d’A.O.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -596,7 +716,17 @@ Choisis un numérateur et un dénominateur qui sont tous deux proches de $+\inft
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+Par exemple $f(x) = \frac{2x+1}{x-3}$, dont la limite en $+\infty$ vaut $2$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 Par exemple $f(x) = \frac{2x+1}{x-3}$ : en $+\infty$, le numérateur et le dénominateur sont tous deux proches de $+\infty$ ; un très grand nombre divisé par un très grand nombre peut donner n’importe quoi. Les termes dominants : $\lim\limits_{x \to +\infty} \frac{2x}{x} = 2$.
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -630,7 +760,17 @@ Ajoute à $x - 3$ un terme qui tend vers $0$ en $\pm \infty$ et qui est infini e
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+Par exemple $f(x) = x - 3 + \frac{1}{x-1} = \frac{x^{2} - 4x + 4}{x-1}$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 $f(x) = x - 3 + \frac{1}{x-1} = \frac{(x-3)(x-1) + 1}{x-1} = \frac{x^{2} - 4x + 4}{x-1}$.
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -664,6 +804,13 @@ $x^{2} - 4 = (x-2)(x+2)$ et $x^{2} - x - 2 = (x-2)(x+1)$ : simplifie par $(x - 2
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+Domaine $\mathbb{R} \setminus \{-1 ; 2\}$ ; point creux $(2 ; \frac{4}{3})$ ; A.V. $x = -1$ ; A.H. $y = 1$. Le graphique coupe l’axe des $x$ en $-2$ et passe par $(0 ; 2)$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 a) Domaine : $\mathbb{R} \setminus \{-1 ; 2\}$.
 b) En $2$ : $f(x) = \frac{x+2}{x+1}$ pour $x \neq 2$ ; limite $\frac{4}{3}$ : point creux $(2 ; \frac{4}{3})$.
@@ -671,6 +818,9 @@ c) En $-1$ : numérateur $1 \neq 0$ : A.V. $x = -1$ ; $\lim\limits_{x \overset{<
 d) En $\pm \infty$ : degrés égaux, A.H. $y = 1$.
 e) Esquisse : $f$ s’annule en $-2$ et vaut $2$ en $0$ ; signe : $+$ avant $-2$, $-$ entre $-2$ et $-1$, $+$ après $-1$. On obtient une hyperbole d’asymptotes $x = -1$ et $y = 1$, avec un trou en $(2 ; \frac{4}{3})$.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 

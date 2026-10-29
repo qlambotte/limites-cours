@@ -168,10 +168,21 @@ Cas 1 : $(f \circ g)(x) = f(3x+5)$ : dans $x^{2} - 1$, remplace $x$ par $(3x+5)$
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+1. $(f \circ g)(x) = 9x^{2} + 30x + 24$ et $(g \circ f)(x) = 3x^{2} + 2$.
+2. $(f \circ g)(x) = \sqrt{x^{2} - 1}$ et $(g \circ f)(x) = x - 1$ (pour $x \geq 0$).
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 1. $(f \circ g)(x) = (3x+5)^{2} - 1 = 9x^{2} + 30x + 24$ et $(g \circ f)(x) = 3(x^{2}-1) + 5 = 3x^{2} + 2$.
 2. $(f \circ g)(x) = \sqrt{x^{2} - 1}$ et $(g \circ f)(x) = (\sqrt{x})^{2} - 1 = x - 1$ (pour $x \geq 0$).
 
 Les deux composées sont différentes : la composition n’est pas commutative.
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -225,6 +236,13 @@ $f(2) = 0$. Regarde maintenant le graphique de $g$ en $x = 0$ : que remarques-tu
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+$g(f(2))$ n’existe pas ; $(f \circ g)(-2) = 0$ ; $f(g(0))$ n’existe pas ; $g(f(0)) = 2$ ; $(g \circ f)(-3) = 0$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 - $g(f(2)) = g(0)$ : en $x = 0$, le graphique de $g$ a un point creux, $g(0)$ n’existe pas. Donc $g(f(2))$ **n’existe pas**.
 - $(f \circ g)(-2) = f(g(-2)) = f(2) = 0$.
@@ -232,6 +250,9 @@ $f(2) = 0$. Regarde maintenant le graphique de $g$ en $x = 0$ : que remarques-tu
 - $g(f(0)) = g(-2) = 2$.
 - $(g \circ f)(-3) = g(f(-3)) = g(1) = 0$.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -296,8 +317,19 @@ Pour $h(x) = \frac{1}{x-3}$ : on calcule d’abord $x - 3$ (le bloc $x$ moins la
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+1. $h = i \circ u$ avec $u(x) = x - 3$ et $i(x) = \frac{1}{x}$.
+2. $r = s \circ v + x$ avec $v(x) = 1 + x^{2}$ et $s(x) = \sqrt{x}$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 1. $h = i \circ u$ avec $u(x) = x - 3$ (différence du bloc $x$ et de la constante $3$) et $i(x) = \frac{1}{x}$.
 2. $r(x) = \sqrt{1 + x^{2}} + x$ : $v(x) = 1 + x^{2}$ (somme de la constante $1$ et du bloc $x^{2}$), puis $s \circ v$ avec $s(x) = \sqrt{x}$, et enfin on ajoute le bloc $x$ : $r = s \circ v + x$.
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 

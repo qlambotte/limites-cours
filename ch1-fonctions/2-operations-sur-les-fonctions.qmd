@@ -81,10 +81,20 @@ $x$ doit appartenir à la fois à $\operatorname{dom}(f)$ et à $\operatorname{d
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+$\operatorname{dom}(f+g) = \operatorname{dom}(f-g) = \operatorname{dom}(f g) = \operatorname{dom}(f) \cap \operatorname{dom}(g)$ ; $\operatorname{dom}(f/g)$ est formé des réels de $\operatorname{dom}(f) \cap \operatorname{dom}(g)$ qui n’annulent pas $g$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 - $\operatorname{dom}(f+g) = \operatorname{dom}(f-g) = \operatorname{dom}(f g) = \operatorname{dom}(f) \cap \operatorname{dom}(g)$ : il faut pouvoir calculer $f(x)$ **et** $g(x)$.
 - $\operatorname{dom}(\frac{f}{g})$ : les réels de $\operatorname{dom}(f) \cap \operatorname{dom}(g)$ pour lesquels $g(x) \neq 0$ (on ne divise pas par $0$).
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -129,6 +139,13 @@ $f(-2) = -2$ et $g(-2) = -\frac{1}{2}$. Donc $(f+g)(-2) = -2 + (-\frac{1}{2}) = 
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+Pour $x = -2$, $-1$, $1$ et $2$ : $(f+g)(x)$ vaut $-\frac{5}{2}$, $-2$, $2$ et $\frac{5}{2}$ ; $(f-g)(x)$ vaut $-\frac{3}{2}$, $0$, $0$ et $\frac{3}{2}$ ; $(f g)(x)$ vaut toujours $1$ ; $(f/g)(x)$ vaut $4$, $1$, $1$ et $4$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 ::: {.tableau}
 | $x$ | $-2$ | $-1$ | $1$ | $2$ |
@@ -143,6 +160,9 @@ $f(-2) = -2$ et $g(-2) = -\frac{1}{2}$. Donc $(f+g)(-2) = -2 + (-\frac{1}{2}) = 
 
 Remarque : $(f g)(x) = x \cdot \frac{1}{x} = 1$ et $(f/g)(x) = x / (\frac{1}{x}) = x^{2}$, pour tout $x \neq 0$.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 

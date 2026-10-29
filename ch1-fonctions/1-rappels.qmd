@@ -96,6 +96,13 @@ Dresse la première ligne du tableau : $-\infty$, $-5$, $-1$, $8$, $+\infty$. So
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+$f(x)$ est positif sur $]-\infty ; -5[$ et sur $]-1 ; 8[$, négatif sur $]-5 ; -1[$ et sur $]8 ; +\infty[$, et nul en $-5$, $-1$ et $8$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 En lisant le graphique :
 
@@ -107,6 +114,9 @@ En lisant le graphique :
 
 Vérification par un calcul, par exemple en $x = 0$ (dans l’intervalle $]-1 ; 8[$) : $f(0) = -\frac{0 - 0 - 0 - 40}{40} = 1 > 0$. Le signe $+$ du tableau est confirmé.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 

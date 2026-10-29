@@ -30,6 +30,13 @@ Pour $\frac{1}{x}$ : loin à droite, le graphique se rapproche de l’axe horizo
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+En $-\infty$ puis en $+\infty$ : $k$ tend vers $k$ des deux côtés ; $x$ vers $-\infty$ et $+\infty$ ; $\frac{1}{x}$ vers $0$ et $0$ ; $\left\vert x\right\vert{}$ et $x^{2}$ vers $+\infty$ et $+\infty$ ; pour $\sqrt{x}$, la limite en $-\infty$ n’a pas de sens et elle vaut $+\infty$ en $+\infty$ ; $x^{3}$ et $\sqrt[3]{x}$ tendent vers $-\infty$ et $+\infty$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.tableau}
 |   | en $-\infty$ | en $+\infty$ |
 |:---:|:---:|:---:|
@@ -42,6 +49,9 @@ Pour $\frac{1}{x}$ : loin à droite, le graphique se rapproche de l’axe horizo
 | $x^{3}$ | $-\infty$ | $+\infty$ |
 | $\sqrt[3]{x}$ | $-\infty$ | $+\infty$ |
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -82,6 +92,16 @@ Fonction 1 : $x + 1 \neq 0$ donne $x \neq -1$, donc $\operatorname{dom}(f) = ]-\
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+1. Bornes $-\infty$, $-1$ et $+\infty$ : les quatre limites ont un sens.
+2. Bornes $2$ et $+\infty$ : les limites en $3$, en $2$ et en $+\infty$ ont un sens ; celles en $0$ et en $-\infty$ n’en ont pas.
+3. Bornes $0$, $4$ et $+\infty$ : la limite en $-1$ n’a pas de sens ; celles en $0$, en $4$ et en $+\infty$ en ont un.
+4. Bornes $-\infty$ et $3$ : les limites en $3$ et en $-\infty$ ont un sens ; celles en $5$ et en $+\infty$ n’en ont pas.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 1. $\operatorname{dom}(f) = ]-\infty ; -1[ \cup ]-1 ; +\infty[$, bornes $-\infty$, $-1$, $+\infty$.
 
@@ -105,6 +125,9 @@ Fonction 1 : $x + 1 \neq 0$ donne $x \neq -1$, donc $\operatorname{dom}(f) = ]-\
    - $a = -\infty$ : **a un sens** ;
    - $a = +\infty$ : **pas de sens**.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -147,6 +170,13 @@ Trace d’abord en pointillés les droites $x = -10$ et $y = -2$. Ton graphique 
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+Quand $x$ se rapproche de $-10$, $f(x)$ devient aussi petit qu’on veut : le graphique descend sans fin le long de la droite $x = -10$, des deux côtés. Loin à gauche, $f(x)$ se rapproche de $-2$ : le graphique longe la droite $y = -2$. Ton graphique doit respecter ces deux conditions.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 - $\lim\limits_{x \to -10} f(x) = -\infty$ : $M$ se dirige vers $(-10 ; -\infty)$ ; le graphique descend sans fin le long de la droite $x = -10$.
 - $\lim\limits_{x \to -\infty} f(x) = -2$ : $M$ se dirige vers $(-\infty ; -2)$ ; loin à gauche, le graphique se rapproche de la droite $y = -2$.
 
@@ -157,6 +187,9 @@ On attend ensuite un **graphique**. Un graphique possible :
 ```
 
 À droite de $-10$, tout est permis : les deux conditions n’en disent rien.
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -245,6 +278,16 @@ Pour $f$ : le graphique de $\frac{1}{x}$ a été déplacé de $2$ vers la droite
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+- $f$ : $1$ en $-\infty$ et en $+\infty$ ; $\frac{1}{2}$ en $0$ ; n’existe pas en $2$ ($-\infty$ à gauche, $+\infty$ à droite).
+- $g$ : pas de sens en $-5$ ; $-1$ en $-3$ ; $1$ en $1$ ; $+\infty$ en $+\infty$.
+- $h$ : $2$ en $\pm \infty$ ; $1$ en $0$ ; $-\infty$ en $-1$.
+- $k$ : $+\infty$ en $\pm \infty$ ; $-2$ en $1$ ; $0$ en $3$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 **$f(x) = \frac{1}{x-2} + 1$** — domaine $\mathbb{R} \setminus \{2\}$.
 
@@ -267,6 +310,9 @@ Pour $f$ : le graphique de $\frac{1}{x}$ a été déplacé de $2$ vers la droite
 
 - $\lim\limits_{x \to \pm \infty} k(x) = +\infty$ ; $\lim\limits_{x \to 1} k(x) = -2$ (la pointe du « V ») ; $\lim\limits_{x \to 3} k(x) = 0$.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -336,6 +382,16 @@ Graphique 1 : il commence juste à droite de la droite $x = -1$. Qu’y a-t-il �
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+1. a) pas de sens ; b) environ $0{,}5$ ; c) $1$.
+2. a) $+\infty$ ; b) environ $-0{,}5$ ; c) $1$.
+3. a) $-\infty$ ; b) environ $-0{,}8$ ; c) $+\infty$.
+4. a) $+\infty$ ; b) pas de sens ; c) $+\infty$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 Les valeurs lues sont approchées.
 
@@ -360,6 +416,9 @@ Les valeurs lues sont approchées.
    - b) **pas de sens** : $1$ n’est ni dans le domaine ni une borne ;
    - c) $+\infty$.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -421,6 +480,16 @@ Graphique 1, bulle 1 : la courbe monte sans fin juste à droite de $x = -0{,}5$.
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+1. $\lim\limits_{x \overset{<}{\to} -0{,}5} f(x) = -\infty$, $\lim\limits_{x \overset{>}{\to} -0{,}5} f(x) = +\infty$, $\lim\limits_{x \to \pm \infty} f(x) = 2{,}5$ ; A.V. $x = -0{,}5$ et A.H. $y = 2{,}5$.
+2. $\lim\limits_{x \overset{<}{\to} -1} f(x) = -\infty$, $\lim\limits_{x \overset{>}{\to} -1} f(x) = +\infty$, $\lim\limits_{x \overset{<}{\to} 1} f(x) = -\infty$, $\lim\limits_{x \overset{>}{\to} 1} f(x) = +\infty$, $\lim\limits_{x \to \pm \infty} f(x) = 1$ ; A.V. $x = -1$ et $x = 1$, A.H. $y = 1$.
+3. $\lim\limits_{x \overset{<}{\to} 1} f(x) = -\infty$, $\lim\limits_{x \overset{>}{\to} 1} f(x) = +\infty$, $\lim\limits_{x \to -\infty} f(x) = -\infty$, $\lim\limits_{x \to +\infty} f(x) = +\infty$ ; A.V. $x = 1$ et A.O. $y = x + 1$.
+4. $\lim\limits_{x \to -\infty} f(x) = -\infty$ et $\lim\limits_{x \to +\infty} f(x) = +\infty$ ; A.O. $y = x$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 1. Graphique 1
 
@@ -455,6 +524,9 @@ Graphique 1, bulle 1 : la courbe monte sans fin juste à droite de $x = -0{,}5$.
 
    Asymptote : A.O. $y = x$.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -513,6 +585,15 @@ En $x = -5$ : un point creux sur la courbe et un point plein au-dessus. Le point
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+1. $\operatorname{dom}(f) = ]-\infty ; -4[ \cup ]-4 ; -2[ \cup ]-2 ; 0] \cup [1 ; 3[ \cup ]3 ; 7[$.
+2. a) $0$ ; b) n’existe pas ; c) $-\infty$ ; d) environ $-0{,}2$ ; e) environ $0{,}47$ ; f) $0{,}75$ ; g) $0$ ; h) environ $0{,}8$ ; i) n’existe pas ; j) pas de sens ; k) pas de sens ; l) $-\infty$.
+3. A.H. $y = 0$ (à gauche) ; A.V. $x = -4$ et $x = 7$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 1. $\operatorname{dom}(f) = ]-\infty ; -4[ \cup ]-4 ; -2[ \cup ]-2 ; 0] \cup [1 ; 3[ \cup ]3 ; 7[$.
 2. Limites :
 
@@ -529,6 +610,9 @@ En $x = -5$ : un point creux sur la courbe et un point plein au-dessus. Le point
    - k) pas de sens ;
    - l) $-\infty$.
 3. A.H. $y = 0$ (à gauche) ; A.V. $x = -4$ et $x = 7$.
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -609,6 +693,13 @@ Cas 2 : le domaine s’arrête en $5$ (exclu). En $5$, $M$ doit se diriger vers 
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+Trois graphiques qui respectent toutes les conditions imposées (points pleins ou creux, asymptotes, bords du domaine) ; il y en a beaucoup de corrects.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 On attend des **graphiques**. Il y en a beaucoup de corrects ; en voici un pour chaque cas.
 
 1. A.H. $y = 0$ à gauche ; le graphique monte sans fin **des deux côtés** de $x = 1$ ; à droite, il descend sans fin.
@@ -626,6 +717,9 @@ On attend des **graphiques**. Il y en a beaucoup de corrects ; en voici un pour 
    ```{=html}
    <div class="lim-plot" data-fig="c2-f63"></div>
    ```
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 

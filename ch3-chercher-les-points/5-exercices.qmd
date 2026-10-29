@@ -35,6 +35,13 @@ Rédaction 3 : l’égalité $x + 1 = 2$ est-elle vraie pour tous les $x$ ?
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+La rédaction 2 est la seule correcte.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 La rédaction **2** est correcte.
 
@@ -43,6 +50,9 @@ La rédaction **2** est correcte.
 3. Pas de « lim » du tout : $x + 1 = 2$ n’est vrai que pour $x = 1$, qui n’est pas dans le domaine. Correction : celle de la ligne 2.
 4. Faux : $1$ annule aussi le numérateur. C’est un cas d’indétermination, pas une impossibilité : on simplifie par $(x - 1)$, et la limite vaut $2$ (point creux en $(1 ; 2)$).
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -77,6 +87,13 @@ $x$ s’écrit $\frac{x}{1}$ : est-ce un quotient de deux polynômes ?
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+Les fonctions rationnelles sont $x$, $\frac{1}{x}$ et $\frac{1}{x^{2}+1}$ ; les trois autres ne le sont pas (une racine carrée, une valeur absolue, une racine cubique).
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 Fonctions rationnelles :
 
@@ -90,6 +107,9 @@ Pas rationnelles :
 - $\frac{x^{2} + \left\vert 2x\right\vert{}}{x^{2}+1}$ : une valeur absolue ;
 - $\frac{x^{2}+3x+1}{x^{5}+2 \sqrt[3]{x}}$ : une racine cubique.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -124,6 +144,13 @@ $f(x) = \frac{1}{(x+1)(x-2)(x+2)}$ : valeurs interdites $-2$, $-1$ et $2$ ; le n
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+A.V. $x = -2$, $x = -1$ et $x = 2$ : $\lim\limits_{x \overset{<}{\to} -2} f(x) = -\infty$, $\lim\limits_{x \overset{>}{\to} -2} f(x) = +\infty$, $\lim\limits_{x \overset{<}{\to} -1} f(x) = +\infty$, $\lim\limits_{x \overset{>}{\to} -1} f(x) = -\infty$, $\lim\limits_{x \overset{<}{\to} 2} f(x) = -\infty$ et $\lim\limits_{x \overset{>}{\to} 2} f(x) = +\infty$. En $0$, $\lim\limits_{x \to 0} f(x) = -\frac{1}{4}$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 $x^{2} - 4 = (x-2)(x+2)$, donc $\operatorname{dom}(f) = \mathbb{R} \setminus \{-2 ; -1 ; 2\}$. Le numérateur vaut $1 \neq 0$ : en chaque valeur interdite, A.V.
 
@@ -132,6 +159,9 @@ $x^{2} - 4 = (x-2)(x+2)$, donc $\operatorname{dom}(f) = \mathbb{R} \setminus \{-
 - En $2$ : $x + 1 \approx 3$ ($+$), $x + 2 \approx 4$ ($+$), $x - 2$ change de signe. $\lim\limits_{x \overset{<}{\to} 2} f(x) = -\infty$, $\lim\limits_{x \overset{>}{\to} 2} f(x) = +\infty$ : A.V. $x = 2$.
 - En $0$ (dans le domaine) : $\lim\limits_{x \to 0} f(x) = f(0) = \frac{1}{1 \cdot (-4)} = -\frac{1}{4}$ ; le graphique passe par $(0 ; -\frac{1}{4})$.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -167,8 +197,18 @@ $-x^{2} + 4x = x(4 - x)$ : valeurs interdites $0$ et $4$. Le numérateur vaut $-
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+A.V. $x = 0$ et $x = 4$ : $\lim\limits_{x \overset{<}{\to} 0} f(x) = +\infty$, $\lim\limits_{x \overset{>}{\to} 0} f(x) = -\infty$, $\lim\limits_{x \overset{<}{\to} 4} f(x) = +\infty$ et $\lim\limits_{x \overset{>}{\to} 4} f(x) = -\infty$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 - En $0$ : numérateur $-2$ ($-$) ; $4 - x \approx 4$ ($+$) ; $x$ : $-$ à gauche, $+$ à droite. $\lim\limits_{x \overset{<}{\to} 0} f(x) = +\infty$ et $\lim\limits_{x \overset{>}{\to} 0} f(x) = -\infty$ : A.V. $x = 0$.
 - En $4$ : numérateur $2$ ($+$) ; $x \approx 4$ ($+$) ; $4 - x$ : $+$ à gauche, $-$ à droite. $\lim\limits_{x \overset{<}{\to} 4} f(x) = +\infty$ et $\lim\limits_{x \overset{>}{\to} 4} f(x) = -\infty$ : A.V. $x = 4$.
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -206,6 +246,13 @@ En $1$, numérateur et dénominateur s’annulent : simplifie par $(x - 1)$. En 
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+Point creux en $(1 ; 0)$ et A.V. $x = -2$, avec $\lim\limits_{x \overset{<}{\to} -2} f(x) = +\infty$ et $\lim\limits_{x \overset{>}{\to} -2} f(x) = -\infty$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 1. Démarche :
 
@@ -218,6 +265,9 @@ En $1$, numérateur et dénominateur s’annulent : simplifie par $(x - 1)$. En 
    - En $1$ : le numérateur vaut $0$. Pour $x \neq 1$, $f(x) = \frac{x-1}{x+2}$, et $\lim\limits_{x \to 1} f(x) = \lim\limits_{x \to 1} \frac{x-1}{x+2} = \frac{0}{3} = 0$ : point creux en $(1 ; 0)$.
    - En $-2$ : le numérateur vaut $9 \neq 0$ : A.V. $x = -2$. Dans la fraction simplifiée, le numérateur vaut $-3$ ($-$) et $x + 2$ passe de $-$ à $+$ : $\lim\limits_{x \overset{<}{\to} -2} f(x) = +\infty$ et $\lim\limits_{x \overset{>}{\to} -2} f(x) = -\infty$.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -252,12 +302,22 @@ $x^{3} + 2x^{2} + x = x(x+1)^{2}$ et $2x^{2} - x - 3 = (x+1)(2x-3)$. Simplifie p
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+A.V. $x = -1$ et $x = 0$ (pas de point creux en $-1$) : $\lim\limits_{x \overset{<}{\to} -1} f(x) = -\infty$, $\lim\limits_{x \overset{>}{\to} -1} f(x) = +\infty$, $\lim\limits_{x \overset{<}{\to} 0} f(x) = +\infty$ et $\lim\limits_{x \overset{>}{\to} 0} f(x) = -\infty$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 $\operatorname{dom}(f) = \mathbb{R} \setminus \{-1 ; 0\}$. Pour $x \neq -1$ : $f(x) = \frac{(x+1)(2x-3)}{x(x+1)^{2}} = \frac{2x-3}{x(x+1)}$.
 
 - En $-1$ : après simplification, le numérateur vaut $-5 \neq 0$ et le dénominateur s’annule encore : A.V. $x = -1$ (pas un point creux). $x \approx -1$ ($-$), $x + 1$ passe de $-$ à $+$ : le dénominateur passe de $+$ à $-$. $\lim\limits_{x \overset{<}{\to} -1} f(x) = -\infty$ et $\lim\limits_{x \overset{>}{\to} -1} f(x) = +\infty$.
 - En $0$ : le numérateur vaut $-3 \neq 0$ : A.V. $x = 0$. $x + 1 \approx 1$ ($+$), $x$ passe de $-$ à $+$. $\lim\limits_{x \overset{<}{\to} 0} f(x) = +\infty$ et $\lim\limits_{x \overset{>}{\to} 0} f(x) = -\infty$.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -292,9 +352,19 @@ Mets le même facteur $(x - a)$ au numérateur et au dénominateur, par exemple 
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+Par exemple $f(x) = \frac{x^{2}-4}{x-2}$ en $a = 2$ : $\lim\limits_{x \to 2} f(x) = 4$, et le graphique a un point creux en $(2 ; 4)$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 Par exemple $f(x) = \frac{x^{2}-4}{x-2}$ en $a = 2$. Près de $2$, le numérateur et le dénominateur sont tous deux proches de $0$ : un nombre proche de $0$ divisé par un nombre proche de $0$ peut donner n’importe quoi, on ne peut pas conclure en les regardant séparément. On simplifie : $\lim\limits_{x \to 2} \frac{x^{2}-4}{x-2} = \lim\limits_{x \to 2} (x+2) = 4$. Le graphique a un point creux en $(2 ; 4)$.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -337,11 +407,21 @@ Pour chaque étape, demande-toi : quelle propriété ou quelle définition du co
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+Chaque étape applique le cours : les valeurs interdites sont les racines du dénominateur ; on peut simplifier par $x + 2$ car $x + 2 \neq 0$ ; la fraction simplifiée est définie en $-2$, donc sa limite est sa valeur, d’où un point creux ; en $1$, le numérateur ne s’annule pas, d’où une A.V. ; le signe de $f$ près de $1$ est l’opposé de celui de $x - 1$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 1. Les valeurs interdites sont les racines du dénominateur ($x^{2} + x - 2 = (x+2)(x-1)$).
 2. En $-2$, numérateur et dénominateur s’annulent : cas d’indétermination, il faut simplifier. On peut diviser par $x + 2$ car, pour $x \neq -2$, $x + 2 \neq 0$.
 3. La fraction simplifiée est égale à $f(x)$ pour tout $x \neq -2$ proche de $-2$ ; c’est une rationnelle définie en $-2$, donc sa limite est sa valeur. Comme $-2 \notin \operatorname{dom}(f)$, c’est un point creux.
 4. En $1$, le numérateur (de la fraction simplifiée) ne s’annule pas : c’est la propriété « valeur interdite qui n’annule pas le numérateur » : A.V.
 5. Le numérateur vaut $-1$ ($-$) près de $1$ : le signe de $f$ est l’opposé de celui de $x - 1$.
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -380,11 +460,25 @@ Point creux en $2$ : un facteur $(x - 2)$ en haut et en bas. Ensuite, la fractio
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+1. $f(x) = \frac{1}{x+1}$.
+2. $f(x) = \frac{(x-1)(x-2)}{x-2}$.
+3. $f(x) = \frac{3(x-2)}{(x+1)(x-2)}$.
+
+Ce sont des exemples : d’autres expressions conviennent.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 1. $f(x) = \frac{1}{x+1}$.
 2. $f(x) = \frac{(x-1)(x-2)}{x-2}$ : pour $x \neq 2$, $f(x) = x - 1$, qui vaut $1$ en $2$.
 3. $f(x) = \frac{3(x-2)}{(x+1)(x-2)}$ : pour $x \neq 2$, $f(x) = \frac{3}{x+1}$, qui vaut $\frac{3}{3} = 1$ en $2$ ; et en $-1$, le numérateur vaut $3 \neq 0$ : A.V.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 

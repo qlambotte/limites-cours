@@ -55,12 +55,25 @@ $\frac{1}{x-4}$ est du type $\frac{1}{a}$ avec $a = x - 4$ : quelle est la condi
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+1. $x - 4 \neq 0$.
+2. $1 + x \geq 0$.
+3. $x + 1 \geq 0$.
+4. Aucune condition : le domaine est $\mathbb{R}$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 1. $\frac{1}{x-4}$ : dénominateur non nul, $x - 4 \neq 0$.
 2. $x \sqrt{1+x}$ : radicand positif ou nul, $1 + x \geq 0$ (le facteur $x$ devant ne pose aucun problème).
 3. $\sqrt{x+1}$ : $x + 1 \geq 0$.
 4. $x - 5$ : aucune condition, c’est un polynôme ; son domaine est $\mathbb{R}$.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -142,6 +155,13 @@ Pour $g$ : le graphique s’interrompt autour de $x = 2$ (il monte et descend sa
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+$\operatorname{dom}(f) = \mathbb{R}$, $\operatorname{dom}(g) = \mathbb{R} \setminus \{2\}$, $\operatorname{dom}(h) = [2 ; +\infty[$ et $\operatorname{dom}(i) = \mathbb{R} \setminus \{2\}$ ; dans les quatre cas, la conjecture et le calcul concordent.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 ::: {.solution-classe}
 1. $f(x) = 2x^{2} - x^{4}$.
 
@@ -164,6 +184,9 @@ Pour $g$ : le graphique s’interrompt autour de $x = 2$ (il monte et descend sa
    - Calcul : $x \neq 2$ : $\operatorname{dom}(i) = \mathbb{R} \setminus \{2\}$.
    - Vérification : concorde.
 :::
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
@@ -247,10 +270,20 @@ Pour $k$, il y a deux conditions : $x + 2 \geq 0$ et $x^{2} - 1 \neq 0$. Résous
 
 ## Solution {.unlisted}
 
+::: {.reponse}
+$\operatorname{dom}(j) = ]2 ; +\infty[$, $\operatorname{dom}(k) = [-2 ; -1[ \cup ]-1 ; 1[ \cup ]1 ; +\infty[$, $\operatorname{dom}(l) = \mathbb{R} \setminus \{-2 ; 2\}$ et $\operatorname{dom}(m) = \mathbb{R} \setminus \{2\}$.
+:::
+
+<details class="tw-details"><summary>Je veux plus de détails</summary>
+
+::: {.tw-expl}
 1. $j$ : conjecture : le graphique existe seulement à droite de $2$, sans atteindre $x = 2$ (il monte sans fin). Calcul : $x - 2 > 0$, $\operatorname{dom}(j) = ]2 ; +\infty[$. Concorde.
 2. $k$ : conjecture : le graphique commence en $x = -2$ et s’interrompt en $-1$ et en $1$. Calcul : $x \geq -2$, $x \neq -1$, $x \neq 1$ : $\operatorname{dom}(k) = [-2 ; -1[ \cup ]-1 ; 1[ \cup ]1 ; +\infty[$. Concorde.
 3. $l$ : conjecture : interruptions en $-2$ et en $2$. Calcul : $x^{2} \neq 4$ : $\operatorname{dom}(l) = \mathbb{R} \setminus \{-2 ; 2\}$. Concorde.
 4. $m$ : conjecture : interruption en $2$ seulement. Calcul : $x \neq 2$ : $\operatorname{dom}(m) = \mathbb{R} \setminus \{2\}$. Concorde.
+:::
+
+</details>
 
 ## Pièges {.unlisted}
 
