@@ -17,6 +17,10 @@
      accroché au bloc du texte (paragraphe, encadré, figure…) : les
      traits suivent ce bloc si la mise en page change.
    - « Exporter » / « Importer » : passer d'un ordinateur à l'autre.
+   - Écran tactile : le doigt fait défiler la page, le stylet (et la
+     souris) écrit ; un bouton « main » du dock permet au doigt d'écrire.
+   - « Brouillon » sous chaque exercice et activité : une zone de
+     dessin (blanc, quadrillé ou repère), agrandissable, gardée.
    - Données compatibles avec la v1 (traits, surlignages de texte,
      notes et corrections déjà enregistrés).
    ============================================================ */
@@ -25,15 +29,17 @@
   var NS = "http://www.w3.org/2000/svg";
   var PREF = "lim-annot:v1:";
   var CLE = PREF + location.pathname.replace(/index\.html$/, "");
-  var BLOCS = "p, li, h1, h2, h3, h4, table, pre, figure, blockquote, .theo, .exo, .callout, .lp-fig, .lp-side, .aides, .activite, .cell-output, mjx-container";
+  var BLOCS = "p, li, h1, h2, h3, h4, table, pre, figure, blockquote, .theo, .exo, .callout, .lp-fig, .lp-side, .aides, .activite, .cell-output, mjx-container, .an-brouillon";
   var PALETTE = [["#e63946", "Rouge"], ["#1f5fbf", "Bleu"], ["#14304a", "Noir"], ["#ffd60a", "Jaune"],
                  ["#f77f00", "Orange"], ["#2e7d46", "Vert"], ["#7bc043", "Vert clair"], ["#00a6a6", "Turquoise"],
                  ["#4ea8de", "Bleu clair"], ["#7b3fa0", "Violet"], ["#f06fa8", "Rose"], ["#8a5a2b", "Marron"]];
   var ANCIENNES = { noir: "#14304a", rouge: "#c1002a", bleu: "#1d6fb8", vert: "#0a7d4d", jaune: "#ffd60a" };
   var DESSIN = { stylo: 1, surligneur: 1, gomme: 1, forme: 1, note: 1, correction: 1 };
 
-  var etat = { outil: "pointeur", dernier: "stylo", coul: PALETTE[0][0], forme: "carre", visible: true, ouvert: false };
-  var data = { traits: [], surl: [], notes: [] };
+  var etat = { outil: "pointeur", dernier: "stylo", coul: PALETTE[0][0], forme: "carre", visible: true, ouvert: false, doigt: "defile" };
+  try { if (localStorage.getItem("an2-doigt") === "ecrit") etat.doigt = "ecrit"; } catch (e) {}
+  var TACTILE = (navigator.maxTouchPoints || 0) > 0;
+  var data = { traits: [], surl: [], notes: [], brouillons: {} };
   var pile = [];                      // annuler : instantanés {traits, notes}
   var racine, calque, couche, poignee, dock, liste, msg, palette, menuFormes, menuPlus;
 
@@ -41,11 +47,12 @@
   function charger() {
     try { var t = localStorage.getItem(CLE); if (t) data = JSON.parse(t); } catch (e) {}
     data.traits = data.traits || []; data.surl = data.surl || []; data.notes = data.notes || [];
+    data.brouillons = data.brouillons || {};
   }
   function sauver() {
     data.titre = document.title; data.maj = new Date().toISOString();
     try {
-      if (!data.traits.length && !data.surl.length && !data.notes.length) localStorage.removeItem(CLE);
+      if (!data.traits.length && !data.surl.length && !data.notes.length && !Object.keys(data.brouillons).length) localStorage.removeItem(CLE);
       else localStorage.setItem(CLE, JSON.stringify(data));
     } catch (e) { info("Impossible d'enregistrer (stockage du navigateur indisponible)."); }
   }
@@ -171,6 +178,7 @@
   // points absolus (calque) d'un trait enregistré
   function absolus(t) {
     var e = resoudre(t.ancre); if (!e) return null;
+    if (e !== racine && !e.getClientRects().length) return null;     // brouillon fermé, bloc masqué
     var b = boite(e);
     return t.pts.map(function (p) { return [b.x + p[0] * b.w, b.y + p[1] * b.w]; });
   }
@@ -200,11 +208,39 @@
 
   // ---------- tracé en cours ----------
   var enCours = null;
+  // Doigt sur écran tactile : fait défiler la page (le stylet et la souris écrivent),
+  // sauf si l'élève a choisi « le doigt écrit » dans le dock.
+  var pan = null, inertie = 0;
+  function panDebut(ev) {
+    cancelAnimationFrame(inertie);
+    pan = { id: ev.pointerId, x: ev.clientX, y: ev.clientY, t: performance.now(), vx: 0, vy: 0 };
+    try { calque.setPointerCapture(ev.pointerId); } catch (e) {}
+  }
+  function panBouge(ev) {
+    if (ev.pointerId !== pan.id) return;
+    var dx = ev.clientX - pan.x, dy = ev.clientY - pan.y, t = performance.now(), dt = Math.max(8, t - pan.t);
+    window.scrollBy(-dx, -dy);
+    pan.vx = 0.7 * (-dx / dt) + 0.3 * pan.vx; pan.vy = 0.7 * (-dy / dt) + 0.3 * pan.vy;
+    pan.x = ev.clientX; pan.y = ev.clientY; pan.t = t;
+  }
+  function panFin() {
+    var vx = pan.vx * 16, vy = pan.vy * 16; pan = null;
+    (function glisse() {
+      if (Math.abs(vx) < 0.4 && Math.abs(vy) < 0.4) return;
+      window.scrollBy(vx, vy); vx *= 0.94; vy *= 0.94;
+      inertie = requestAnimationFrame(glisse);
+    })();
+  }
   function debut(ev) {
     if (ev.button > 0) return;
     var o = etat.outil;
     if (!DESSIN[o]) return;
     ev.preventDefault();
+    if (enCours || pan) return;                                   // un seul geste à la fois
+    // un bouton de l'interface (brouillon…) reste cliquable sous le calque
+    var dessous = sousLePoint(ev), ui = dessous && dessous.closest && dessous.closest(".an-ui button, .an-ui label");
+    if (ui) { ui.click(); return; }
+    if (ev.pointerType === "touch" && etat.doigt !== "ecrit") { panDebut(ev); return; }
     majOrigine();
     if (o === "note" || o === "correction") { nouvelleNote(ev, o); return; }
     try { calque.setPointerCapture(ev.pointerId); } catch (e) {}
@@ -220,6 +256,7 @@
     enCours.g = dessinerTrait(enCours.t, enCours.abs, calque);
   }
   function bouge(ev) {
+    if (pan) { panBouge(ev); return; }
     if (!enCours) return;
     if (enCours.gomme) { gommer(ev); return; }
     var p = local(ev);
@@ -231,7 +268,8 @@
     }
     retracer();
   }
-  function fin() {
+  function fin(ev) {
+    if (pan && (!ev || ev.pointerId === pan.id)) { panFin(); return; }
     if (!enCours) return;
     var c = enCours; enCours = null;
     if (c.gomme) {
@@ -432,7 +470,9 @@
     oeil: '<path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="2.6"/>',
     plus: '<circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/>',
     fermer: '<path d="M6 9l6 6 6-6"/>',
-    crayon: '<path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 013 3L8 19z"/><path d="M14.5 6.5l3 3"/>'
+    crayon: '<path d="M4 20l1-4L16.5 4.5a2.1 2.1 0 013 3L8 19z"/><path d="M14.5 6.5l3 3"/>',
+    main: '<path d="M8 13V5a1.5 1.5 0 013 0v6"/><path d="M11 10V4a1.5 1.5 0 013 0v6"/><path d="M14 10V6a1.5 1.5 0 013 0v7a7 7 0 01-7 7h-.5A5.5 5.5 0 014 16.5L3 13a1.5 1.5 0 012.6-1.4L8 14"/>',
+    grille: '<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16M4 16h16M10 4v16M16 4v16"/>'
   };
   function ico(n) {
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + SVG[n] + '</svg>';
@@ -545,8 +585,118 @@
     ".dans-outils .an-ouvrir svg{width:1.05rem;height:1.05rem}",
     "@media (max-height:760px){.an2-dock .an2-btn{width:30px;height:30px}.an2-dock{padding:4px}}",
     "@media (max-width:640px){.an2-dock{right:6px;transform:translateY(-50%) translateX(160%) scale(.86)}.an2-dock.ouvert{transform:translateY(-50%) scale(.86)}}",
-    "@media print{.an2-dock,.an2-msg,.an-barre,.an-liste{display:none!important}}"
+    ".an-brouillon-btn{display:inline-flex;align-items:center;gap:.35rem;margin:.7rem 0 .1rem;border:0;border-radius:99px;padding:.3rem .85rem;",
+    " font:600 .85rem Inter,system-ui,sans-serif;background:var(--q,#f2f3f5);color:var(--accent,#46607e);cursor:pointer}",
+    ".an-brouillon-btn svg{width:16px;height:16px}",
+    ".an-brouillon-btn[hidden]{display:none}",
+    ".an-brouillon{position:relative;margin:.8rem 0 .3rem;border:1.5px solid var(--rule,#e4e8ee);border-radius:14px;background-color:var(--carte,#fff);overflow:hidden}",
+    ".an-brouillon[hidden]{display:none}",
+    ".an-brouillon.fond-quadrille{background-image:linear-gradient(var(--an-grille,#d9dfe6) 1px,transparent 1px),linear-gradient(90deg,var(--an-grille,#d9dfe6) 1px,transparent 1px);background-size:20px 20px}",
+    ".an-brouillon.fond-repere{background-image:linear-gradient(var(--h,#2f3a47),var(--h,#2f3a47)),linear-gradient(var(--h,#2f3a47),var(--h,#2f3a47)),",
+    " linear-gradient(var(--an-grille,#d9dfe6) 1px,transparent 1px),linear-gradient(90deg,var(--an-grille,#d9dfe6) 1px,transparent 1px);",
+    " background-size:100% 1.5px,1.5px 100%,20px 20px,20px 20px;background-position:0 50%,50% 0,0 0,0 0;background-repeat:no-repeat,no-repeat,repeat,repeat}",
+    ":root[data-theme=dark]{--an-grille:#3a4552}",
+    ".an-brouillon-barre{position:absolute;top:6px;left:8px;right:8px;display:flex;flex-wrap:wrap;align-items:center;gap:4px;z-index:1;pointer-events:none}",
+    ".an-brouillon-barre>*{pointer-events:auto}",
+    ".an-brouillon-titre{font:700 .68rem Inter,system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:var(--muted,#59626e);margin-right:auto;pointer-events:none!important}",
+    ".an-brouillon-barre button{font:600 .75rem Inter,system-ui,sans-serif;border:0;border-radius:99px;padding:.2rem .6rem;cursor:pointer;",
+    " background:rgba(255,255,255,.9);color:var(--muted,#59626e);box-shadow:0 1px 3px rgba(0,0,0,.12)}",
+    ":root[data-theme=dark] .an-brouillon-barre button{background:rgba(39,48,58,.95)}",
+    ".an-brouillon-barre button.on{color:var(--accent,#46607e);box-shadow:0 0 0 1.5px var(--accent,#46607e)}",
+    ".an-brouillon-barre button.confirme{background:#e63946;color:#fff}",
+    "@media print{.an2-dock,.an2-msg,.an-barre,.an-liste,.an-brouillon-btn,.an-brouillon-barre{display:none!important}}"
   ].join("\n");
+
+  // ---------- doigt : défiler ou écrire (écrans tactiles) ----------
+  function majDoigt() {
+    if (!boutons.doigt) return;
+    var e = etat.doigt === "ecrit";
+    boutons.doigt.classList.toggle("on", e);
+    boutons.doigt.title = e ? "Le doigt écrit (cliquer : le doigt fait défiler la page)"
+                            : "Le doigt fait défiler la page ; le stylet et la souris écrivent (cliquer : le doigt écrit)";
+    boutons.doigt.setAttribute("aria-label", boutons.doigt.title);
+  }
+  function basculerDoigt() {
+    etat.doigt = etat.doigt === "ecrit" ? "defile" : "ecrit";
+    try { localStorage.setItem("an2-doigt", etat.doigt); } catch (e) {}
+    majDoigt();
+    info(etat.doigt === "ecrit" ? "Le doigt écrit. Pour faire défiler : deux doigts sur la barre de défilement, ou repasse au pointeur."
+                                : "Le doigt fait défiler la page ; le stylet (ou la souris) écrit.");
+  }
+
+  // ---------- brouillon : une zone de dessin sous chaque exercice / activité ----------
+  var FONDS = [["blanc", "Blanc"], ["quadrille", "Quadrillé"], ["repere", "Repère"]];
+  function etatBrouillon(id) { return data.brouillons[id] || (data.brouillons[id] = { ouvert: false, h: 280, fond: "quadrille" }); }
+  function zoneBrouillon(bx, cible) {
+    var id = "brouillon-" + bx.id, z = document.getElementById(id);
+    if (z) return z;
+    var st = etatBrouillon(bx.id);
+    z = document.createElement("div"); z.id = id; z.className = "an-brouillon";
+    var barre = document.createElement("div"); barre.className = "an-brouillon-barre an-ui";
+    var titre = document.createElement("span"); titre.className = "an-brouillon-titre"; titre.textContent = "Brouillon";
+    barre.appendChild(titre);
+    FONDS.forEach(function (f) {
+      var b = document.createElement("button"); b.type = "button"; b.textContent = f[1]; b.dataset.fond = f[0];
+      b.addEventListener("click", function () { st.fond = f[0]; appliquer(); sauver(); });
+      barre.appendChild(b);
+    });
+    function petit(txt, titreB, fn) {
+      var b = document.createElement("button"); b.type = "button"; b.textContent = txt; b.title = titreB; b.setAttribute("aria-label", titreB);
+      b.addEventListener("click", fn); barre.appendChild(b); return b;
+    }
+    petit("＋", "Agrandir le brouillon", function () { st.h = Math.min(st.h + 200, 2400); appliquer(); sauver(); });
+    petit("−", "Réduire le brouillon", function () { st.h = Math.max(st.h - 200, 160); appliquer(); sauver(); });
+    var eff = petit("Effacer", "Effacer ce brouillon (cliquer deux fois)", function () {
+      if (!eff.dataset.confirme) {
+        eff.dataset.confirme = "1"; eff.classList.add("confirme"); info("Clique encore une fois pour effacer ce brouillon.");
+        setTimeout(function () { delete eff.dataset.confirme; eff.classList.remove("confirme"); }, 4000);
+        return;
+      }
+      memoriser();
+      data.traits = data.traits.filter(function (t) { return !(t.ancre && t.ancre.id === id); });
+      sauver(); dessinerTout(); info("Brouillon effacé (Ctrl+Z pour annuler).");
+    });
+    petit("Fermer", "Fermer le brouillon (ce qui est dessiné est gardé)", function () { st.ouvert = false; appliquer(); sauver(); });
+    z.appendChild(barre);
+    function appliquer() {
+      z.style.height = st.h + "px";
+      z.hidden = !st.ouvert;
+      z.className = "an-brouillon fond-" + st.fond;
+      barre.querySelectorAll("[data-fond]").forEach(function (b) { b.classList.toggle("on", b.dataset.fond === st.fond); });
+      var bt = cible.querySelector(".an-brouillon-btn");
+      if (bt) bt.hidden = st.ouvert;
+      setTimeout(dessinerTout, 0);
+    }
+    z._appliquer = appliquer;
+    var bt = cible.querySelector(".an-brouillon-btn");
+    cible.insertBefore(z, bt || null);
+    return z;
+  }
+  function ouvrirBrouillon(bx, cible, outil) {
+    var st = etatBrouillon(bx.id);
+    st.ouvert = true;
+    var z = zoneBrouillon(bx, cible);
+    z._appliquer(); sauver();
+    if (outil) {
+      if (!etat.ouvert) ouvrirDock(true);
+      if (!DESSIN[etat.outil] || etat.outil === "note" || etat.outil === "correction") choisirOutil("stylo");
+      setTimeout(function () { z.scrollIntoView({ block: "nearest", behavior: "smooth" }); }, 50);
+    }
+  }
+  function preparerBrouillons() {
+    racine.querySelectorAll(".exo, .theo-activite").forEach(function (bx) {
+      if (!bx.id || bx.dataset.anBrouillon) return;
+      bx.dataset.anBrouillon = "1";
+      var cible = bx.querySelector(".exo-corps, .theo-body") || bx;
+      var b = document.createElement("button"); b.type = "button"; b.className = "an-brouillon-btn an-ui";
+      b.innerHTML = ico("grille") + "<span>Brouillon</span>";
+      b.title = "Ouvrir une zone de brouillon pour chercher cet exercice";
+      b.addEventListener("click", function () { ouvrirBrouillon(bx, cible, true); });
+      cible.appendChild(b);
+      var st = data.brouillons[bx.id];
+      if (st && st.ouvert) ouvrirBrouillon(bx, cible, false);
+    });
+  }
 
   function construireInterface() {
     var st = document.createElement("style"); st.textContent = CSS; document.head.appendChild(st);
@@ -598,6 +748,12 @@
     sep();
     var gn = groupe();
     ["note", "correction"].forEach(function (o) { boutons[o] = bouton(ico(o), NOMS[o], function () { choisirOutil(o); }); gn.appendChild(boutons[o]); });
+    if (TACTILE) {
+      sep();
+      boutons.doigt = bouton(ico("main"), "", basculerDoigt);
+      groupe().appendChild(boutons.doigt);
+      majDoigt();
+    }
     sep();
     var ga = groupe();
     ga.appendChild(bouton(ico("annuler"), "Annuler (Ctrl/Cmd+Z)", annuler));
@@ -709,6 +865,7 @@
     calque.addEventListener("lostpointercapture", fin);
 
     data.surl.forEach(appliquerSurl);
+    preparerBrouillons();
     dessinerTout();
     choisirOutil("pointeur");
     // les figures et les formules se construisent après : redessiner
