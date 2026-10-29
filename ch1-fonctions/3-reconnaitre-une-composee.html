@@ -46,7 +46,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-7c587969f93bd86c31ccf3a68e45a0b5.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-212954de6d33177c6bc5d4d0fd6929c5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-f569d47804541018d89576fa6b5622cd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -507,11 +507,24 @@ window.Quarto = {
 <p>Cas 1 : <span class="math inline">\((f \circ g)(x) = f(3x+5)\)</span> : dans <span class="math inline">\(x^{2} - 1\)</span>, remplace <span class="math inline">\(x\)</span> par <span class="math inline">\((3x+5)\)</span>, avec les parenthèses.</p>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<div class="reponse">
+<ol type="1">
+<li><span class="math inline">\((f \circ g)(x) = 9x^{2} + 30x + 24\)</span> et <span class="math inline">\((g \circ f)(x) = 3x^{2} + 2\)</span>.</li>
+<li><span class="math inline">\((f \circ g)(x) = \sqrt{x^{2} - 1}\)</span> et <span class="math inline">\((g \circ f)(x) = x - 1\)</span> (pour <span class="math inline">\(x \geq 0\)</span>).</li>
+</ol>
+</div>
+<details class="tw-details">
+<summary>
+Je veux plus de détails
+</summary>
+<div class="tw-expl">
 <ol type="1">
 <li><span class="math inline">\((f \circ g)(x) = (3x+5)^{2} - 1 = 9x^{2} + 30x + 24\)</span> et <span class="math inline">\((g \circ f)(x) = 3(x^{2}-1) + 5 = 3x^{2} + 2\)</span>.</li>
 <li><span class="math inline">\((f \circ g)(x) = \sqrt{x^{2} - 1}\)</span> et <span class="math inline">\((g \circ f)(x) = (\sqrt{x})^{2} - 1 = x - 1\)</span> (pour <span class="math inline">\(x \geq 0\)</span>).</li>
 </ol>
 <p>Les deux composées sont différentes : la composition n’est pas commutative.</p>
+</div>
+</details>
 </div>
 <div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
 <ul>
@@ -559,6 +572,14 @@ window.Quarto = {
 <p><span class="math inline">\(f(2) = 0\)</span>. Regarde maintenant le graphique de <span class="math inline">\(g\)</span> en <span class="math inline">\(x = 0\)</span> : que remarques-tu ?</p>
 </div>
 <div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<div class="reponse">
+<p><span class="math inline">\(g(f(2))\)</span> n’existe pas ; <span class="math inline">\((f \circ g)(-2) = 0\)</span> ; <span class="math inline">\(f(g(0))\)</span> n’existe pas ; <span class="math inline">\(g(f(0)) = 2\)</span> ; <span class="math inline">\((g \circ f)(-3) = 0\)</span>.</p>
+</div>
+<details class="tw-details">
+<summary>
+Je veux plus de détails
+</summary>
+<div class="tw-expl">
 <div class="solution-classe">
 <ul>
 <li><span class="math inline">\(g(f(2)) = g(0)\)</span> : en <span class="math inline">\(x = 0\)</span>, le graphique de <span class="math inline">\(g\)</span> a un point creux, <span class="math inline">\(g(0)\)</span> n’existe pas. Donc <span class="math inline">\(g(f(2))\)</span> <strong>n’existe pas</strong>.</li>
@@ -568,6 +589,8 @@ window.Quarto = {
 <li><span class="math inline">\((g \circ f)(-3) = g(f(-3)) = g(1) = 0\)</span>.</li>
 </ul>
 </div>
+</div>
+</details>
 </div>
 <div id="tabset-2-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-5-tab">
 <ul>
@@ -624,10 +647,23 @@ On applique ensuite le bloc <span class="math inline">\(\sqrt{\cdot}\)</span> au
 <p>Pour <span class="math inline">\(h(x) = \frac{1}{x-3}\)</span> : on calcule d’abord <span class="math inline">\(x - 3\)</span> (le bloc <span class="math inline">\(x\)</span> moins la constante <span class="math inline">\(3\)</span>), puis on applique le bloc <span class="math inline">\(\frac{1}{x}\)</span> au résultat.</p>
 </div>
 <div id="tabset-3-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-4-tab">
+<div class="reponse">
+<ol type="1">
+<li><span class="math inline">\(h = i \circ u\)</span> avec <span class="math inline">\(u(x) = x - 3\)</span> et <span class="math inline">\(i(x) = \frac{1}{x}\)</span>.</li>
+<li><span class="math inline">\(r = s \circ v + x\)</span> avec <span class="math inline">\(v(x) = 1 + x^{2}\)</span> et <span class="math inline">\(s(x) = \sqrt{x}\)</span>.</li>
+</ol>
+</div>
+<details class="tw-details">
+<summary>
+Je veux plus de détails
+</summary>
+<div class="tw-expl">
 <ol type="1">
 <li><span class="math inline">\(h = i \circ u\)</span> avec <span class="math inline">\(u(x) = x - 3\)</span> (différence du bloc <span class="math inline">\(x\)</span> et de la constante <span class="math inline">\(3\)</span>) et <span class="math inline">\(i(x) = \frac{1}{x}\)</span>.</li>
 <li><span class="math inline">\(r(x) = \sqrt{1 + x^{2}} + x\)</span> : <span class="math inline">\(v(x) = 1 + x^{2}\)</span> (somme de la constante <span class="math inline">\(1\)</span> et du bloc <span class="math inline">\(x^{2}\)</span>), puis <span class="math inline">\(s \circ v\)</span> avec <span class="math inline">\(s(x) = \sqrt{x}\)</span>, et enfin on ajoute le bloc <span class="math inline">\(x\)</span> : <span class="math inline">\(r = s \circ v + x\)</span>.</li>
 </ol>
+</div>
+</details>
 </div>
 <div id="tabset-3-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-5-tab">
 <ul>
