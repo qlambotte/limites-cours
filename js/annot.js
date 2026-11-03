@@ -1039,8 +1039,8 @@
     ".an-barre .an-ouvrir svg{width:20px;height:20px;display:block;margin:auto}",
     ".dans-outils .an-ouvrir svg{width:1.05rem;height:1.05rem}",
     // disposition « menu » (grand écran) : deux lignes sous les symboles du menu de gauche
-    ".an2-dock[data-mode=menu]{position:relative;right:auto;bottom:auto;transform:none;display:none;flex-direction:row;flex-wrap:wrap;",
-    " width:232px;max-width:100%;margin:10px 0 6px;padding:4px;opacity:1;transition:none;box-shadow:0 1px 4px rgba(20,48,74,.12);z-index:auto}",
+    ".an2-dock[data-mode=menu]{position:relative;z-index:1060;right:auto;bottom:auto;transform:none;display:none;flex-direction:row;flex-wrap:wrap;",
+    " width:232px;max-width:100%;margin:10px 0 6px;padding:4px;opacity:1;transition:none;box-shadow:0 1px 4px rgba(20,48,74,.12);}",
     ".an2-dock[data-mode=menu].ouvert{display:flex}",
     ".an2-dock[data-mode=menu] .an2-groupe{display:contents}",
     ".an2-dock[data-mode=menu] .an2-sep{display:none}",
@@ -1114,7 +1114,10 @@
     g1.appendChild(boutons.fleche);
     var gf = document.createElement("div"); gf.className = "an2-groupe"; g1.appendChild(gf);
     boutonForme = bouton(ico("rect"), "Formes : rectangle (R), ellipse (O), ligne (L), cercle trigonométrique (U), repère (X)", function (e) {
-      e.stopPropagation(); choisirOutil("forme", etat.forme === "fleche" ? "rect" : etat.forme); ouvrirMenu(menuFormes);
+      e.stopPropagation();
+      var ouvert = menuFormes.classList.contains("ouvert");
+      choisirOutil("forme", etat.forme === "fleche" ? "rect" : etat.forme);
+      if (!ouvert) ouvrirMenu(menuFormes);
     });
     boutons.forme = cles.forme = boutonForme; gf.appendChild(boutonForme);
     menuFormes = document.createElement("div"); menuFormes.className = "an2-menu";
@@ -1199,6 +1202,7 @@
     menuPlus.appendChild(fin);
     gm.appendChild(menuPlus);
     gm.appendChild(cles.fermer = bouton(ico("fermer"), "Fermer l'outil d'écriture (Y)", function () { ouvrirDock(false); }));
+    [boutonForme, bc, boutonTaille, cles.plus].forEach(function (b) { b.dataset.ouvreMenu = "1"; });
     document.body.appendChild(dock);
     disposer();
     if (grandEcran.addEventListener) grandEcran.addEventListener("change", disposer);
@@ -1225,7 +1229,8 @@
     document.body.appendChild(liste);
 
     document.addEventListener("pointerdown", function (e) {
-      if (e.target.closest && e.target.closest(".an2-menu")) return;
+      // un clic dans un menu, ou sur le bouton qui l'ouvre (le second clic le referme), ne ferme rien ici
+      if (e.target.closest && e.target.closest(".an2-menu, [data-ouvre-menu]")) return;
       ouvrirMenu(null);
     }, true);
   }
