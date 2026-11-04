@@ -1219,7 +1219,23 @@
   }
   window.TypwebLireExpression = lireExpression;
 
-  var WIDGETS = { aire: aire, curseurs: fcurseurs, graphe: graphe, suite: suite, droite: droite, rangs: rangs, tangente: tangente, trigo: trigo, log: replog, riemann: riemann, binomiale: binomiale, normale: normale };
+  // Zone hachurée entre f et g (ou l'axe) sur [a ; b] : figure fixe (#zone-aire).
+  function zone(host, c) {
+    var f = fonction(c.f), g = c.g ? fonction(c.g) : function () { return 0; };
+    var R = Repere(host, { xmin: c.xmin, xmax: c.xmax, ymin: c.ymin, ymax: c.ymax, xlabel: "x", ylabel: "y" });
+    var n = 240, d = "";
+    for (var i = 0; i <= n; i++) { var t = c.a + (c.b - c.a) * i / n; d += (i ? "L" : "M") + R.X(t).toFixed(1) + " " + R.Y(f(t)).toFixed(1); }
+    for (var j = n; j >= 0; j--) { var u = c.a + (c.b - c.a) * j / n; d += "L" + R.X(u).toFixed(1) + " " + R.Y(g(u)).toFixed(1); }
+    el("path", { d: d + "Z", "class": "ia-aire-pos" }, R.corps);
+    R.courbe(f, "ia-courbe");
+    if (c.g) R.courbe(g, "ia-courbe");
+    (c.etiquettes || []).forEach(function (lab, k) {
+      var h = k === 0 ? f : g, xl = c.xmax - (c.xmax - c.xmin) * 0.12, y = Math.max(c.ymin, Math.min(c.ymax, h(xl)));
+      var t = el("text", { x: R.X(xl) + 3, y: R.Y(y) - 6, "class": "ia-lab-axe" }, R.corps); t.textContent = lab;
+    });
+  }
+
+  var WIDGETS = { zone: zone, aire: aire, curseurs: fcurseurs, graphe: graphe, suite: suite, droite: droite, rangs: rangs, tangente: tangente, trigo: trigo, log: replog, riemann: riemann, binomiale: binomiale, normale: normale };
   function construire(host) {
     if (host.dataset.wired) return;
     host.dataset.wired = "1";
