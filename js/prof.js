@@ -309,6 +309,19 @@
   window.addEventListener("resize", function () { rendre(); });
   window.addEventListener("load", function () { [0, 1000, 3000].forEach(function (t) { setTimeout(rendre, t); }); });
 
+  /* ---------- retour à la page de pilotage ---------- */
+  var CLE_RETOUR = "typweb.retour-pilotage";
+  function urlPilotage() {
+    try {
+      var r = document.referrer ? new URL(document.referrer) : null;
+      if (r && /\/pilotage\/(index\.html)?$/.test(r.pathname)) sessionStorage.setItem(CLE_RETOUR, r.href);
+      var garde = sessionStorage.getItem(CLE_RETOUR);
+      if (garde) return garde;
+    } catch (e) {}
+    try { return new URL("/pilotage/", (window.TYPWEB && window.TYPWEB.portail) || location.href).href; }
+    catch (e2) { return "/pilotage/"; }
+  }
+
   /* ---------- bandeau ---------- */
   function noeud(tag, cls, txt) {
     var n = document.createElement(tag);
@@ -348,6 +361,12 @@
     panneau.appendChild(bSon); panneau.appendChild(bSonReg);
     panneau.appendChild(bExp); panneau.appendChild(bOff);
     bandeau.appendChild(puce); bandeau.appendChild(panneau);
+    // Retour à la page de pilotage (fin de séance) : là d'où l'on vient si c'était la page de pilotage,
+    // sinon <portail>/pilotage/.
+    var retour = noeud("a", "tw-prof-puce tw-prof-retour", "↩ Pilotage");
+    retour.href = urlPilotage();
+    retour.title = "Revenir à la page de pilotage";
+    bandeau.appendChild(retour);
     puce.addEventListener("click", function () { ouvrirBandeau(panneau.hidden); });
     sel.addEventListener("change", function () { fixerClasse(sel.value); });
     bOff.addEventListener("click", function () {

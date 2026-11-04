@@ -91,6 +91,7 @@ html.tw-marge-etroite .tw-m > .theo-head, html.tw-marge-etroite .tw-m > .exo-tet
 /* classe active changée dans un autre onglet (page de pilotage) : avis bien visible */
 .tw-prof-avis { margin-top: 6px; max-width: 320px; padding: 8px 10px; background: #fff; border: 3px solid #000; font-weight: 700; }
 .tw-prof-avis[hidden] { display: none; }
+.tw-prof-retour { display: inline-flex; align-items: center; margin-left: 6px; text-decoration: none !important; vertical-align: bottom; }
 .tw-prof-puce.tw-prof-alerte { background: #000; color: #fff; }
 html[data-theme=dark] .tw-prof { color: #fff; }
 html[data-theme=dark] .tw-prof-puce, html[data-theme=dark] .tw-prof-panneau,

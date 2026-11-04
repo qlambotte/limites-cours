@@ -4,7 +4,7 @@
  "uaa": "5UAA3",
  "annee": "5e",
  "cle": "limites",
- "empreinte": "23a6e07fc58a",
+ "empreinte": "d0568cd35315",
  "genere": "2026-11-04",
  "elements": [
   {
@@ -65,7 +65,7 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/1-rappels.html#5UAA3.ex.001",
    "num": "1.1",
-   "page": 4
+   "page": 5
   },
   {
    "id": "5UAA3.operations-fonctions",
@@ -85,7 +85,7 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/2-operations-sur-les-fonctions.html#5UAA3.benefice-sans-savoir",
    "num": "1.2",
-   "page": 4
+   "page": 5
   },
   {
    "id": "5UAA3.def.002",
@@ -107,7 +107,7 @@
    ],
    "ancre": "ch1-fonctions/2-operations-sur-les-fonctions.html#5UAA3.ex.002",
    "num": "1.2",
-   "page": 5
+   "page": 6
   },
   {
    "id": "5UAA3.ex.003",
@@ -119,15 +119,15 @@
    ],
    "ancre": "ch1-fonctions/2-operations-sur-les-fonctions.html#5UAA3.ex.003",
    "num": "1.3",
-   "page": 5
+   "page": 6
   },
   {
    "id": "5UAA3.reconnaitre-composee",
    "type": "section",
-   "titre": "Reconnaître une composée",
+   "titre": "Composer deux fonctions",
    "parent": "5UAA3.fonctions",
    "etiquettes": [],
-   "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html",
+   "ancre": "ch1-fonctions/3-composer-deux-fonctions.html",
    "num": "1.3",
    "page": null
   },
@@ -137,7 +137,7 @@
    "titre": "Activité 1.3 — des blocs de base",
    "parent": "5UAA3.reconnaitre-composee",
    "etiquettes": [],
-   "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.blocs-base",
+   "ancre": "ch1-fonctions/3-composer-deux-fonctions.html#5UAA3.blocs-base",
    "num": "1.3",
    "page": 6
   },
@@ -147,7 +147,7 @@
    "titre": "Définition 1.3",
    "parent": "5UAA3.reconnaitre-composee",
    "etiquettes": [],
-   "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.def.003",
+   "ancre": "ch1-fonctions/3-composer-deux-fonctions.html#5UAA3.def.003",
    "num": "1.3",
    "page": 7
   },
@@ -157,7 +157,7 @@
    "titre": "Exemple 1.1 — identifier les deux composantes",
    "parent": "5UAA3.reconnaitre-composee",
    "etiquettes": [],
-   "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.identifier-deux-composantes",
+   "ancre": "ch1-fonctions/3-composer-deux-fonctions.html#5UAA3.identifier-deux-composantes",
    "num": "1.1",
    "page": 7
   },
@@ -167,7 +167,7 @@
    "titre": "Exemple 1.2 — une composition qui redonne un bloc connu",
    "parent": "5UAA3.reconnaitre-composee",
    "etiquettes": [],
-   "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.composition-redonne-bloc-connu",
+   "ancre": "ch1-fonctions/3-composer-deux-fonctions.html#5UAA3.composition-redonne-bloc-connu",
    "num": "1.2",
    "page": 8
   },
@@ -177,7 +177,7 @@
    "titre": "Remarque 1.2",
    "parent": "5UAA3.reconnaitre-composee",
    "etiquettes": [],
-   "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.rem.002",
+   "ancre": "ch1-fonctions/3-composer-deux-fonctions.html#5UAA3.rem.002",
    "num": "1.2",
    "page": 8
   },
@@ -189,9 +189,9 @@
    "etiquettes": [
     "maison"
    ],
-   "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.ex.004",
+   "ancre": "ch1-fonctions/3-composer-deux-fonctions.html#5UAA3.ex.004",
    "num": "1.4",
-   "page": 8
+   "page": 9
   },
   {
    "id": "5UAA3.ex.005",
@@ -199,7 +199,7 @@
    "titre": "Exercice 1.5",
    "parent": "5UAA3.reconnaitre-composee",
    "etiquettes": [],
-   "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.ex.005",
+   "ancre": "ch1-fonctions/3-composer-deux-fonctions.html#5UAA3.ex.005",
    "num": "1.5",
    "page": 9
   },
@@ -209,9 +209,9 @@
    "titre": "Exemple 1.3 — décomposer une fonction",
    "parent": "5UAA3.reconnaitre-composee",
    "etiquettes": [],
-   "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.decomposer-fonction",
+   "ancre": "ch1-fonctions/3-composer-deux-fonctions.html#5UAA3.decomposer-fonction",
    "num": "1.3",
-   "page": 9
+   "page": 10
   },
   {
    "id": "5UAA3.ex.006",
@@ -221,9 +221,9 @@
    "etiquettes": [
     "maison"
    ],
-   "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.ex.006",
+   "ancre": "ch1-fonctions/3-composer-deux-fonctions.html#5UAA3.ex.006",
    "num": "1.6",
-   "page": 9
+   "page": 10
   },
   {
    "id": "5UAA3.recherche-algebrique-domaine-fonction",
@@ -243,7 +243,7 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html#5UAA3.ex.007",
    "num": "1.7",
-   "page": 10
+   "page": 11
   },
   {
    "id": "5UAA3.ex.008",
@@ -253,7 +253,7 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html#5UAA3.ex.008",
    "num": "1.8",
-   "page": 10
+   "page": 11
   },
   {
    "id": "5UAA3.ex.009",
@@ -265,7 +265,7 @@
    ],
    "ancre": "ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html#5UAA3.ex.009",
    "num": "1.9",
-   "page": 11
+   "page": 12
   },
   {
    "id": "5UAA3.asymptotes-premier-contact",
@@ -285,7 +285,7 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/5-asymptotes-premier-contact.html#5UAA3.ex.010",
    "num": "1.10",
-   "page": 14
+   "page": 15
   },
   {
    "id": "5UAA3.ex.011",
@@ -295,7 +295,7 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/5-asymptotes-premier-contact.html#5UAA3.ex.011",
    "num": "1.11",
-   "page": 14
+   "page": 15
   },
   {
    "id": "5UAA3.ex.012",
@@ -319,7 +319,7 @@
    ],
    "ancre": "ch1-fonctions/5-asymptotes-premier-contact.html#5UAA3.ex.013",
    "num": "1.13",
-   "page": 15
+   "page": 16
   },
   {
    "id": "5UAA3.rem.003",
