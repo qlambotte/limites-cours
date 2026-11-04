@@ -4,8 +4,8 @@
  "uaa": "5UAA3",
  "annee": "5e",
  "cle": "limites",
- "empreinte": "7a7e0277f6ef",
- "genere": "2026-11-03",
+ "empreinte": "23a6e07fc58a",
+ "genere": "2026-11-04",
  "elements": [
   {
    "id": "5UAA3.fonctions",
@@ -35,7 +35,7 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/1-rappels.html#5UAA3.rem.001",
    "num": "1.1",
-   "page": 2
+   "page": 3
   },
   {
    "id": "5UAA3.fonction-lue-puis-calculee",
@@ -45,7 +45,7 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/1-rappels.html#5UAA3.fonction-lue-puis-calculee",
    "num": "1.1",
-   "page": 2
+   "page": 3
   },
   {
    "id": "5UAA3.def.001",
@@ -55,7 +55,7 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/1-rappels.html#5UAA3.def.001",
    "num": "1.1",
-   "page": 3
+   "page": 4
   },
   {
    "id": "5UAA3.ex.001",
@@ -65,7 +65,7 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/1-rappels.html#5UAA3.ex.001",
    "num": "1.1",
-   "page": 3
+   "page": 4
   },
   {
    "id": "5UAA3.operations-fonctions",
@@ -95,14 +95,16 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/2-operations-sur-les-fonctions.html#5UAA3.def.002",
    "num": "1.2",
-   "page": 4
+   "page": 5
   },
   {
    "id": "5UAA3.ex.002",
    "type": "exercice",
    "titre": "Exercice 1.2",
    "parent": "5UAA3.operations-fonctions",
-   "etiquettes": [],
+   "etiquettes": [
+    "maison"
+   ],
    "ancre": "ch1-fonctions/2-operations-sur-les-fonctions.html#5UAA3.ex.002",
    "num": "1.2",
    "page": 5
@@ -112,7 +114,9 @@
    "type": "exercice",
    "titre": "Exercice 1.3",
    "parent": "5UAA3.operations-fonctions",
-   "etiquettes": [],
+   "etiquettes": [
+    "maison"
+   ],
    "ancre": "ch1-fonctions/2-operations-sur-les-fonctions.html#5UAA3.ex.003",
    "num": "1.3",
    "page": 5
@@ -135,7 +139,7 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.blocs-base",
    "num": "1.3",
-   "page": 5
+   "page": 6
   },
   {
    "id": "5UAA3.def.003",
@@ -145,7 +149,7 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.def.003",
    "num": "1.3",
-   "page": 6
+   "page": 7
   },
   {
    "id": "5UAA3.identifier-deux-composantes",
@@ -155,7 +159,7 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.identifier-deux-composantes",
    "num": "1.1",
-   "page": 6
+   "page": 7
   },
   {
    "id": "5UAA3.composition-redonne-bloc-connu",
@@ -165,7 +169,7 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.composition-redonne-bloc-connu",
    "num": "1.2",
-   "page": 7
+   "page": 8
   },
   {
    "id": "5UAA3.rem.002",
@@ -175,7 +179,7 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.rem.002",
    "num": "1.2",
-   "page": 7
+   "page": 8
   },
   {
    "id": "5UAA3.ex.004",
@@ -187,7 +191,7 @@
    ],
    "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.ex.004",
    "num": "1.4",
-   "page": 7
+   "page": 8
   },
   {
    "id": "5UAA3.ex.005",
@@ -197,7 +201,7 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.ex.005",
    "num": "1.5",
-   "page": 8
+   "page": 9
   },
   {
    "id": "5UAA3.decomposer-fonction",
@@ -207,7 +211,7 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.decomposer-fonction",
    "num": "1.3",
-   "page": 8
+   "page": 9
   },
   {
    "id": "5UAA3.ex.006",
@@ -219,7 +223,7 @@
    ],
    "ancre": "ch1-fonctions/3-reconnaitre-une-composee.html#5UAA3.ex.006",
    "num": "1.6",
-   "page": 8
+   "page": 9
   },
   {
    "id": "5UAA3.recherche-algebrique-domaine-fonction",
@@ -239,7 +243,7 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html#5UAA3.ex.007",
    "num": "1.7",
-   "page": 9
+   "page": 10
   },
   {
    "id": "5UAA3.ex.008",
@@ -249,7 +253,7 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html#5UAA3.ex.008",
    "num": "1.8",
-   "page": 9
+   "page": 10
   },
   {
    "id": "5UAA3.ex.009",
@@ -261,7 +265,7 @@
    ],
    "ancre": "ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html#5UAA3.ex.009",
    "num": "1.9",
-   "page": 10
+   "page": 11
   },
   {
    "id": "5UAA3.asymptotes-premier-contact",
@@ -281,7 +285,7 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/5-asymptotes-premier-contact.html#5UAA3.ex.010",
    "num": "1.10",
-   "page": 13
+   "page": 14
   },
   {
    "id": "5UAA3.ex.011",
@@ -291,7 +295,7 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/5-asymptotes-premier-contact.html#5UAA3.ex.011",
    "num": "1.11",
-   "page": 13
+   "page": 14
   },
   {
    "id": "5UAA3.ex.012",
@@ -303,7 +307,7 @@
    ],
    "ancre": "ch1-fonctions/5-asymptotes-premier-contact.html#5UAA3.ex.012",
    "num": "1.12",
-   "page": 14
+   "page": 15
   },
   {
    "id": "5UAA3.ex.013",
@@ -315,7 +319,7 @@
    ],
    "ancre": "ch1-fonctions/5-asymptotes-premier-contact.html#5UAA3.ex.013",
    "num": "1.13",
-   "page": 14
+   "page": 15
   },
   {
    "id": "5UAA3.rem.003",
@@ -325,7 +329,7 @@
    "etiquettes": [],
    "ancre": "ch1-fonctions/5-asymptotes-premier-contact.html#5UAA3.rem.003",
    "num": "1.3",
-   "page": 15
+   "page": 16
   },
   {
    "id": "5UAA3.limites-definition-lecture-graphique",
@@ -355,7 +359,7 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/1-decrire-un-graphique-sans-le.html#5UAA3.telephone",
    "num": "2.1",
-   "page": 16
+   "page": 17
   },
   {
    "id": "5UAA3.point-se-deplace-graphique",
@@ -375,7 +379,7 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/2-un-point-qui-se-deplace.html#5UAA3.vers-va-point",
    "num": "2.2",
-   "page": 17
+   "page": 18
   },
   {
    "id": "5UAA3.trou-graphique",
@@ -395,7 +399,7 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/3-un-trou-dans-le-graphique.html#5UAA3.valeur-interdite-point-creux",
    "num": "2.3",
-   "page": 18
+   "page": 19
   },
   {
    "id": "5UAA3.definition",
@@ -415,7 +419,7 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/4-definition.html#5UAA3.limite-fonction",
    "num": "2.1",
-   "page": 19
+   "page": 20
   },
   {
    "id": "5UAA3.rem.004",
@@ -425,7 +429,7 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/4-definition.html#5UAA3.rem.004",
    "num": "2.1",
-   "page": 19
+   "page": 20
   },
   {
    "id": "5UAA3.chaque-symbole-role",
@@ -435,7 +439,7 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/4-definition.html#5UAA3.chaque-symbole-role",
    "num": "2.4",
-   "page": 20
+   "page": 21
   },
   {
    "id": "5UAA3.rem.005",
@@ -445,7 +449,7 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/4-definition.html#5UAA3.rem.005",
    "num": "2.2",
-   "page": 20
+   "page": 21
   },
   {
    "id": "5UAA3.rem.006",
@@ -455,7 +459,7 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/4-definition.html#5UAA3.rem.006",
    "num": "2.3",
-   "page": 20
+   "page": 21
   },
   {
    "id": "5UAA3.quand-limite-t-elle-sens",
@@ -475,7 +479,7 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/5-quand-une-limite-a-t.html#5UAA3.peut-se-placer",
    "num": "2.5",
-   "page": 21
+   "page": 22
   },
   {
    "id": "5UAA3.valeur-colle-domaine",
@@ -485,7 +489,7 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/5-quand-une-limite-a-t.html#5UAA3.valeur-colle-domaine",
    "num": "2.2",
-   "page": 21
+   "page": 22
   },
   {
    "id": "5UAA3.trois-reponses-possibles",
@@ -495,7 +499,7 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/5-quand-une-limite-a-t.html#5UAA3.trois-reponses-possibles",
    "num": "2.1",
-   "page": 22
+   "page": 23
   },
   {
    "id": "5UAA3.exm.001",
@@ -505,7 +509,7 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/5-quand-une-limite-a-t.html#5UAA3.exm.001",
    "num": "2.1",
-   "page": 22
+   "page": 23
   },
   {
    "id": "5UAA3.limites-gauche-droite",
@@ -525,7 +529,7 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/6-limites-a-gauche-et-a.html#5UAA3.saut",
    "num": "2.6",
-   "page": 22
+   "page": 23
   },
   {
    "id": "5UAA3.limites-gauche-droite-2",
@@ -535,7 +539,7 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/6-limites-a-gauche-et-a.html#5UAA3.limites-gauche-droite-2",
    "num": "2.3",
-   "page": 22
+   "page": 23
   },
   {
    "id": "5UAA3.prop.001",
@@ -545,7 +549,7 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/6-limites-a-gauche-et-a.html#5UAA3.prop.001",
    "num": "2.2",
-   "page": 23
+   "page": 24
   },
   {
    "id": "5UAA3.rem.007",
@@ -555,7 +559,7 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/6-limites-a-gauche-et-a.html#5UAA3.rem.007",
    "num": "2.4",
-   "page": 23
+   "page": 24
   },
   {
    "id": "5UAA3.exm.002",
@@ -565,7 +569,7 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/6-limites-a-gauche-et-a.html#5UAA3.exm.002",
    "num": "2.2",
-   "page": 23
+   "page": 24
   },
   {
    "id": "5UAA3.limites-fonctions-reference",
@@ -585,7 +589,7 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/7-les-limites-des-fonctions-de.html#5UAA3.lire-limites-fonctions-reference",
    "num": "2.7",
-   "page": 23
+   "page": 24
   },
   {
    "id": "5UAA3.rem.008",
@@ -595,7 +599,7 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/7-les-limites-des-fonctions-de.html#5UAA3.rem.008",
    "num": "2.5",
-   "page": 25
+   "page": 26
   },
   {
    "id": "5UAA3.exercices",
@@ -617,7 +621,7 @@
    ],
    "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.014",
    "num": "2.1",
-   "page": 26
+   "page": 27
   },
   {
    "id": "5UAA3.ex.015",
@@ -627,7 +631,7 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.015",
    "num": "2.2",
-   "page": 26
+   "page": 27
   },
   {
    "id": "5UAA3.ex.016",
@@ -639,7 +643,7 @@
    ],
    "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.016",
    "num": "2.3",
-   "page": 26
+   "page": 27
   },
   {
    "id": "5UAA3.ex.017",
@@ -649,7 +653,7 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.017",
    "num": "2.4",
-   "page": 27
+   "page": 28
   },
   {
    "id": "5UAA3.ex.018",
@@ -659,41 +663,85 @@
    "etiquettes": [],
    "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.018",
    "num": "2.5",
-   "page": 28
+   "page": 29
   },
   {
-   "id": "5UAA3.ex.019",
+   "id": "5UAA3.ex.045",
    "type": "exercice",
    "titre": "Exercice 2.6",
-   "parent": "5UAA3.exercices",
-   "etiquettes": [],
-   "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.019",
-   "num": "2.6",
-   "page": 28
-  },
-  {
-   "id": "5UAA3.ex.020",
-   "type": "exercice",
-   "titre": "Exercice 2.7",
    "parent": "5UAA3.exercices",
    "etiquettes": [
     "maison"
    ],
-   "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.020",
+   "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.045",
+   "num": "2.6",
+   "page": 29
+  },
+  {
+   "id": "5UAA3.ex.019",
+   "type": "exercice",
+   "titre": "Exercice 2.7",
+   "parent": "5UAA3.exercices",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.019",
    "num": "2.7",
    "page": 29
   },
   {
-   "id": "5UAA3.ex.021",
+   "id": "5UAA3.ex.046",
    "type": "exercice",
    "titre": "Exercice 2.8",
    "parent": "5UAA3.exercices",
    "etiquettes": [
     "maison"
    ],
-   "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.021",
+   "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.046",
    "num": "2.8",
    "page": 30
+  },
+  {
+   "id": "5UAA3.ex.020",
+   "type": "exercice",
+   "titre": "Exercice 2.9",
+   "parent": "5UAA3.exercices",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.020",
+   "num": "2.9",
+   "page": 30
+  },
+  {
+   "id": "5UAA3.ex.047",
+   "type": "exercice",
+   "titre": "Exercice 2.10",
+   "parent": "5UAA3.exercices",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.047",
+   "num": "2.10",
+   "page": 31
+  },
+  {
+   "id": "5UAA3.ex.021",
+   "type": "exercice",
+   "titre": "Exercice 2.11",
+   "parent": "5UAA3.exercices",
+   "etiquettes": [
+    "maison"
+   ],
+   "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.021",
+   "num": "2.11",
+   "page": 32
+  },
+  {
+   "id": "5UAA3.ex.048",
+   "type": "exercice",
+   "titre": "Exercice 2.12",
+   "parent": "5UAA3.exercices",
+   "etiquettes": [],
+   "ancre": "ch2-limites-definition-e/8-exercices.html#5UAA3.ex.048",
+   "num": "2.12",
+   "page": 33
   },
   {
    "id": "5UAA3.chercher-points-creux-asymptotes-verticales",
@@ -723,7 +771,7 @@
    "etiquettes": [],
    "ancre": "ch3-chercher-les-points/1-pourquoi-calculer.html#5UAA3.graphique-trompeur",
    "num": "3.1",
-   "page": 32
+   "page": 35
   },
   {
    "id": "5UAA3.fonctions-rationnelles",
@@ -743,7 +791,7 @@
    "etiquettes": [],
    "ancre": "ch3-chercher-les-points/2-les-fonctions-rationnelles.html#5UAA3.fonction-rationnelle",
    "num": "3.1",
-   "page": 33
+   "page": 36
   },
   {
    "id": "5UAA3.point-domaine-rien-chercher",
@@ -763,7 +811,7 @@
    "etiquettes": [],
    "ancre": "ch3-chercher-les-points/3-en-un-point-du-domaine.html#5UAA3.limite-point-domaine",
    "num": "3.1",
-   "page": 33
+   "page": 36
   },
   {
    "id": "5UAA3.rem.009",
@@ -773,7 +821,7 @@
    "etiquettes": [],
    "ancre": "ch3-chercher-les-points/3-en-un-point-du-domaine.html#5UAA3.rem.009",
    "num": "3.1",
-   "page": 34
+   "page": 37
   },
   {
    "id": "5UAA3.exm.003",
@@ -783,7 +831,7 @@
    "etiquettes": [],
    "ancre": "ch3-chercher-les-points/3-en-un-point-du-domaine.html#5UAA3.exm.003",
    "num": "3.1",
-   "page": 34
+   "page": 37
   },
   {
    "id": "5UAA3.valeur-interdite-point-creux-asymptote",
@@ -803,7 +851,7 @@
    "etiquettes": [],
    "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.toi-inventer",
    "num": "3.2",
-   "page": 34
+   "page": 37
   },
   {
    "id": "5UAA3.deux-valeurs-interdites-deux-graphiques",
@@ -813,7 +861,7 @@
    "etiquettes": [],
    "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.deux-valeurs-interdites-deux-graphiques",
    "num": "3.3",
-   "page": 34
+   "page": 37
   },
   {
    "id": "5UAA3.asymptote-verticale-point-creux",
@@ -823,7 +871,7 @@
    "etiquettes": [],
    "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.asymptote-verticale-point-creux",
    "num": "3.2",
-   "page": 35
+   "page": 38
   },
   {
    "id": "5UAA3.valeur-interdite-n-annule-numerateur",
@@ -833,7 +881,7 @@
    "etiquettes": [],
    "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.valeur-interdite-n-annule-numerateur",
    "num": "3.2",
-   "page": 35
+   "page": 38
   },
   {
    "id": "5UAA3.exm.004",
@@ -843,7 +891,7 @@
    "etiquettes": [],
    "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.exm.004",
    "num": "3.2",
-   "page": 36
+   "page": 39
   },
   {
    "id": "5UAA3.exm.005",
@@ -853,7 +901,7 @@
    "etiquettes": [],
    "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.exm.005",
    "num": "3.3",
-   "page": 36
+   "page": 39
   },
   {
    "id": "5UAA3.exm.006",
@@ -863,7 +911,7 @@
    "etiquettes": [],
    "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.exm.006",
    "num": "3.4",
-   "page": 37
+   "page": 40
   },
   {
    "id": "5UAA3.rem.010",
@@ -873,7 +921,7 @@
    "etiquettes": [],
    "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.rem.010",
    "num": "3.2",
-   "page": 37
+   "page": 40
   },
   {
    "id": "5UAA3.exm.007",
@@ -883,7 +931,7 @@
    "etiquettes": [],
    "ancre": "ch3-chercher-les-points/4-en-une-valeur-interdite-point.html#5UAA3.exm.007",
    "num": "3.5",
-   "page": 37
+   "page": 40
   },
   {
    "id": "5UAA3.exercices-2",
@@ -903,7 +951,7 @@
    "etiquettes": [],
    "ancre": "ch3-chercher-les-points/5-exercices.html#5UAA3.ex.022",
    "num": "3.1",
-   "page": 38
+   "page": 41
   },
   {
    "id": "5UAA3.ex.023",
@@ -913,7 +961,7 @@
    "etiquettes": [],
    "ancre": "ch3-chercher-les-points/5-exercices.html#5UAA3.ex.023",
    "num": "3.2",
-   "page": 38
+   "page": 41
   },
   {
    "id": "5UAA3.ex.024",
@@ -923,7 +971,7 @@
    "etiquettes": [],
    "ancre": "ch3-chercher-les-points/5-exercices.html#5UAA3.ex.024",
    "num": "3.3",
-   "page": 38
+   "page": 41
   },
   {
    "id": "5UAA3.ex.025",
@@ -935,27 +983,31 @@
    ],
    "ancre": "ch3-chercher-les-points/5-exercices.html#5UAA3.ex.025",
    "num": "3.4",
-   "page": 38
+   "page": 41
   },
   {
    "id": "5UAA3.ex.026",
    "type": "exercice",
    "titre": "Exercice 3.5",
    "parent": "5UAA3.exercices-2",
-   "etiquettes": [],
+   "etiquettes": [
+    "maison"
+   ],
    "ancre": "ch3-chercher-les-points/5-exercices.html#5UAA3.ex.026",
    "num": "3.5",
-   "page": 38
+   "page": 42
   },
   {
    "id": "5UAA3.ex.027",
    "type": "exercice",
    "titre": "Exercice 3.6",
    "parent": "5UAA3.exercices-2",
-   "etiquettes": [],
+   "etiquettes": [
+    "maison"
+   ],
    "ancre": "ch3-chercher-les-points/5-exercices.html#5UAA3.ex.027",
    "num": "3.6",
-   "page": 39
+   "page": 42
   },
   {
    "id": "5UAA3.ex.028",
@@ -965,7 +1017,7 @@
    "etiquettes": [],
    "ancre": "ch3-chercher-les-points/5-exercices.html#5UAA3.ex.028",
    "num": "3.7",
-   "page": 39
+   "page": 42
   },
   {
    "id": "5UAA3.ex.029",
@@ -977,7 +1029,7 @@
    ],
    "ancre": "ch3-chercher-les-points/5-exercices.html#5UAA3.ex.029",
    "num": "3.8",
-   "page": 39
+   "page": 42
   },
   {
    "id": "5UAA3.ex.030",
@@ -987,7 +1039,7 @@
    "etiquettes": [],
    "ancre": "ch3-chercher-les-points/5-exercices.html#5UAA3.ex.030",
    "num": "3.9",
-   "page": 39
+   "page": 43
   },
   {
    "id": "5UAA3.chercher-asymptotes-horizontales-obliques",
@@ -1017,7 +1069,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.html#5UAA3.emporte",
    "num": "4.1",
-   "page": 40
+   "page": 44
   },
   {
    "id": "5UAA3.polynome",
@@ -1027,7 +1079,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.html#5UAA3.polynome",
    "num": "4.1",
-   "page": 41
+   "page": 45
   },
   {
    "id": "5UAA3.rem.011",
@@ -1037,7 +1089,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.html#5UAA3.rem.011",
    "num": "4.1",
-   "page": 41
+   "page": 45
   },
   {
    "id": "5UAA3.exm.008",
@@ -1047,7 +1099,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/1-les-polynomes-en-pm-infty.html#5UAA3.exm.008",
    "num": "4.1",
-   "page": 41
+   "page": 45
   },
   {
    "id": "5UAA3.fonctions-rationnelles-asymptote-horizontale",
@@ -1067,7 +1119,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.html#5UAA3.asymptote-horizontale-mesure",
    "num": "4.2",
-   "page": 41
+   "page": 45
   },
   {
    "id": "5UAA3.quotient-deux-termes-dominants",
@@ -1077,7 +1129,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.html#5UAA3.quotient-deux-termes-dominants",
    "num": "4.3",
-   "page": 41
+   "page": 45
   },
   {
    "id": "5UAA3.fonction-rationnelle-2",
@@ -1087,7 +1139,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.html#5UAA3.fonction-rationnelle-2",
    "num": "4.2",
-   "page": 42
+   "page": 46
   },
   {
    "id": "5UAA3.asymptote-horizontale",
@@ -1097,7 +1149,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.html#5UAA3.asymptote-horizontale",
    "num": "4.1",
-   "page": 42
+   "page": 46
   },
   {
    "id": "5UAA3.exm.009",
@@ -1107,7 +1159,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.html#5UAA3.exm.009",
    "num": "4.2",
-   "page": 42
+   "page": 46
   },
   {
    "id": "5UAA3.h-fonction-rationnelle",
@@ -1117,7 +1169,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/2-les-fonctions-rationnelles-en-pm.html#5UAA3.h-fonction-rationnelle",
    "num": "4.3",
-   "page": 43
+   "page": 47
   },
   {
    "id": "5UAA3.asymptote-oblique",
@@ -1130,16 +1182,6 @@
    "page": null
   },
   {
-   "id": "5UAA3.asymptote-oblique-2",
-   "type": "definition",
-   "titre": "Définition 4.2 — asymptote oblique",
-   "parent": "5UAA3.asymptote-oblique",
-   "etiquettes": [],
-   "ancre": "ch4-chercher-les-asympto/3-asymptote-oblique.html#5UAA3.asymptote-oblique-2",
-   "num": "4.2",
-   "page": 44
-  },
-  {
    "id": "5UAA3.mesurer-ecart-entre-graphique-droite",
    "type": "activite",
    "titre": "Activité 4.4 — mesurer l’écart entre un graphique et une droite",
@@ -1147,7 +1189,17 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/3-asymptote-oblique.html#5UAA3.mesurer-ecart-entre-graphique-droite",
    "num": "4.4",
-   "page": 44
+   "page": 48
+  },
+  {
+   "id": "5UAA3.asymptote-oblique-2",
+   "type": "definition",
+   "titre": "Définition 4.2 — asymptote oblique",
+   "parent": "5UAA3.asymptote-oblique",
+   "etiquettes": [],
+   "ancre": "ch4-chercher-les-asympto/3-asymptote-oblique.html#5UAA3.asymptote-oblique-2",
+   "num": "4.2",
+   "page": 49
   },
   {
    "id": "5UAA3.asymptote-oblique-mesure",
@@ -1157,7 +1209,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/3-asymptote-oblique.html#5UAA3.asymptote-oblique-mesure",
    "num": "4.5",
-   "page": 45
+   "page": 49
   },
   {
    "id": "5UAA3.trouver-asymptote-oblique-division",
@@ -1167,7 +1219,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/3-asymptote-oblique.html#5UAA3.trouver-asymptote-oblique-division",
    "num": "4.6",
-   "page": 45
+   "page": 49
   },
   {
    "id": "5UAA3.o-fonction-rationnelle",
@@ -1177,7 +1229,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/3-asymptote-oblique.html#5UAA3.o-fonction-rationnelle",
    "num": "4.4",
-   "page": 46
+   "page": 50
   },
   {
    "id": "5UAA3.estimer-valeur-grace-asymptote",
@@ -1187,7 +1239,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/3-asymptote-oblique.html#5UAA3.estimer-valeur-grace-asymptote",
    "num": "4.3",
-   "page": 46
+   "page": 50
   },
   {
    "id": "5UAA3.calcule-infini",
@@ -1207,7 +1259,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/4-on-ne-calcule-pas-avec.html#5UAA3.trois-soustractions-tres-grands-nombres",
    "num": "4.7",
-   "page": 46
+   "page": 50
   },
   {
    "id": "5UAA3.rem.012",
@@ -1217,7 +1269,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/4-on-ne-calcule-pas-avec.html#5UAA3.rem.012",
    "num": "4.2",
-   "page": 47
+   "page": 51
   },
   {
    "id": "5UAA3.synthese",
@@ -1237,7 +1289,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/5-synthese.html#5UAA3.etude-complete",
    "num": "4.4",
-   "page": 47
+   "page": 51
   },
   {
    "id": "5UAA3.exercices-3",
@@ -1259,7 +1311,7 @@
    ],
    "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.031",
    "num": "4.1",
-   "page": 48
+   "page": 52
   },
   {
    "id": "5UAA3.ex.032",
@@ -1271,7 +1323,7 @@
    ],
    "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.032",
    "num": "4.2",
-   "page": 49
+   "page": 53
   },
   {
    "id": "5UAA3.ex.033",
@@ -1281,7 +1333,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.033",
    "num": "4.3",
-   "page": 49
+   "page": 53
   },
   {
    "id": "5UAA3.ex.034",
@@ -1291,7 +1343,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.034",
    "num": "4.4",
-   "page": 49
+   "page": 53
   },
   {
    "id": "5UAA3.ex.035",
@@ -1301,7 +1353,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.035",
    "num": "4.5",
-   "page": 49
+   "page": 53
   },
   {
    "id": "5UAA3.ex.036",
@@ -1311,7 +1363,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.036",
    "num": "4.6",
-   "page": 50
+   "page": 54
   },
   {
    "id": "5UAA3.ex.037",
@@ -1321,7 +1373,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.037",
    "num": "4.7",
-   "page": 50
+   "page": 54
   },
   {
    "id": "5UAA3.ex.038",
@@ -1333,7 +1385,7 @@
    ],
    "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.038",
    "num": "4.8",
-   "page": 51
+   "page": 55
   },
   {
    "id": "5UAA3.ex.039",
@@ -1345,7 +1397,7 @@
    ],
    "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.039",
    "num": "4.9",
-   "page": 51
+   "page": 56
   },
   {
    "id": "5UAA3.ex.040",
@@ -1357,17 +1409,19 @@
    ],
    "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.040",
    "num": "4.10",
-   "page": 51
+   "page": 56
   },
   {
    "id": "5UAA3.ex.041",
    "type": "exercice",
    "titre": "Exercice 4.11",
    "parent": "5UAA3.exercices-3",
-   "etiquettes": [],
+   "etiquettes": [
+    "maison"
+   ],
    "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.041",
    "num": "4.11",
-   "page": 52
+   "page": 56
   },
   {
    "id": "5UAA3.ex.042",
@@ -1379,7 +1433,7 @@
    ],
    "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.042",
    "num": "4.12",
-   "page": 52
+   "page": 56
   },
   {
    "id": "5UAA3.ex.043",
@@ -1391,7 +1445,7 @@
    ],
    "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.043",
    "num": "4.13",
-   "page": 52
+   "page": 57
   },
   {
    "id": "5UAA3.ex.044",
@@ -1401,7 +1455,7 @@
    "etiquettes": [],
    "ancre": "ch4-chercher-les-asympto/6-exercices.html#5UAA3.ex.044",
    "num": "4.14",
-   "page": 52
+   "page": 57
   },
   {
    "id": "5UAA3.q.fct-racines-produit",
