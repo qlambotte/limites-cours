@@ -388,7 +388,8 @@
 
   var enCours = null, edition = null;
   function debut(ev) {
-    if (ev.button > 0) return;
+    // bouton du stylet (button 2) : on écrit quand même ; clic droit de la souris : ignoré (menu bloqué plus bas)
+    if (ev.button > 0 && !(ev.pointerType === "pen" && ev.button === 2)) return;
     var o = etat.outil;
     if (!DESSIN[o]) return;
     ev.preventDefault();
@@ -396,6 +397,9 @@
     // un bouton de l'interface (brouillon…) reste cliquable sous le calque
     var dessous = sousLePoint(ev), ui = dessous && dessous.closest && dessous.closest(".an-ui button, .an-ui label");
     if (ui) { ui.click(); return; }
+    // couche prof : toucher la pastille ✓ d'un encadré le coche, sans quitter l'outil
+    var P = window.typwebProf, cible = P && P.pastilleSous ? P.pastilleSous(ev.clientX, ev.clientY) : null;
+    if (cible) { P.basculerElement(cible); return; }
     if (ev.pointerType === "touch" && etat.doigt !== "ecrit") { panDebut(ev); return; }
     if (edition) { terminerEdition(); if (o === "texte") return; }
     majOrigine();
@@ -1302,6 +1306,10 @@
     construireInterface();
 
     calque.addEventListener("pointerdown", debut);
+    // outil d'écriture actif : pas de menu contextuel (clic droit, bouton du stylet, appui long)
+    document.addEventListener("contextmenu", function (ev) {
+      if (document.documentElement.dataset.annot) ev.preventDefault();
+    }, true);
     calque.addEventListener("pointermove", bouge);
     calque.addEventListener("pointerup", fin);
     calque.addEventListener("pointercancel", fin);

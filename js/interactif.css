@@ -88,3 +88,8 @@
 .ia-msg-ok { color: var(--ia-ok); font-weight: 600; }
 .ia-msg-ko { color: var(--ia-c2); }
 .ia-rect.ia-rect-exces { fill: none; stroke-dasharray: 4 3; }
+.ia-fine { stroke-width: 1.2; }
+.ia-cyl { fill: var(--ia-rect); stroke: var(--ia-c1); stroke-width: 1; }
+.ia-cyl-face { fill: var(--ia-bande); stroke: var(--ia-c1); stroke-width: 1.2; }
+.ia-cyl-arriere { fill: none; stroke: var(--ia-c1); stroke-width: 0.8; stroke-dasharray: 3 3; }
+.ia-halo { paint-order: stroke; stroke: var(--page-bg); stroke-width: 4px; stroke-linejoin: round; }

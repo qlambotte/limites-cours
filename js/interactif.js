@@ -1235,7 +1235,85 @@
     });
   }
 
-  var WIDGETS = { zone: zone, aire: aire, curseurs: fcurseurs, graphe: graphe, suite: suite, droite: droite, rangs: rangs, tangente: tangente, trigo: trigo, log: replog, riemann: riemann, binomiale: binomiale, normale: normale };
+  // Illustration fixe déclarative (#graphique).
+  function fleche(R, x1, y1, x2, y2) {
+    var ax = R.X(x1), ay = R.Y(y1), bx = R.X(x2), by = R.Y(y2), dx = bx - ax, dy = by - ay, l = Math.sqrt(dx * dx + dy * dy);
+    el("line", { x1: ax, y1: ay, x2: bx, y2: by, "class": "ia-seg" }, R.corps);
+    if (!l) return;
+    var ux = dx / l, uy = dy / l, t = 7;
+    el("path", { d: "M" + bx + " " + by + "L" + (bx - t * ux + t * 0.45 * uy) + " " + (by - t * uy - t * 0.45 * ux) +
+      "L" + (bx - t * ux - t * 0.45 * uy) + " " + (by - t * uy + t * 0.45 * ux) + "Z", "class": "ia-fleche" }, R.corps);
+  }
+  function graphique(host, c) {
+    var R = Repere(host, { xmin: c.xmin, xmax: c.xmax, ymin: c.ymin, ymax: c.ymax, xlabel: c.xlabel || "x", ylabel: c.ylabel || "y", sansgrad: c.grille === false });
+    (c.zones || []).forEach(function (z) {
+      var f = fonction(z.f), g = z.g ? fonction(z.g) : function () { return 0; }, n = 200, d = "";
+      for (var i = 0; i <= n; i++) { var t = z.a + (z.b - z.a) * i / n; d += (i ? "L" : "M") + R.X(t).toFixed(1) + " " + R.Y(f(t)).toFixed(1); }
+      for (var j = n; j >= 0; j--) { var u = z.a + (z.b - z.a) * j / n; d += "L" + R.X(u).toFixed(1) + " " + R.Y(g(u)).toFixed(1); }
+      el("path", { d: d + "Z", "class": z.style === "neg" ? "ia-aire-neg" : "ia-aire-pos" }, R.corps);
+    });
+    (c.rectangles || []).forEach(function (r) {
+      el("rect", { x: R.X(r[0]), y: Math.min(R.Y(r[2]), R.Y(0)), width: R.X(r[1]) - R.X(r[0]), height: Math.abs(R.Y(r[2]) - R.Y(0)),
+        "class": "ia-rect" + (r[3] === "tirets" ? " ia-rect-exces" : "") }, R.corps);
+    });
+    (c.courbes || []).forEach(function (k) {
+      var f = fonction(k.f); if (f) R.courbe(f, k.style === "tirets" ? "ia-courbe2" : k.style === "fin" ? "ia-courbe ia-fine" : "ia-courbe");
+    });
+    (c.segments || []).forEach(function (q) {
+      if (q[4] === "fleche") fleche(R, q[0], q[1], q[2], q[3]);
+      else if (q[4] === "double") { fleche(R, q[0], q[1], q[2], q[3]); fleche(R, q[2], q[3], q[0], q[1]); }
+      else R.segment(q[0], q[1], q[2], q[3], q[4] === "tirets" ? "ia-borne" : "ia-seg");
+    });
+    (c.points || []).forEach(function (p) { R.point(p[0], p[1], "ia-pt", 4); });
+    (c.textes || []).forEach(function (t) {
+      var e = el("text", { x: R.X(t[0]), y: R.Y(t[1]) + 4, "class": "ia-etiq ia-halo", "text-anchor": "middle" }, R.corps); e.textContent = t[2];
+    });
+  }
+
+  // Solide de révolution approché par n cylindres, en perspective (#cylindres).
+  function cylindres(host, c) {
+    var f = fonction(c.f), n = c.n || 4, meth = c.methode || "defaut", rmax = 0;
+    for (var i = 0; i <= 200; i++) rmax = Math.max(rmax, Math.abs(f(c.a + (c.b - c.a) * i / 200)) || 0);
+    var ym = rmax * 1.2 || 1;
+    var R = Repere(host, { xmin: c.xmin, xmax: c.xmax, ymin: -ym, ymax: ym, xlabel: "x", ylabel: "", sansgrad: true, h: 300 });
+    var e = 0.22 * (c.xmax - c.xmin) / (2 * ym) * (300 / 520);
+    function exact() { var N = 2000, s = 0, d = (c.b - c.a) / N; for (var k = 0; k < N; k++) { var y = f(c.a + (k + 0.5) * d); s += y * y * d; } return Math.PI * s; }
+    var V = exact();
+    function ellipse(xc, r, cls) {
+      var d = "";
+      for (var k = 0; k <= 48; k++) { var t = 2 * Math.PI * k / 48; d += (k ? "L" : "M") + R.X(xc + e * r * Math.cos(t)).toFixed(1) + " " + R.Y(r * Math.sin(t)).toFixed(1); }
+      el("path", { d: d, "class": cls }, R.corps);
+    }
+    function dessiner() {
+      R.vider();
+      var dx = (c.b - c.a) / n, S = 0;
+      for (var i = 0; i < n; i++) {
+        var u = c.a + i * dx, v = u + dx, lo = Infinity, hi = 0;
+        for (var k = 0; k <= 24; k++) { var y = Math.abs(f(u + dx * k / 24)); lo = Math.min(lo, y); hi = Math.max(hi, y); }
+        var r = meth === "exces" ? hi : meth === "milieu" ? Math.abs(f(u + dx / 2)) : lo;
+        S += Math.PI * r * r * dx;
+        if (r > 0) {
+          el("rect", { x: R.X(u), y: R.Y(r), width: R.X(v) - R.X(u), height: R.Y(-r) - R.Y(r), "class": "ia-cyl" }, R.corps);
+          ellipse(u, r, "ia-cyl-arriere"); ellipse(v, r, "ia-cyl-face");
+        }
+      }
+      R.courbe(f, "ia-courbe", c.a, c.b);
+      R.courbe(function (x) { return -f(x); }, "ia-courbe2", c.a, c.b);
+      txt.innerHTML = "n = " + n + " · somme des volumes des cylindres = <b>" + fmt(S, 3) + "</b> · volume exact π∫f(x)²dx ≈ " + fmt(V, 3);
+    }
+    var txt = info(), cc = ctrl(), bs = ctrl();
+    var cn = curseur("n =", 1, 60, 1, n, function (v) { n = v; dessiner(); }, function (v) { return String(v); });
+    cc.appendChild(cn);
+    [["defaut", "par défaut"], ["exces", "par excès"], ["milieu", "au milieu"]].forEach(function (m) {
+      var b = bouton(m[1], function () { meth = m[0]; [].forEach.call(bs.children, function (x) { x.classList.toggle("on", x === b); }); dessiner(); });
+      if (m[0] === meth) b.classList.add("on");
+      bs.appendChild(b);
+    });
+    host.appendChild(cc); host.appendChild(bs); host.appendChild(txt);
+    cn.maj();
+  }
+
+  var WIDGETS = { graphique: graphique, cylindres: cylindres, zone: zone, aire: aire, curseurs: fcurseurs, graphe: graphe, suite: suite, droite: droite, rangs: rangs, tangente: tangente, trigo: trigo, log: replog, riemann: riemann, binomiale: binomiale, normale: normale };
   function construire(host) {
     if (host.dataset.wired) return;
     host.dataset.wired = "1";
