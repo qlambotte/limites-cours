@@ -211,7 +211,7 @@ html.tv-mode-prof .ae-lien > :not(.tv-test-ligne) { display: none !important; }
 @media print { .tv-ecran, .tv-points, .tv-toast { display: none !important; } }
 
 /* ---- lecture du QR des votes (P7) et saisie d'un code ---- */
-.tv-qr { position: fixed; inset: 0; z-index: 4000; background: #1e242c; color: #f2f3f5; display: flex; flex-direction: column;
+.tv-qr { position: fixed; inset: 0; z-index: 100010;   /* au-dessus de l'écran de vote (.tv-ecran, 100000) */ background: #1e242c; color: #f2f3f5; display: flex; flex-direction: column;
   align-items: center; justify-content: center; gap: 14px; padding: 16px; font: 18px/1.4 Inter, system-ui, sans-serif; }
 .tv-qr-video { max-width: 100%; max-height: 70vh; border: 3px solid #f2f3f5; border-radius: 18px; }
 .tv-cartes-code { display: flex; gap: 8px; align-items: center; margin: 6px 0; }
@@ -261,6 +261,9 @@ html[data-theme="dark"] .tv-ecran .tv-tuile.D { background: #2d3550; color: #c9d
 
 /* Échauffement : votes lus par le smartphone (P7) */
 .tv-scan { margin: 18px 0 8px; padding: 12px 18px; background: var(--carte); border-radius: 18px; box-shadow: 0 8px 24px var(--ombre); font: 16px/1.4 var(--sans); }
+.tv-direct { font-size: 14px; color: var(--doux, #5b6673); margin: 6px 0 2px; }
+.tv-direct:empty { display: none; }
+.tv-direct.ok { color: var(--encre); font-weight: 600; }
 .tv-scan-res { display: flex; flex-wrap: wrap; align-items: baseline; gap: 18px; margin-top: 8px; font-variant-numeric: tabular-nums; }
 .tv-scan-l { font-size: 20px; }
 .tv-scan-l.bonne { border-bottom: 4px solid var(--ol); color: var(--olf); }

@@ -355,6 +355,7 @@
         courant = null;
         document.removeEventListener("keydown", cle, true);
         if (ecran.surFermeture) { try { ecran.surFermeture(); } catch (e) {} }
+        if (ecran.arretVotes) { try { ecran.arretVotes(); } catch (e) {} }
         el.remove();
         document.documentElement.classList.remove("tv-ouvert");
         relacher(); finPleinEcran();
@@ -473,6 +474,43 @@
           })();
         });
       });
+  }
+
+  // Envoi direct depuis le smartphone (page de scan → votes/envoi.json du dépôt privé) : tant que l'écran de vote
+  // est ouvert, la tablette relit ce fichier toutes les 3 s ; chaque NOUVEL envoi est appliqué à la question
+  // affichée, au même titre qu'un QR lu (appliquer reçoit le texte TWV2 correspondant). L'envoi présent à
+  // l'ouverture de l'écran est ignoré (il concerne une question précédente). statut : élément où écrire l'état.
+  var PERIODE_VOTES = 3000;
+  function ecouterVotes(ecran, appliquer, statut) {
+    var S = window.typwebSync, arret = false, minut = null, vus = null;
+    function dire(t, cls) { if (statut) { statut.textContent = t; statut.className = "tv-direct" + (cls ? " " + cls : ""); } }
+    if (!S || !S.lireVotes || !S.pret) { dire(""); return function () {}; }
+    function tour() {
+      minut = null;
+      if (arret || courant !== ecran) return;
+      if (document.visibilityState === "hidden") { minut = setTimeout(tour, PERIODE_VOTES); return; }
+      if (!S.pret()) { dire("Envoi direct : synchronisation non configurée ou jeton verrouillé sur la tablette.", "off"); minut = setTimeout(tour, 15000); return; }
+      Promise.all([S.lireVotes(), chargerQrVotes()]).then(function (r) {
+        if (arret || courant !== ecran) return;
+        var v = r[0], Q = r[1];
+        if (vus === null) { vus = {}; if (v) vus[v.id] = 1; dire("📡 En attente de l'envoi du smartphone…"); }
+        else if (v && !vus[v.id]) {
+          vus[v.id] = 1;
+          dire("📡 Reçu du smartphone : " + v.n + " carte(s), " + new Date().toLocaleTimeString("fr-BE", { hour: "2-digit", minute: "2-digit", second: "2-digit" }) + ".", "ok");
+          appliquer(Q.encoder({ cartes: v.cartes, presents: v.presents }));
+        }
+        minut = setTimeout(tour, PERIODE_VOTES);
+      }, function (e) {
+        if (arret) return;
+        dire("Envoi direct indisponible pour l'instant (" + ((e && e.message) || "réseau") + ") : nouvel essai…", "off");
+        minut = setTimeout(tour, 10000);
+      });
+    }
+    dire("📡 Connexion…");
+    tour();
+    function stop() { arret = true; if (minut) clearTimeout(minut); }
+    ecran.arretVotes = stop;
+    return stop;
   }
 
   /* ---------- lancement ---------- */
@@ -667,7 +705,7 @@
 
   /* ---------- API et démarrage ---------- */
   V.u = { h: h, bouton: bouton, md: md, composer: composer, esc: esc, ouvrirEcran: ouvrirEcran, alerte: alerte,
-          enregistrer: enregistrer, LETTRES: LETTRES, idSession: idSession, lireQr: lireQr, chargerQrVotes: chargerQrVotes };
+          enregistrer: enregistrer, LETTRES: LETTRES, idSession: idSession, lireQr: lireQr, chargerQrVotes: chargerQrVotes, ecouterVotes: ecouterVotes };
   V.start = start;
   V.donnees = charger;
   // Ajoute la banque d'une autre UAA (objet ou texte de classe.json) pour que start() y retrouve ses éléments

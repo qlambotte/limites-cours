@@ -136,6 +136,11 @@
         return true;
       }, function (e) { U.alerte(e.message); return false; });
     }
+    var directEl = h("div", { "class": "tv-direct", "aria-live": "polite" });   // état de l'envoi direct (smartphone → tablette)
+    function appliquerDirect(texte) {
+      if (!items[cur] || items[cur].type !== "qcm") { U.alerte("Votes reçus du smartphone, mais la question affichée n'est pas un QCM : ignorés."); return; }
+      appliquerCode(texte);
+    }
     function zoneScan() {
       var code = h("input", { type: "text", "class": "tv-champ-code", "aria-label": "Code des votes (ex. 3A 12C 40B)",
                               placeholder: "3A 12C 40B", autocomplete: "off", spellcheck: "false" });
@@ -155,7 +160,7 @@
                  "Tape le code affiché sous le QR (ex. 3A 12C 40B)"),
           bouton("Effacer", "tv-lien", function () { etats[cur].cartes = null; etats[cur].presents = null; maj(); }, "Oublie les votes lus pour cette question")
         ]),
-        zone, r.scanRes
+        zone, directEl, r.scanRes
       ]);
     }
     function majScan() {
@@ -313,6 +318,7 @@
     };
 
     construire();
+    if (U.ecouterVotes) U.ecouterVotes(ecran, appliquerDirect, directEl);
     r.bPrincipal.focus({ preventScroll: true });
     return Promise.resolve(ecran);
   }

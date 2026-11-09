@@ -38,6 +38,7 @@
       CLE_VERROU = "typweb.sync.verrou", CLE_CONFIG = "typweb.sync.config", CLE_JOURNAL = "typweb.prof.v1";
   var FORMAT_LOT = "typweb.sync.lot.v1", FORMAT_CLE = "typweb.sync.cle.v1";
   var CHEMIN_CONFIG = "config/pilotage.json";
+  var CHEMIN_VOTES = "votes/envoi.json", FORMAT_VOTES = "typweb.votes.v1";   // envoi direct des votes (smartphone → tablette)
   var MAX_LOT = 500, MAX_LOTS_PAR_PASSE = 20, SIMULTANES = 4, DELAI_REQUETE = 15000, VERROU_MS = 60000;
   var ITERATIONS_PBKDF2 = 250000;
   var RE_DEPOT = /^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/;
@@ -413,6 +414,49 @@
       return r.texte;
     }
 
+    /* ---------- envoi direct des votes par carte (page de scan du smartphone → écran de vote de la tablette) ---------- */
+    // Un seul fichier, votes/envoi.json, réécrit à chaque envoi : { format, id, t, appareil, presents, cartes }.
+    // Seulement des numéros de carte, des lettres et un nombre de présents : aucun nom. Hors file d'attente du journal.
+    function votesValides(v) {
+      var cartes = {}, n = 0;
+      Object.keys((v && v.cartes) || {}).forEach(function (k) {
+        var num = +k, l = v.cartes[k];
+        if (/^\d{1,3}$/.test(k) && num <= 999 && /^[ABCD]$/.test(l)) { cartes[String(num)] = l; n++; }
+      });
+      var p = Number(v && v.presents);
+      return { cartes: cartes, n: n, presents: Number.isInteger(p) && p > 0 && p <= 999 ? p : null };
+    }
+    async function envoyerVotesInterne(v) {
+      var e = chargerEtat();
+      if (!e.depot) throw Erreur("config", "Dépôt non configuré.");
+      var ok = votesValides(v);
+      if (!ok.n) throw Erreur("votes", "Aucune carte lue : rien à envoyer.");
+      var corpsVotes = { format: FORMAT_VOTES, id: (v && v.id) || (maintenant().toString(36) + Math.random().toString(36).slice(2, 8)),
+                         t: maintenant(), appareil: e.appareil || "", presents: ok.presents, cartes: ok.cartes };
+      var texte = JSON.stringify(corpsVotes);
+      var chemin = "/repos/" + e.depot + "/contents/" + CHEMIN_VOTES;
+      for (var essai = 0; essai < 3; essai++) {
+        var ex = await appel("GET", chemin + "?ref=" + encodeURIComponent(e.branche), { tolere: [404] });
+        var corps = { message: "Votes par carte (" + ok.n + ")", content: versB64(texte), branch: e.branche };
+        if (ex.status === 200) corps.sha = json(ex, "votes").sha;
+        var r = await appel("PUT", chemin, { corps: corps, tolere: [409, 422] });
+        if (r.status >= 200 && r.status < 300) return { id: corpsVotes.id, t: corpsVotes.t, n: ok.n };
+      }
+      throw Erreur("conflit", "Conflit d'écriture répété dans le dépôt : renvoie dans un instant.", { transitoire: true });
+    }
+    // → { id, t, appareil, presents, cartes, n } du dernier envoi, ou null s'il n'y en a pas.
+    async function lireVotesInterne() {
+      var e = chargerEtat();
+      if (!e.depot) throw Erreur("config", "Dépôt non configuré.");
+      var r = await appel("GET", "/repos/" + e.depot + "/contents/" + CHEMIN_VOTES + "?ref=" + encodeURIComponent(e.branche),
+        { accept: "application/vnd.github.raw+json", tolere: [404] });
+      if (r.status === 404) return null;
+      var j = json(r, "votes");
+      if (!j || j.format !== FORMAT_VOTES || typeof j.id !== "string") return null;
+      var ok = votesValides(j);
+      return { id: j.id, t: Number(j.t) || 0, appareil: String(j.appareil || ""), presents: ok.presents, cartes: ok.cartes, n: ok.n };
+    }
+
     /* ---------- pilotage des opérations : erreurs, reprises, état ---------- */
     function noter(err) {
       // une exception inattendue (pas une SyncErreur) n'est pas une erreur de configuration : on réessaie
@@ -594,6 +638,19 @@
         if (!configure()) return Promise.reject(Erreur("config", "Synchronisation non configurée sur cet appareil."));
         if (!enLigne()) return Promise.reject(Erreur("reseau", "Hors ligne.", { transitoire: true }));
         return lireFichierInterne(chemin);
+      },
+      // Envoi direct des votes (page de scan) et lecture du dernier envoi (écran de vote). Hors file d'attente :
+      // ne touche ni au journal ni à l'état affiché de la synchronisation.
+      pret: function () { return configure() && !!jeton(); },
+      envoyerVotes: function (v) {
+        if (!configure()) return Promise.reject(Erreur("config", "Synchronisation non configurée sur cet appareil."));
+        if (!enLigne()) return Promise.reject(Erreur("reseau", "Hors ligne.", { transitoire: true }));
+        return envoyerVotesInterne(v).catch(function (err) { throw Erreur(err.code || "inconnue", cacher(err.message), { transitoire: !!err.transitoire }); });
+      },
+      lireVotes: function () {
+        if (!configure()) return Promise.reject(Erreur("config", "Synchronisation non configurée sur cet appareil."));
+        if (!enLigne()) return Promise.reject(Erreur("reseau", "Hors ligne.", { transitoire: true }));
+        return lireVotesInterne();
       },
       // La couche prof liée (ou null) : la page de pilotage vérifie qu'elle est assez récente (P5).
       couche: function () { return P; },
