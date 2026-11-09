@@ -764,6 +764,8 @@ main a { color: var(--accent); }
    contour de chaque encadré dans la couleur de son type, remarque visible
    (carte blanche + barre) au lieu d'être fondue dans le fond de page,
    texte un peu plus aéré, menu latéral : page active en plein. */
+/* barre d'icônes : un peu d'air sous le titre du cours (le titre passe souvent sur deux lignes) */
+.sidebar-title .sidebar-tools-main { margin-top: .55rem !important; }
 .sidebar-tools-main { display: inline-flex !important; gap: 0 !important; background: var(--carte); border-radius: 99px; box-shadow: 0 1px 4px var(--ombre); padding: 2px 4px; }
 .imsv-tool { background: none !important; box-shadow: none !important; border-radius: 99px !important; width: 1.85rem !important; height: 1.85rem !important; margin: 0 !important; color: var(--ard) !important; }
 .imsv-tool:hover { background: var(--ard-t) !important; }

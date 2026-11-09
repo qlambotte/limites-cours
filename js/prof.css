@@ -20,6 +20,10 @@
   border-bottom-right-radius: var(--tw-rr, 0px) var(--tw-rb, 0px);
 }
 
+/* la marge droite (sommaire) a un fond opaque et un z-index 1 qui couvrait la moitié du ✓ :
+   sans z-index, elle passe sous les encadrés (ordre du document) ; les menus de la barre de gauche ne bougent pas */
+#quarto-margin-sidebar { z-index: auto !important; }
+
 /* ---- ✓ (variante A : pastille) dans la marge droite, alignée sur le titre ---- */
 .tw-m::after, .tw-section-vue::after {
   content: "✓";

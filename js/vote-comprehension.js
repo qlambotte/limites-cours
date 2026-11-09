@@ -30,6 +30,7 @@
     });
     var cartesOuvert = false;                          // panneau « Votes par carte » déplié
     var ecran = U.ouvrirEcran("tv-comp", "Moment de vérification");
+    var appliquerDirect = null, directEl = h("div", { "class": "tv-direct", "aria-live": "polite" });   // envoi direct du smartphone
     var r = {};                                        // références DOM de la question affichée
 
     /* ----- barre du haut, pied : persistants ----- */
@@ -264,7 +265,8 @@
       r.tuiles = h("div", { "class": "tv-tuiles", role: "group", "aria-label": "Cartes de la classe" });
       r.statut = h("div", { "class": "tv-cartes-ok", role: "status" });
       r.ecartCartes = h("div", { "class": "tv-ecart" });
-      // Votes lus par le smartphone (page de scan, P7) : QR lu par la caméra de la tablette, ou code tapé.
+      // Votes lus par le smartphone (page de scan, P7) : envoi direct, QR lu par la caméra de la tablette, ou code tapé.
+      appliquerDirect = function (t) { return appliquerCode(t); };
       function appliquerCode(texte) {
         return U.chargerQrVotes().then(function (Q) {
           var d = Q.decoder(texte);
@@ -297,7 +299,7 @@
             var st = s(); Object.keys(st.cartes).forEach(function (n) { retirerCarte(n); });
           }, "Efface le détail par carte (les compteurs suivent)")
         ]),
-        zoneCam, bScan,
+        directEl, zoneCam, bScan,
         r.statut,
         r.tuiles,
         h("p", { "class": "tv-tuile-legende", text: "Toucher une tuile : A → B → C → D → retirer. Tuile pointillée : carte pas reçue (toucher pour la saisir)." }),
@@ -415,6 +417,7 @@
     };
 
     construire();
+    if (U.ecouterVotes) U.ecouterVotes(ecran, function (t) { cartesOuvert = true; if (appliquerDirect) appliquerDirect(t); }, directEl);
     r.bPrincipal.focus({ preventScroll: true });
     return Promise.resolve(ecran);
   }
