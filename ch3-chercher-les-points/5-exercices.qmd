@@ -4,9 +4,9 @@ title: "Exercices"
 
 <!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
 
-::: {#exercice-3-1 data-sorte="exercice" data-num="3.1" data-page="38" data-phys="41" data-id="5UAA3.ex.022" data-type="exercice" data-tags="" .exo}
+::: {#exercice-3-1 data-sorte="exercice" data-num="3.1" data-page="40" data-phys="42" data-id="5UAA3.ex.022" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
-[✎ Exercice 3.1]{.exo-titre} [[C3]{.exo-comp} ★☆☆]{.exo-meta}
+[✎ Exercice 3.1]{.exo-titre} [[C3]{.exo-comp data-tip="C3 : Énoncer la procédure à suivre pour calculer une limite selon les cas rencontrés." tabindex="0"} ★☆☆]{.exo-meta}
 :::
 
 ::: {.exo-corps}
@@ -61,9 +61,9 @@ La rédaction **2** est correcte.
 :::
 :::
 
-::: {#exercice-3-2 data-sorte="exercice" data-num="3.2" data-page="38" data-phys="41" data-id="5UAA3.ex.023" data-type="exercice" data-tags="" .exo}
+::: {#exercice-3-2 data-sorte="exercice" data-num="3.2" data-page="40" data-phys="42" data-id="5UAA3.ex.023" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
-[✎ Exercice 3.2]{.exo-titre} [[C1]{.exo-comp} ★☆☆]{.exo-meta}
+[✎ Exercice 3.2]{.exo-titre} [[C1]{.exo-comp data-tip="C1 : Identifier dans l’expression analytique d’une fonction donnée les fonctions usuelles, les opérations et leur hiérarchie." tabindex="0"} ★☆☆]{.exo-meta}
 :::
 
 ::: {.exo-corps}
@@ -118,13 +118,17 @@ Pas rationnelles :
 :::
 :::
 
-::: {#exercice-3-3 data-sorte="exercice" data-num="3.3" data-page="38" data-phys="41" data-id="5UAA3.ex.024" data-type="exercice" data-tags="" .exo}
+::: {#exercice-3-3 data-sorte="exercice" data-num="3.3" data-page="40" data-phys="42" data-id="5UAA3.ex.024" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
-[✎ Exercice 3.3]{.exo-titre} [[A2]{.exo-comp} ★☆☆]{.exo-meta}
+[✎ Exercice 3.3]{.exo-titre} [[A2]{.exo-comp data-tip="A2 : Calculer des limites (de fonctions rationnelles) et les interpréter graphiquement." tabindex="0"} ★★☆]{.exo-meta}
 :::
 
 ::: {.exo-corps}
-Soit $f(x) = \frac{1}{(x+1)(x^{2}-4)}$. Calcule les limites de $f(x)$ en $-2$, en $-1$, en $2$ et en $0$. Interprète graphiquement tes résultats.
+Soit $f(x) = \frac{1}{(x+1)(x^{2}-4)}$.
+
+1. Conjecture, sur un graphique obtenu à la calculatrice, où le graphique de $f$ a des asymptotes verticales ou des points creux.
+2. Calcule les limites de $f(x)$ en $-2$, en $-1$, en $2$ et en $0$. Vérifie ta conjecture.
+3. Esquisse l’allure du graphique de $f$ près de chaque valeur interdite.
 :::
 :::
 
@@ -158,6 +162,12 @@ $x^{2} - 4 = (x-2)(x+2)$, donc $\operatorname{dom}(f) = \mathbb{R} \setminus \{-
 - En $-1$ : $x + 2 \approx 1$ ($+$), $x - 2 \approx -3$ ($-$), $x + 1$ change de signe. Dénominateur : $+$ à gauche, $-$ à droite. $\lim\limits_{x \overset{<}{\to} -1} f(x) = +\infty$, $\lim\limits_{x \overset{>}{\to} -1} f(x) = -\infty$ : A.V. $x = -1$.
 - En $2$ : $x + 1 \approx 3$ ($+$), $x + 2 \approx 4$ ($+$), $x - 2$ change de signe. $\lim\limits_{x \overset{<}{\to} 2} f(x) = -\infty$, $\lim\limits_{x \overset{>}{\to} 2} f(x) = +\infty$ : A.V. $x = 2$.
 - En $0$ (dans le domaine) : $\lim\limits_{x \to 0} f(x) = f(0) = \frac{1}{1 \cdot (-4)} = -\frac{1}{4}$ ; le graphique passe par $(0 ; -\frac{1}{4})$.
+
+La calculatrice confirme la conjecture : trois A.V., aucun point creux. Esquisse :
+
+```{=html}
+<div class="lim-plot" data-fig="c3-f80"></div>
+```
 :::
 :::
 
@@ -171,13 +181,17 @@ $x^{2} - 4 = (x-2)(x+2)$, donc $\operatorname{dom}(f) = \mathbb{R} \setminus \{-
 :::
 :::
 
-::: {#exercice-3-4 data-sorte="exercice" data-num="3.4" data-page="38" data-phys="41" data-id="5UAA3.ex.025" data-type="exercice" data-tags="maison" .exo}
+::: {#exercice-3-4 data-sorte="exercice" data-num="3.4" data-page="40" data-phys="42" data-id="5UAA3.ex.025" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
-[✎ Exercice 3.4]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A2]{.exo-comp} ★☆☆]{.exo-meta}
+[✎ Exercice 3.4]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A2]{.exo-comp data-tip="A2 : Calculer des limites (de fonctions rationnelles) et les interpréter graphiquement." tabindex="0"} ★☆☆]{.exo-meta}
 :::
 
 ::: {.exo-corps}
-Soit $f(x) = \frac{x-2}{-x^{2}+4x}$. Calcule les limites de $f(x)$ en $0$ et en $4$. Interprète graphiquement tes résultats.
+Soit $f(x) = \frac{x-2}{-x^{2}+4x}$.
+
+1. Conjecture, sur un graphique obtenu à la calculatrice, où le graphique de $f$ a des asymptotes verticales ou des points creux.
+2. Calcule les limites de $f(x)$ en $0$ et en $4$. Vérifie ta conjecture.
+3. Esquisse l’allure du graphique de $f$ près de chaque valeur interdite.
 :::
 :::
 
@@ -206,6 +220,12 @@ A.V. $x = 0$ et $x = 4$ : $\lim\limits_{x \overset{<}{\to} 0} f(x) = +\infty$, $
 ::: {.tw-expl}
 - En $0$ : numérateur $-2$ ($-$) ; $4 - x \approx 4$ ($+$) ; $x$ : $-$ à gauche, $+$ à droite. $\lim\limits_{x \overset{<}{\to} 0} f(x) = +\infty$ et $\lim\limits_{x \overset{>}{\to} 0} f(x) = -\infty$ : A.V. $x = 0$.
 - En $4$ : numérateur $2$ ($+$) ; $x \approx 4$ ($+$) ; $4 - x$ : $+$ à gauche, $-$ à droite. $\lim\limits_{x \overset{<}{\to} 4} f(x) = +\infty$ et $\lim\limits_{x \overset{>}{\to} 4} f(x) = -\infty$ : A.V. $x = 4$.
+
+Esquisse :
+
+```{=html}
+<div class="lim-plot" data-fig="c3-f81"></div>
+```
 :::
 
 </details>
@@ -217,16 +237,17 @@ A.V. $x = 0$ et $x = 4$ : $\lim\limits_{x \overset{<}{\to} 0} f(x) = +\infty$, $
 :::
 :::
 
-::: {#exercice-3-5 data-sorte="exercice" data-num="3.5" data-page="38" data-phys="41" data-id="5UAA3.ex.026" data-type="exercice" data-tags="" .exo}
+::: {#exercice-3-5 data-sorte="exercice" data-num="3.5" data-page="41" data-phys="43" data-id="5UAA3.ex.026" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
-[✎ Exercice 3.5]{.exo-titre} [[C3]{.exo-comp} ★★☆]{.exo-meta}
+[✎ Exercice 3.5]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C3]{.exo-comp data-tip="C3 : Énoncer la procédure à suivre pour calculer une limite selon les cas rencontrés." tabindex="0"} ★★☆]{.exo-meta}
 :::
 
 ::: {.exo-corps}
 Soit $f(x) = \frac{(x-1)^{2}}{(x-1)(x+2)}$.
 
 1. Écris la démarche à appliquer pour calculer les limites de $f$ aux valeurs interdites.
-2. Applique ta démarche et interprète graphiquement ton résultat.
+2. Applique ta démarche, puis vérifie ton résultat sur un graphique obtenu à la calculatrice.
+3. Esquisse l’allure du graphique de $f$ près de chaque valeur interdite.
 :::
 :::
 
@@ -264,6 +285,11 @@ Point creux en $(1 ; 0)$ et A.V. $x = -2$, avec $\lim\limits_{x \overset{<}{\to}
 
    - En $1$ : le numérateur vaut $0$. Pour $x \neq 1$, $f(x) = \frac{x-1}{x+2}$, et $\lim\limits_{x \to 1} f(x) = \lim\limits_{x \to 1} \frac{x-1}{x+2} = \frac{0}{3} = 0$ : point creux en $(1 ; 0)$.
    - En $-2$ : le numérateur vaut $9 \neq 0$ : A.V. $x = -2$. Dans la fraction simplifiée, le numérateur vaut $-3$ ($-$) et $x + 2$ passe de $-$ à $+$ : $\lim\limits_{x \overset{<}{\to} -2} f(x) = +\infty$ et $\lim\limits_{x \overset{>}{\to} -2} f(x) = -\infty$.
+3. Esquisse :
+
+```{=html}
+<div class="lim-plot" data-fig="c3-f82"></div>
+```
 :::
 :::
 
@@ -276,13 +302,17 @@ Point creux en $(1 ; 0)$ et A.V. $x = -2$, avec $\lim\limits_{x \overset{<}{\to}
 :::
 :::
 
-::: {#exercice-3-6 data-sorte="exercice" data-num="3.6" data-page="39" data-phys="42" data-id="5UAA3.ex.027" data-type="exercice" data-tags="" .exo}
+::: {#exercice-3-6 data-sorte="exercice" data-num="3.6" data-page="41" data-phys="43" data-id="5UAA3.ex.027" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
-[✎ Exercice 3.6]{.exo-titre} [[A2]{.exo-comp} ★★☆]{.exo-meta}
+[✎ Exercice 3.6]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A2]{.exo-comp data-tip="A2 : Calculer des limites (de fonctions rationnelles) et les interpréter graphiquement." tabindex="0"} ★★☆]{.exo-meta}
 :::
 
 ::: {.exo-corps}
-Soit $f(x) = \frac{2x^{2}-x-3}{x^{3}+2x^{2}+x}$. Calcule les limites de $f$ aux valeurs interdites et interprète graphiquement tes résultats. Attention : après une première simplification, regarde bien ce qu’il reste.
+Soit $f(x) = \frac{2x^{2}-x-3}{x^{3}+2x^{2}+x}$.
+
+1. Conjecture, sur un graphique obtenu à la calculatrice, où le graphique de $f$ a des asymptotes verticales ou des points creux.
+2. Calcule les limites de $f$ aux valeurs interdites. Vérifie ta conjecture. Attention : après une première simplification, regarde bien ce qu’il reste.
+3. Esquisse l’allure du graphique de $f$ près de chaque valeur interdite.
 :::
 :::
 
@@ -314,6 +344,12 @@ $\operatorname{dom}(f) = \mathbb{R} \setminus \{-1 ; 0\}$. Pour $x \neq -1$ : $f
 
 - En $-1$ : après simplification, le numérateur vaut $-5 \neq 0$ et le dénominateur s’annule encore : A.V. $x = -1$ (pas un point creux). $x \approx -1$ ($-$), $x + 1$ passe de $-$ à $+$ : le dénominateur passe de $+$ à $-$. $\lim\limits_{x \overset{<}{\to} -1} f(x) = -\infty$ et $\lim\limits_{x \overset{>}{\to} -1} f(x) = +\infty$.
 - En $0$ : le numérateur vaut $-3 \neq 0$ : A.V. $x = 0$. $x + 1 \approx 1$ ($+$), $x$ passe de $-$ à $+$. $\lim\limits_{x \overset{<}{\to} 0} f(x) = +\infty$ et $\lim\limits_{x \overset{>}{\to} 0} f(x) = -\infty$.
+
+Esquisse (pas de point creux en $-1$) :
+
+```{=html}
+<div class="lim-plot" data-fig="c3-f83"></div>
+```
 :::
 :::
 
@@ -326,9 +362,9 @@ $\operatorname{dom}(f) = \mathbb{R} \setminus \{-1 ; 0\}$. Pour $x \neq -1$ : $f
 :::
 :::
 
-::: {#exercice-3-7 data-sorte="exercice" data-num="3.7" data-page="39" data-phys="42" data-id="5UAA3.ex.028" data-type="exercice" data-tags="" .exo}
+::: {#exercice-3-7 data-sorte="exercice" data-num="3.7" data-page="41" data-phys="43" data-id="5UAA3.ex.028" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
-[✎ Exercice 3.7]{.exo-titre} [[C2]{.exo-comp} ★★☆]{.exo-meta}
+[✎ Exercice 3.7]{.exo-titre} [[C2]{.exo-comp data-tip="C2 : Donner un exemple de limite de fonction illustrant un cas d’indétermination." tabindex="0"} ★★☆]{.exo-meta}
 :::
 
 ::: {.exo-corps}
@@ -340,7 +376,7 @@ Invente une fonction rationnelle et une valeur interdite $a$ pour lesquelles le 
 ::: {.panel-tabset}
 ## Indice 1 {.unlisted}
 
-Relis le paragraphe « Second cas : le numérateur s’annule aussi en $a$ » et la [remarque sur les cas d’indétermination](../ch4-chercher-les-asympto/4-on-ne-calcule-pas-avec.qmd#remarque-4-2).
+Relis le paragraphe « Second cas : le numérateur s’annule aussi en $a$ ».
 
 ## Indice 2 {.unlisted}
 
@@ -373,13 +409,13 @@ Par exemple $f(x) = \frac{x^{2}-4}{x-2}$ en $a = 2$. Près de $2$, le numérateu
 :::
 :::
 
-::: {#exercice-3-8 data-sorte="exercice" data-num="3.8" data-page="39" data-phys="42" data-id="5UAA3.ex.029" data-type="exercice" data-tags="maison" .exo}
+::: {#exercice-3-8 data-sorte="exercice" data-num="3.8" data-page="41" data-phys="43" data-id="5UAA3.ex.029" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
-[✎ Exercice 3.8]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C3]{.exo-comp} ★★☆]{.exo-meta}
+[✎ Exercice 3.8]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C3]{.exo-comp data-tip="C3 : Énoncer la procédure à suivre pour calculer une limite selon les cas rencontrés." tabindex="0"} ★★☆]{.exo-meta}
 :::
 
 ::: {.exo-corps}
-Voici la résolution complète d’un élève. Tous les calculs sont justes. Explique, pour chaque étape, **pourquoi** elle est permise ou nécessaire.
+Voici la résolution complète d’un élève. Tous les calculs sont justes. Explique, pour chaque étape, **pourquoi** elle est permise ou nécessaire. Explique aussi ce qui manque éventuellement dans la justification.
 
 Soit $f(x) = \frac{x^{2} - 4}{x^{2} + x - 2}$.
 
@@ -418,7 +454,7 @@ Chaque étape applique le cours : les valeurs interdites sont les racines du dé
 2. En $-2$, numérateur et dénominateur s’annulent : cas d’indétermination, il faut simplifier. On peut diviser par $x + 2$ car, pour $x \neq -2$, $x + 2 \neq 0$.
 3. La fraction simplifiée est égale à $f(x)$ pour tout $x \neq -2$ proche de $-2$ ; c’est une rationnelle définie en $-2$, donc sa limite est sa valeur. Comme $-2 \notin \operatorname{dom}(f)$, c’est un point creux.
 4. En $1$, le numérateur (de la fraction simplifiée) ne s’annule pas : c’est la propriété « valeur interdite qui n’annule pas le numérateur » : A.V.
-5. Le numérateur vaut $-1$ ($-$) près de $1$ : le signe de $f$ est l’opposé de celui de $x - 1$.
+5. Le numérateur vaut $-1$ ($-$) près de $1$ : le signe de $f$ est l’opposé de celui de $x - 1$. L’élève ne l’écrit pas : c’est ce qui manque dans sa justification.
 :::
 
 </details>
@@ -430,9 +466,9 @@ Chaque étape applique le cours : les valeurs interdites sont les racines du dé
 :::
 :::
 
-::: {#exercice-3-9 data-sorte="exercice" data-num="3.9" data-page="39" data-phys="42" data-id="5UAA3.ex.030" data-type="exercice" data-tags="" .exo}
+::: {#exercice-3-9 data-sorte="exercice" data-num="3.9" data-page="42" data-phys="44" data-id="5UAA3.ex.030" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
-[✎ Exercice 3.9]{.exo-titre} [[T2]{.exo-comp} ★★★]{.exo-meta}
+[✎ Exercice 3.9]{.exo-titre} [[T2]{.exo-comp data-tip="T2 : Rechercher l’expression analytique d’une fonction répondant à certaines conditions relatives à ses limites et à ses asymptotes." tabindex="0"} ★★★]{.exo-meta}
 :::
 
 ::: {.exo-corps}

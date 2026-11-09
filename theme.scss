@@ -330,7 +330,7 @@ table.fixe th, table.fixe td { border: 1px solid var(--text) !important; padding
 .lp-inflab { fill: var(--text); font-weight: 600; font-size: 14px; font-family: $font-family-sans-serif; }
 .lp-a line { stroke: var(--cible); stroke-width: 1.6; stroke-dasharray: 6 4; }
 .lp-alab { fill: var(--cible); font-weight: 600; font-size: 13px; font-family: $font-family-sans-serif; paint-order: stroke; stroke: var(--page-bg); stroke-width: 3px; }
-.lp-asym line { stroke: var(--asym); stroke-width: 1.2; stroke-dasharray: 6 4; }
+.lp-asym line { stroke: var(--asym); stroke-width: 2.2; stroke-dasharray: 8 5; }
 .lp-courbe path { fill: none; stroke: var(--courbe); stroke-width: 2.4; stroke-linejoin: round; }
 .lp-hit { fill: none; stroke: transparent; stroke-width: 22; pointer-events: stroke; }
 .lp-creux { fill: var(--page-bg); stroke: var(--courbe); stroke-width: 2; }
@@ -497,6 +497,7 @@ span.rep:focus:not(:focus-visible), .rep-bloc:focus:not(:focus-visible) { outlin
 .lp-wrap.lp-replie { grid-template-columns: minmax(0, 520px); justify-content: center; }
 .lp-wrap.lp-replie .lp-side, .lp-wrap.lp-replie .lp-M, .lp-wrap.lp-replie .lp-trace,
 .lp-wrap.lp-replie .lp-a, .lp-wrap.lp-replie .lp-ecart { display: none !important; }
+.lp-wrap.lp-replie .lp-bord.on { stroke: transparent; }   /* outil fermé : pas de barre au bord ±∞ */
 .lp-wrap.lp-replie .lp-fig svg { cursor: default; }
 .lp-wrap:not(.lp-replie) .lp-mfixe { display: none; }
 .lp-wrap.lp-large { grid-template-columns: 1fr; }
@@ -806,3 +807,32 @@ details.tw-details[open] > summary::before { content: "▾ "; }
 details.tw-details > summary:hover { background: var(--hover-bg); }
 details.tw-details .tw-expl { padding: .6rem .2rem 0; }
 @media print { details.tw-details > summary { display: none; } details.tw-details .tw-expl { display: block !important; } }
+
+/* ---------- Menu « Télécharger » : il héritait de la police du titre du menu (Pagella, 1,35rem, gras) ---------- */
+.sidebar-title .imsv-dl-menu, .imsv-dl-menu { font: 400 .9rem/1.35 $font-family-sans-serif !important; letter-spacing: 0; text-transform: none;
+  min-width: 13rem; max-width: 15rem; white-space: normal; }
+.imsv-dl-menu a { font: 600 .9rem/1.3 $font-family-sans-serif !important; padding: .45rem .65rem !important; border: 0 !important; }
+.imsv-dl-menu a .imsv-dl-detail { font: 400 .76rem/1.3 $font-family-sans-serif !important; margin-top: .1rem; }
+.imsv-dl-menu .imsv-dl-head { font: 700 .68rem/1.2 $font-family-sans-serif !important; }
+
+/* ---------- Pastille de compétence : bulle avec l'intitulé de l'objectif (survol, ou toucher sur tablette) ---------- */
+.exo-comp[data-tip] { position: relative; cursor: help; }
+.exo-comp[data-tip]:focus { outline: 2px solid var(--cu-f); outline-offset: 1px; }
+.exo-comp[data-tip]:hover::after, .exo-comp[data-tip]:focus::after {
+  content: attr(data-tip); position: absolute; right: 0; top: calc(100% + 8px); z-index: 60;
+  width: max-content; max-width: min(24rem, 80vw); white-space: normal; text-align: left;
+  font: 500 .82rem/1.4 $font-family-sans-serif; letter-spacing: 0; text-transform: none;
+  color: #fff; background: #2f3a47; padding: .5rem .7rem; border-radius: 8px; box-shadow: 0 6px 18px rgba(0,0,0,.2); }
+:root[data-theme="dark"] .exo-comp[data-tip]:hover::after, :root[data-theme="dark"] .exo-comp[data-tip]:focus::after { background: #e8ebef; color: #1e242c; }
+.exo:has(.exo-comp[data-tip]:hover), .exo:has(.exo-comp[data-tip]:focus) { overflow: visible !important; }
+@media print { .exo-comp[data-tip]::after { display: none !important; } }
+
+/* ---------- « Aa » et crayon d'écriture dans la pastille d'icônes : ronds comme les autres, sans dépasser ---------- */
+.sidebar-tools-main .dans-outils { display: inline-flex !important; align-items: center; height: 1.85rem; margin: 0 !important; padding: 0 !important;
+  max-width: none !important; gap: 0 !important; flex-direction: row !important; }
+.sidebar-tools-main .dans-outils .st-btn, .sidebar-tools-main .dans-outils .an-ouvrir {
+  display: inline-flex !important; align-items: center; justify-content: center; width: 1.85rem !important; height: 1.85rem !important;
+  margin: 0 !important; padding: 0 !important; border: 0 !important; border-radius: 99px !important; box-shadow: none !important;
+  background: none !important; color: var(--ard) !important; line-height: 1 !important; }
+.sidebar-tools-main .dans-outils .st-btn:hover, .sidebar-tools-main .dans-outils .an-ouvrir:hover,
+.sidebar-tools-main .an-barre.ouverte.dans-outils .an-ouvrir { background: var(--ard-t) !important; color: var(--ard) !important; }

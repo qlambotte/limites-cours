@@ -21,11 +21,13 @@ La troisième caractéristique ne sera étudiée que graphiquement, tandis que l
 5. [Quand une limite a-t-elle un sens ?](5-quand-une-limite-a-t.qmd)
 6. [Limites à gauche et à droite](6-limites-a-gauche-et-a.qmd)
 7. [Les limites des fonctions de référence](7-les-limites-des-fonctions-de.qmd)
-8. [Exercices](8-exercices.qmd) []{.suivi-sec data-exos="2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8"}
+8. [Exercices](8-exercices.qmd) []{.suivi-sec data-exos="2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 2.10 2.11 2.12"}
 
 ## À faire à la maison
 
 - [Exercice 2.1](8-exercices.qmd#exercice-2-1)
 - [Exercice 2.3](8-exercices.qmd#exercice-2-3)
-- [Exercice 2.7](8-exercices.qmd#exercice-2-7)
+- [Exercice 2.6](8-exercices.qmd#exercice-2-6)
 - [Exercice 2.8](8-exercices.qmd#exercice-2-8)
+- [Exercice 2.10](8-exercices.qmd#exercice-2-10)
+- [Exercice 2.11](8-exercices.qmd#exercice-2-11)

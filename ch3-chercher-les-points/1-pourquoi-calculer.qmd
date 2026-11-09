@@ -6,30 +6,30 @@ title: "Pourquoi calculer ?"
 
 Jusqu’ici, nous avons lu les limites sur des graphiques. Mais un graphique ne montre jamais qu’une partie de la fonction, et il peut tromper.
 
-::: {#activite-3-1 data-sorte="activite" data-num="3.1" data-page="32" data-phys="35" data-id="5UAA3.graphique-trompeur" data-type="activite" data-tags="" .theo .theo-activite}
+::: {#activite-3-1 data-sorte="activite" data-num="3.1" data-page="34" data-phys="36" data-id="5UAA3.graphique-trompeur" data-type="activite" data-tags="" .theo .theo-activite}
 ::: {.theo-head}
 **Activité 3.1** — un graphique trompeur
 :::
 
 ::: {.theo-body}
-Voici une partie du graphique de $f(x) = 10 \cdot \frac{\sin x}{x}$ ($x$ en radians).
+Voici une partie du graphique de $f(x) = \frac{200}{100 x^{2} + 1}$.
 
 ```{=html}
-<div class="lim-plot" data-fig="c3-f64"></div>
+<div class="lim-plot" data-fig="c3-f73"></div>
 ```
 
-D’après ce graphique, on pourrait conjecturer que la droite $x = 0$ est une asymptote verticale, avec $\lim\limits_{x \to 0} f(x) = \class{rep}{+\infty}$, et que $\lim\limits_{x \to -\infty} f(x) = \class{rep}{-\infty}$ et $\lim\limits_{x \to +\infty} f(x) = \class{rep}{-\infty}$.
+D’après ce graphique, on pourrait conjecturer que la droite $x = 0$ est une asymptote verticale, avec $\lim\limits_{x \to 0} f(x) = \class{rep}{+\infty}$.
 
-Voici maintenant le graphique complet, sur une fenêtre beaucoup plus large et plus haute.
+Voici maintenant le graphique sur une fenêtre beaucoup plus haute et plus étroite.
 
 ```{=html}
-<div class="lim-plot" data-fig="c3-f65"></div>
+<div class="lim-plot" data-fig="c3-f74"></div>
 ```
 
-Que penses-tu maintenant de ces conjectures ?
+Que penses-tu maintenant de cette conjecture ?
 
 ::: {.rep-bloc}
-Elles étaient toutes fausses. Près de $0$, le graphique ne monte pas sans fin : il se rapproche du point $(0 ; 10)$, qui manque (un point creux) ; il n’y a pas d’asymptote verticale. Loin de $0$, le graphique oscille de moins en moins autour de l’axe horizontal : les limites en $-\infty$ et en $+\infty$ valent $0$.
+Elle était fausse. Près de $0$, le graphique ne monte pas sans fin : il atteint un sommet, le point $(0 ; 200)$, car $f(0) = 200$. Il n’y a pas d’asymptote verticale.
 :::
 :::
 :::

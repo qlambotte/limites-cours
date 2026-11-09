@@ -4,7 +4,7 @@ title: "Décrire un graphique sans le montrer"
 
 <!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
 
-::: {#activite-2-1 data-sorte="activite" data-num="2.1" data-page="16" data-phys="19" data-id="5UAA3.telephone" data-type="activite" data-tags="" .theo .theo-activite}
+::: {#activite-2-1 data-sorte="activite" data-num="2.1" data-page="16" data-phys="18" data-id="5UAA3.telephone" data-type="activite" data-tags="" .theo .theo-activite}
 ::: {.theo-head}
 **Activité 2.1** — au téléphone
 :::
@@ -13,7 +13,7 @@ title: "Décrire un graphique sans le montrer"
 Voici le graphique de $f(x) = \frac{1}{x}$. Imagine que tu dois le décrire, au téléphone, à quelqu’un qui ne le voit pas, de façon qu’il puisse le redessiner le plus fidèlement possible. Écris ta description. Que se passe-t-il près de $x = 0$ ? Et très loin, à gauche et à droite ?
 
 ```{=html}
-<div class="lim-plot" data-fig="c2-f29"></div>
+<div class="lim-plot" data-fig="c2-f33"></div>
 ```
 
 ::: {.rep-bloc}

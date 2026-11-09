@@ -6,7 +6,7 @@ title: "Limites à gauche et à droite"
 
 Revenons à $f(x) = \frac{1}{x}$ au voisinage de $0$ : dans l’activité « vers où va le point ? », les points du graphique d’abscisse proche de $0$ ne sont pas proches d’un seul point. Ils sont proches de $(0 ; +\infty)$ si $x > 0$, et de $(0 ; -\infty)$ si $x < 0$. La limite n’existe donc pas, mais chaque côté, pris séparément, donne une information précise sur le graphique.
 
-::: {#activite-2-6 data-sorte="activite" data-num="2.6" data-page="22" data-phys="25" data-id="5UAA3.saut" data-type="activite" data-tags="" .theo .theo-activite}
+::: {#activite-2-6 data-sorte="activite" data-num="2.6" data-page="22" data-phys="24" data-id="5UAA3.saut" data-type="activite" data-tags="" .theo .theo-activite}
 ::: {.theo-head}
 **Activité 2.6** — un saut
 :::
@@ -22,14 +22,14 @@ Soit $s(x) = \frac{\left\vert x\right\vert{}}{x}$.
    :::
 
 ```{=html}
-<div class="lim-plot" data-fig="c2-f34"></div>
+<div class="lim-plot" data-fig="c2-f38"></div>
 ```
 
 3. Lorsque $x$ est proche de $0$ et positif, de quel point $M$ est-il proche ? [$(0 ; 1)$]{.rep} Et lorsque $x$ est proche de $0$ et négatif ? [$(0 ; -1)$]{.rep}
 :::
 :::
 
-::: {#definition-2-3 data-sorte="definition" data-num="2.3" data-page="22" data-phys="25" data-id="5UAA3.limites-gauche-droite-2" data-type="definition" data-tags="" .theo .theo-definition}
+::: {#definition-2-3 data-sorte="definition" data-num="2.3" data-page="22" data-phys="24" data-id="5UAA3.limites-gauche-droite-2" data-type="definition" data-tags="" .theo .theo-definition}
 ::: {.theo-head}
 **Définition 2.3** — limites à gauche et à droite
 :::
@@ -52,13 +52,13 @@ Soit $f$ une fonction, $a \in \mathbb{R}$ et $b$ un nombre réel ou $\pm \infty$
 
 L’intérêt de ces deux notions est la propriété suivante.
 
-::: {#propriete-2-2 data-sorte="propriete" data-num="2.2" data-page="23" data-phys="26" data-id="5UAA3.prop.001" data-type="propriete" data-tags="" .theo .theo-propriete}
+::: {#propriete-2-2 data-sorte="propriete" data-num="2.2" data-page="23" data-phys="25" data-id="5UAA3.prop.001" data-type="propriete" data-tags="" .theo .theo-propriete}
 ::: {.theo-head}
 **Propriété 2.2**
 :::
 
 ::: {.theo-body}
-Soit $f$ une fonction définie à gauche et à droite de $a \in \mathbb{R}$, et $b$ un nombre réel ou $\pm \infty$. Alors $\lim\limits_{x \to a} f(x) = b$ si et seulement si
+Soit $a \in \mathbb{R}$, $f$ une fonction dont le domaine contient des valeurs aussi proches qu’on veut de $a$, à gauche et à droite de $a$, et $b$ un nombre réel ou $\pm \infty$. Alors $\lim\limits_{x \to a} f(x) = b$ si et seulement si
 
 $$
 \lim\limits_{x \overset{<}{\to} a} f(x) = b \quad \text{et} \quad \lim\limits_{x \overset{>}{\to} a} f(x) = b,
@@ -68,7 +68,7 @@ et, si $f(a)$ existe, $f(a) = b$.
 :::
 :::
 
-::: {#remarque-2-4 data-sorte="remarque" data-num="2.4" data-page="23" data-phys="26" data-id="5UAA3.rem.007" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {#remarque-2-4 data-sorte="remarque" data-num="2.4" data-page="23" data-phys="25" data-id="5UAA3.rem.007" data-type="remarque" data-tags="" .theo .theo-remarque}
 ::: {.theo-head}
 **Remarque 2.4**
 :::
@@ -80,7 +80,7 @@ Même dans ce cas, les limites à gauche et à droite restent utiles : ce sont e
 :::
 :::
 
-::: {#exemple-2-2 data-sorte="exemple" data-num="2.2" data-page="23" data-phys="26" data-id="5UAA3.exm.002" data-type="exemple" data-tags="" .theo .theo-exemple}
+::: {#exemple-2-2 data-sorte="exemple" data-num="2.2" data-page="23" data-phys="25" data-id="5UAA3.exm.002" data-type="exemple" data-tags="" .theo .theo-exemple}
 ::: {.theo-head}
 **Exemple 2.2**
 :::

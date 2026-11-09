@@ -6,6 +6,9 @@
 
    - clic / tap sur un encadré ou un exercice : ✓ dans la marge droite ;
      second clic : retiré ;
+   - exercice « maison » : 1er clic = donné en devoir (⌂), 2e clic = vu en
+     classe (✓), 3e clic : retiré (événements « devoir » / « vu ») ;
+   - autre exercice : 1er clic = vu (✓), 2e clic = devoir (⌂), 3e : retiré ;
    - journal d'événements en ajout seulement (localStorage, clé
      « typweb.prof.v1 ») ; l'état affiché = dernier événement par
      (classe, élément) ;
@@ -163,9 +166,9 @@
     for (i = 0; i < ev.length; i++) { e = ev[i]; if (e && e.c === classe && e.a === "annule" && e.ref) annules[e.ref] = 1; }
     for (i = 0; i < ev.length; i++) {
       e = ev[i];
-      if (!e || e.c !== classe || (e.a !== "vu" && e.a !== "annule")) continue;
+      if (!e || e.c !== classe || (e.a !== "vu" && e.a !== "annule" && e.a !== "devoir")) continue;
       if (e.a === "annule" && e.ref) continue;
-      if (e.a === "vu" && annules[e.id]) continue;
+      if (e.a !== "annule" && annules[e.id]) continue;
       if (!dernier[e.el] || cmpEv(e, dernier[e.el]) > 0) dernier[e.el] = e;
     }
     return dernier;
@@ -177,6 +180,45 @@
       if (dernier[el].a === "vu") out[el] = { t: dernier[el].t, jour: jourDe(dernier[el].t) };
     });
     return out;
+  }
+  // Exercices « maison » donnés en devoir (dernier état = « devoir ») : { el: { t, jour } }
+  function devoirs(classe) {
+    classe = classe || classeActive();
+    var out = {}, dernier = derniers(lire(), classe);
+    Object.keys(dernier).forEach(function (el) {
+      if (dernier[el].a === "devoir") out[el] = { t: dernier[el].t, jour: jourDe(dernier[el].t) };
+    });
+    return out;
+  }
+  // Retire les marques posées aujourd'hui sur `id` (vu / devoir) : la marque d'une séance précédente réapparaît.
+  function retirerAujourdhui(classe, id) {
+    var ev = lire(), auj = jourDe(Date.now()), annules = {}, n = 0;
+    ev.forEach(function (e) { if (e && e.c === classe && e.a === "annule" && e.ref) annules[e.ref] = 1; });
+    ev.forEach(function (e) {
+      if (e && e.c === classe && e.el === id && (e.a === "vu" || e.a === "devoir") && !annules[e.id] && jourDe(e.t) === auj) {
+        ajouter(classe, id, "annule", { ref: e.id }); n++;
+      }
+    });
+    if (!n) ajouter(classe, id, "annule");
+  }
+  // Clic (ou touche V) sur un élément marquable.
+  //  encadré / exercice : rien ou séance précédente → vu ; vu aujourd'hui → retiré ;
+  //  exercice « maison » : → devoir (⌂) → vu (✓) → retiré ;
+  //  autre exercice : → vu (✓) → devoir (⌂) → retiré.
+  function basculer(classe, el) {
+    var id = el.getAttribute("data-id"), auj = jourDe(Date.now());
+    var v = etat(classe)[id], dv = devoirs(classe)[id];
+    var vuAuj = v && v.jour === auj, dvAuj = dv && dv.jour === auj;
+    if (estMaison(el)) {
+      if (vuAuj) retirerAujourdhui(classe, id);
+      else if (dvAuj) ajouter(classe, id, "vu");
+      else ajouter(classe, id, "devoir");
+    } else if (el.getAttribute("data-type") === "exercice") {
+      if (dvAuj) retirerAujourdhui(classe, id);
+      else if (vuAuj) ajouter(classe, id, "devoir");
+      else ajouter(classe, id, "vu");
+    } else if (vuAuj) retirerAujourdhui(classe, id);
+    else ajouter(classe, id, "vu");
   }
   function dansCours(id, prefixe) { return !prefixe || id.indexOf(prefixe + ".") === 0; }
   // Point d'arrêt : l'élément vu le plus AVANCÉ dans le cours (ordre de index.json) ; revoir une définition
@@ -250,8 +292,9 @@
 
   /* ---------- éléments marquables de la page ---------- */
   function etiquettes(el) { return (el.getAttribute("data-tags") || "").split(/\s+/); }
+  function estMaison(el) { return etiquettes(el).indexOf("maison") >= 0; }
   function marquable(el) {
-    return !!MARQUABLES[el.getAttribute("data-type")] && etiquettes(el).indexOf("maison") < 0;
+    return !!MARQUABLES[el.getAttribute("data-type")];
   }
   function elementsPage() {
     return Array.prototype.filter.call(document.querySelectorAll(SELECTEUR), marquable);
@@ -265,13 +308,14 @@
   /* ---------- rendu ---------- */
   var bandeau = null;
   function rendre() {
-    var classe = classeActive(), s = classe ? etat(classe) : {}, auj = jourDe(Date.now());
+    var classe = classeActive(), s = classe ? etat(classe) : {}, dv = classe ? devoirs(classe) : {}, auj = jourDe(Date.now());
     var els = elementsPage();
     els.forEach(function (el) {
-      var v = s[el.getAttribute("data-id")];
+      var id = el.getAttribute("data-id"), v = s[id], d = !v && dv[id];
       el.classList.add("tw-m");
       el.classList.toggle("tw-vu", !!v);
-      el.classList.toggle("tw-vu-ancien", !!v && v.jour !== auj);
+      el.classList.toggle("tw-devoir", !!d);
+      el.classList.toggle("tw-vu-ancien", (!!v && v.jour !== auj) || (!!d && d.jour !== auj));
     });
     // section de la page : ✓ à côté du titre quand tout est vu
     var titre = document.querySelector("h1.title, .quarto-title h1");
@@ -308,6 +352,19 @@
   }
   window.addEventListener("resize", function () { rendre(); });
   window.addEventListener("load", function () { [0, 1000, 3000].forEach(function (t) { setTimeout(rendre, t); }); });
+
+  /* ---------- retour à la page de pilotage ---------- */
+  var CLE_RETOUR = "typweb.retour-pilotage";
+  function urlPilotage() {
+    try {
+      var r = document.referrer ? new URL(document.referrer) : null;
+      if (r && /\/pilotage\/(index\.html)?$/.test(r.pathname)) sessionStorage.setItem(CLE_RETOUR, r.href);
+      var garde = sessionStorage.getItem(CLE_RETOUR);
+      if (garde) return garde;
+    } catch (e) {}
+    try { return new URL("/pilotage/", (window.TYPWEB && window.TYPWEB.portail) || location.href).href; }
+    catch (e2) { return "/pilotage/"; }
+  }
 
   /* ---------- bandeau ---------- */
   function noeud(tag, cls, txt) {
@@ -348,6 +405,12 @@
     panneau.appendChild(bSon); panneau.appendChild(bSonReg);
     panneau.appendChild(bExp); panneau.appendChild(bOff);
     bandeau.appendChild(puce); bandeau.appendChild(panneau);
+    // Retour à la page de pilotage (fin de séance) : là d'où l'on vient si c'était la page de pilotage,
+    // sinon <portail>/pilotage/.
+    var retour = noeud("a", "tw-prof-puce tw-prof-retour", "↩ Pilotage");
+    retour.href = urlPilotage();
+    retour.title = "Revenir à la page de pilotage";
+    bandeau.appendChild(retour);
     puce.addEventListener("click", function () { ouvrirBandeau(panneau.hidden); });
     sel.addEventListener("change", function () { fixerClasse(sel.value); });
     bOff.addEventListener("click", function () {
@@ -455,17 +518,83 @@
     if (document.documentElement.dataset.annot) return;           // outil d'annotation actif
     var classe = classeActive();
     if (!classe) { ouvrirBandeau(true); return; }
-    var id = cible.getAttribute("data-id"), now = Date.now();
+    var now = Date.now();
     if (dernierClic.el === cible && now - dernierClic.t < ANTI_REBOND) return;
     dernierClic = { el: cible, t: now };
-    var v = etat(classe)[id];
     // pas encore vu, ou vu à une séance précédente : on (re)marque pour aujourd'hui ;
-    // vu aujourd'hui : on retire (erreur de clic)
-    if (v && v.jour === jourDe(now)) {
-      var d = derniers(lire(), classe)[id];
-      ajouter(classe, id, "annule", d && d.a === "vu" ? { ref: d.id } : null);
-    } else ajouter(classe, id, "vu");
+    // vu aujourd'hui : on retire (erreur de clic). Exercice « maison » : devoir → vu → retiré.
+    basculer(classe, cible);
   }
+
+  // Pastille ✓ / ⌂ sous le point (x, y) de l'écran : l'élément marquable, ou null. Sert à l'outil
+  // d'écriture (annot.js), dont le calque couvre la page : toucher la pastille coche sans quitter l'outil.
+  function pastilleSous(x, y) {
+    var etroit = document.documentElement.classList.contains("tw-marge-etroite"), M = 6, trouve = null;
+    elementsPage().forEach(function (el) {
+      var r = el.getBoundingClientRect();
+      if (!r.height) return;
+      var top = r.top + (parseFloat(el.style.getPropertyValue("--tw-top")) || 8);
+      var left = etroit ? r.right - 8 - LARG : r.right + ECART;
+      if (x >= left - M && x <= left + LARG + M && y >= top - M && y <= top + LARG + M) trouve = el;
+    });
+    return trouve;
+  }
+  function basculerElement(el) {
+    var classe = classeActive();
+    if (!classe) { ouvrirBandeau(true); return false; }
+    var now = Date.now();
+    if (dernierClic.el === el && now - dernierClic.t < ANTI_REBOND) return false;
+    dernierClic = { el: el, t: now };
+    basculer(classe, el);
+    return true;
+  }
+
+  /* ---------- plein écran transmis entre le pilotage et les pages du cours ---------- */
+  (function () {
+    var d = document, el = d.documentElement;
+    var demander = el.requestFullscreen || el.webkitRequestFullscreen;
+    if (!demander) return;
+    function actif() { return !!(d.fullscreenElement || d.webkitFullscreenElement); }
+  // Le navigateur quitte toujours le plein écran en changeant de page. On le transmet : lien suivi en plein
+  // écran → « pe=1 » dans l'URL (+ sessionStorage), et la page d'arrivée le rétablit au premier geste
+  // (clic, touche) : un navigateur n'autorise le plein écran qu'en réponse à un geste.
+
+  (function () {
+  if (window.__typwebPE) return;                         // pilotage + couche prof chargée : une seule fois
+  window.__typwebPE = true;
+  var CLE_PE = "typweb.plein-ecran", quitte = false;
+  function peEcrire(v) { try { v ? sessionStorage.setItem(CLE_PE, "1") : sessionStorage.removeItem(CLE_PE); } catch (e) {} }
+  function peVoulu() {
+    try { if (new URL(location.href).searchParams.get("pe") === "1") return true; } catch (e) {}
+    try { return sessionStorage.getItem(CLE_PE) === "1"; } catch (e) { return false; }
+  }
+  window.addEventListener("pagehide", function () { quitte = true; });
+  d.addEventListener("click", function (e) {           // lien suivi en plein écran : « pe=1 »
+    var a = e.target && e.target.closest && e.target.closest("a[href]");
+    if (!a || !actif() || /^(#|javascript:|blob:|mailto:)/.test(a.getAttribute("href") || "")) return;
+    try { var u = new URL(a.href, location.href); if (!/^https?:$/.test(u.protocol)) return;
+          u.searchParams.set("pe", "1"); a.href = u.href; } catch (x) {}
+  }, true);
+  function peChange() {                                  // sortie volontaire (Échap, bouton) : on ne le rétablit plus
+    if (actif()) peEcrire(true); else if (!quitte) peEcrire(false);
+  }
+  d.addEventListener("fullscreenchange", peChange);
+  d.addEventListener("webkitfullscreenchange", peChange);
+  if (peVoulu() && !actif()) {
+    peEcrire(true);
+    try {                                                // « pe=1 » retiré de l'adresse (recharger ne le redemande pas)
+      var u = new URL(location.href);
+      if (u.searchParams.has("pe")) { u.searchParams.delete("pe"); history.replaceState(history.state, "", u.href); }
+    } catch (x) {}
+    var retablir = function () {
+      ["pointerup", "keydown", "click"].forEach(function (n) { d.removeEventListener(n, retablir, true); });
+      if (actif() || !peVoulu()) return;
+      try { var r = demander.call(el); if (r && r.catch) r.catch(function () {}); } catch (x) {}
+    };
+    ["pointerup", "keydown", "click"].forEach(function (n) { d.addEventListener(n, retablir, true); });
+  }
+  })();
+  })();
 
   /* ---------- reprise du cours (?reprise=1) ---------- */
   function trouver(id) {
@@ -534,7 +663,7 @@
   window.typwebProf = {
     version: SCHEMA,
     // Fonctions disponibles : la page de pilotage refuse une couche trop ancienne (cours à reconstruire).
-    capacites: ["sync", "annule-ref", "arret-position", "banque-privee"],
+    capacites: ["sync", "annule-ref", "arret-position", "banque-privee", "devoir"],
     classes: function () { return classes.slice(); },
     classe: classeActive,
     fixerClasse: fixerClasse,
@@ -544,6 +673,10 @@
     sections: sections,               // (classe?) → { idSection: true } (tout vu)
     marquer: function (id, classe) { return ajouter(classe || classeActive(), id, "vu"); },
     annuler: function (id, classe) { return ajouter(classe || classeActive(), id, "annule"); },
+    pastilleSous: pastilleSous,       // (x, y) écran → élément dont la pastille est sous le point, ou null
+    basculerElement: basculerElement, // même effet qu'un clic sur l'élément
+    donnerDevoir: function (id, classe) { return ajouter(classe || classeActive(), id, "devoir"); },
+    devoirs: function (classe) { return devoirs(classe); },
     evenements: function () { return lire().slice(); },
     exporter: objetExport,            // () → { format, exporte, v, ev } : tout le journal
     importer: importer,               // (objet | texte) → { ok, ajoutes, ignores } | { ok: false, erreur } ; fusion sans perte
@@ -621,15 +754,12 @@
     var c = e.target;
     if (c && (c.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(c.tagName))) return;
     if (document.documentElement.classList.contains("tv-ouvert")) return;      // écran de vote ouvert
+    if (document.documentElement.dataset.annot) return;           // outil d'écriture : V = sélection
     var el = elementCentral();
     if (!el) return;
     var classe = classeActive();
     if (!classe) { ouvrirBandeau(true); return; }
-    var id = el.getAttribute("data-id"), v = etat(classe)[id];
-    if (v && v.jour === jourDe(Date.now())) {
-      var d = derniers(lire(), classe)[id];
-      ajouter(classe, id, "annule", d && d.a === "vu" ? { ref: d.id } : null);
-    } else ajouter(classe, id, "vu");
+    basculer(classe, el);
     el.classList.add("tw-reprise"); setTimeout(function () { el.classList.remove("tw-reprise"); }, 600);
   });
   document.addEventListener("keydown", function (e) {      // S : marche / arrêt (hors champs de saisie)

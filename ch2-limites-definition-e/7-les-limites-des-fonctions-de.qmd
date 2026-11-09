@@ -4,7 +4,7 @@ title: "Les limites des fonctions de référence"
 
 <!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
 
-::: {#activite-2-7 data-sorte="activite" data-num="2.7" data-page="23" data-phys="26" data-id="5UAA3.lire-limites-fonctions-reference" data-type="activite" data-tags="" .theo .theo-activite}
+::: {#activite-2-7 data-sorte="activite" data-num="2.7" data-page="23" data-phys="25" data-id="5UAA3.lire-limites-fonctions-reference" data-type="activite" data-tags="" .theo .theo-activite}
 ::: {.theo-head}
 **Activité 2.7** — lire les limites des fonctions de référence
 :::
@@ -15,7 +15,7 @@ Voici les graphiques des fonctions de référence. Complète ensuite le tableau.
 ::: {.grille style="--n:2"}
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c2-f35"></div>
+<div class="lim-plot" data-fig="c2-f39"></div>
 ```
 
 ::: {.lp-legende}
@@ -25,7 +25,7 @@ $f(x) = k$ ($k = 2$ ; $0$ ; $-1$)
 
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c2-f36"></div>
+<div class="lim-plot" data-fig="c2-f40"></div>
 ```
 
 ::: {.lp-legende}
@@ -35,7 +35,7 @@ $f(x) = x$
 
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c2-f37"></div>
+<div class="lim-plot" data-fig="c2-f41"></div>
 ```
 
 ::: {.lp-legende}
@@ -45,7 +45,7 @@ $f(x) = \frac{1}{x}$
 
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c2-f38"></div>
+<div class="lim-plot" data-fig="c2-f42"></div>
 ```
 
 ::: {.lp-legende}
@@ -55,7 +55,7 @@ $f(x) = \left\vert x\right\vert{}$
 
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c2-f39"></div>
+<div class="lim-plot" data-fig="c2-f43"></div>
 ```
 
 ::: {.lp-legende}
@@ -65,7 +65,7 @@ $f(x) = x^{2}$
 
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c2-f40"></div>
+<div class="lim-plot" data-fig="c2-f44"></div>
 ```
 
 ::: {.lp-legende}
@@ -75,7 +75,7 @@ $f(x) = \sqrt{x}$
 
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c2-f41"></div>
+<div class="lim-plot" data-fig="c2-f45"></div>
 ```
 
 ::: {.lp-legende}
@@ -85,7 +85,7 @@ $f(x) = x^{3}$
 
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c2-f42"></div>
+<div class="lim-plot" data-fig="c2-f46"></div>
 ```
 
 ::: {.lp-legende}
@@ -115,12 +115,12 @@ Pour chacune de ces fonctions, la limite en un point $a$ du domaine existe et va
 :::
 :::
 
-::: {#remarque-2-5 data-sorte="remarque" data-num="2.5" data-page="25" data-phys="28" data-id="5UAA3.rem.008" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {#remarque-2-5 data-sorte="remarque" data-num="2.5" data-page="25" data-phys="27" data-id="5UAA3.rem.008" data-type="remarque" data-tags="" .theo .theo-remarque}
 ::: {.theo-head}
 **Remarque 2.5**
 :::
 
 ::: {.theo-body}
-En un point du domaine qui n’en est pas une borne, la limite n’apprend généralement rien de neuf : on verra qu’elle vaut simplement $f(a)$. Les limites qui nous intéresseront dans la suite sont donc celles **aux bornes du domaine** : en une borne réelle qui n’appartient pas au domaine (une valeur interdite, comme $0$ pour $\frac{1}{x}$ ou $1$ pour $\frac{x^{2}-1}{x-1}$), le graphique peut présenter une asymptote verticale ou un point creux ; en $+\infty$ ou $-\infty$, une asymptote horizontale ou oblique.
+Pour les fonctions dont nous calculerons les limites (les fonctions rationnelles), en un point du domaine, la limite n’apprend rien de neuf : on verra qu’elle vaut simplement $f(a)$. Les limites qui nous intéresseront dans la suite sont donc celles **aux bornes du domaine** : en une borne réelle qui n’appartient pas au domaine (une valeur interdite, comme $0$ pour $\frac{1}{x}$ ou $1$ pour $\frac{x^{2}-1}{x-1}$), le graphique peut présenter une asymptote verticale ou un point creux ; en $+\infty$ ou $-\infty$, une asymptote horizontale ou oblique.
 :::
 :::

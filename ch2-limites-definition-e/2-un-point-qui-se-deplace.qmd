@@ -4,7 +4,7 @@ title: "Un point qui se déplace sur un graphique"
 
 <!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
 
-::: {#activite-2-2 data-sorte="activite" data-num="2.2" data-page="17" data-phys="20" data-id="5UAA3.vers-va-point" data-type="activite" data-tags="" .theo .theo-activite}
+::: {#activite-2-2 data-sorte="activite" data-num="2.2" data-page="17" data-phys="19" data-id="5UAA3.vers-va-point" data-type="activite" data-tags="" .theo .theo-activite}
 ::: {.theo-head}
 **Activité 2.2** — vers où va le point ?
 :::
@@ -13,7 +13,7 @@ title: "Un point qui se déplace sur un graphique"
 Soit $f(x) = \frac{1}{x}$. Un point $M$ se déplace sur le graphique de $f$ : ses coordonnées sont toujours $(x ; f(x))$. Le repère est entouré d’un cadre en pointillés, sur lequel nous placerons les points « à l’infini ».
 
 ```{=html}
-<div class="lim-plot" data-fig="c2-f30"></div>
+<div class="lim-plot" data-fig="c2-f34"></div>
 ```
 
 1. Lorsque $x$ se rapproche de $2$, vers quel point le point $M$ se dirige-t-il ? [$(2 ; \frac{1}{2})$]{.rep}

@@ -24,9 +24,9 @@ Le calcul ne remplace pas le graphique : il le confirme (ou le corrige). Quand u
 3. **Vérifier** sur le graphique : le domaine calculé et la conjecture doivent concorder. Sinon, cherche l’erreur, dans le calcul ou dans la lecture du graphique.
 :::
 
-::: {#exercice-1-7 data-sorte="exercice" data-num="1.7" data-page="9" data-phys="12" data-id="5UAA3.ex.007" data-type="exercice" data-tags="" .exo}
+::: {#exercice-1-7 data-sorte="exercice" data-num="1.7" data-page="10" data-phys="12" data-id="5UAA3.ex.007" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
-[✎ Exercice 1.7]{.exo-titre} [[A1]{.exo-comp} ★☆☆]{.exo-meta}
+[✎ Exercice 1.7]{.exo-titre} [[A1]{.exo-comp data-tip="A1 : Déterminer, à partir de l’expression analytique d’une fonction (rationnelle), son domaine et les limites qui apportent des informations sur son graphique." tabindex="0"} ★☆☆]{.exo-meta}
 :::
 
 ::: {.exo-corps}
@@ -82,23 +82,23 @@ $\frac{1}{x-4}$ est du type $\frac{1}{a}$ avec $a = x - 4$ : quelle est la condi
 :::
 :::
 
-::: {#exercice-1-8 data-sorte="exercice" data-num="1.8" data-page="9" data-phys="12" data-id="5UAA3.ex.008" data-type="exercice" data-tags="" .exo}
+::: {#exercice-1-8 data-sorte="exercice" data-num="1.8" data-page="10" data-phys="12" data-id="5UAA3.ex.008" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
-[✎ Exercice 1.8]{.exo-titre} [[A1]{.exo-comp} ★☆☆]{.exo-meta}
+[✎ Exercice 1.8]{.exo-titre} [[A1]{.exo-comp data-tip="A1 : Déterminer, à partir de l’expression analytique d’une fonction (rationnelle), son domaine et les limites qui apportent des informations sur son graphique." tabindex="0"} ★☆☆]{.exo-meta}
 :::
 
 ::: {.exo-corps}
 Voici l’expression analytique et le graphique de quatre fonctions. Pour chacune : **conjecture** son domaine sur le graphique, **calcule**-le à partir de l’expression, puis **vérifie** sur le graphique que ton calcul concorde avec ta conjecture.
 
 1. $f(x) = 2x^{2} - x^{4}$
-2. $g(x) = \frac{x^{2}-2}{x-2}$
+2. $g(x) = \frac{x^{2}-4}{x-2}$
 3. $h(x) = \sqrt{x-2}$
 4. $i(x) = \frac{x+1}{x-2}$
 
 ::: {.grille style="--n:2"}
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c1-f8"></div>
+<div class="lim-plot" data-fig="c1-f12"></div>
 ```
 
 ::: {.lp-legende}
@@ -108,7 +108,7 @@ $f$
 
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c1-f9"></div>
+<div class="lim-plot" data-fig="c1-f13"></div>
 ```
 
 ::: {.lp-legende}
@@ -118,7 +118,7 @@ $g$
 
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c1-f10"></div>
+<div class="lim-plot" data-fig="c1-f14"></div>
 ```
 
 ::: {.lp-legende}
@@ -128,7 +128,7 @@ $h$
 
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c1-f11"></div>
+<div class="lim-plot" data-fig="c1-f15"></div>
 ```
 
 ::: {.lp-legende}
@@ -151,7 +151,7 @@ Sur chaque graphique : où commence-t-il ? où s’arrête-t-il ? s’interrompt
 
 ## Indice 3 {.unlisted}
 
-Pour $g$ : le graphique s’interrompt autour de $x = 2$ (il monte et descend sans fin). Conjecture : $\operatorname{dom}(g) = \mathbb{R} \setminus \{2\}$. Calcul : $x - 2 \neq 0 \Leftrightarrow x \neq 2$. Les deux concordent.
+Pour $g$ : le graphique a un trou en $x = 2$. Conjecture : $\operatorname{dom}(g) = \mathbb{R} \setminus \{2\}$. Calcul : $x - 2 \neq 0 \Leftrightarrow x \neq 2$. Les deux concordent.
 
 ## Solution {.unlisted}
 
@@ -168,9 +168,9 @@ $\operatorname{dom}(f) = \mathbb{R}$, $\operatorname{dom}(g) = \mathbb{R} \setmi
    - Conjecture : le graphique continue à gauche et à droite, sans interruption : $\mathbb{R}$.
    - Calcul : polynôme, aucune condition : $\operatorname{dom}(f) = \mathbb{R}$.
    - Vérification : concorde.
-2. $g(x) = \frac{x^{2}-2}{x-2}$.
+2. $g(x) = \frac{x^{2}-4}{x-2}$.
 
-   - Conjecture : tout $\mathbb{R}$ sauf $2$, où le graphique monte et descend sans fin.
+   - Conjecture : tout $\mathbb{R}$ sauf $2$, où le graphique a un trou (un point creux).
    - Calcul : $x - 2 \neq 0 \Leftrightarrow x \neq 2$ : $\operatorname{dom}(g) = \mathbb{R} \setminus \{2\}$.
    - Vérification : concorde.
 3. $h(x) = \sqrt{x-2}$.
@@ -191,15 +191,15 @@ $\operatorname{dom}(f) = \mathbb{R}$, $\operatorname{dom}(g) = \mathbb{R} \setmi
 ## Pièges {.unlisted}
 
 - Conjecturer « tout $\mathbb{R}$ » pour $g$ parce qu’une valeur isolée est difficile à voir : regarde où le graphique s’interrompt.
-- Imposer une condition au numérateur : $x^{2} - 2$ peut valoir $0$.
+- Imposer une condition au numérateur : $x^{2} - 4$ peut valoir $0$.
 - Écrire $]2 ; +\infty[$ pour $h$ : $\sqrt{0} = 0$ existe.
 - Sauter la vérification : c’est elle qui détecte une erreur de calcul.
 :::
 :::
 
-::: {#exercice-1-9 data-sorte="exercice" data-num="1.9" data-page="10" data-phys="13" data-id="5UAA3.ex.009" data-type="exercice" data-tags="maison" .exo}
+::: {#exercice-1-9 data-sorte="exercice" data-num="1.9" data-page="11" data-phys="13" data-id="5UAA3.ex.009" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
-[✎ Exercice 1.9]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A1]{.exo-comp} ★☆☆]{.exo-meta}
+[✎ Exercice 1.9]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A1]{.exo-comp data-tip="A1 : Déterminer, à partir de l’expression analytique d’une fonction (rationnelle), son domaine et les limites qui apportent des informations sur son graphique." tabindex="0"} ★★☆]{.exo-meta}
 :::
 
 ::: {.exo-corps}
@@ -213,7 +213,7 @@ Voici l’expression analytique et le graphique de quatre fonctions. Pour chacun
 ::: {.grille style="--n:2"}
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c1-f12"></div>
+<div class="lim-plot" data-fig="c1-f16"></div>
 ```
 
 ::: {.lp-legende}
@@ -223,7 +223,7 @@ $j$
 
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c1-f13"></div>
+<div class="lim-plot" data-fig="c1-f17"></div>
 ```
 
 ::: {.lp-legende}
@@ -233,7 +233,7 @@ $k$
 
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c1-f14"></div>
+<div class="lim-plot" data-fig="c1-f18"></div>
 ```
 
 ::: {.lp-legende}
@@ -243,7 +243,7 @@ $l$
 
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c1-f15"></div>
+<div class="lim-plot" data-fig="c1-f19"></div>
 ```
 
 ::: {.lp-legende}

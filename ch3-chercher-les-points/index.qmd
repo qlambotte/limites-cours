@@ -17,4 +17,6 @@ title: "Chapitre 3 — Chercher les points creux et les asymptotes verticales"
 ## À faire à la maison
 
 - [Exercice 3.4](5-exercices.qmd#exercice-3-4)
+- [Exercice 3.5](5-exercices.qmd#exercice-3-5)
+- [Exercice 3.6](5-exercices.qmd#exercice-3-6)
 - [Exercice 3.8](5-exercices.qmd#exercice-3-8)

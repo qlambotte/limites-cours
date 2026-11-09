@@ -24,8 +24,8 @@ Rappels
 Opérations sur les fonctions
 :::
 
-::: {.ae-sec data-ae-id="sec-composee" data-chap="1" data-url="ch1-fonctions/3-reconnaitre-une-composee.html" data-n="5"}
-Reconnaître une composée
+::: {.ae-sec data-ae-id="sec-composee" data-chap="1" data-url="ch1-fonctions/3-composer-deux-fonctions.html" data-n="5"}
+Composer deux fonctions
 :::
 
 ::: {.ae-sec data-ae-id="sec-domaine" data-chap="1" data-url="ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html" data-n="5"}
@@ -900,7 +900,7 @@ Mon domaine est $[-1 ; 3[ \cup ]3 ; +\infty[$, avec le crochet fermé en $-1$.
 Le graphique d’une fonction $f$ commence en $x = 2$ (point plein) et s’interrompt en $x = 5$, où il présente une asymptote verticale. Quelle expression peut être celle de $f$ ?
 
 ```{=html}
-<div class="lim-plot" data-fig="c0-f84"></div>
+<div class="lim-plot" data-fig="c0-f99"></div>
 ```
 :::
 
@@ -950,7 +950,7 @@ Avec la racine au dénominateur, la condition devient $x - 2 > 0$ : le graphique
 Quelles sont les équations des asymptotes du graphique ci-dessous ?
 
 ```{=html}
-<div class="lim-plot" data-fig="c0-f85"></div>
+<div class="lim-plot" data-fig="c0-f100"></div>
 ```
 :::
 
@@ -1046,7 +1046,7 @@ Il existe trois types d’asymptotes : verticale, horizontale et oblique (voir l
 Combien d’asymptotes le graphique de $f(x) = -\frac{x}{x^{2} - 1}$ possède-t-il ?
 
 ```{=html}
-<div class="lim-plot" data-fig="c0-f86"></div>
+<div class="lim-plot" data-fig="c0-f101"></div>
 ```
 :::
 
@@ -1100,7 +1100,7 @@ Esquisse le graphique d’une fonction qui a une asymptote verticale d’équati
 Par exemple, le graphique de $f(x) = 2 + \frac{1}{x + 1}$ (le graphique de $\frac{1}{x}$ décalé de $1$ vers la gauche et de $2$ vers le haut) :
 
 ```{=html}
-<div class="lim-plot" data-fig="c0-f87"></div>
+<div class="lim-plot" data-fig="c0-f102"></div>
 ```
 
 Beaucoup d’autres réponses sont correctes : ce qui compte, c’est le comportement près des deux droites.
@@ -1174,7 +1174,7 @@ La limite ne dit rien du côté par lequel $f(x)$ s’approche de $3$, ni s’il
 Voici le graphique d’une fonction $f$ de domaine $\mathbb{R}$ : la droite a un point creux en $(2 ; 2)$, et $f(2) = -1$ (point plein). Que vaut $\lim\limits_{x \to 2} f(x)$ ?
 
 ```{=html}
-<div class="lim-plot" data-fig="c0-f88"></div>
+<div class="lim-plot" data-fig="c0-f103"></div>
 ```
 :::
 
@@ -1266,7 +1266,7 @@ J’ai justifié chaque réponse par « colle au domaine » (dans le domaine, ou
 Voici le graphique d’une fonction $f$ (les droites en pointillés ne font pas partie du graphique). Que vaut $\lim\limits_{x \to +\infty} f(x)$ ?
 
 ```{=html}
-<div class="lim-plot" data-fig="c0-f89"></div>
+<div class="lim-plot" data-fig="c0-f104"></div>
 ```
 :::
 
@@ -1316,7 +1316,7 @@ $-1$ est l’abscisse de la droite verticale en pointillés : c’est une inform
 Voici le graphique d’une fonction $f$. Que vaut $\lim\limits_{x \overset{>}{\to} -1} f(x)$ ?
 
 ```{=html}
-<div class="lim-plot" data-fig="c0-f90"></div>
+<div class="lim-plot" data-fig="c0-f105"></div>
 ```
 :::
 
@@ -1512,7 +1512,7 @@ $$
 Par exemple, le graphique de $1 + \frac{1}{x - 2}$ :
 
 ```{=html}
-<div class="lim-plot" data-fig="c0-f91"></div>
+<div class="lim-plot" data-fig="c0-f106"></div>
 ```
 
 Loin à gauche et loin à droite, le graphique se rapproche de la hauteur $1$ ; juste à gauche de $2$, il descend sans fin ; juste à droite, il monte sans fin. Aucun point d’abscisse $2$.
@@ -2312,7 +2312,7 @@ $3$ serait l’A.H. si les degrés étaient égaux. Ici le degré du numérateur
 Quelle expression correspond au graphique ci-dessous ?
 
 ```{=html}
-<div class="lim-plot" data-fig="c0-f92"></div>
+<div class="lim-plot" data-fig="c0-f107"></div>
 ```
 :::
 
@@ -2362,7 +2362,7 @@ L’A.H. de cette fonction est $y = \frac{3x}{x} = 3$, pas $y = -2$. On regarde 
 Le graphique ci-dessous a une A.V. d’équation $x = 2$ et une A.O. d’équation $y = x + 1$. Quelle est son expression ? Justifie par un calcul avant de répondre.
 
 ```{=html}
-<div class="lim-plot" data-fig="c0-f93"></div>
+<div class="lim-plot" data-fig="c0-f108"></div>
 ```
 :::
 
@@ -2565,5 +2565,5 @@ Ma fonction est écrite sous la forme d’un seul quotient.
 
 
 ```{=html}
-<script type="application/json" id="ae-exos">[{"num": "1.1", "url": "ch1-fonctions/1-rappels.html#exercice-1-1", "obj": ["C2"], "page": "3", "niveau": 1, "section": "Rappels"}, {"num": "1.2", "url": "ch1-fonctions/2-operations-sur-les-fonctions.html#exercice-1-2", "obj": ["C1"], "page": "5", "niveau": 1, "section": "Opérations sur les fonctions"}, {"num": "1.3", "url": "ch1-fonctions/2-operations-sur-les-fonctions.html#exercice-1-3", "obj": ["C1"], "page": "5", "niveau": 1, "section": "Opérations sur les fonctions"}, {"num": "1.4", "url": "ch1-fonctions/3-reconnaitre-une-composee.html#exercice-1-4", "obj": ["C1"], "page": "7", "niveau": 1, "section": "Reconnaître une composée"}, {"num": "1.5", "url": "ch1-fonctions/3-reconnaitre-une-composee.html#exercice-1-5", "obj": ["C1"], "page": "8", "niveau": 1, "section": "Reconnaître une composée"}, {"num": "1.6", "url": "ch1-fonctions/3-reconnaitre-une-composee.html#exercice-1-6", "obj": ["C1"], "page": "8", "niveau": 2, "section": "Reconnaître une composée"}, {"num": "1.7", "url": "ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html#exercice-1-7", "obj": ["A1"], "page": "9", "niveau": 1, "section": "Recherche algébrique du domaine d’une fonction"}, {"num": "1.8", "url": "ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html#exercice-1-8", "obj": ["A1"], "page": "9", "niveau": 1, "section": "Recherche algébrique du domaine d’une fonction"}, {"num": "1.9", "url": "ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html#exercice-1-9", "obj": ["A1"], "page": "10", "niveau": 1, "section": "Recherche algébrique du domaine d’une fonction"}, {"num": "1.10", "url": "ch1-fonctions/5-asymptotes-premier-contact.html#exercice-1-10", "obj": ["A3"], "page": "13", "niveau": 1, "section": "Asymptotes : premier contact"}, {"num": "1.11", "url": "ch1-fonctions/5-asymptotes-premier-contact.html#exercice-1-11", "obj": ["A4"], "page": "13", "niveau": 1, "section": "Asymptotes : premier contact"}, {"num": "1.12", "url": "ch1-fonctions/5-asymptotes-premier-contact.html#exercice-1-12", "obj": ["A4"], "page": "14", "niveau": 1, "section": "Asymptotes : premier contact"}, {"num": "1.13", "url": "ch1-fonctions/5-asymptotes-premier-contact.html#exercice-1-13", "obj": ["A4"], "page": "14", "niveau": 1, "section": "Asymptotes : premier contact"}, {"num": "2.1", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-1", "obj": ["A4"], "page": "26", "niveau": 1, "section": "Exercices"}, {"num": "2.2", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-2", "obj": ["A1"], "page": "26", "niveau": 1, "section": "Exercices"}, {"num": "2.3", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-3", "obj": ["C4"], "page": "26", "niveau": 1, "section": "Exercices"}, {"num": "2.4", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-4", "obj": ["A4"], "page": "27", "niveau": 1, "section": "Exercices"}, {"num": "2.5", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-5", "obj": ["A4"], "page": "28", "niveau": 1, "section": "Exercices"}, {"num": "2.6", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-6", "obj": ["A4"], "page": "28", "niveau": 2, "section": "Exercices"}, {"num": "2.7", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-7", "obj": ["A4"], "page": "29", "niveau": 3, "section": "Exercices"}, {"num": "2.8", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-8", "obj": ["T1"], "page": "30", "niveau": 2, "section": "Exercices"}, {"num": "3.1", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-1", "obj": ["C3"], "page": "38", "niveau": 1, "section": "Exercices"}, {"num": "3.2", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-2", "obj": ["C1"], "page": "38", "niveau": 1, "section": "Exercices"}, {"num": "3.3", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-3", "obj": ["A2"], "page": "38", "niveau": 1, "section": "Exercices"}, {"num": "3.4", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-4", "obj": ["A2"], "page": "38", "niveau": 1, "section": "Exercices"}, {"num": "3.5", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-5", "obj": ["C3"], "page": "38", "niveau": 2, "section": "Exercices"}, {"num": "3.6", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-6", "obj": ["A2"], "page": "39", "niveau": 2, "section": "Exercices"}, {"num": "3.7", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-7", "obj": ["C2"], "page": "39", "niveau": 2, "section": "Exercices"}, {"num": "3.8", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-8", "obj": ["C3"], "page": "39", "niveau": 2, "section": "Exercices"}, {"num": "3.9", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-9", "obj": ["T2"], "page": "39", "niveau": 3, "section": "Exercices"}, {"num": "4.1", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-1", "obj": ["A2"], "page": "48", "niveau": 1, "section": "Exercices"}, {"num": "4.2", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-2", "obj": ["A5"], "page": "49", "niveau": 1, "section": "Exercices"}, {"num": "4.3", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-3", "obj": ["A5"], "page": "49", "niveau": 2, "section": "Exercices"}, {"num": "4.4", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-4", "obj": ["C4"], "page": "49", "niveau": 2, "section": "Exercices"}, {"num": "4.5", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-5", "obj": ["A6"], "page": "49", "niveau": 2, "section": "Exercices"}, {"num": "4.6", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-6", "obj": ["A3"], "page": "50", "niveau": 2, "section": "Exercices"}, {"num": "4.7", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-7", "obj": ["T3"], "page": "50", "niveau": 3, "section": "Exercices"}, {"num": "4.8", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-8", "obj": ["A1"], "page": "51", "niveau": 2, "section": "Exercices"}, {"num": "4.9", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-9", "obj": ["C3"], "page": "51", "niveau": 2, "section": "Exercices"}, {"num": "4.10", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-10", "obj": ["C3"], "page": "51", "niveau": 2, "section": "Exercices"}, {"num": "4.11", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-11", "obj": ["C4"], "page": "52", "niveau": 2, "section": "Exercices"}, {"num": "4.12", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-12", "obj": ["C2"], "page": "52", "niveau": 2, "section": "Exercices"}, {"num": "4.13", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-13", "obj": ["T2"], "page": "52", "niveau": 3, "section": "Exercices"}, {"num": "4.14", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-14", "obj": ["T1"], "page": "52", "niveau": 3, "section": "Exercices"}]</script>
+<script type="application/json" id="ae-exos">[{"num": "1.1", "url": "ch1-fonctions/1-rappels.html#exercice-1-1", "obj": [], "page": "4", "niveau": 1, "section": "Rappels"}, {"num": "1.2", "url": "ch1-fonctions/2-operations-sur-les-fonctions.html#exercice-1-2", "obj": ["A1"], "page": "5", "niveau": 1, "section": "Opérations sur les fonctions"}, {"num": "1.3", "url": "ch1-fonctions/2-operations-sur-les-fonctions.html#exercice-1-3", "obj": ["C1"], "page": "5", "niveau": 1, "section": "Opérations sur les fonctions"}, {"num": "1.4", "url": "ch1-fonctions/3-composer-deux-fonctions.html#exercice-1-4", "obj": ["C1"], "page": "8", "niveau": 1, "section": "Composer deux fonctions"}, {"num": "1.5", "url": "ch1-fonctions/3-composer-deux-fonctions.html#exercice-1-5", "obj": ["C1"], "page": "8", "niveau": 1, "section": "Composer deux fonctions"}, {"num": "1.6", "url": "ch1-fonctions/3-composer-deux-fonctions.html#exercice-1-6", "obj": ["C1"], "page": "9", "niveau": 2, "section": "Composer deux fonctions"}, {"num": "1.7", "url": "ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html#exercice-1-7", "obj": ["A1"], "page": "10", "niveau": 1, "section": "Recherche algébrique du domaine d’une fonction"}, {"num": "1.8", "url": "ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html#exercice-1-8", "obj": ["A1"], "page": "10", "niveau": 1, "section": "Recherche algébrique du domaine d’une fonction"}, {"num": "1.9", "url": "ch1-fonctions/4-recherche-algebrique-du-domaine-dune.html#exercice-1-9", "obj": ["A1"], "page": "11", "niveau": 2, "section": "Recherche algébrique du domaine d’une fonction"}, {"num": "1.10", "url": "ch1-fonctions/5-asymptotes-premier-contact.html#exercice-1-10", "obj": ["A4"], "page": "14", "niveau": 1, "section": "Asymptotes : premier contact"}, {"num": "1.11", "url": "ch1-fonctions/5-asymptotes-premier-contact.html#exercice-1-11", "obj": ["T1"], "page": "14", "niveau": 1, "section": "Asymptotes : premier contact"}, {"num": "1.12", "url": "ch1-fonctions/5-asymptotes-premier-contact.html#exercice-1-12", "obj": ["T1"], "page": "14", "niveau": 1, "section": "Asymptotes : premier contact"}, {"num": "1.13", "url": "ch1-fonctions/5-asymptotes-premier-contact.html#exercice-1-13", "obj": ["T1"], "page": "15", "niveau": 1, "section": "Asymptotes : premier contact"}, {"num": "2.1", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-1", "obj": ["A4"], "page": "26", "niveau": 1, "section": "Exercices"}, {"num": "2.2", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-2", "obj": ["A1"], "page": "26", "niveau": 1, "section": "Exercices"}, {"num": "2.3", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-3", "obj": ["C4"], "page": "26", "niveau": 1, "section": "Exercices"}, {"num": "2.4", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-4", "obj": ["A4"], "page": "27", "niveau": 1, "section": "Exercices"}, {"num": "2.5", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-5", "obj": ["A4"], "page": "28", "niveau": 1, "section": "Exercices"}, {"num": "2.6", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-6", "obj": ["A4"], "page": "28", "niveau": 1, "section": "Exercices"}, {"num": "2.7", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-7", "obj": ["A4"], "page": "29", "niveau": 2, "section": "Exercices"}, {"num": "2.8", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-8", "obj": ["A4"], "page": "29", "niveau": 2, "section": "Exercices"}, {"num": "2.9", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-9", "obj": ["A4"], "page": "29", "niveau": 3, "section": "Exercices"}, {"num": "2.10", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-10", "obj": ["A4"], "page": "30", "niveau": 3, "section": "Exercices"}, {"num": "2.11", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-11", "obj": ["T1"], "page": "31", "niveau": 2, "section": "Exercices"}, {"num": "2.12", "url": "ch2-limites-definition-e/8-exercices.html#exercice-2-12", "obj": ["A3"], "page": "32", "niveau": 1, "section": "Exercices"}, {"num": "3.1", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-1", "obj": ["C3"], "page": "40", "niveau": 1, "section": "Exercices"}, {"num": "3.2", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-2", "obj": ["C1"], "page": "40", "niveau": 1, "section": "Exercices"}, {"num": "3.3", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-3", "obj": ["A2"], "page": "40", "niveau": 2, "section": "Exercices"}, {"num": "3.4", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-4", "obj": ["A2"], "page": "40", "niveau": 1, "section": "Exercices"}, {"num": "3.5", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-5", "obj": ["C3"], "page": "41", "niveau": 2, "section": "Exercices"}, {"num": "3.6", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-6", "obj": ["A2"], "page": "41", "niveau": 2, "section": "Exercices"}, {"num": "3.7", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-7", "obj": ["C2"], "page": "41", "niveau": 2, "section": "Exercices"}, {"num": "3.8", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-8", "obj": ["C3"], "page": "41", "niveau": 2, "section": "Exercices"}, {"num": "3.9", "url": "ch3-chercher-les-points/5-exercices.html#exercice-3-9", "obj": ["T2"], "page": "42", "niveau": 3, "section": "Exercices"}, {"num": "4.1", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-1", "obj": ["A2"], "page": "51", "niveau": 1, "section": "Exercices"}, {"num": "4.2", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-2", "obj": ["A5"], "page": "52", "niveau": 1, "section": "Exercices"}, {"num": "4.3", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-3", "obj": ["A5"], "page": "52", "niveau": 2, "section": "Exercices"}, {"num": "4.4", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-4", "obj": ["C4"], "page": "52", "niveau": 2, "section": "Exercices"}, {"num": "4.5", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-5", "obj": ["A6"], "page": "52", "niveau": 2, "section": "Exercices"}, {"num": "4.6", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-6", "obj": ["A5"], "page": "53", "niveau": 2, "section": "Exercices"}, {"num": "4.7", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-7", "obj": ["T3"], "page": "53", "niveau": 3, "section": "Exercices"}, {"num": "4.8", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-8", "obj": ["A1"], "page": "54", "niveau": 2, "section": "Exercices"}, {"num": "4.9", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-9", "obj": ["C3"], "page": "55", "niveau": 2, "section": "Exercices"}, {"num": "4.10", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-10", "obj": ["C3"], "page": "55", "niveau": 2, "section": "Exercices"}, {"num": "4.11", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-11", "obj": ["C3"], "page": "55", "niveau": 2, "section": "Exercices"}, {"num": "4.12", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-12", "obj": ["C2"], "page": "55", "niveau": 2, "section": "Exercices"}, {"num": "4.13", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-13", "obj": ["T2"], "page": "56", "niveau": 3, "section": "Exercices"}, {"num": "4.14", "url": "ch4-chercher-les-asympto/6-exercices.html#exercice-4-14", "obj": ["T1"], "page": "56", "niveau": 3, "section": "Exercices"}]</script>
 ```

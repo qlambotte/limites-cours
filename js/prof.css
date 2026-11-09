@@ -39,15 +39,23 @@
 .tw-vu-ancien::after {
   background: #fff; color: #000;             /* séances précédentes : contour */
 }
-.tw-m:not(.tw-vu)::after {
+.tw-m:not(.tw-vu):not(.tw-devoir)::after {
   border-color: #e4e4e4; background: transparent; color: #e4e4e4;   /* pas marqué : à peine visible */
   font-weight: 400;
 }
+/* exercice « maison » donné en devoir : ⌂ (plein : aujourd'hui ; contour : séance précédente) */
+.tw-m.tw-devoir::after {
+  content: "⌂"; border-color: #000; background: #000; color: #fff; font-weight: 700;
+  border-style: dashed;
+}
+.tw-m.tw-devoir.tw-vu-ancien::after { background: #fff; color: #000; }
 html[data-theme=dark] .tw-m::after, html[data-theme=dark] .tw-section-vue::after {
   border-color: #fff; background: #fff; color: #000;
 }
 html[data-theme=dark] .tw-vu-ancien::after { background: #000; color: #fff; }
-html[data-theme=dark] .tw-m:not(.tw-vu)::after { border-color: #3a3a3a; background: transparent; color: #3a3a3a; }
+html[data-theme=dark] .tw-m.tw-devoir::after { border-color: #fff; background: #fff; color: #000; }
+html[data-theme=dark] .tw-m.tw-devoir.tw-vu-ancien::after { background: #000; color: #fff; }
+html[data-theme=dark] .tw-m:not(.tw-vu):not(.tw-devoir)::after { border-color: #3a3a3a; background: transparent; color: #3a3a3a; }
 
 /* marge trop étroite (téléphone) : le ✓ rentre dans l'en-tête, à droite du titre */
 html.tw-marge-etroite .tw-m::after { left: auto; margin-left: 0; right: .5rem; }
@@ -91,6 +99,7 @@ html.tw-marge-etroite .tw-m > .theo-head, html.tw-marge-etroite .tw-m > .exo-tet
 /* classe active changée dans un autre onglet (page de pilotage) : avis bien visible */
 .tw-prof-avis { margin-top: 6px; max-width: 320px; padding: 8px 10px; background: #fff; border: 3px solid #000; font-weight: 700; }
 .tw-prof-avis[hidden] { display: none; }
+.tw-prof-retour { display: inline-flex; align-items: center; margin-left: 6px; text-decoration: none !important; vertical-align: bottom; }
 .tw-prof-puce.tw-prof-alerte { background: #000; color: #fff; }
 html[data-theme=dark] .tw-prof { color: #fff; }
 html[data-theme=dark] .tw-prof-puce, html[data-theme=dark] .tw-prof-panneau,

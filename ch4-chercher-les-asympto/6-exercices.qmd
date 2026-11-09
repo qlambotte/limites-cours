@@ -4,9 +4,9 @@ title: "Exercices"
 
 <!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
 
-::: {#exercice-4-1 data-sorte="exercice" data-num="4.1" data-page="48" data-phys="51" data-id="5UAA3.ex.031" data-type="exercice" data-tags="maison" .exo}
+::: {#exercice-4-1 data-sorte="exercice" data-num="4.1" data-page="51" data-phys="53" data-id="5UAA3.ex.031" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
-[✎ Exercice 4.1]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A2]{.exo-comp} ★☆☆]{.exo-meta}
+[✎ Exercice 4.1]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A2]{.exo-comp data-tip="A2 : Calculer des limites (de fonctions rationnelles) et les interpréter graphiquement." tabindex="0"} ★☆☆]{.exo-meta}
 :::
 
 ::: {.exo-corps}
@@ -75,13 +75,13 @@ Quel est le terme de plus haut degré ? Pour un produit, quel est le terme de pl
 :::
 :::
 
-::: {#exercice-4-2 data-sorte="exercice" data-num="4.2" data-page="49" data-phys="52" data-id="5UAA3.ex.032" data-type="exercice" data-tags="maison" .exo}
+::: {#exercice-4-2 data-sorte="exercice" data-num="4.2" data-page="52" data-phys="54" data-id="5UAA3.ex.032" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
-[✎ Exercice 4.2]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A5]{.exo-comp} ★☆☆]{.exo-meta}
+[✎ Exercice 4.2]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A5]{.exo-comp data-tip="A5 : Rechercher les équations des asymptotes au graphique d’une fonction (rationnelle)." tabindex="0"} ★☆☆]{.exo-meta}
 :::
 
 ::: {.exo-corps}
-Calcule les limites en $\pm \infty$ des fonctions des exercices du chapitre précédent, et donne les équations de leurs éventuelles A.H.
+Calcule les limites en $\pm \infty$ des fonctions des exercices 3.3 à 3.8, et donne les équations de leurs éventuelles A.H.
 :::
 :::
 
@@ -124,13 +124,13 @@ A.H. $y = 0$ pour les fonctions des exercices 3.3, 3.4 et 3.6 ; A.H. $y = 1$ pou
 :::
 :::
 
-::: {#exercice-4-3 data-sorte="exercice" data-num="4.3" data-page="49" data-phys="52" data-id="5UAA3.ex.033" data-type="exercice" data-tags="" .exo}
+::: {#exercice-4-3 data-sorte="exercice" data-num="4.3" data-page="52" data-phys="54" data-id="5UAA3.ex.033" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
-[✎ Exercice 4.3]{.exo-titre} [[A5]{.exo-comp} ★★☆]{.exo-meta}
+[✎ Exercice 4.3]{.exo-titre} [[A5]{.exo-comp data-tip="A5 : Rechercher les équations des asymptotes au graphique d’une fonction (rationnelle)." tabindex="0"} ★★☆]{.exo-meta}
 :::
 
 ::: {.exo-corps}
-Détermine l’A.O. de chacune des fonctions suivantes.
+Pour chacune des fonctions suivantes, conjecture l’équation de l’A.O. sur un graphique obtenu à la calculatrice, détermine-la par le calcul, puis esquisse l’allure du graphique loin à gauche et loin à droite.
 
 1. $f(x) = \frac{3x^{2} - 1}{x - 3}$
 2. $g(x) = \frac{2x^{2} - 5x + 3}{x - 2}$
@@ -164,6 +164,30 @@ Divise $3x^{2} - 1$ par $x - 3$ : premier terme du quotient $3x$ ; $3x(x - 3) = 
 ::: {.solution-classe}
 1. $3x^{2} - 1 = (x-3)(3x+9) + 26$, donc $f(x) = 3x + 9 + \frac{26}{x-3}$. Comme $\lim\limits_{x \to \pm \infty} \frac{26}{x-3} = 0$, la droite $y = 3x + 9$ est une A.O. des deux côtés.
 2. $2x^{2} - 5x + 3 = (x-2)(2x-1) + 1$, donc $g(x) = 2x - 1 + \frac{1}{x-2}$ : A.O. $y = 2x - 1$.
+
+Esquisses : loin à gauche et loin à droite, chaque graphique longe son A.O. (A.V. $x = 3$ pour $f$, $x = 2$ pour $g$).
+
+::: {.grille style="--n:2"}
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c4-f91"></div>
+```
+
+::: {.lp-legende}
+$f$
+:::
+:::
+
+::: {.cellule}
+```{=html}
+<div class="lim-plot" data-fig="c4-f92"></div>
+```
+
+::: {.lp-legende}
+$g$
+:::
+:::
+:::
 :::
 :::
 
@@ -176,13 +200,13 @@ Divise $3x^{2} - 1$ par $x - 3$ : premier terme du quotient $3x$ ; $3x(x - 3) = 
 :::
 :::
 
-::: {#exercice-4-4 data-sorte="exercice" data-num="4.4" data-page="49" data-phys="52" data-id="5UAA3.ex.034" data-type="exercice" data-tags="" .exo}
+::: {#exercice-4-4 data-sorte="exercice" data-num="4.4" data-page="52" data-phys="54" data-id="5UAA3.ex.034" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
-[✎ Exercice 4.4]{.exo-titre} [[C4]{.exo-comp} ★★☆]{.exo-meta}
+[✎ Exercice 4.4]{.exo-titre} [[C4]{.exo-comp data-tip="C4 : Interpréter et représenter graphiquement le résultat d’une limite." tabindex="0"} ★★☆]{.exo-meta}
 :::
 
 ::: {.exo-corps}
-Une asymptote horizontale peut-elle couper le graphique d’une fonction ? Et une asymptote verticale ? Et une asymptote oblique ? Justifie à l’aide d’exemples rencontrés depuis le chapitre 2.
+Une asymptote horizontale peut-elle couper le graphique d’une fonction ? Et une asymptote verticale, pour une fonction rationnelle ? Et une asymptote oblique ? Justifie à l’aide d’exemples rencontrés depuis le chapitre 2.
 :::
 :::
 
@@ -198,7 +222,7 @@ Une définition d’asymptote interdit-elle au graphique de toucher la droite ai
 
 ## Indice 3 {.unlisted}
 
-Repense à l’[activité « un graphique trompeur »](../ch3-chercher-les-points/1-pourquoi-calculer.qmd#activite-3-1) : $10 \frac{\sin x}{x}$ et la droite $y = 0$.
+Reprends le graphique 2 de l’exercice « traduis en termes de limites » (chapitre 2) : coupe-t-il la droite $y = 1$ ?
 
 ## Solution {.unlisted}
 
@@ -210,9 +234,9 @@ Une A.H. et une A.O. peuvent couper le graphique ; l’A.V. d’une fonction rat
 
 ::: {.tw-expl}
 ::: {.solution-classe}
-- **A.H.** : oui. $f(x) = 10 \frac{\sin x}{x}$ a l’A.H. $y = 0$ et la coupe une infinité de fois. La définition ne parle que de ce qui se passe loin.
+- **A.H.** : oui. Le graphique de $f(x) = \frac{(x - 0{,}5)(x + 3{,}5)}{x^{2} - 1}$ (chapitre 2) a l’A.H. $y = 1$ et la coupe en $x = 0{,}25$ : $f(x) = 1 \Leftrightarrow x^{2} + 3x - 1{,}75 = x^{2} - 1 \Leftrightarrow x = 0{,}25$. La définition ne parle que de ce qui se passe loin.
 - **A.V.** : pour une fonction rationnelle, jamais : une A.V. est en une valeur interdite, où il n’y a aucun point du graphique.
-- **A.O.** : oui. Dans l’exercice « estimer l’image de $1000$ », $f(x) = \frac{x}{2} - 1 + \frac{5000x}{(x+1)(x-300)}$ coupe son A.O. $y = \frac{x}{2} - 1$ en $x = 0$.
+- **A.O.** : oui. $f(x) = x + \frac{x}{x^{2}+1}$ a l’A.O. $y = x$ : l’écart $\frac{x}{x^{2}+1}$ tend vers $0$ en $\pm \infty$. Cet écart vaut $0$ en $x = 0$ : le graphique coupe son A.O. en $(0 ; 0)$.
 :::
 :::
 
@@ -224,9 +248,9 @@ Une A.H. et une A.O. peuvent couper le graphique ; l’A.V. d’une fonction rat
 :::
 :::
 
-::: {#exercice-4-5 data-sorte="exercice" data-num="4.5" data-page="49" data-phys="52" data-id="5UAA3.ex.035" data-type="exercice" data-tags="" .exo}
+::: {#exercice-4-5 data-sorte="exercice" data-num="4.5" data-page="52" data-phys="54" data-id="5UAA3.ex.035" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
-[✎ Exercice 4.5]{.exo-titre} [[A6]{.exo-comp} ★★☆]{.exo-meta}
+[✎ Exercice 4.5]{.exo-titre} [[A6]{.exo-comp data-tip="A6 : Utiliser le comportement asymptotique d’une fonction pour approcher sa valeur en un point." tabindex="0"} ★★☆]{.exo-meta}
 :::
 
 ::: {.exo-corps}
@@ -235,7 +259,7 @@ Voici le graphique de deux fonctions $f$ et $g$. Toutes deux ont, vers la droite
 ::: {.grille style="--n:2"}
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c4-f78"></div>
+<div class="lim-plot" data-fig="c4-f93"></div>
 ```
 
 ::: {.lp-legende}
@@ -245,7 +269,7 @@ graphique de $f$
 
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c4-f79"></div>
+<div class="lim-plot" data-fig="c4-f94"></div>
 ```
 
 ::: {.lp-legende}
@@ -297,9 +321,9 @@ Pour $g$ : en $x = 1000$, le graphique est encore nettement au-dessus de l’asy
 :::
 :::
 
-::: {#exercice-4-6 data-sorte="exercice" data-num="4.6" data-page="50" data-phys="53" data-id="5UAA3.ex.036" data-type="exercice" data-tags="" .exo}
+::: {#exercice-4-6 data-sorte="exercice" data-num="4.6" data-page="53" data-phys="55" data-id="5UAA3.ex.036" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
-[✎ Exercice 4.6]{.exo-titre} [[A3]{.exo-comp} ★★☆]{.exo-meta}
+[✎ Exercice 4.6]{.exo-titre} [[A5]{.exo-comp data-tip="A5 : Rechercher les équations des asymptotes au graphique d’une fonction (rationnelle)." tabindex="0"} ★★☆]{.exo-meta}
 :::
 
 ::: {.exo-corps}
@@ -369,9 +393,9 @@ $f_{1}$ → c), $f_{2}$ → e), $f_{3}$ → a), $f_{4}$ → f), $f_{5}$ → d) e
 :::
 :::
 
-::: {#exercice-4-7 data-sorte="exercice" data-num="4.7" data-page="50" data-phys="53" data-id="5UAA3.ex.037" data-type="exercice" data-tags="" .exo}
+::: {#exercice-4-7 data-sorte="exercice" data-num="4.7" data-page="53" data-phys="55" data-id="5UAA3.ex.037" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
-[✎ Exercice 4.7]{.exo-titre} [[T3]{.exo-comp} ★★★]{.exo-meta}
+[✎ Exercice 4.7]{.exo-titre} [[T3]{.exo-comp data-tip="T3 : Relier l’expression analytique d’une fonction à son graphique et justifier le choix posé par calcul." tabindex="0"} ★★★]{.exo-meta}
 :::
 
 ::: {.exo-corps}
@@ -380,7 +404,7 @@ Associe chaque expression analytique à son graphique. Justifie chaque choix par
 ::: {.grille style="--n:2"}
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c4-f80"></div>
+<div class="lim-plot" data-fig="c4-f95"></div>
 ```
 
 ::: {.lp-legende}
@@ -390,7 +414,7 @@ A
 
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c4-f81"></div>
+<div class="lim-plot" data-fig="c4-f96"></div>
 ```
 
 ::: {.lp-legende}
@@ -400,7 +424,7 @@ B
 
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c4-f82"></div>
+<div class="lim-plot" data-fig="c4-f97"></div>
 ```
 
 ::: {.lp-legende}
@@ -410,7 +434,7 @@ C
 
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c4-f83"></div>
+<div class="lim-plot" data-fig="c4-f98"></div>
 ```
 
 ::: {.lp-legende}
@@ -461,9 +485,9 @@ $f_{1}$ → C, $f_{2}$ → B, $f_{3}$ → A et $f_{4}$ → D.
 :::
 :::
 
-::: {#exercice-4-8 data-sorte="exercice" data-num="4.8" data-page="51" data-phys="54" data-id="5UAA3.ex.038" data-type="exercice" data-tags="maison" .exo}
+::: {#exercice-4-8 data-sorte="exercice" data-num="4.8" data-page="54" data-phys="56" data-id="5UAA3.ex.038" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
-[✎ Exercice 4.8]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A1]{.exo-comp} ★★☆]{.exo-meta}
+[✎ Exercice 4.8]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[A1]{.exo-comp data-tip="A1 : Déterminer, à partir de l’expression analytique d’une fonction (rationnelle), son domaine et les limites qui apportent des informations sur son graphique." tabindex="0"} ★★☆]{.exo-meta}
 :::
 
 ::: {.exo-corps}
@@ -516,9 +540,9 @@ c) $h$ : $\operatorname{dom}(h) = \mathbb{R}$ ; seules les limites en $\pm \inft
 :::
 :::
 
-::: {#exercice-4-9 data-sorte="exercice" data-num="4.9" data-page="51" data-phys="54" data-id="5UAA3.ex.039" data-type="exercice" data-tags="maison" .exo}
+::: {#exercice-4-9 data-sorte="exercice" data-num="4.9" data-page="55" data-phys="57" data-id="5UAA3.ex.039" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
-[✎ Exercice 4.9]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C3]{.exo-comp} ★★☆]{.exo-meta}
+[✎ Exercice 4.9]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C3]{.exo-comp data-tip="C3 : Énoncer la procédure à suivre pour calculer une limite selon les cas rencontrés." tabindex="0"} ★★☆]{.exo-meta}
 :::
 
 ::: {.exo-corps}
@@ -543,7 +567,7 @@ Pour $f(x) = \frac{x^{2}+3}{x-1}$ : degrés $2$ et $1$. Effectue la division de 
 ## Solution {.unlisted}
 
 ::: {.reponse}
-On compare le degré $n$ du numérateur et le degré $m$ du dénominateur : si $n < m$, A.H. $y = 0$ ; si $n = m$, A.H. $y = \frac{a}{b}$ ; si $n = m + 1$, A.O. donnée par la division ; si $n > m + 1$, ni A.H. ni A.O. Pour $f$ : A.O. $y = x + 1$.
+On compare le degré $n$ du numérateur et le degré $m$ du dénominateur : si $n < m$, A.H. $y = 0$ ; si $n = m$, A.H. $y = \frac{c}{d}$ ; si $n = m + 1$, A.O. donnée par la division ; si $n > m + 1$, ni A.H. ni A.O. Pour $f$ : A.O. $y = x + 1$.
 :::
 
 <details class="tw-details"><summary>Je veux plus de détails</summary>
@@ -552,7 +576,7 @@ On compare le degré $n$ du numérateur et le degré $m$ du dénominateur : si $
 Démarche : comparer le degré $n$ du numérateur et le degré $m$ du dénominateur.
 
 - $n < m$ : A.H. $y = 0$ ;
-- $n = m$ : A.H. $y = \frac{a}{b}$ (quotient des coefficients dominants) ;
+- $n = m$ : A.H. $y = \frac{c}{d}$ (quotient des coefficients des termes de plus haut degré) ;
 - $n = m + 1$ : A.O., dont l’équation est le quotient de la division euclidienne ;
 - $n > m + 1$ : ni A.H. ni A.O.
 
@@ -572,9 +596,9 @@ Pour $f$ : $n = 2 = m + 1$.
 :::
 :::
 
-::: {#exercice-4-10 data-sorte="exercice" data-num="4.10" data-page="51" data-phys="54" data-id="5UAA3.ex.040" data-type="exercice" data-tags="maison" .exo}
+::: {#exercice-4-10 data-sorte="exercice" data-num="4.10" data-page="55" data-phys="57" data-id="5UAA3.ex.040" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
-[✎ Exercice 4.10]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C3]{.exo-comp} ★★☆]{.exo-meta}
+[✎ Exercice 4.10]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C3]{.exo-comp data-tip="C3 : Énoncer la procédure à suivre pour calculer une limite selon les cas rencontrés." tabindex="0"} ★★☆]{.exo-meta}
 :::
 
 ::: {.exo-corps}
@@ -630,9 +654,9 @@ f) Définition de l’A.O. : l’écart $f(x) - (x + 3) = \frac{6}{x-2}$ tend ve
 :::
 :::
 
-::: {#exercice-4-11 data-sorte="exercice" data-num="4.11" data-page="52" data-phys="55" data-id="5UAA3.ex.041" data-type="exercice" data-tags="" .exo}
+::: {#exercice-4-11 data-sorte="exercice" data-num="4.11" data-page="55" data-phys="57" data-id="5UAA3.ex.041" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
-[✎ Exercice 4.11]{.exo-titre} [[C4]{.exo-comp} ★★☆]{.exo-meta}
+[✎ Exercice 4.11]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C3]{.exo-comp data-tip="C3 : Énoncer la procédure à suivre pour calculer une limite selon les cas rencontrés." tabindex="0"} ★★☆]{.exo-meta}
 :::
 
 ::: {.exo-corps}
@@ -690,9 +714,9 @@ Autre copie : une limite infinie ne suffit pas. Il faudrait une droite dont l’
 :::
 :::
 
-::: {#exercice-4-12 data-sorte="exercice" data-num="4.12" data-page="52" data-phys="55" data-id="5UAA3.ex.042" data-type="exercice" data-tags="maison" .exo}
+::: {#exercice-4-12 data-sorte="exercice" data-num="4.12" data-page="55" data-phys="57" data-id="5UAA3.ex.042" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
-[✎ Exercice 4.12]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C2]{.exo-comp} ★★☆]{.exo-meta}
+[✎ Exercice 4.12]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[C2]{.exo-comp data-tip="C2 : Donner un exemple de limite de fonction illustrant un cas d’indétermination." tabindex="0"} ★★☆]{.exo-meta}
 :::
 
 ::: {.exo-corps}
@@ -734,9 +758,9 @@ Par exemple $f(x) = \frac{2x+1}{x-3}$ : en $+\infty$, le numérateur et le déno
 :::
 :::
 
-::: {#exercice-4-13 data-sorte="exercice" data-num="4.13" data-page="52" data-phys="55" data-id="5UAA3.ex.043" data-type="exercice" data-tags="maison" .exo}
+::: {#exercice-4-13 data-sorte="exercice" data-num="4.13" data-page="56" data-phys="58" data-id="5UAA3.ex.043" data-type="exercice" data-tags="maison" .exo}
 ::: {.exo-tete}
-[✎ Exercice 4.13]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[T2]{.exo-comp} ★★★]{.exo-meta}
+[✎ Exercice 4.13]{.exo-titre} [⟵ à faire à la maison]{.exo-maison} [[T2]{.exo-comp data-tip="T2 : Rechercher l’expression analytique d’une fonction répondant à certaines conditions relatives à ses limites et à ses asymptotes." tabindex="0"} ★★★]{.exo-meta}
 :::
 
 ::: {.exo-corps}
@@ -778,9 +802,9 @@ $f(x) = x - 3 + \frac{1}{x-1} = \frac{(x-3)(x-1) + 1}{x-1} = \frac{x^{2} - 4x + 
 :::
 :::
 
-::: {#exercice-4-14 data-sorte="exercice" data-num="4.14" data-page="52" data-phys="55" data-id="5UAA3.ex.044" data-type="exercice" data-tags="" .exo}
+::: {#exercice-4-14 data-sorte="exercice" data-num="4.14" data-page="56" data-phys="58" data-id="5UAA3.ex.044" data-type="exercice" data-tags="" .exo}
 ::: {.exo-tete}
-[✎ Exercice 4.14]{.exo-titre} [[T1]{.exo-comp} ★★★]{.exo-meta}
+[✎ Exercice 4.14]{.exo-titre} [[T1]{.exo-comp data-tip="T1 : Esquisser le graphique d’une fonction vérifiant certaines conditions sur les limites et les asymptotes." tabindex="0"} ★★★]{.exo-meta}
 :::
 
 ::: {.exo-corps}

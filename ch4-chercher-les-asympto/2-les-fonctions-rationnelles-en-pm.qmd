@@ -4,7 +4,7 @@ title: "Les fonctions rationnelles en ±∞ : asymptote horizontale ?"
 
 <!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
 
-::: {#activite-4-2 data-sorte="activite" data-num="4.2" data-page="41" data-phys="44" data-id="5UAA3.asymptote-horizontale-mesure" data-type="activite" data-tags="" .theo .theo-activite}
+::: {#activite-4-2 data-sorte="activite" data-num="4.2" data-page="44" data-phys="46" data-id="5UAA3.asymptote-horizontale-mesure" data-type="activite" data-tags="" .theo .theo-activite}
 ::: {.theo-head}
 **Activité 4.2** — une asymptote horizontale sur mesure
 :::
@@ -19,7 +19,7 @@ Par exemple $3 + \frac{1}{x} = \frac{3x + 1}{x}$. Les termes de plus haut degré
 :::
 :::
 
-::: {#activite-4-3 data-sorte="activite" data-num="4.3" data-page="41" data-phys="44" data-id="5UAA3.quotient-deux-termes-dominants" data-type="activite" data-tags="" .theo .theo-activite}
+::: {#activite-4-3 data-sorte="activite" data-num="4.3" data-page="44" data-phys="46" data-id="5UAA3.quotient-deux-termes-dominants" data-type="activite" data-tags="" .theo .theo-activite}
 ::: {.theo-head}
 **Activité 4.3** — un quotient de deux termes dominants
 :::
@@ -39,7 +39,7 @@ Soit $f(x) = \frac{2x+1}{x-3}$.
 2. Lorsque $x$ est très grand, le numérateur $2x + 1$ se comporte comme son terme dominant [$2x$]{.rep} et le dénominateur $x - 3$ comme [$x$]{.rep}. Le quotient se comporte donc comme [$\frac{2x}{x} = 2$]{.rep}.
 
 ```{=html}
-<div class="lim-plot" data-fig="c4-f71"></div>
+<div class="lim-plot" data-fig="c4-f84"></div>
 ```
 
 ::: {.lp-legende}
@@ -50,21 +50,21 @@ $f(x) = \frac{2x+1}{x-3}$
 :::
 :::
 
-::: {#propriete-4-2 data-sorte="propriete" data-num="4.2" data-page="42" data-phys="45" data-id="5UAA3.fonction-rationnelle-2" data-type="propriete" data-tags="" .theo .theo-propriete}
+::: {#propriete-4-2 data-sorte="propriete" data-num="4.2" data-page="45" data-phys="47" data-id="5UAA3.fonction-rationnelle-2" data-type="propriete" data-tags="" .theo .theo-propriete}
 ::: {.theo-head}
 **Propriété 4.2** — fonction rationnelle en $\pm \infty$
 :::
 
 ::: {.theo-body}
-Soit $f$ une fonction rationnelle. Si $a x^{n}$ est le terme de plus haut degré du numérateur et $b x^{m}$ celui du dénominateur, alors
+Soit $f$ une fonction rationnelle. Si $c x^{n}$ est le terme de plus haut degré du numérateur et $d x^{m}$ celui du dénominateur, alors
 
 $$
-\lim\limits_{x \to \pm \infty} f(x) = \lim\limits_{x \to \pm \infty} \frac{a x^{n}}{b x^{m}}.
+\lim\limits_{x \to \pm \infty} f(x) = \lim\limits_{x \to \pm \infty} \frac{c x^{n}}{d x^{m}}.
 $$
 :::
 :::
 
-::: {#definition-4-1 data-sorte="definition" data-num="4.1" data-page="42" data-phys="45" data-id="5UAA3.asymptote-horizontale" data-type="definition" data-tags="" .theo .theo-definition}
+::: {#definition-4-1 data-sorte="definition" data-num="4.1" data-page="45" data-phys="47" data-id="5UAA3.asymptote-horizontale" data-type="definition" data-tags="" .theo .theo-definition}
 ::: {.theo-head}
 **Définition 4.1** — asymptote horizontale
 :::
@@ -78,7 +78,7 @@ $$
 :::
 :::
 
-::: {#exemple-4-2 data-sorte="exemple" data-num="4.2" data-page="42" data-phys="45" data-id="5UAA3.exm.009" data-type="exemple" data-tags="" .theo .theo-exemple}
+::: {#exemple-4-2 data-sorte="exemple" data-num="4.2" data-page="45" data-phys="47" data-id="5UAA3.exm.009" data-type="exemple" data-tags="" .theo .theo-exemple}
 ::: {.theo-head}
 **Exemple 4.2**
 :::
@@ -89,7 +89,7 @@ Pour chaque fonction, calcule les limites en $\pm \infty$ puis décris ce que l�
 ::: {.grille style="--n:2"}
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c4-f72"></div>
+<div class="lim-plot" data-fig="c4-f85"></div>
 ```
 
 ::: {.lp-legende}
@@ -104,7 +104,7 @@ $\lim\limits_{x \to \pm \infty} f_{1}(x) = \lim\limits_{x \to \pm \infty} \frac{
 
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c4-f73"></div>
+<div class="lim-plot" data-fig="c4-f86"></div>
 ```
 
 ::: {.lp-legende}
@@ -119,7 +119,7 @@ $\lim\limits_{x \to \pm \infty} f_{2}(x) = \lim\limits_{x \to \pm \infty} \frac{
 
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c4-f74"></div>
+<div class="lim-plot" data-fig="c4-f87"></div>
 ```
 
 ::: {.lp-legende}
@@ -135,16 +135,16 @@ $\lim\limits_{x \to \pm \infty} f_{3}(x) = \lim\limits_{x \to \pm \infty} \frac{
 :::
 :::
 
-::: {#propriete-4-3 data-sorte="propriete" data-num="4.3" data-page="43" data-phys="46" data-id="5UAA3.h-fonction-rationnelle" data-type="propriete" data-tags="" .theo .theo-propriete}
+::: {#propriete-4-3 data-sorte="propriete" data-num="4.3" data-page="46" data-phys="48" data-id="5UAA3.h-fonction-rationnelle" data-type="propriete" data-tags="" .theo .theo-propriete}
 ::: {.theo-head}
 **Propriété 4.3** — A.H. d’une fonction rationnelle
 :::
 
 ::: {.theo-body}
-Soit $f$ une fonction rationnelle, $n$ le degré de son numérateur et $m$ celui de son dénominateur ($a$ et $b$ les coefficients des termes de plus haut degré).
+Soit $f$ une fonction rationnelle, $n$ le degré de son numérateur et $m$ celui de son dénominateur ($c$ et $d$ les coefficients des termes de plus haut degré).
 
 - Si $n < m$ : les limites en $\pm \infty$ valent $0$ ; le graphique a une A.H. d’équation $y = 0$.
-- Si $n = m$ : les limites en $\pm \infty$ valent $\frac{a}{b}$ ; le graphique a une A.H. d’équation $y = \frac{a}{b}$.
+- Si $n = m$ : les limites en $\pm \infty$ valent $\frac{c}{d}$ ; le graphique a une A.H. d’équation $y = \frac{c}{d}$.
 - Si $n > m$ : les limites en $\pm \infty$ sont infinies ; le graphique n’a pas d’A.H.
 :::
 :::

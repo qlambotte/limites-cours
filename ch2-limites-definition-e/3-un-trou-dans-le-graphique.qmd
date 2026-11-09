@@ -4,7 +4,7 @@ title: "Un trou dans le graphique"
 
 <!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
 
-::: {#activite-2-3 data-sorte="activite" data-num="2.3" data-page="18" data-phys="21" data-id="5UAA3.valeur-interdite-point-creux" data-type="activite" data-tags="" .theo .theo-activite}
+::: {#activite-2-3 data-sorte="activite" data-num="2.3" data-page="18" data-phys="20" data-id="5UAA3.valeur-interdite-point-creux" data-type="activite" data-tags="" .theo .theo-activite}
 ::: {.theo-head}
 **Activité 2.3** — une valeur interdite, un point creux
 :::
@@ -27,7 +27,7 @@ Soit $g(x) = \frac{x^{2} - 1}{x - 1}$.
 ::: {.grille style="--n:2"}
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c2-f31"></div>
+<div class="lim-plot" data-fig="c2-f35"></div>
 ```
 
 ::: {.lp-legende}
@@ -37,7 +37,7 @@ $g(x) = \frac{x^{2}-1}{x-1}$
 
 ::: {.cellule}
 ```{=html}
-<div class="lim-plot" data-fig="c2-f32"></div>
+<div class="lim-plot" data-fig="c2-f36"></div>
 ```
 
 ::: {.lp-legende}

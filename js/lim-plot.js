@@ -484,8 +484,32 @@
       return parseFloat((Math.round(x / q) * q).toFixed(4));
     }
 
+    // abscisses où le graphique s'interrompt (valeurs exclues, bords des
+    // morceaux, A.V.), strictement à l'intérieur de la fenêtre
+    function coupures() {
+      var r = [], marge = (xmax - xmin) * 1e-3;
+      fig.courbes.forEach(function (c) {
+        (c.exclus || []).forEach(function (x) { r.push(x); });
+        c.morceaux.forEach(function (m) {
+          if (m.f) { if (isFinite(m.de)) r.push(m.de); if (isFinite(m.a)) r.push(m.a); }
+          else (m.arcs || []).forEach(function (ar) { r.push(ar[0], ar[1]); });
+        });
+      });
+      (fig.asymptotes || []).forEach(function (s) { if (Math.abs(s[0][0] - s[1][0]) < 1e-9) r.push(s[0][0]); });
+      return r.filter(function (x) { return x > xmin + marge && x < xmax - marge; });
+    }
+
     function choisirA(a) {
       st.a = a; st.x = null; st.v0 = 0; range.value = 0;
+      // En ±∞, M parcourt seulement la dernière branche (à droite de la
+      // dernière interruption pour +∞, à gauche de la première pour −∞) :
+      // sinon il longe l'A.V. et la trace la dessine en pointillés.
+      st.xmin = xmin; st.xmax = xmax;
+      if (a === INF || a === -INF) {
+        var cp = coupures();
+        if (cp.length && a === INF) { var dmax = Math.max.apply(null, cp); st.xmin = dmax + Math.min(0.5, (xmax - dmax) / 4); }
+        if (cp.length && a === -INF) { var dmin = Math.min.apply(null, cp); st.xmax = dmin - Math.min(0.5, (dmin - xmin) / 4); }
+      }
       chipEls.forEach(function (c) { c[1].classList.toggle("on", c[0] === a); });
       aIn.value = chipEls.some(function (c) { return c[0] === a; }) ? "" : fmtA(a);
       bordG.classList.toggle("on", a === -INF);

@@ -550,6 +550,7 @@
 
   // ------------------------------------------------------------ sommes de Riemann
   function riemann(host, c) {
+    if (c.encadrement) return encadrement(host, c);
     var f = fonction(c.f), n = c.n || 4, meth = c.methode || "gauche";
     var R = Repere(host, { xmin: c.xmin, xmax: c.xmax, ymin: c.ymin, ymax: c.ymax, xlabel: "x", ylabel: "y" });
     function integrale() {                    // Simpson, 2000 sous-intervalles
@@ -580,6 +581,46 @@
     cc.appendChild(cn);
     var bs = ctrl();
     [["gauche", "à gauche"], ["droite", "à droite"], ["milieu", "au milieu"], ["trapezes", "trapèzes"]].forEach(function (m) {
+      var b = bouton(m[1], function () { meth = m[0]; [].forEach.call(bs.children, function (x) { x.classList.toggle("on", x === b); }); dessiner(); });
+      if (m[0] === meth) b.classList.add("on");
+      bs.appendChild(b);
+    });
+    host.appendChild(cc); host.appendChild(bs); host.appendChild(txt);
+    cn.maj();
+  }
+
+  // Approximations par défaut et par excès (#riemann(…, methode: "defaut" | "exces" | "encadrement")) :
+  // sur chaque morceau, plus petite et plus grande valeur de f (24 points par morceau).
+  function encadrement(host, c) {
+    var f = fonction(c.f), n = c.n || 4, meth = { defaut: "defaut", exces: "exces" }[c.methode] || "deux";
+    var R = Repere(host, { xmin: c.xmin, xmax: c.xmax, ymin: c.ymin, ymax: c.ymax, xlabel: "x", ylabel: "y" });
+    function bornes(x0, x1) {
+      var lo = Infinity, hi = -Infinity;
+      for (var k = 0; k <= 24; k++) { var y = f(x0 + (x1 - x0) * k / 24); if (isFinite(y)) { lo = Math.min(lo, y); hi = Math.max(hi, y); } }
+      return [lo, hi];
+    }
+    function rect(x0, x1, y, cls) {
+      el("rect", { x: R.X(x0), y: Math.min(R.Y(y), R.Y(0)), width: R.X(x1) - R.X(x0), height: Math.abs(R.Y(y) - R.Y(0)), "class": cls + (y < 0 ? " ia-neg" : "") }, R.corps);
+    }
+    function dessiner() {
+      R.vider();
+      var dx = (c.b - c.a) / n, s = 0, S = 0;
+      for (var i = 0; i < n; i++) {
+        var x0 = c.a + i * dx, x1 = x0 + dx, mm = bornes(x0, x1);
+        s += mm[0] * dx; S += mm[1] * dx;
+        if (meth !== "defaut") rect(x0, x1, mm[1], meth === "deux" ? "ia-rect ia-rect-exces" : "ia-rect");
+        if (meth !== "exces") rect(x0, x1, mm[0], "ia-rect");
+      }
+      R.courbe(f, "ia-courbe");
+      txt.innerHTML = "n = " + n + (meth !== "exces" ? " · somme par défaut s = <b>" + fmt(s, 4) + "</b>" : "") +
+        (meth !== "defaut" ? " · somme par excès S = <b>" + fmt(S, 4) + "</b>" : "") +
+        (meth === "deux" ? " · écart S − s = " + fmt(S - s, 4) : "");
+    }
+    var txt = info(), cc = ctrl();
+    var cn = curseur("n =", 1, c.nmax || 100, 1, n, function (v) { n = v; dessiner(); }, function (v) { return String(v); });
+    cc.appendChild(cn);
+    var bs = ctrl();
+    [["defaut", "par défaut"], ["exces", "par excès"], ["deux", "les deux"]].forEach(function (m) {
       var b = bouton(m[1], function () { meth = m[0]; [].forEach.call(bs.children, function (x) { x.classList.toggle("on", x === b); }); dessiner(); });
       if (m[0] === meth) b.classList.add("on");
       bs.appendChild(b);
@@ -785,7 +826,494 @@
     [].forEach.call(cc.children, function (w) { w.maj(); });
     dessiner();
   }
-  var WIDGETS = { curseurs: fcurseurs, graphe: graphe, suite: suite, droite: droite, rangs: rangs, tangente: tangente, trigo: trigo, log: replog, riemann: riemann, binomiale: binomiale, normale: normale };
+  // ------------------------------------------------------------ fonction aire signée
+  // Expression tapée par un élève (conjecture, fonction libre) : « x² − 1 »,
+  // « 2x+1 », « x^3/3 − a^3/3 », « racine(x) », virgule décimale acceptée.
+  // Renvoie une fonction de l'environnement {x: …, a: …} ; lève une Error
+  // dont le message est montré à l'élève.
+  var FONCS = { sqrt: Math.sqrt, racine: Math.sqrt, sin: Math.sin, cos: Math.cos, tan: Math.tan,
+                exp: Math.exp, ln: Math.log, log: function (v) { return Math.log(v) / Math.LN10; }, abs: Math.abs };
+  var CONSTS = { pi: Math.PI, "π": Math.PI, e: Math.E };
+  function lireExpression(src, vars) {
+    var s = String(src).replace(/[−–]/g, "-").replace(/[·×]/g, "*").replace(/÷/g, "/").replace(/,/g, ".")
+      .replace(/²/g, "^2").replace(/³/g, "^3").replace(/\*\*/g, "^").replace(/\s+/g, "");
+    if (!s) throw new Error("expression vide");
+    var noms = Object.keys(FONCS).concat(Object.keys(CONSTS), vars).sort(function (p, q) { return q.length - p.length; });
+    var t = [], i = 0;
+    while (i < s.length) {
+      var ch = s[i], m;
+      if ((m = /^(\d+\.?\d*|\.\d+)/.exec(s.slice(i)))) { t.push({ k: "num", v: parseFloat(m[1]) }); i += m[1].length; continue; }
+      if ("+-*/^()".indexOf(ch) >= 0) { t.push({ k: ch }); i++; continue; }
+      if (/[a-zA-Zπ]/.test(ch)) {
+        var nom = null;
+        for (var j = 0; j < noms.length; j++) if (s.substr(i, noms[j].length) === noms[j]) { nom = noms[j]; break; }
+        if (!nom) throw new Error("« " + ch + " » inconnu (variables : " + vars.join(", ") + ")");
+        t.push({ k: "id", v: nom }); i += nom.length; continue;
+      }
+      throw new Error("caractère « " + ch + " » non compris");
+    }
+    var p = 0;
+    function voir() { return t[p] ? t[p].k : null; }
+    function prendre(k) { if (voir() === k) { p++; return true; } return false; }
+    function bin(op, g, d) {
+      return function (E) {
+        var u = g(E), v = d(E);
+        return op === "+" ? u + v : op === "-" ? u - v : op === "*" ? u * v : op === "/" ? u / v : Math.pow(u, v);
+      };
+    }
+    function expr() {
+      var g = terme();
+      while (voir() === "+" || voir() === "-") { var op = t[p++].k; g = bin(op, g, terme()); }
+      return g;
+    }
+    function terme() {
+      var g = unaire();
+      for (;;) {
+        var k = voir();
+        if (k === "*" || k === "/") { p++; g = bin(k, g, unaire()); }
+        else if (k === "num" || k === "id" || k === "(") g = bin("*", g, puissance());    // 2x, x(x+1)
+        else return g;
+      }
+    }
+    function unaire() {
+      if (prendre("-")) { var g = unaire(); return function (E) { return -g(E); }; }
+      if (prendre("+")) return unaire();
+      return puissance();
+    }
+    function puissance() {
+      var b = atome();
+      if (prendre("^")) return bin("^", b, unaire());
+      return b;
+    }
+    function atome() {
+      var tk = t[p++];
+      if (!tk) throw new Error("expression incomplète");
+      if (tk.k === "num") { var v = tk.v; return function () { return v; }; }
+      if (tk.k === "(") {
+        var g = expr();
+        if (!prendre(")")) throw new Error("parenthèse non fermée");
+        return g;
+      }
+      if (tk.k === "id") {
+        if (FONCS[tk.v]) {
+          var F = FONCS[tk.v], arg;
+          if (prendre("(")) { arg = expr(); if (!prendre(")")) throw new Error("parenthèse non fermée"); }
+          else arg = puissance();
+          return function (E) { return F(arg(E)); };
+        }
+        if (Object.prototype.hasOwnProperty.call(CONSTS, tk.v)) { var cst = CONSTS[tk.v]; return function () { return cst; }; }
+        var n = tk.v;
+        return function (E) { return E[n]; };
+      }
+      throw new Error("« " + tk.k + " » mal placé");
+    }
+    var g = expr();
+    if (p < t.length) throw new Error("« " + (t[p].v != null ? t[p].v : t[p].k) + " » mal placé");
+    return g;
+  }
+
+  // Fonction de x et de a (réponse (x, a) => … traduite par typweb), ou de x seul.
+  function fonctionXA(c) {
+    if (!c) return null;
+    if (c.js) {
+      try { var F = new Function("x", "a", "return (" + c.js + ");"); F(0, 0); return function (x, a) { var y = F(x, a); return typeof y === "number" ? y : NaN; }; } catch (e) {}
+    }
+    var f = fonction(c);
+    return f ? function (x) { return f(x); } : null;
+  }
+
+  // A(x) = ∫ₐˣ f : aire signée colorée sous f (bleu au-dessus de l'axe, orange en
+  // dessous), points (x ; A(x)) déposés pas à pas sur un second repère, tableau,
+  // pente de A comparée à f(x), conjecture de l'élève vérifiée sur les points.
+  function aire(host, c) {
+    var fs = (c.fs || []).map(fonction), noms = c.noms || [];
+    var reps = (c.reponse || []).map(fonctionXA);
+    var k = 0, f = fs[0], rep = reps[0] || null, libre = false;
+    var a = c.a != null ? c.a : 0, x = a;
+    var pas = c.pas || pasRond(c.xmax - c.xmin, 12);
+    var gauche = c.gauche !== false;
+    var vus = {}, anim = null, relier = false, voirPente = false, voirTab = false, repVue = false, conj = null;
+    var fen = c.fen || [[c.ymin != null ? c.ymin : -5, c.ymax != null ? c.ymax : 5]];
+    var R1 = Repere(host, { xmin: c.xmin, xmax: c.xmax, ymin: fen[0][0], ymax: fen[0][1], xlabel: c.xlabel || "x", ylabel: c.ylabel || "y", h: 260 });
+    var R2 = c.bas === false ? null :
+      Repere(host, { xmin: c.xmin, xmax: c.xmax, ymin: -1, ymax: 1, xlabel: c.xlabel || "x", ylabel: c.aylabel || "A(x)", h: 260 });
+
+    // primitive numérique G(x) = ∫ de xmin à x (Simpson sur chaque maille : exact jusqu'au degré 3)
+    var M = 2000, hM = (c.xmax - c.xmin) / M, G = [];
+    function simpson(u, v) {
+      if (u === v) return 0;
+      var fu = f(u), fm = f((u + v) / 2), fv = f(v);
+      return (v - u) * (fu + 4 * fm + fv) / 6;
+    }
+    function tabuler() {
+      G = [0];
+      for (var i = 0; i < M; i++) {
+        var u = c.xmin + i * hM;
+        G.push(G[i] + simpson(u, u + hM));
+      }
+    }
+    function Gx(t) {
+      var i = Math.max(0, Math.min(M - 1, Math.floor((t - c.xmin) / hM)));
+      var u = c.xmin + i * hM;
+      return G[i] + simpson(u, t);
+    }
+    function A(t) { return Gx(t) - Gx(a); }
+    function xMin() { return gauche ? c.xmin : a; }
+
+    function fenetreA() {
+      if (!R2) return;
+      if (c.aymin != null && c.aymax != null) { R2.ymin = c.aymin; R2.ymax = c.aymax; }
+      else {
+        var lo = 0, hi = 0, ga = Gx(a);
+        for (var i = 0; i <= M; i += 4) {
+          var t = c.xmin + i * hM, v = G[i] - ga;
+          if (t < xMin() - 1e-12 || !isFinite(v)) continue;
+          lo = Math.min(lo, v); hi = Math.max(hi, v);
+        }
+        var mg = (hi - lo) * 0.08 || 1;
+        R2.ymin = c.aymin != null ? c.aymin : lo - mg;
+        R2.ymax = c.aymax != null ? c.aymax : hi + mg;
+      }
+      R2.dessinerAxes();
+    }
+    function fenetreF() {               // fonction tapée librement : fenêtre recalculée
+      var v = [];
+      for (var i = 0; i <= 400; i++) { var y = f(c.xmin + (c.xmax - c.xmin) * i / 400); if (isFinite(y)) v.push(y); }
+      v.sort(function (p, q) { return p - q; });
+      var q = Math.floor(v.length / 20); v = v.slice(q, v.length - q);
+      if (!v.length) return;
+      var lo = Math.min(0, v[0]), hi = Math.max(0, v[v.length - 1]), mg = (hi - lo) * 0.1 || 1;
+      R1.ymin = lo - mg; R1.ymax = hi + mg; R1.dessinerAxes();
+    }
+
+    // indices j des points x = a + j·pas
+    function jMin() { return Math.ceil((xMin() - a) / pas - 1e-9); }
+    function jMax() { return Math.floor((c.xmax - a) / pas + 1e-9); }
+    function xj(j) { var v = a + j * pas; return Math.abs(v) < 1e-12 ? 0 : v; }
+    function deposer(x0, x1) {         // points franchis entre x0 et x1
+      var lo = Math.min(x0, x1), hi = Math.max(x0, x1);
+      for (var j = Math.max(jMin(), Math.ceil((lo - a) / pas - 1e-9)); j <= Math.min(jMax(), Math.floor((hi - a) / pas + 1e-9)); j++) vus[j] = true;
+    }
+    function listeVus() { return Object.keys(vus).map(Number).sort(function (p, q) { return p - q; }); }
+
+    function zone() {                   // aire signée entre a et x, colorée selon le signe de f
+      if (Math.abs(x - a) < 1e-12) return;
+      var n = 240, lo = Math.min(a, x), hi = Math.max(a, x), dp = "", dn = "", y0 = R1.Y(0);
+      var pts = [];
+      for (var i = 0; i <= n; i++) { var t = lo + (hi - lo) * i / n, y = f(t); pts.push([t, isFinite(y) ? y : 0]); }
+      function chemin(sel) {
+        var d = "M" + R1.X(lo).toFixed(1) + " " + y0.toFixed(1);
+        pts.forEach(function (q) { d += "L" + R1.X(q[0]).toFixed(1) + " " + R1.Y(sel(q[1])).toFixed(1); });
+        return d + "L" + R1.X(hi).toFixed(1) + " " + y0.toFixed(1) + "Z";
+      }
+      dp = chemin(function (y) { return Math.max(y, 0); });
+      dn = chemin(function (y) { return Math.min(y, 0); });
+      el("path", { d: dp, "class": "ia-aire-pos" }, R1.corps);
+      el("path", { d: dn, "class": "ia-aire-neg" }, R1.corps);
+    }
+    function parts() {                  // aire au-dessus (P) et en dessous (N) de l'axe, entre a et x
+      var lo = Math.min(a, x), hi = Math.max(a, x), n = 400, P = 0, N = 0, d = (hi - lo) / n;
+      for (var i = 0; i < n; i++) {
+        var u = lo + i * d, ys = [f(u), f(u + d / 2), f(u + d)];
+        var pp = ys.map(function (y) { return Math.max(y, 0); }), nn = ys.map(function (y) { return Math.max(-y, 0); });
+        P += d * (pp[0] + 4 * pp[1] + pp[2]) / 6; N += d * (nn[0] + 4 * nn[1] + nn[2]) / 6;
+      }
+      return [P, N];
+    }
+
+    function dessiner() {
+      R1.vider(); if (R2) R2.vider();
+      zone();
+      R1.courbe(f, "ia-courbe");
+      R1.segment(a, R1.ymin, a, R1.ymax, "ia-borne");
+      R1.segment(x, R1.ymin, x, R1.ymax, "ia-borne ia-borne-x");
+      var ta = el("text", { x: R1.X(a) + 4, y: R1.M.h + 12, "class": "ia-lab-axe" }, R1.corps); ta.textContent = "a";
+      var tx = el("text", { x: R1.X(x) + 4, y: R1.M.h + 26, "class": "ia-lab-axe ia-lab-x" }, R1.corps); tx.textContent = "x";
+      var fx = f(x), Ax = A(x);
+      if (voirPente && isFinite(fx)) { R1.segment(x, 0, x, fx, "ia-seg-fx"); R1.point(x, fx, "ia-pt ia-pt2", 4.5); }
+
+      // second repère : A
+      if (R2) {
+      R2.segment(a, R2.ymin, a, R2.ymax, "ia-borne");
+      if (relier) {
+        var L = listeVus();
+        if (L.length > 1) R2.courbe(A, "ia-courbe", xj(L[0]), xj(L[L.length - 1]));
+      }
+      if (conj) R2.courbe(function (t) { return conj({ x: t, a: a }); }, "ia-courbe2");
+      if (rep) {
+        var g = el("g", { "class": "ia-rep rep" + (repVue ? " vu" : "") }, R2.corps);
+        R2.courbe(function (t) { return rep(t, a); }, "ia-courbe ia-courbe-rep", xMin(), c.xmax, g);
+      }
+      listeVus().forEach(function (j) { var t = xj(j), v = A(t); if (isFinite(v)) R2.point(t, v, "ia-pt", 3.6); });
+      if (isFinite(Ax)) {
+        if (voirPente) {
+          var e = pas / 50, m = (A(x + e) - A(x - e)) / (2 * e);
+          R2.courbe(function (t) { return Ax + m * (t - x); }, "ia-tangente", x - (c.xmax - c.xmin) / 6, x + (c.xmax - c.xmin) / 6);
+        }
+        R2.segment(x, R2.ymin, x, R2.ymax, "ia-borne ia-borne-x");
+        R2.point(x, Ax, "ia-pt ia-pt2", 5);
+      }
+      }
+
+      // textes
+      var pn = parts(), P = pn[0], N = pn[1];
+      var html = "x = " + fmt(x, 3) + " · <b>A(x) = " + fmt(Ax, 3) + "</b>";
+      if (Math.abs(x - a) > 1e-12) {
+        html += "<br><span class=\"ia-pos-t\">aire au-dessus de l'axe : " + fmt(P, 3) + "</span> · " +
+                "<span class=\"ia-neg-t\">aire en dessous : " + fmt(N, 3) + "</span> · " +
+                (x > a ? "A(x) = " + fmt(P, 3) + " − " + fmt(N, 3)
+                       : "x &lt; a : on va de a vers la gauche, A(x) = −(" + fmt(P, 3) + " − " + fmt(N, 3) + ")");
+      }
+      if (voirPente && R2 && isFinite(Ax)) {
+        var e2 = pas / 50;
+        html += "<br>pente de la tangente au graphe de A en x : <b>" + fmt((A(x + e2) - A(x - e2)) / (2 * e2), 3) +
+                "</b> · f(x) = <b>" + fmt(fx, 3) + "</b>";
+      }
+      txt.innerHTML = html;
+      if (voirTab) tableau();
+      verifier();
+    }
+
+    function tableau() {
+      var L = listeVus();
+      if (!L.length) { boiteTab.innerHTML = "<p class=\"ia-msg\">Aucun point tracé.</p>"; return; }
+      var s = "<table class=\"ia-table\"><thead><tr><th>x</th><th>A(x)</th></tr></thead><tbody>";
+      L.forEach(function (j) { var t = xj(j); s += "<tr><td>" + fmt(t, 3) + "</td><td>" + fmt(A(t), 3) + "</td></tr>"; });
+      boiteTab.innerHTML = s + "</tbody></table>";
+    }
+
+    function verifier() {
+      if (!saisie || !R2) return;
+      if (!conj) { msg.textContent = ""; msg.className = "ia-msg"; return; }
+      var L = listeVus();
+      if (!L.length) { msg.textContent = "Trace d'abord quelques points."; msg.className = "ia-msg"; return; }
+      var tol = 1e-3 * Math.max(1, R2.ymax - R2.ymin);
+      for (var i = 0; i < L.length; i++) {
+        var t = xj(L[i]), v = A(t), w = conj({ x: t, a: a });
+        if (!isFinite(v)) continue;
+        if (!isFinite(w) || Math.abs(v - w) > tol) {
+          msg.textContent = "✗ En x = " + fmt(t, 3) + " : A(x) = " + fmt(v, 3) + ", ta formule donne " + fmt(w, 3) + ".";
+          msg.className = "ia-msg ia-msg-ko"; return;
+        }
+      }
+      msg.textContent = "✓ Ta formule passe par les " + L.length + " points tracés." +
+        (L.length < 4 ? " Trace-en d'autres pour être plus sûr." : "");
+      msg.className = "ia-msg ia-msg-ok";
+    }
+
+    function arreter() { if (anim) { clearInterval(anim); anim = null; bAnim.classList.remove("on"); } }
+    function aller(nx) { nx = Math.max(xMin(), Math.min(c.xmax, nx)); deposer(x, nx); x = nx; cx.input.value = x; cx.maj(); }
+    function pasVers(sens) {
+      var j = Math.round((x - a) / pas);
+      if (Math.abs(xj(j) - x) > 1e-9) j = sens > 0 ? Math.floor((x - a) / pas) : Math.ceil((x - a) / pas);
+      var nj = j + sens;
+      if (nj < jMin() || nj > jMax()) return false;
+      aller(xj(nj));
+      return true;
+    }
+    function reinit() { arreter(); vus = {}; x = a; vus[0] = true; fenetreA(); cx.input.min = xMin(); cx.input.value = x; cx.maj(); }
+    function choisir(i) {
+      k = i; f = fs[i]; rep = reps[i] || null; libre = false; repVue = false;
+      if (bRep) { bRep.classList.remove("on"); bRep.textContent = "voir la réponse"; bRep.hidden = !rep; }
+      [].forEach.call(bf.children, function (b, j) { b.classList.toggle("on", j === i); });
+      var w = fen[i] || fen[0]; R1.ymin = w[0]; R1.ymax = w[1]; R1.dessinerAxes();
+      tabuler(); reinit();
+    }
+
+    if (c.fixe) {                       // figure fixe (exercice) : comme dans le PDF, sans réglage ni valeur
+      x = c.xfin != null ? c.xfin : c.xmax;
+      tabuler(); fenetreA();
+      zone();
+      R1.courbe(f, "ia-courbe");
+      R1.segment(a, R1.ymin, a, R1.ymax, "ia-borne");
+      R1.segment(x, R1.ymin, x, R1.ymax, "ia-borne");
+      if (R2) { R2.segment(a, R2.ymin, a, R2.ymax, "ia-borne"); R2.point(a, 0, "ia-pt", 4); }
+      host.classList.add("ia-aire");
+      return;
+    }
+    var txt = info(), cc = ctrl(), bs = ctrl(), bf = ctrl(), boiteTab = h("div", "ia-tab-boite"), msg = h("div", "ia-msg");
+    var saisie = null, bRep = null;
+    if (fs.length > 1) {
+      fs.forEach(function (g, i) {
+        bf.appendChild(bouton("f(x) = " + (noms[i] || "f" + (i + 1)), function () { choisir(i); }));
+      });
+      host.insertBefore(bf, R1.svg);
+    }
+    if (c.libre) {
+      var lf = h("label", "ia-saisie"), inf = h("input");
+      lf.appendChild(h("span", "ia-lab", "f(x) =")); inf.type = "text"; inf.placeholder = "par ex. x² − 1"; lf.appendChild(inf);
+      var mf = h("span", "ia-msg");
+      lf.appendChild(bouton("tracer", function () {
+        try {
+          var g = lireExpression(inf.value, ["x"]);
+          f = function (t) { var y = g({ x: t }); return typeof y === "number" ? y : NaN; };
+          rep = null; libre = true; mf.textContent = ""; if (bRep) bRep.hidden = true;
+          [].forEach.call(bf.children, function (b) { b.classList.remove("on"); });
+          fenetreF(); tabuler(); reinit();
+        } catch (e) { mf.textContent = e.message; mf.className = "ia-msg ia-msg-ko"; }
+      }));
+      lf.appendChild(mf);
+      var cl = ctrl(); cl.appendChild(lf); host.insertBefore(cl, R1.svg);
+    }
+    var cx = curseur("x =", xMin(), c.xmax, (c.xmax - c.xmin) / 600, x, function (v) {
+      if (v !== x) { deposer(x, v); x = v; }
+      dessiner();
+    });
+    cx.input.step = "any";                 // x exactement sur les points a + k·pas
+    cx.input.addEventListener("pointerdown", arreter);
+    cc.appendChild(cx);
+    var ca = null;
+    if (c.amobile !== false) {
+      ca = curseur("a =", c.xmin, c.xmax, pas, a, function (v) {
+        if (v !== a) { a = v; reinit(); }
+      });
+      cc.appendChild(ca);
+    }
+    bs.appendChild(bouton("← un pas", function () { arreter(); pasVers(-1); }));
+    bs.appendChild(bouton("un pas →", function () { arreter(); pasVers(1); }));
+    var bAnim = bouton("▶ animer", function () {
+      if (anim) { arreter(); return; }
+      bAnim.classList.add("on");
+      var sens = 1;
+      if (x >= c.xmax - 1e-9) { if (gauche && x > xMin()) { aller(a); sens = -1; } else aller(a); }
+      anim = setInterval(function () {
+        if (pasVers(sens)) return;
+        if (sens > 0 && gauche && xMin() < a) { aller(a); sens = -1; return; }
+        arreter();
+      }, 450);
+    });
+    bs.appendChild(bAnim);
+    bs.appendChild(bouton("effacer", function () { reinit(); }));
+    var bs2 = ctrl();
+    bs2.appendChild(bouton("relier les points", function () { relier = !relier; this.classList.toggle("on", relier); dessiner(); }));
+    bs2.appendChild(bouton("pente de A", function () { voirPente = !voirPente; this.classList.toggle("on", voirPente); dessiner(); }));
+    bs2.appendChild(bouton("tableau", function () { voirTab = !voirTab; this.classList.toggle("on", voirTab); boiteTab.hidden = !voirTab; dessiner(); }));
+    boiteTab.hidden = true;
+    if (reps.some(Boolean)) {
+      bRep = bouton("voir la réponse", function () {
+        repVue = !repVue; bRep.classList.toggle("on", repVue); bRep.textContent = repVue ? "cacher la réponse" : "voir la réponse"; dessiner();
+      });
+      bRep.hidden = !rep;
+      bs2.appendChild(bRep);
+    }
+    if (!R2) { bs.hidden = true; bs2.hidden = true; }
+    host.appendChild(cc); host.appendChild(bs); host.appendChild(bs2); host.appendChild(txt);
+    if (c.conjecture !== false && R2) {
+      var lc = h("label", "ia-saisie"), inc = h("input");
+      lc.appendChild(h("span", "ia-lab", "Ma conjecture : A(x) =")); inc.type = "text"; inc.placeholder = "formule en x (et a)";
+      inc.setAttribute("autocomplete", "off"); inc.spellcheck = false;
+      lc.appendChild(inc);
+      inc.addEventListener("input", function () {
+        if (!inc.value.trim()) { conj = null; dessiner(); return; }
+        try { var g = lireExpression(inc.value, ["x", "a"]); g({ x: 1, a: a }); conj = g; dessiner(); }
+        catch (e) { conj = null; dessiner(); msg.textContent = e.message; msg.className = "ia-msg ia-msg-ko"; }
+      });
+      var c2 = ctrl(); c2.appendChild(lc); host.appendChild(c2);
+      saisie = inc;
+    }
+    host.appendChild(msg); host.appendChild(boiteTab);
+    host.classList.add("ia-aire");
+    if (fs.length > 1) bf.firstChild.classList.add("on");
+    tabuler(); reinit();
+    if (ca) ca.maj();
+  }
+  window.TypwebLireExpression = lireExpression;
+
+  // Zone hachurée entre f et g (ou l'axe) sur [a ; b] : figure fixe (#zone-aire).
+  function zone(host, c) {
+    var f = fonction(c.f), g = c.g ? fonction(c.g) : function () { return 0; };
+    var R = Repere(host, { xmin: c.xmin, xmax: c.xmax, ymin: c.ymin, ymax: c.ymax, xlabel: "x", ylabel: "y" });
+    var n = 240, d = "";
+    for (var i = 0; i <= n; i++) { var t = c.a + (c.b - c.a) * i / n; d += (i ? "L" : "M") + R.X(t).toFixed(1) + " " + R.Y(f(t)).toFixed(1); }
+    for (var j = n; j >= 0; j--) { var u = c.a + (c.b - c.a) * j / n; d += "L" + R.X(u).toFixed(1) + " " + R.Y(g(u)).toFixed(1); }
+    el("path", { d: d + "Z", "class": "ia-aire-pos" }, R.corps);
+    R.courbe(f, "ia-courbe");
+    if (c.g) R.courbe(g, "ia-courbe");
+    (c.etiquettes || []).forEach(function (lab, k) {
+      var h = k === 0 ? f : g, xl = c.xmax - (c.xmax - c.xmin) * 0.12, y = Math.max(c.ymin, Math.min(c.ymax, h(xl)));
+      var t = el("text", { x: R.X(xl) + 3, y: R.Y(y) - 6, "class": "ia-lab-axe" }, R.corps); t.textContent = lab;
+    });
+  }
+
+  // Illustration fixe déclarative (#graphique).
+  function fleche(R, x1, y1, x2, y2) {
+    var ax = R.X(x1), ay = R.Y(y1), bx = R.X(x2), by = R.Y(y2), dx = bx - ax, dy = by - ay, l = Math.sqrt(dx * dx + dy * dy);
+    el("line", { x1: ax, y1: ay, x2: bx, y2: by, "class": "ia-seg" }, R.corps);
+    if (!l) return;
+    var ux = dx / l, uy = dy / l, t = 7;
+    el("path", { d: "M" + bx + " " + by + "L" + (bx - t * ux + t * 0.45 * uy) + " " + (by - t * uy - t * 0.45 * ux) +
+      "L" + (bx - t * ux - t * 0.45 * uy) + " " + (by - t * uy + t * 0.45 * ux) + "Z", "class": "ia-fleche" }, R.corps);
+  }
+  function graphique(host, c) {
+    var R = Repere(host, { xmin: c.xmin, xmax: c.xmax, ymin: c.ymin, ymax: c.ymax, xlabel: c.xlabel || "x", ylabel: c.ylabel || "y", sansgrad: c.grille === false });
+    (c.zones || []).forEach(function (z) {
+      var f = fonction(z.f), g = z.g ? fonction(z.g) : function () { return 0; }, n = 200, d = "";
+      for (var i = 0; i <= n; i++) { var t = z.a + (z.b - z.a) * i / n; d += (i ? "L" : "M") + R.X(t).toFixed(1) + " " + R.Y(f(t)).toFixed(1); }
+      for (var j = n; j >= 0; j--) { var u = z.a + (z.b - z.a) * j / n; d += "L" + R.X(u).toFixed(1) + " " + R.Y(g(u)).toFixed(1); }
+      el("path", { d: d + "Z", "class": z.style === "neg" ? "ia-aire-neg" : "ia-aire-pos" }, R.corps);
+    });
+    (c.rectangles || []).forEach(function (r) {
+      el("rect", { x: R.X(r[0]), y: Math.min(R.Y(r[2]), R.Y(0)), width: R.X(r[1]) - R.X(r[0]), height: Math.abs(R.Y(r[2]) - R.Y(0)),
+        "class": "ia-rect" + (r[3] === "tirets" ? " ia-rect-exces" : "") }, R.corps);
+    });
+    (c.courbes || []).forEach(function (k) {
+      var f = fonction(k.f); if (f) R.courbe(f, k.style === "tirets" ? "ia-courbe2" : k.style === "fin" ? "ia-courbe ia-fine" : "ia-courbe");
+    });
+    (c.segments || []).forEach(function (q) {
+      if (q[4] === "fleche") fleche(R, q[0], q[1], q[2], q[3]);
+      else if (q[4] === "double") { fleche(R, q[0], q[1], q[2], q[3]); fleche(R, q[2], q[3], q[0], q[1]); }
+      else R.segment(q[0], q[1], q[2], q[3], q[4] === "tirets" ? "ia-borne" : "ia-seg");
+    });
+    (c.points || []).forEach(function (p) { R.point(p[0], p[1], "ia-pt", 4); });
+    (c.textes || []).forEach(function (t) {
+      var e = el("text", { x: R.X(t[0]), y: R.Y(t[1]) + 4, "class": "ia-etiq ia-halo", "text-anchor": "middle" }, R.corps); e.textContent = t[2];
+    });
+  }
+
+  // Solide de révolution approché par n cylindres, en perspective (#cylindres).
+  function cylindres(host, c) {
+    var f = fonction(c.f), n = c.n || 4, meth = c.methode || "defaut", rmax = 0;
+    for (var i = 0; i <= 200; i++) rmax = Math.max(rmax, Math.abs(f(c.a + (c.b - c.a) * i / 200)) || 0);
+    var ym = rmax * 1.2 || 1;
+    var R = Repere(host, { xmin: c.xmin, xmax: c.xmax, ymin: -ym, ymax: ym, xlabel: "x", ylabel: "", sansgrad: true, h: 300 });
+    var e = 0.22 * (c.xmax - c.xmin) / (2 * ym) * (300 / 520);
+    function exact() { var N = 2000, s = 0, d = (c.b - c.a) / N; for (var k = 0; k < N; k++) { var y = f(c.a + (k + 0.5) * d); s += y * y * d; } return Math.PI * s; }
+    var V = exact();
+    function ellipse(xc, r, cls) {
+      var d = "";
+      for (var k = 0; k <= 48; k++) { var t = 2 * Math.PI * k / 48; d += (k ? "L" : "M") + R.X(xc + e * r * Math.cos(t)).toFixed(1) + " " + R.Y(r * Math.sin(t)).toFixed(1); }
+      el("path", { d: d, "class": cls }, R.corps);
+    }
+    function dessiner() {
+      R.vider();
+      var dx = (c.b - c.a) / n, S = 0;
+      for (var i = 0; i < n; i++) {
+        var u = c.a + i * dx, v = u + dx, lo = Infinity, hi = 0;
+        for (var k = 0; k <= 24; k++) { var y = Math.abs(f(u + dx * k / 24)); lo = Math.min(lo, y); hi = Math.max(hi, y); }
+        var r = meth === "exces" ? hi : meth === "milieu" ? Math.abs(f(u + dx / 2)) : lo;
+        S += Math.PI * r * r * dx;
+        if (r > 0) {
+          el("rect", { x: R.X(u), y: R.Y(r), width: R.X(v) - R.X(u), height: R.Y(-r) - R.Y(r), "class": "ia-cyl" }, R.corps);
+          ellipse(u, r, "ia-cyl-arriere"); ellipse(v, r, "ia-cyl-face");
+        }
+      }
+      R.courbe(f, "ia-courbe", c.a, c.b);
+      R.courbe(function (x) { return -f(x); }, "ia-courbe2", c.a, c.b);
+      txt.innerHTML = "n = " + n + " · somme des volumes des cylindres = <b>" + fmt(S, 3) + "</b> · volume exact π∫f(x)²dx ≈ " + fmt(V, 3);
+    }
+    var txt = info(), cc = ctrl(), bs = ctrl();
+    var cn = curseur("n =", 1, 60, 1, n, function (v) { n = v; dessiner(); }, function (v) { return String(v); });
+    cc.appendChild(cn);
+    [["defaut", "par défaut"], ["exces", "par excès"], ["milieu", "au milieu"]].forEach(function (m) {
+      var b = bouton(m[1], function () { meth = m[0]; [].forEach.call(bs.children, function (x) { x.classList.toggle("on", x === b); }); dessiner(); });
+      if (m[0] === meth) b.classList.add("on");
+      bs.appendChild(b);
+    });
+    host.appendChild(cc); host.appendChild(bs); host.appendChild(txt);
+    cn.maj();
+  }
+
+  var WIDGETS = { graphique: graphique, cylindres: cylindres, zone: zone, aire: aire, curseurs: fcurseurs, graphe: graphe, suite: suite, droite: droite, rangs: rangs, tangente: tangente, trigo: trigo, log: replog, riemann: riemann, binomiale: binomiale, normale: normale };
   function construire(host) {
     if (host.dataset.wired) return;
     host.dataset.wired = "1";

@@ -4,7 +4,7 @@ title: "Définition"
 
 <!-- GÉNÉRÉ par typweb à partir des notes Typst : NE PAS ÉDITER (les modifications seraient écrasées). -->
 
-::: {#definition-2-1 data-sorte="definition" data-num="2.1" data-page="19" data-phys="22" data-id="5UAA3.limite-fonction" data-type="definition" data-tags="" .theo .theo-definition}
+::: {#definition-2-1 data-sorte="definition" data-num="2.1" data-page="19" data-phys="21" data-id="5UAA3.limite-fonction" data-type="definition" data-tags="" .theo .theo-definition}
 ::: {.theo-head}
 **Définition 2.1** — limite d’une fonction
 :::
@@ -22,7 +22,7 @@ $$
 :::
 :::
 
-::: {#remarque-2-1 data-sorte="remarque" data-num="2.1" data-page="19" data-phys="22" data-id="5UAA3.rem.004" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {#remarque-2-1 data-sorte="remarque" data-num="2.1" data-page="19" data-phys="21" data-id="5UAA3.rem.004" data-type="remarque" data-tags="" .theo .theo-remarque}
 ::: {.theo-head}
 **Remarque 2.1**
 :::
@@ -44,7 +44,7 @@ $$
 \lim\limits_{x \to 2} \frac{1}{x} = \frac{1}{2}, \quad \lim\limits_{x \to +\infty} \frac{1}{x} = 0 \quad \text{et} \quad \lim\limits_{x \to 1} \frac{x^{2} - 1}{x - 1} = 2.
 $$
 
-::: {#activite-2-4 data-sorte="activite" data-num="2.4" data-page="20" data-phys="23" data-id="5UAA3.chaque-symbole-role" data-type="activite" data-tags="" .theo .theo-activite}
+::: {#activite-2-4 data-sorte="activite" data-num="2.4" data-page="20" data-phys="22" data-id="5UAA3.chaque-symbole-role" data-type="activite" data-tags="" .theo .theo-activite}
 ::: {.theo-head}
 **Activité 2.4** — chaque symbole a un rôle
 :::
@@ -61,7 +61,7 @@ $$
    ::: {.rep-bloc}
    La lettre écrite sous « lim » est celle qui bouge ; l’autre reste fixe. Dans le premier cas, c’est $x$ qui se rapproche de $2$ et $t$ ne change pas ; dans le second, c’est l’inverse.
    :::
-2. Chacune des écritures suivantes est incomplète ou incorrecte. Explique ce qui manque ou ce qui ne va pas, et quelle question elle laisse sans réponse.
+2. Chacune des écritures suivantes est incomplète, incorrecte ou sans intérêt. Explique ce qui manque ou ce qui ne va pas, et quelle question elle laisse sans réponse.
 
    ::: {.tableau}
    | Écriture | Ce qui ne va pas |
@@ -75,7 +75,7 @@ $$
 :::
 :::
 
-::: {#remarque-2-2 data-sorte="remarque" data-num="2.2" data-page="20" data-phys="23" data-id="5UAA3.rem.005" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {#remarque-2-2 data-sorte="remarque" data-num="2.2" data-page="20" data-phys="22" data-id="5UAA3.rem.005" data-type="remarque" data-tags="" .theo .theo-remarque}
 ::: {.theo-head}
 **Remarque 2.2**
 :::
@@ -90,7 +90,7 @@ Dans l’écriture $\lim\limits_{x \to a} f(x) = b$, chaque élément a un rôle
 :::
 :::
 
-::: {#remarque-2-3 data-sorte="remarque" data-num="2.3" data-page="20" data-phys="23" data-id="5UAA3.rem.006" data-type="remarque" data-tags="" .theo .theo-remarque}
+::: {#remarque-2-3 data-sorte="remarque" data-num="2.3" data-page="20" data-phys="22" data-id="5UAA3.rem.006" data-type="remarque" data-tags="" .theo .theo-remarque}
 ::: {.theo-head}
 **Remarque 2.3**
 :::
